@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+langchain
+langgraph
+openai
+sentence-transformers
+chromadb
+pypdf
+redis
+transformers
+torch
+mlflow

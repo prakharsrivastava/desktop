@@ -1,0 +1,55 @@
+# ============================================================
+# Course 1018 — Module 10
+# On-slide YAML reference  (2 snippets)
+# Authentic code as shown on the course slides. Copy, run, experiment.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# Defining the Semantic Model in YAML
+# ----------------------------------------------------------
+
+name: cpg_sell_through_model
+tables:
+  - name: pos_sales_daily
+    base_table: analytics.pos.pos_sales_daily
+    dimensions:
+      - name: sale_date
+      - name: store_id
+    facts:
+      - name: units_sold
+      - name: dollar_sales
+  - name: shipments
+    base_table: analytics.pos.shipments
+    facts:
+      - name: cases_shipped
+  - name: product_master
+    base_table: analytics.pos.product_master
+    dimensions:
+      - name: category
+      - name: pack_size
+      - name: brand
+
+
+# ----------------------------------------------------------
+# The Opposite Bug: An Inner Join That Silently Drops Rows
+# ----------------------------------------------------------
+
+relationships:
+  - name: sales_to_shipment   # FLAWED: inner join drops any sale with no same-day shipment row
+    left_table: pos_sales_daily
+    right_table: shipments
+    join_type: inner
+    relationship_columns:
+      - { left_column: sku, right_column: sku }
+      - { left_column: sale_date, right_column: ship_date }
+
+relationships:
+  - name: sales_to_shipment   # FIXED: left_outer from the table you're actually counting
+    left_table: pos_sales_daily
+    right_table: shipments
+    join_type: left_outer
+    relationship_columns:
+      - { left_column: sku, right_column: sku }
+      - { left_column: sale_date, right_column: ship_date }
+

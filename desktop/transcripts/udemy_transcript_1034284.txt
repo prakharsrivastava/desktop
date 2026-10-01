@@ -1,0 +1,3771 @@
+
+
+=== Exercise 1 to 25 ===
+
+
+--- Course Introduction ---
+
+0
+Hi and welcome to the Python video Workbook!
+1
+This is a special course as it is entirely exercise based which means you are the one who is going to
+2
+create the programs, the Python programs instead of me in the video
+3
+as it generally happens with video courses. There are 100 exercises or assignments if you like
+4
+and in each assignment you are given a Python problem to solve.
+5
+That could be a way to fix an error or create a program from scratch or simply change a part of some
+6
+existing code to get an expected output.
+7
+The assignments are sometimes given as text and sometimes for more more complicated programs,
+8
+there will be a video where I show you the behavior of the program that you are required to build. And then each
+9
+exercise is immediately followed by the exercise solution so you can compare your solution to my solution.
+10
+However keep in mind that sometimes solutions can be different of course.
+11
+So if your output is the same as mine you can mark that exercise solved.
+12
+So output is what matters.
+13
+However if you are aren't sure about the efficiency of your solution you can post your solution in the
+14
+Q&A area so I can give you some feedback.
+15
+Moreover the exercises are scores depending on their difficulty level.
+16
+So you are advised to keep track of the points you collect because at the end of the course you will
+17
+be able to use your total points to see what category level your your Python skills fall in.
+18
+Yep that would be an introduction about the course and the next video
+19
+I'll show you with the tools you need to complete this course and the video after that
+20
+I'll demonstrate best practices on how to solve an exercise so that you are sure you are making the best
+21
+of the course.
+22
+I'll talk to you later.
+23
+Thanks.
+
+--- Helpful Resources ---
+
+[No transcript available for this lecture]
+
+
+=== Exercise 26 to 50 ===
+
+
+--- Required Tools ---
+
+0
+Hi! This video is about the tools you need to complete this course.
+1
+So let's keep this to the point. The first thing you need is a computer.
+2
+It could be Linux, Mac, or Windows.
+3
+Everyone of them would do the job.
+4
+And the second thing you need is Python.
+5
+So you need to have Python installed in your computer.
+6
+It could be Python 2, or Python 3.
+7
+So both of them would do the job well but I recommend Python 3. Python 3 is what I use
+8
+and it's the latest version of Python.
+9
+If you don't have Python at all you can go to this website and you can download Python and then install it.
+10
+It's quite straightforward.
+11
+The third thing you need is an editor where you can write an executable code.
+12
+I'd suggest you use your favorite editor.
+13
+All editors are around the same.
+14
+My favorite editor is Atom.
+15
+So if you don't have a favorite editor, you can go ahead and download Atom from this Website and then
+16
+then install it.
+17
+The process is straightforward, and yeah that's the three things you need.
+18
+Once you have installed Atom to use it what you do is you are in a directory for instance in here and
+19
+here all these directories they have Python scripts inside.
+20
+And I can right click in here, go to open with Atom and that will open Atom in the current directory.
+21
+Then I suggest you use a package.
+22
+Go to packages, settings view, open and search here.
+23
+So you go here to install and then search for platformio-ide-terminal. So click enter. That will search
+24
+for packages with that name and you'll see here you'll have a button installed.
+25
+I have installed this so I don't have that button.
+26
+So just go ahead and install the package and then close settings and then you can go ahead to the plus  sign.
+27
+And that will open a terminal inside Python.
+28
+Here you can execute Python scripts.
+29
+So for instance I can go inside this directory here with cd Variables. Tab for auto completion, enter and then
+30
+Python 303 is the script name, tab, execute and that's how you execute Python scripts.
+31
+So this is how you use ATOM to write.
+32
+So you write Python code here and you execute Python code in platformio ide terminal.
+33
+And that concludes this video.
+34
+Thanks, I'll talk to you later.
+
+
+=== Exercise 51 to 75 ===
+
+
+--- Best Practices ---
+
+0
+Hello in this video I'll show you the best practices on how to solve an exercise.
+1
+So in other words I'll pretend I'm a student now and  I'll go ahead and solve the first exercise. So or here on
+2
+the left I have the Udemy interface, and here on the right
+3
+I have opened an empty folder which I named  pyexercises as you in here and I'll be working with Atom editor.
+4
+So you can right click and go to open Atom.
+5
+Once you have opened Atom, then you don't need this folder anymore.
+6
+Actually get close that and you can work on Atom and I'll suggest you create one file for each exercise.
+7
+So for exercise one, I'll go ahead and say one.py. That's the first file and you'll see that
+8
+in the folder now, one file has been created.
+9
+So a Python file and then I'll have 2.py, 3.py up to
+10
+100.py.
+11
+So let's look at the first exercise.
+12
+OK.
+13
+The first thing you need to look at is this bar in here.
+14
+So we have four different levels. We have beginner, we have easy, intermediate, and experienced.
+15
+So this is just to give you an idea of the difficulty level of the current exercise.
+16
+This also the science on how many points an exercise has,
+17
+but I'll go through that later.
+18
+So you always have a question here for each exercise of this one it says let's start with easy things
+19
+first.
+20
+OK.
+21
+What will the following code produce?
+22
+Now as you can see this is quite an easy exercise.
+23
+The first exercises are easy but that gets complex.
+24
+So  you need to be patient.
+25
+This one I prefer to do it mentally.
+26
+I don't want to write that in a Python file, but normally most exercises ask you to write some programs.
+27
+So this is a special exercise.
+28
+This is asking you to say what output this gives and you can't just say  the answer mentally.
+29
+So for this two four six this would be a six.
+30
+So the output for this would be six. Six is my answer. If you need help, then you can follow these arrows.
+31
+They will take you to a hint.
+32
+Which says Python reads and executes scripts from top to bottom which means that a gets a value
+33
+of two first then it gets a value of four and six then six
+34
+is used here and print will print out that last updated value.
+35
+However if you like you can try that code out in the Python terminal.
+36
+That and then you'd open platformio ide terminal. Python 1 tap 6.
+37
+So that's the answer.
+38
+And then you can check your answer against the solution which is always in the next article.
+39
+So this says one point and then you can check the answer.
+40
+Here's the exercise for reference for your convenience.
+41
+I have included here the code for the exercise and the answer is 6 and 6 was my answer so I can note down
+42
+6 points.
+43
+Sorry, 1 point for this one.
+44
+And you can do that using a pen on a paper. I'd prefer a pen and paper, but if you like you can do
+45
+that digitally so you can create a file here. Let's say points.txt. And you say so exercise 1, 1.
+46
+One point.
+47
+So exercise 2, 1 point, exercise 3, 2 points.
+48
+And so on.
+49
+Later you can use Python to make the sum of all your points when you have reached exercise 100.
+50
+And you'd use that total number of points to see what category you fall in.
+51
+So your skill level.
+52
+Yeah, you're going to have an article on that
+53
+at the end of the course. You also have the explanation here if you want to know more about this solution of the
+54
+exercise.
+55
+So sometimes you'll learn new things so you don't ignore them even if you if you feel that you understood
+56
+well the exercise. Often there is something new that you may learn while reading or watching some videos.
+57
+So don't ignore the explanation.
+58
+Yeah, this is about exercise number one.
+59
+And if you click continue you'd go to exercise 2, but I won't do that.
+60
+So I hope this is clear.
+61
+And, yeah.
+62
+Now you can move on to the first exercise of the course.
+63
+I'll talk to you later.
+
+
+=== Exercise 76 to 100 ===
+
+
+--- Helpful Resources ---
+
+[No transcript available for this lecture]
+
+--- Exercise 1 - Variable Updating ---
+
+[No transcript available for this lecture]
+
+--- Exercise 1: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 2 - Naming Rules ---
+
+[No transcript available for this lecture]
+
+--- Exercise 2: Solution ---
+
+[No transcript available for this lecture]
+
+--- Tips ---
+
+[No transcript available for this lecture]
+
+--- Exercise 3 - Compare vs Assign ---
+
+[No transcript available for this lecture]
+
+--- Exercise 3: Solution ---
+
+0
+This is a video where I'll give you the solution to the current exercise. If you followed the previous
+1
+exercises you have noted that the solutions were given in text format.
+2
+However for some exercises such as this one where  I think I need to give you a broader explanation on
+3
+how the exercise is solved, the format will be video.
+4
+This also helps you relief reading fatigue and eyestrain so you get more engaged with the course and
+5
+eventually you'll learn better.
+6
+So I'll be combining video and text throughout the course.
+7
+Now back to the solution of this exercise. Right click, open Atom.
+8
+So I'm using Atom editor to write and execute my code.
+9
+Let me close all the tabs and open Exercise 3.
+10
+dot py.
+11
+I'm also using the platformio ide package.
+12
+So it's an embedded terminal and this is the solution.
+13
+So for this exercise you are asked to tell about the reason you're getting an error and the error was a
+14
+name error.
+15
+You always always need to focus on the error message so don't panic, don't ignore the error.
+16
+This is very important.
+17
+So here you have the line where the error is occurring.
+18
+So this file 3.py line 4. And here is the line printed out.
+19
+So this is one in here.
+20
+And then you have the type of the error.
+21
+So there are many types of errors of errors and name error is one of the types. A name error means
+22
+that a name you have provided in the code it's not valid but you need to see the explanation beside
+23
+the type of the error.
+24
+So after the colon you usually have the explanation of the error.
+25
+This says name C is not defined, so name C is not defined.
+26
+And that is true you haven't defined any names in here.
+27
+So that's the reason of the error. These are assignments operators and so these are comparison operators.
+28
+So you are comparing if a equals to b,
+29
+so if value of a is equal to b and if value of b is equal to c, but c doesn't have a value.
+30
+And so you're geting an error.
+31
+So if your logic was the same as mine then you can mark this exercise as solved.
+32
+Great, then I'll talk to you latter.
+
+--- Exercise 4 - TypeError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 4: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 5 - Sequence Indexing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 5: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 6 - Sequence Slicing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 6: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 7 - Sequence Slicing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 7: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 8 - Negative Indexing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 8: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 9 - Negative Slicing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 9: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 10 - Sequence Item Picking ---
+
+[No transcript available for this lecture]
+
+--- Exercise 10: Solution ---
+
+[No transcript available for this lecture]
+
+--- Continuing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 11 - Ranges ---
+
+0
+Hi everyone and in this video I'll hand you exercise number 11
+1
+because as I've mentioned before for some exercise where I think I need to show the
+2
+output on a video, for such exercise will be having video as you see now.
+3
+So I'm using the Atom editor with the platformio ide terminal here.
+4
+Let me execute the exercise
+5
+11.
+6
+So what I'm executing now is a finished script so the solution for the exercise, but I won't show you
+7
+the solution. I'll be exiting this and just show you the output.
+8
+So for this exercise please generate at list from 1 to 20 but do not create the list manually.
+9
+such as creating square brackets 1, 2, 3, and 4 and so on.
+10
+So please generate a list dynamically and print it out as I did in here.
+11
+Thanks.
+
+--- Exercise 11: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 12 - More Ranges ---
+
+[No transcript available for this lecture]
+
+--- Exercise 12: Solution ---
+
+0
+Hi everyone!  This is the solution to exercise 12. For this exercise
+1
+you were given this range object, so the selected line is what you were given and you were required
+2
+to produce a list whose items are equal to the items of this range multiplied by 10.
+3
+So the output would be this one in.
+4
+Here. And this is how you solve it.
+5
+So you would want to use a list comprehension here.
+6
+This is the list comprehension.
+7
+So this is like a for loop but inside square brackets.
+8
+So in one single line and what we're doing is we're saying 10 times X where X is a variable we have
+9
+we are just defining in here.
+10
+Sue for x in my range.
+11
+So what this will do is you go through all the items off my range.
+12
+So it goes to the first item which is 1 and what it does it adds 10 times one in a new list.
+13
+So you have all this starting with 10 and then loop goes to the next iteration so it does 10 times 2 and
+14
+it puts 20 to the list.
+15
+So that's all the items one by one.
+16
+You could also do this using a for loop.
+17
+So a standard for loop. That will also be fine but this is more pythonic.
+18
+So we can't call this solution a better one because it's shorter.
+19
+Then we use the print statement to print this list which is in here.
+20
+That's about the solution.
+21
+Thanks.
+22
+See you later.
+
+--- Exercise 13 - Ranges of Strings ---
+
+[No transcript available for this lecture]
+
+--- Exercise 13: Solution ---
+
+0
+Hi there! This is the solution to exercise 13. For this exercise you were asked to create a script that
+1
+converts all items of these selected to range to strings.
+2
+So the expected output would be this one down here in the terminal and you know I did this in one line.
+3
+The key function
+4
+here is the map function.
+5
+So this is a built in Python function.
+6
+What it does is it applies is a function to an iterable object.
+7
+So my range is an object where you can't iterate. So this function
+8
+it goes to all the items of my range and it applies the string function. As you know the string function
+9
+is a function that converts numbers to strings.
+10
+So if you do a str brackets and inside brackets you pass one you get a string of one like this one
+11
+here.
+12
+And yeah, then I converted this map object to a list and then I printed out the list which is this one in here.
+13
+Thanks.
+14
+If you have questions feel free to ask them.
+15
+See you later.
+
+--- Exercise 14 - Removing Duplicates ---
+
+[No transcript available for this lecture]
+
+--- Exercise 14: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 15 - Simple Dictionary ---
+
+[No transcript available for this lecture]
+
+--- Exercise 15: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 16 - Accessing Dictionary Items ---
+
+[No transcript available for this lecture]
+
+--- Exercise 16: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 17 - Dictionary Items Sum Up ---
+
+[No transcript available for this lecture]
+
+--- Exercise 17: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 18 - KeyError ---
+
+0
+This is the question of exercise 18. For this exercise
+1
+what I want to do is I want to print out surname Smith in the terminal.
+2
+This is the script I have, but if I execute that I get a key error.
+3
+So the question is please explain why we get a key error here.
+4
+And how do we access name surname Smith.
+5
+So to print it out in the terminal. Thanks.
+
+--- Exercise 18: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 19 - Add Dictionary Key ---
+
+[No transcript available for this lecture]
+
+--- Exercise 19: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 20 - Apply Function to Dictionary Items ---
+
+[No transcript available for this lecture]
+
+--- Exercise 20: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 21 - Dictionary Filtering ---
+
+[No transcript available for this lecture]
+
+--- Exercise 21: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 22 - Formatted Print ---
+
+0
+Hi everyone!
+1
+This is a question off exercise 22.
+2
+And for this exercise I want you to create a dictionary of keys a, b, c. So we have three keys and each
+3
+key will have as a value a list from 1 to 10 for key a, 11 to 20 for key b, and 21 to 30 for key c.
+4
+So a dictionary of three keys of three values and the values are these three lists and then please print
+5
+out the dictionary.
+6
+So the output of these would be this one in here. As you can see this is a pretty print.
+7
+So a nice print of the dictionary. If you use print you probably get a not very nice view of the dictionary.
+8
+So take care of that too please.
+9
+And yeah, I'll talk to you later.
+10
+Thanks.
+
+--- Exercise 22: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 23 - Multilevel Indexing ---
+
+[No transcript available for this lecture]
+
+--- Exercise 23: Solution ---
+
+0
+Hi there! This is the solution to exercise 23 and for this exercise you were asked to access
+1
+the third value key b and you were given these two lines.
+2
+The output was 13.
+3
+So the third line of this list is 13.
+4
+And this is the solution.
+5
+And it could also be good to print intermediate results such as a dictionary.
+6
+Sue I can explain things better with this.
+7
+It's a very good practice that you do as well to print out intermediate results.
+8
+So I'm accessing key b first.
+9
+Actually I'm accessing the value of key b which is this list so up to here this is a list object.
+10
+This list in here. And then from this list I access the third item which has an Index of 2. So 0, 1,
+11
+and 2.
+12
+And that will give me integer 13 and that's what I'm getting in here. That's the solution.
+13
+Thanks a lot.
+
+--- Exercise 24 - Iterate Dictionary ---
+
+[No transcript available for this lecture]
+
+--- Exercise 24: Solution ---
+
+0
+Hi again, this is the solution to exercise 24.
+1
+You were asked to complete this script.
+2
+So this was the initial script. The dictionary only.
+3
+So you get this expected output, these three lines in here.
+4
+This is the solution.
+5
+We're using a for loop and we're iterating through the items of the dictionary.
+6
+I think you can try this.
+7
+Print d.items to see well that gives you. So that gives you a dict item object
+8
+So this is a special object.
+9
+And then you have two of variables here, key and value and each of these variables will go through each
+10
+of these tuples in here.
+11
+So key will be replaced with this b in the first iteration and the value will be replaced with this
+12
+list.
+13
+So we're talking about the first iteration and in that first iteration what you do is you print out the
+14
+key.
+15
+So b. B is printed out in here.
+16
+Then a comma and then you print out a string 'has value'.
+17
+So 'has value' is printed there and then value which is the list in here.
+18
+The same for the second iteration.
+19
+And so on and this is the solution to this exercise.
+20
+So the key here is dictionary.items.
+21
+Thanks and I'll talk to you later.
+
+--- Exercise 25 - Print Alphabet ---
+
+0
+This is a question of exercise 25.
+1
+And for this exercise I'd like to make a script that prints out letters of  the English alphabet from
+2
+A to Z.
+3
+And this is the expected output. So one letter in each line.
+4
+I hope you crack this easily.
+5
+Thanks.
+6
+And see you later.
+
+--- Exercise 25: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 26 - Print Range ---
+
+[No transcript available for this lecture]
+
+--- Exercise 26: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 27 - Acceleration Calculator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 27: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 28 - TypeError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 28: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 29 - Liquid Volume Calculator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 29: Solution ---
+
+0
+Hi everyone! This the solution to exercise 29. For this exercise
+1
+you are asked to write a function that calculates liquid volume taken from these site in here.
+2
+So this was the formula and you were also asked to consider that r is always 10.
+3
+So let's say all of our spheres have a radius of 10.
+4
+So you have to take that into consideration when building your code so that you make it very efficient.
+5
+And if you pass 2 then you'd expect this output.
+6
+OK, this is the solution I came up with.
+7
+I'm importing pi which is a constant. It's somewhere at 3.14.
+8
+You could also find that on the Internet and just type down the number in here.
+9
+But you don't have to do it if you know how to import pi from here.
+10
+And then we have the function down here.
+11
+I'm passing two arguments here.
+12
+A known non-default argument and a default argument.
+13
+So the default argument means when you assign a value to that arguments,
+14
+so when you call the function in here, you only pass one value that's will be replaced with the non-default
+15
+arguments.
+16
+And if you don't pass a value for the default argument 10 will be used.
+17
+But if you want you can pass a value for the default argument as well like 5 and then 5 will be used for
+18
+r everywhere.
+19
+So 5 in power of 3.
+20
+And so on. And yeah, that's about the arguments.
+21
+And here is the formula.
+22
+I think this is self explanatory.
+23
+This is a multiplication multiplication.
+24
+This is a power.
+25
+So exponents and then, yeah
+26
+we have the same things here, division.
+27
+And so on. And then we return V, and then we print the function output.
+28
+So 2 for age and then V will be printed out. That's the output of the function. I hope this is clear.
+29
+And I'll talk to you later.
+30
+Thanks.
+
+--- Exercise 30 - Arguments ---
+
+[No transcript available for this lecture]
+
+--- Exercise 30: Solution ---
+
+0
+Hi, this is the solution to exercise 30. For this exercise you are asked to find the reason why you're
+1
+getting an error
+2
+and how would you fix it.
+3
+And this is output. So you get a syntax error meaning that you're not following the rules to write
+4
+Python code and then you have the explanation in which they use non-default argument follows default
+5
+argument which means that this non-default argument follows this default argument.
+6
+So how do you fix it?
+7
+Well, you just need to put the default argument after the non default argument. If you execute the
+8
+script now you don't get any error.
+9
+And you can also try out the functions to try to call the function.
+10
+Let's pass 2 and also explain to you why you need to pass a non-default argument first.
+11
+So I executed.
+12
+Now I get four.
+13
+Two plus two is four.
+14
+Or let's pass three.
+15
+So you get five.
+16
+So why do you need to pass a non-default argument first?
+17
+The reason is that sometimes you don't want to pass a value for the second argument.
+18
+But if you want you can pass one like 3 and let's say 4 for this. So in this case a will
+19
+be equal to 4.
+20
+So three plus four is seven.
+21
+But if you have this default argument in here,
+22
+so you had it like that and then you just pass three for instance,
+23
+Python will get confused.
+24
+cause it doesn't know
+25
+if you're passing 3 for b or for a and that's why you need to pass values for the non-default arguments
+26
+first so that they get a value,
+27
+all of them then if you want to pass more values then those values will be put to replace the default
+28
+argument, the default argument values.
+29
+I hope this is clear and thanks.
+30
+See you later.
+
+--- Exercise 31 - Function Blueprint ---
+
+[No transcript available for this lecture]
+
+--- Exercise 31: Solution ---
+
+0
+Hi everyone! This is the solution to exercise 31 where you are asked to show why there is an error
+1
+in the code and how to fix it.
+2
+And so this is the code. We have a function which is quite clear and it doesn't have any errors but
+3
+we're getting an error in line 6 which is this line in here.
+4
+Error is a type error. That's the type of the error.. A type error means that you using the wrong object type to
+5
+to do something.
+6
+Something here is you have to look after the colon for more detail.
+7
+So it says unsupported operand type for minus.
+8
+So this operator doesn't support an operation between some types and then you need to see for more explanation
+9
+after the colon.
+10
+These are the types that a minus subtraction operator cannot support.
+11
+So you cannot subtract a function type with an integer type. An integer is a number.
+12
+And what a function is you know, this foo that I'm using here you can check it. Print type foo. So foo here,
+13
+foo there and see what we get.
+14
+If you execute this you'll see that this is a function type.
+15
+But if you replace that with the function call,
+16
+you'll see that that's that's an integer.
+17
+So the function call is an integer, but the function itself,
+18
+so the function blueprint is a function object.
+19
+So the integer here would be like
+20
+one plus two equals to three.
+21
+So this is equal to 3.
+22
+That's why the type is an integer.
+23
+Therefore the solution here is you need to call the function. Execute and you don't get any error.
+24
+You may want to print out X now.
+25
+So feel free to do that.
+26
+But this is the solution.
+27
+So thanks and talk to you later.
+
+--- Exercise 32 - Global Variables ---
+
+[No transcript available for this lecture]
+
+--- Exercise 32: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 33 - Local Variable ---
+
+[No transcript available for this lecture]
+
+--- Exercise 33: Solution ---
+
+0
+Hi everyone and this is the solution to exercise
+1
+33 where you were asked to tell what the output of this script would be.
+2
+And I asked you to tell to say the output mentally
+3
+so don't execute the code because that's quite easy to do.
+4
+Such as what I'm doing here.
+5
+So the output is 2, but I asked you to do it mentally to understand how Python works.
+6
+So let me explain why you get 2 in here.
+7
+Well Python executes a script from top to bottom so it goes to the first line. This is a comment.
+8
+So just goes with the next line.
+9
+This just goes to the next line.
+10
+We have a variable here, so one is assigned to c.
+11
+So the name c has a value of one now, so c
+12
+think of it as a container and we have a blueprint, so which is a function I call it a blueprint.
+13
+So you write an algorithm to perform something and inside this function what I'm doing here is I'm creating
+14
+a local variable.
+15
+So this is a local value.
+16
+This is a global variable. Inside a function local variables cannot be accessed outside of the function.
+17
+So this is a different variable.
+18
+And this is different variable from this one in here.
+19
+Local Variables have priority inside a function.
+20
+So when you do then, when you do return c, what the function does
+21
+it looks inside the function for a variable named and so Python because it gives priority to local variables
+22
+this function will return the value of this local variable.
+23
+So it will return 2, and then what we have here is we assign another value to variable c, to global variable
+24
+c which was defined in here.
+25
+So c now has a variable of three and Python is still executing the script.
+26
+So it's in line 7 for now and then it goes to the last line where it prints out the function output
+27
+which is 2.
+28
+So that's why you get two.
+29
+Because function takes the value of c, of local variable c and prints, and returns that value.
+30
+That's the explanation.
+31
+Feel free to ask questions if you like.
+32
+See you later.
+
+--- Exercise 34 - Local Vs. Global Variables ---
+
+[No transcript available for this lecture]
+
+--- Exercise 34: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 35 - String Splitter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 35: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 36 - Word Counter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 36: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 37 - Advanced Word Counter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 37: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 38 - NameError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 38: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 39 - AttributeError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 39: Solution ---
+
+0
+Hi there! This the solution to exercise 39.
+1
+And in this exercise you were asked to fix this script so that it prints of cosine of angle one
+2
+radiant. Unfortunately the script is not printing that out.
+3
+Instead it says there is an attribute error and then the explanation is saying that the module math has no
+4
+no attribute cosine.
+5
+And unfortunately Python isn't that smart as to say that cosine hey it's not the attribute you want to use to calculate
+6
+the cosine.
+7
+You need to use this attribute.
+8
+So you need to figure out by yourself or ask you what you need to use to calculate the cosine
+9
+of one radiant. And to do that
+10
+I wold
+11
+Want to open a Python session, interactive Python session. Import math and then I'll quickly look what methods
+12
+the math module has.
+13
+So you can have a quick look in here. Acos, acosh, asin.
+14
+Maybe this one.
+15
+So maybe I want to use that method.
+16
+But you can ask for help.
+17
+Math.cos.
+18
+I can see that
+19
+it says this returns the cosine of X measured in radiants.
+20
+So you pass radiant there. Cos like that.
+21
+Save the script, exit Python.
+22
+39 and yeah, this time you get the correct value.
+23
+So that's how you'd fix this script.
+24
+But if you of do it like that, then you do want to do some google search to see how to find the cosine
+25
+of a number in Python. That's the solution.
+26
+The explanation for this exercise.
+27
+Thanks a lot.
+28
+See you later.
+
+--- Exercise 40 - TypeError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 40: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 41 - Letters in File ---
+
+[No transcript available for this lecture]
+
+--- Exercise 41: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 42 - Iterating Multiple Sequences ---
+
+[No transcript available for this lecture]
+
+--- Exercise 42: Solution ---
+
+0
+This is the solution to exercise 42 and for this exercise
+1
+you were asked to print out in each line of the terminal the sum of homologous items from the two sequences.
+2
+So you 5, 7 and 9. You were given these two sequences, so a list and a tuple.
+3
+This is the solution.
+4
+Every time we wanted to do, to print something in a separate line you'd want to use a for loop.
+5
+And in this case we're using a zip function.
+6
+It's a Python built in function and what it does, the zip function it returns an iterator object
+7
+that aggregates two sequences.
+8
+In this case a and b, the list and the tuple. And then with with two variables
+9
+what you do is you access, in the first iteration you'd access the first item of each of these sequences.
+10
+So one on four in the first iteration and then you return the sum of them which is five and so on and
+11
+so forth until the last iteration which returns 9.
+12
+So three plus six. That's for this solution and explanation. Use a zip function whenever you want
+13
+to iterate to more than one sequence.
+14
+Thanks.
+15
+See you later.
+
+--- Exercise 43 - Letters Two by Two ---
+
+[No transcript available for this lecture]
+
+--- Exercise 43: Solution ---
+
+0
+Hello again! This is a solution to exercise 43.
+1
+You are asked to create a script that generates a text file where all letters of English alphabet are
+2
+listed two in each line.
+3
+And so the text file would look like this AB, CD, EF
+4
+and so one up to the last letters. I'm using the String module in here which is a built in module and that comes
+5
+with Python. You don't need to install String and then I'm using Open method to create a file in
+6
+write mode.
+7
+Here, tis the name I'm giving to the file.
+8
+Then again we use a for loop.
+9
+We're iterating through a zip function which aggregates this sequence.
+10
+So to say with this sequence which return,I have to open an interactive session here. Import
+11
+string.
+12
+Then let me copy this to show you what you get from this.
+13
+So this accesses the entire string.
+14
+So it accesses this string because you're saying give me that string for you zero to the
+15
+last item, but with a step of two.
+16
+So what that will do it will go to a. It will get a and then it will skip a b and then it gets c. It skips
+17
+d it gets e.
+18
+And so on. And so the same for,  same idea for this one.
+19
+We start from 1 so we skip a but we get b, we skip c but we get d and so on. You get the idea.
+20
+And then with these two variables we say for letter one and letter two,
+21
+so in the first iteration letter one will be equal to a, and letter two will be equal to b.
+22
+So what we do with a and b? Well, we concatenate those two letters, so letter plus, so letter one plus
+23
+letter two.
+24
+So that would be something like a plus b.
+25
+And then we also need this special character here which creates a break line.
+26
+So you get a string like that. Of course the terminal doesn't show this as a brake line.
+27
+This works in a text file.
+28
+So the text file will read these a as a brake line and then it goes to the next iteration.
+29
+And so on.
+30
+This is the exercise.
+31
+I hope this is clear, but ask a question if you like and I'll talk to you latter.
+
+--- Exercise 44 - Letters Three by Three ---
+
+[No transcript available for this lecture]
+
+--- Exercise 44: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 45 - One File per Letter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 45: Solution ---
+
+0
+It's me again and
+1
+this is a solution to exercise 45. You are asked to create a script that generates not less, but 26
+2
+text files and each text file will contain one letter of the English alphabet as the text file name,
+3
+but also the letters should be inside the text file.
+4
+This is my solution.
+5
+I made it a bit advanced so I decided to create a solution that creates a folder named letters
+6
+and inside that folder
+7
+it puts all of these 26 text files.
+8
+So from A to Z and each letter has the letter inside them. Each file has the letter inside them.
+9
+If you made this exercise differently,
+10
+so you didn't create a folder, that's fine too.
+11
+Anyway I'm going to explain here how the script works.
+12
+So this is two lines that creates a folder named letters.
+13
+And here I am importing the string the OS modules.
+14
+You don't need to install them.
+15
+They are standard libraries.
+16
+And so I'm saying if this path exists.
+17
+So if the letters directory exists, sorry if this path does not exist, so if not exists then create that
+18
+directory.
+19
+Otherwise don't do anything.
+20
+So if there is such a folder, that don't do anything.
+21
+Just go to the next line.
+22
+So the next time I execute this nothing will be created because there's a folder with that name in there.
+23
+And so we have a for loop in here as always. For letter in  string of all 26 letters.
+24
+I'm opening a file with this path.
+25
+So letters which is the folder name and then the slash and then letter.
+26
+So a for for instance in the first iteration plus an extension which is .txt and we are opening that
+27
+in write mode as a file variable.
+28
+And then we rise that's later inside the file.
+29
+An then we're also creating a break line there.
+30
+But that's not necessary the case anyway.
+31
+Again here is the file name.
+32
+This is the content of the text file and I hope this is clear.
+33
+I'll talk to you later.
+
+--- Exercise 46 - Letter Extractor ---
+
+0
+This is the question of exercise 46.
+1
+For this exercise you are required to write a script that extracts letters from the
+2
+twenty six text files that we created in the previous exercise and then put those letters in a python
+3
+list.
+4
+And of course print out the list.
+5
+If you don't have the 26 text files you can find them attached in this article.
+6
+So this is expected output of the script.
+7
+So I hope this is clear, but ask questions if you don't understand anything.
+8
+I'll talk to you later.
+
+--- Exercise 46: Solution ---
+
+0
+Hi again! This is the solution to exercise 46 where you are asked to create a script that extracts
+1
+letters from the 26 text files which I have in here in this folder called letters A to Z.
+2
+And so you are asked to put those letters in a list, so the letters contained inside each of the text files.
+3
+This is the solution. I'm using the glob library here.
+4
+That's a standard library.
+5
+You don't need to install it.
+6
+Then I create a letters list here which is empty for now.
+7
+Then I generate a list with glob.glob.
+8
+And the globe method
+9
+will be looking at this pattern, path pattern for file names.
+10
+So it goes to the letters folder and then it gets everything.
+11
+Ends with .txt so it gets the 26 text files.
+12
+These ones in here and then iterate through that list because you know if you print file list
+13
+you'll see that you get all the paths of your files and you iterate through this at list.
+14
+So for let's say letters slash a.txt, you open it write mode as a file and then
+15
+and you say letters, so letters is the list you have created earlier append file.read.
+16
+So with file.read you're going to get the contents of that current file which is letter a
+17
+and the backslash n character which is a break line and so you'd want to strip out that character
+18
+from the content.
+19
+So you end up with only a. And so you append the first letter to the letters list and then the loop goes back
+20
+again.
+21
+It goes to the next file name and does exactly the same thing until it goes to the very last file name.
+22
+The loop stops and Python goes to the next line which is printing out the list letters which was
+23
+constructed in the loop.
+24
+That's quite nice and straightforward.
+25
+I hope it's clear for you and thanks! I'll see you later.
+
+--- Exercise 47 - Conditioned Letter Extractor ---
+
+0
+Hey there! This is the question of exercise
+1
+47.
+2
+And for this exercise I'd like you to write a script that iterates through each of the 26 text
+3
+files.
+4
+So these are the text files that we use in the previous exercises but you can also find them
+5
+attached
+6
+in this article for your convenience.
+7
+And so then the script checks if the letter inside the text file is in string python and then puts
+8
+the letter in a list if the letters is, if the letter is a character of that string.
+9
+So then you print out the list.
+10
+So this is the list.
+11
+So again what we are doing is we're going through these text files.
+12
+We're reading the content.
+13
+So we go to the first file, A we read the content and we check if the contents of the file so if A
+14
+is part of this string and if it is we put a in a new list. If it's not we go to the next file and so on.
+15
+And we were consumed, we have consumed all the 26 files and then we print out the list that we
+16
+constructed. That's the exercise.
+17
+I hope you solve it and I'll talk to you later.
+
+--- Exercise 47: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 48 - IndentationError ---
+
+[No transcript available for this lecture]
+
+--- Exercise 48: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 49 - Pass ---
+
+[No transcript available for this lecture]
+
+--- Exercise 49: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 50 - Text Input ---
+
+[No transcript available for this lecture]
+
+--- Exercise 50: Solution ---
+
+[No transcript available for this lecture]
+
+--- Daily Python Projects ---
+
+[No transcript available for this lecture]
+
+--- Exercise 51 - EOF ---
+
+[No transcript available for this lecture]
+
+--- Exercise 51: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 52 - String Formatting ---
+
+[No transcript available for this lecture]
+
+--- Exercise 52: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 53 - Multilevel Dictionary ---
+
+[No transcript available for this lecture]
+
+--- Exercise 53: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 54 - Modifying Multilevel Dictionaries ---
+
+[No transcript available for this lecture]
+
+--- Exercise 54: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 55 - Adding to Multilevel Dictionaries ---
+
+[No transcript available for this lecture]
+
+--- Exercise 55: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 56 - Dictionary to JSON ---
+
+[No transcript available for this lecture]
+
+--- Exercise 56: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 57 - JSON to Dictionary ---
+
+[No transcript available for this lecture]
+
+--- Exercise 57: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 58 - Add to JSON ---
+
+[No transcript available for this lecture]
+
+--- Exercise 58: Solution ---
+
+0
+Hi again! This is the solution to exercise 58.
+1
+And in this exercise you were asked to add a new employee to the Jason File which I provided
+2
+in the previous article, so that's the json file. Company1.
+3
+dot json. Let me play this to the right, so that we can see both the Python script and the json file.
+4
+So json file now has Albert Bert as new employee there.
+5
+So let me explain the script.
+6
+And so I'm using the json library here and then I'm opening
+7
+company1.json in read and write mode.
+8
+So r+ means read and write mode.
+9
+And I create a dictionary using Json.loads methods.
+10
+So file.read is gonna be this string.
+11
+So the text of course without the Albert Bert dictionary values.
+12
+See you this string is loaded as a dictionary using json.loads.
+13
+So json.loads converts a string to a dictionary object.
+14
+I'm doing this because I think this is the best way to add a new item to this big dictionary.
+15
+So we have a big dictionary here which is constructed of lists, anyway and what I do is I'm accessing
+16
+employees
+17
+the value of the employees key.
+18
+So this is dictionary.
+19
+And with d.employees I access this list.
+20
+So with all these names John, Anna, and Peter. So up to here we have a list and then we use the list method
+21
+called append.
+22
+And so we are appending now we need to append a new dictionary to this list.
+23
+So we have three dictionaries.
+24
+These are dictionaries with this key and this value, with this key and this value.
+25
+And so we need to append a dictionary.
+26
+So that's what I'm doing in here.
+27
+I'm creating a dictionary using the dict function and I'm creating a key called first name.
+28
+So these has to be the same as these ones
+29
+in here. First name Albert and last name Bert.
+30
+So two keys and two values, so that dictionary will be appended to this list which is a value of this
+31
+big dictionary.
+32
+So up to this point we have a new dictionary.
+33
+So we have this big dictionary that you see in here.
+34
+Now from now one we want to write that dictionary to the json file and here I'm using file.seek
+35
+and zero there what that does is it puts the cursor to the top of a file which means you know
+36
+when you read a file we open the file and we read the file contents and the cursor goes at end of the
+37
+file.
+38
+So just here.
+39
+So at this point the cursor is in here which means that if you want to write some content in here that's
+40
+content with be written under these lines.
+41
+But I don't want to do that so I want to put the cursor up here again.
+42
+So everything I do now it writes in here above the existing contents. So files.seek(0) does just
+43
+that, puts the cursor at the top of the file.
+44
+What I do is I use json.dump to put this dictionary object to write the dictionary object in this
+45
+file.
+46
+So in this file that we have opened and I use this indent option here. Arguments, I set it to 4.
+47
+So to have four spaces as indentation, then I sort the keys, so sort keys equal to true means that's the
+48
+string that will be written in the json file will have the same order as the dictionary.
+49
+And so what this will do, it will get the dictionary so  the dictionary including Albert. It will get
+50
+the dictionary and it will put in the current position of the cursor.
+51
+So it will put the dictionary on top of the existing content of the file.
+52
+So it's like copying these and putting all that in here and then the cursor is at the end of the dictionary
+53
+that you have just inserted there.
+54
+But I don't want to do is you use file.truncate which what it does is it truncates, so it deletes everything
+55
+under the cursor.
+56
+So what you end up is the dictionary, the updated dictionary in the json file. That's the solution.
+57
+I know it was quite complicated, but feel free to rewatch this video and ask questions if you, if there is
+58
+something you don't understand.
+59
+And yeah, thanks again, and I'll talk to you later.
+
+--- Exercise 59 - Enumerator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 59: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 60 - Infinite Printer ---
+
+0
+Hi! This is the question for exercise 60.
+1
+Please, create a program that prints hello repeatedly so you get this
+2
+output, so hello hello hello.
+3
+is been printed out all the time in the terminal.
+4
+I hope you solve this easily.
+5
+I'll talk to you later.
+
+--- Exercise 60: Solution ---
+
+0
+Hi and this is the solution to exercise 60 and you are asked to create a program that prints hello
+1
+repeatedly. Let me execute the script 60.
+2
+Hello hello hello.
+3
+This is being printed out every fraction of a second.
+4
+Actually the speed
+5
+if you're asking how often hello with the printed out,
+6
+well that depends on the speed of your processor.
+7
+And so this is the simple solution. We are using a while loop. While loop is another type of loop.
+8
+So we have for loops and we have while loops and this is a bit of an abstract concept.
+9
+So it was while true print hello and true is always true.
+10
+Therefore hello will be printed all the time and of course you can replace these to
+11
+I don't know, if while 1 is less than 2, print hello CTRL C to interrupt the script.
+12
+These again will be doing the same thing because one is less than two.
+13
+So your processor checks these every fraction of a second of a second and it does this action.
+14
+Actually Python checks it while your processor decides how often it can check it. This is about the
+15
+while loop and about exercise 60.
+16
+I'll talk to you later.
+17
+Thanks a lot!
+
+--- Exercise 61 - Timed Printer ---
+
+[No transcript available for this lecture]
+
+--- Exercise 61: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 62 - Progressive Timed Printer ---
+
+[No transcript available for this lecture]
+
+--- Exercise 62: Solution ---
+
+0
+This is a solution to exercise 62 and I asked you to create a program that prints hello repeatedly after a
+1
+one second first, and after two seconds, three, four, and so increasing the interval by one.
+2
+So your output would look like... Hello first is later then one second, and then after two seconds,
+3
+and then one two, three, and then one, two, three, and four, so after four seconds, and so on five, and six and so on.
+4
+For the solution
+5
+again we are using the time module and then we need to set up a counter while loop. We start from i equals
+6
+to zero while true. True is always true.
+7
+So this loop will be executed infinitely.
+8
+So in the first iteration what we do is we increase it by 1 immediately.
+9
+So in the first iteration i will be equal to zero plus one equals to one.
+10
+So i is one in here.
+11
+And so in the first iteration we print hello instantly.
+12
+So we haven't applied a sleep method yet.
+13
+And so we print hello instantly.
+14
+That was the first print in here.
+15
+And then we sleep for one second.
+16
+And then we go to the next iteration. We increase i by another value, so increase i by 1.
+17
+So we get i equals to 2.
+18
+We print hello and then we sleep
+19
+two seconds and we go again.
+20
+We do this right away three equals,
+21
+i equals to three. Print hello and so on and so forth.
+22
+You could have this expression, maybe in here that would be fine as well.
+23
+So you get the same output.
+24
+Hello instantly. Hello after one second.
+25
+After two seconds, after three seconds and so on, so it's the same thing.
+26
+I hope this is clear. I'll talk to you later.
+
+--- Exercise 63 - Progressive Time Printer with Threshold ---
+
+[No transcript available for this lecture]
+
+--- Exercise 63: Solution ---
+
+0
+Hello, this is a solution to exercise 63.
+1
+And for this exercise you were asked to write a program that behaves like this, so it prints of hello
+2
+instantly and then it prints it out after second, and then after two seconds, and then after three
+3
+seconds here, and then the program prints out end of loop and it terminates.
+4
+And yeah, this is the solution.
+5
+We're using the time module again. We are using a counter starting from i
+6
+equals to 0.
+7
+So again the question asks to print hello
+8
+instantly first so this is what we're doing here.
+9
+And you increase the counter so you are ready for the next iteration where you wait for seconds but
+10
+you also need to check if you're waiting more than three seconds.
+11
+Because if that is true we want to break the loop.
+12
+We want to print out end of loop and we want to break the loop so this break statement here will break the loop
+13
+so it will interrupt the loop.
+14
+Therefore we don't have more code after the while loop.
+15
+So the script, the program will stop, but in the first iteration i is just the one.
+16
+So it's not greater then three.
+17
+Therefore the script will sleep for one second in here and we'll go again in here.
+18
+Hello.
+19
+And then i will increase by 1, so it will be 2, but it's not equal to, it's not a greater than three again.
+20
+So these lines are not executed, and then the script will sleep for three seconds, and then it goes to three. Three is
+21
+not greater than three.
+22
+Therefore we execute this again three seconds.
+23
+But then when he goes the 4. 4 is greater than 3 therefore we get print end of loop and break the
+24
+script.
+25
+I hope this is clear enough to understand, but ask questions if you like.
+26
+Thanks.
+27
+And see you later.
+
+--- Exercise 64 - Executing Next Statement ---
+
+0
+Hi again, this is the question to exercise 64. This is an interesting exercise.  This prints out
+1
+hello.
+2
+This is what this code prints out and this is the question.
+3
+So the following code prints hello and checks if two is greater than one and it breaks the loop because
+4
+two is actually greater than one.
+5
+So the loop breaks and print hi is not executed.
+6
+Therefore whenever you execute the script you get hello only.
+7
+Now the question is I'd like to ask you to replace the break statement with something else so that both
+8
+hello and hi are printed out repeatedly so you'd get
+9
+Hello. Hi.
+10
+Hello.
+11
+Hi.
+12
+Hello.
+13
+Hi.
+14
+Hello.
+15
+Hi.
+16
+And so on. But please don't change any other part of the code.
+17
+Just this line. Change this to something else.
+18
+Please find out with what.
+19
+I'll talk to you later.
+
+--- Exercise 64: Solution ---
+
+0
+All right, here is the solution to exercise 64 where you are asked to replace the break statement with
+1
+another thing so that you get.
+2
+Hello.
+3
+Hi.
+4
+Hello.
+5
+Hi.
+6
+Hello.
+7
+Printed out repeatedly. And so I replaced this with pass however, so let me try this.
+8
+Hello.
+9
+Hi.
+10
+Hello.
+11
+Hi.
+12
+Hello.
+13
+Hi.
+14
+And so on. However you can another expression here which is not a break expression.
+15
+So if you did for example one plus one you'd get the same result
+16
+because what's happening is while true which is always true print hello if two is greater than one.
+17
+It is greater than one. Just do one plus one.
+18
+Don't print anything.  Don't assign anything. Just do an operation. And then
+19
+the operation is done and then Python goes to the next line and it prints,
+20
+so it doesn't break the loop.
+21
+However if you pass pass that means just go to the next line.
+22
+You know nothing to see here go to the next line.
+23
+So pass is a nice piece of a statement that you can use some time.
+24
+This is about the solution.
+25
+And I'll talk to you later.
+26
+Thanks.
+
+--- Exercise 65 - Ignoring Next Statement ---
+
+0
+Hello! This is the question for exercise 65 and this code is exactly the same code that I handed to you
+1
+for exercise 64.
+2
+So what this does is it prints hello.
+3
+However for this exercise I'd like to ask you to change this statement to something else.
+4
+So that hello is printed out repeatedly and hi
+5
+never printed.
+6
+So the code wold do like hello hello hello hello
+7
+all the time and I want you to do that by just changing this break statement to something else.
+8
+Well, good luck!
+9
+I'll talk to you later.
+
+--- Exercise 65: Solution ---
+
+0
+Hey! Hi again, this is the solution to exercise 65.
+1
+And the answer is you need to replace the break statement with a continue statement.
+2
+So if you execute
+3
+the code now,
+4
+you get hello hello hello
+5
+printed out repeatedly.
+6
+So that was the question for the exercise.
+7
+You need to print out hello repeatedly and you never print out hi. Why this happens is because you know
+8
+while true print hello if two is greater than one. It is greater then one, continue. What continue
+9
+does it continues the loop from the beginning
+10
+if this condition is true and so this condition is always true so what Python will do, what continue will
+11
+do, it will is to repeat the loop always repeatedly and it will never go through this line.
+12
+That's what continue does. So it's like the opposite of break because break breaks the loop at this
+13
+point.
+14
+It doesn't go to the next iteration of the loop but instead it goes the next line and pass.
+15
+What pass does is it prints,
+16
+it executes the next line.
+17
+But then the loop goes again repeatedly.  It executes again, and again, and again.
+18
+So this is the difference between these three statements break, pass, and continue.
+19
+I hope this was useful and I'll talk to you later.
+
+--- Exercise 66 - Translator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 66: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 67 - Advanced Translator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 67: Solution ---
+
+0
+Hello again! This is the solution to exercise 67.
+1
+So this exercise asked you to use this dictionary
+2
+and prompt the user to enter a word and then you'd use this dictionary to translate that word
+3
+from English to Portuguese.
+4
+However in this exercise I also asked you to return a message when the word was not in the dictionary
+5
+and to implement that's you want to use a try and accept statement.
+6
+So what this does is it tries this statement and if it doesn't get an error it doesn't execute these other
+7
+statements, but it just goes to the next lines.
+8
+So it will print out the translation for that word.
+9
+However if there is an error the script will not break.
+10
+So Python will try these.
+11
+And if this happens to have an error, then Python will go to this line and it will return
+12
+that word does not exist.
+13
+Now you see this key error here.
+14
+This is one of the error types in Python.
+15
+And you can also choose to not include that.
+16
+So you just say except if there is any type of error occurring in the code.
+17
+And then Python will go and execute this line, this message.
+18
+So let me try this.
+19
+Python 67. Enter word, random word and It says the word does not exist.
+20
+However it's advisable to actually mention the error name explicitly.
+21
+This is good to have the key error explicitly there because you have more control on, as programmer you have
+22
+more control on what's happening with your script.
+23
+So you know what errors you're getting there.
+24
+So it's recommended to enter the type of the error here explicitly.
+25
+I hope this was clear.
+26
+Ask questions if you like and I'll talk to you later.
+
+--- Exercise 68 - User Friendly Translator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 68: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 69 - Requests ---
+
+[No transcript available for this lecture]
+
+--- Exercise 69: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 70 - File from URL ---
+
+[No transcript available for this lecture]
+
+--- Exercise 70: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 71 - Letter Counter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 71: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 72 - Google Searcher ---
+
+0
+Hey this is the question for exercise 72 and this is quite an interesting program that you'll make here
+1
+if you can, so please create a script that lets users, so it from the user to enter a search term.
+2
+Browser opens and the browser searches on Google for that term.
+3
+So all this happens automatically.
+4
+Let me demonstrate the script.
+5
+Python.
+6
+So the script is asking me for a query let's say tomato types.
+7
+I press Enter now as a user.
+8
+The browser opens and searches on Google for tomato types as you see the query here.
+9
+So it requires some research and I wish you good luck with this.
+10
+Thanks.
+
+--- Exercise 72: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 73 - Data Multiplier ---
+
+0
+Hello, this is a question for exercise 73.
+1
+For this exercise please multiply the values of the text file in the URL
+2
+which I'll show in just a bit.
+3
+URL of the file.
+4
+So multiply those values by two and export the output to a new file.
+5
+Let me show you
+6
+the URL I'm talking about, so
+7
+this is the text file.
+8
+So just get this URL. www.pythonhow.com/data
+9
+/sampledata
+10
+.txt.
+11
+Let's go back here.
+12
+Like that, and so I want you to multiply those values by two.
+13
+So you from 3, 5,  you'd get 6, 10 and 8, 18 and so on.
+14
+So you end up with this text file.
+15
+So from this one here to this text file,  X-Y 6, 10,  8,18, and so on.
+16
+This is what you have to do with Python in this exercise.
+17
+Thanks.
+
+--- Exercise 73: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 74 - File Concatenator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 74: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 75 - Data Plotter ---
+
+0
+Hi, this is the question for exercise 75 and for this exercise
+1
+I'd like you to plot the data in the file provided through this URL.
+2
+So this is the text file we worked earlier.
+3
+This one here.
+4
+So we have two columns with values and I wanted to use this input so that you create a script which
+5
+when executed produces this plot.
+6
+So these are the values of x and y.
+7
+So 3, 5, 4, 9, and so on. We have five points and
+8
+please keep in mind that you don't have to use this particular plot.
+9
+You can use any plot library that you want.
+10
+The important thing is you use a library so that you plug this data somehow.
+11
+Thanks and I'll talk to you later!
+
+--- Exercise 75: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 76 - Date and Time Generator ---
+
+0
+Hello again, this is the question for exercise 76 and for for this exercise
+1
+I just want you to print out this string, this text in here.
+2
+However, please note that this is actually the current day, the current month, the current date, the current year.
+3
+So you have to generate these dynamically. Don't just write down
+4
+today is Wednesday December 28 2016.
+5
+Yeah, that's the question for this exercise.
+6
+I hope you solve it!
+7
+I'll talk to you later.
+
+--- Exercise 76: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 77 - Year of Birth Calculator ---
+
+[No transcript available for this lecture]
+
+--- Exercise 77: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 78 - Password Generator ---
+
+0
+Hi, this is a question for exercise 78. You know if you were planning to write a Web app with Python
+1
+and you'll have users logging into your system and you want to generate a password for all these users,
+2
+so you want to generate random passwords with Python,
+3
+how would you do it?
+4
+So the question for this exercise is to create a program that generates a password of six random alphanumeric
+5
+characters in this range in here. So letters of the alphabet and numbers, and big letters, and
+6
+also these characters.
+7
+So let me demonstrate the program.
+8
+You execute it.
+9
+It creates a string password of six characters, you execute it again. Every time you execute it
+10
+you get a different password there, a random one.
+11
+So please do that if you can and I'll talk to you later.
+
+--- Exercise 78: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 79 - Password Checker ---
+
+0
+Hello this is the question for exercise 79 and for this exercise
+1
+I'd like you to create a program that lets the user submit a  password through impute until the
+2
+password satisfies three conditions.
+3
+So the password contains at least one number, it contains an uppercase letter, at least one upper case
+4
+letter, and the password is at least 5 characters long.
+5
+So if one of these conditions is not satisfied, you want to print out this message 'password is not
+6
+fine'.
+7
+Let me demonstrate the programe. 79.
+8
+So first I'll create a password that contains at least one number.
+9
+So we're satisfying the first condition, however this is saying the passport is not fine because the other
+10
+two conditions have not been satisfied.
+11
+So this is asking again to enter a password.
+12
+Let me satisfy the first two conditions this time.
+13
+So at least one number and an uppercase letter, bout not five characters long yet, so password is not
+14
+fine again.
+15
+So this time I want to enter a number, a big letter, and also have the password at least five characters
+16
+long.
+17
+So all three conditions and this time I get 'password is fine'.
+18
+And the script stops executing.
+19
+This is what you want to build in this exercise.
+20
+I wish you good luck with that and I'll talk to you later.
+
+--- Exercise 79: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 80 - Advanced Password Checker ---
+
+0
+Hi, again, this is the question for exercise 80.
+1
+Yet another interesting exercise, but quite challenging.
+2
+And in this exercise I'd like you to create a script again as the previous exercise that lets the users submit
+3
+a passwords until they have satisfied these three conditions, so passwords contains at least one number, one
+4
+uppercase letter, and it is at least five characters long.
+5
+But in deference to the previous exercise for this exercise I don't want a generic message.
+6
+That says one of you know, the password is not fine.
+7
+You don't know which of the conditions is not satisfied.
+8
+You know this isn't very useful for the user because they may keep trying a password but you never say
+9
+the real reason whether they have less than five characters or they are missing and uppercase letter
+10
+and so on.
+11
+So please give exact reason of why the user has not created a correct password this time.
+12
+So let me demonstrate this.
+13
+Exercise 80, enter password.
+14
+So if I enter ya this is saying please check the following.
+15
+You need at least one number, you need at least one uppercase letter, you need at least five characters.
+16
+So let me enter an uppercase letter and this time it says again please check the following.
+17
+You need at least one number, you need at least five characters, so the message you need at least one upper
+18
+upper case letter has gone.
+19
+It's not here anymore.
+20
+So the same if you do five characters you get you need at least one number.
+21
+If you put a number there, then it says password is fine.
+22
+This is what you have to build in this exercise.
+23
+I know it's quite challenging and tricky but give it a try.
+24
+I hope you solve it.
+25
+See you later.
+
+--- Exercise 80: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 81 - Username and Password Checker ---
+
+0
+Hi, this is the question for exercise
+1
+81 and up to here this is the same as the previous exercise so you create a script that prompts
+2
+the user for a passwords and then it checks for these three conditions.
+3
+And if the user didn't enter a password that satisfies these, one of these conditions at least
+4
+one of, or all of them, and then you give the exact reason why the user hasn't created a correct password so you give
+5
+what condition has not been satisfied.
+6
+However for this exercise I'd like you to implement some user name capabilities as well.
+7
+Please download this users.txt text file.
+8
+Let's say these are user names.
+9
+OK.
+10
+I know I know these are planets but let's say these are user names in a database.
+11
+So we have some existing user names and say you want to create a program where users create their new
+12
+username and password, so you have new users, but you have some existing users so you don't want
+13
+your new users to choose a user name that is the same as this ones in here, as your current users.
+14
+So before asking for a password, please ask the users for a username. This is how the program should
+15
+work. Enter username.
+16
+Let's say I entered Pluto. It says user name exists.
+17
+So I enter a user username again. Ardit, yeah the user name is fine.
+18
+If the user name is fine, then you want to go to the next thing which is enter password so the program
+19
+is asking me to enter the password.
+20
+This now works the same as the previous exercise.
+21
+So when you don't satisfy one of these conditions you get these messages.
+22
+So let me satisfy all the conditions like that and it says password is fine.
+23
+This is, this new program
+24
+is quite complex, but if you have the previous script that means you have completed half of this
+25
+program.
+26
+Hope you solve it.
+27
+I'll talk to you later.
+
+--- Exercise 81: Solution ---
+
+0
+Hi again! This is the solution to exercise 81.
+1
+And in this exercise you were asked to prompt the user to enter a username and you wanted to check
+2
+that user name against some existing user names you have in a text file and then you also wanted the
+3
+user to add a user password, a new password and you want to check that password.
+4
+But you know this from the previous exercises and therefore this part here is exactly the same as exercise
+5
+80.
+6
+So this is a part of that has to do with a prompt for the password and checking for a password and so
+7
+on.
+8
+But here we have another while loop.
+9
+So this is our program we have two while loos, one asking for a user name and one asking for a password. As you know
+10
+Python executes a scripts from top to bottom.
+11
+So first it will execute this while loop and then it will go to the next ones
+12
+once it has completed this first loop, and so so while true which is always true
+13
+this script will always be executing unless you break it under some condition.
+14
+And so you first want to ask the user for a user name and you store that username to usr variable and then
+15
+you open a text file where you have some user names, you have the existing user names of your application
+16
+let's say and you don't want the user to enter a similar user name that this is that's the list. You
+17
+want to create a list out of that content.
+18
+So a list with the existing usernames, and we use read lines for that which creates a list object
+19
+with items where each of the list items corresponds with a line in the text file.
+20
+However we have a small problem there, these lines they have brake lines.
+21
+So we want to strip the brake lines using strip and we use a list comprehension because the users is a list,
+22
+so we want to iterate through all the items, and so we apply strip on the items for items in a list
+23
+of users and then we check the usr variable which is holding the string that the user entered, submitted
+24
+through input.
+25
+So if  that string is in list users then you want to print out user name exists and you want
+26
+to continue the script over again,
+27
+the while loop over again, so you want to ask for the user for username again and open the file again so on.
+28
+Otherwise, if that username
+29
+is not in the text file, than you want to print out these other lines in here which is a message username
+30
+is fine and you want to break the loop.
+31
+So you're done with this while loop.
+32
+And as you know Python executes scripts from top to bottom so it will go to the next line which is empty.
+33
+And then to the next line which is another while loop and I wont go and explain this
+34
+now because we did that in the previous exercise.
+35
+So you know this this is exactly the same as a previous exercise.
+36
+And yeah, this is it.
+37
+I hope it was clear and I'll talk to you later.
+
+--- Exercise 82 - Astronomy ---
+
+[No transcript available for this lecture]
+
+--- Exercise 82: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 83 - Monitor Size Detector ---
+
+[No transcript available for this lecture]
+
+--- Exercise 83: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 84 - Pyglet ---
+
+0
+All right here is the question for exercise 84. For this exercise please use the pyglet library to create
+1
+a hello world application that looks like
+2
+this.
+3
+So it's just a window, a graphical user interface pyglet is a library, a third party library for games, to build
+4
+games in Python.
+5
+And yeah, this does require some research to come up with this and I wish you good luck!
+6
+See you later.
+
+--- Exercise 84: Solution ---
+
+0
+Hi, this is the solution to exercise 84
+1
+and this was the output.
+2
+So let me close that. And this is the code and let me show how I came up with this code because to be honest I'm
+3
+not very familiar with the pyglet library but if you follow the standard procedure of researching about a library
+4
+you should be able to come up with some sample code.
+5
+So let me show you how would you do that.
+6
+A simple search for pyglet
+7
+should show you the pyglet the home page but also the pyglet home page in the Python Package Index website.
+8
+I prefer this. This is more standard.
+9
+So you have, here you have all the packages for Python listed in this website and they all have their
+10
+home pages in there.
+11
+This is the home page of pyglet. Sometimes you can find some sample code right here in this page.
+12
+But if you don't find it, than you have to look for that documentation link such as this one in here.
+13
+And then you have various links for the documentation.
+14
+And the one you want
+15
+in this case is a programming guide and this is the guide for people who are starting with pyglet.
+16
+Pyglet is a library for games, to build games
+17
+by the way. I mentioned earlier and yet here you'd want to go to writing a pyglet application and
+18
+you have various applications such as the hello world application image viewer way you can show an image
+19
+in a pyglet window.
+20
+But this is although the one we want and this is exactly the same code that builds this program that I showed
+21
+you.
+22
+So this is importing pyglet and you need to install pyglet, so if you see that when you run
+23
+the code, you get an import error. That means that you need to install pyglet with pip install pyglet.
+24
+And then you want to create a window object with this code and after that what you want to display
+25
+is some text. To display text it says that you create a label object like this label here.
+26
+And here are, these are the parameters. I guess they are quite clear.
+27
+So it's putting the text in the center of the window and then you have this decorator which is attached
+28
+to these objects so at window events, so when an event happensr which in this case means when the window
+29
+is opened. The windows should clear first
+30
+if it has something, and then a label should be drawn in the window.
+31
+And then finally you have pyglet.app.run.
+32
+So these will run the app.
+33
+Yeah, this is exactly the same code as mine in here.
+34
+So the purpose I included this application was to show you how to do some research for code samples
+35
+on a new library.
+36
+I hope you enjoyed this, and I'll talk to you later.
+
+--- Exercise 85 - Data Cleaner ---
+
+[No transcript available for this lecture]
+
+--- Exercise 85: Solution ---
+
+0
+Hello! Here's the solution to exercise 85.
+1
+And here you were asked to create a script that prints the countries_raw.txt file.
+2
+This is supposed to contain a list of countries, but it also has lines such as A, a brake line here.
+3
+Top of Page and so on and so forth.
+4
+And you want to clean, to remove those lines so that you ended up with this clean file of countries only.
+5
+This is how you do it.
+6
+And let me explain the code so I'm reading the countries_raw.txt file and creating a list
+7
+out of that file.
+8
+So a list content. Let me print that out as soon as I create the list here to show you how the list
+9
+looks like. 85.
+10
+So this is the list.
+11
+Here is A, the first line, and then the brake line. And then Afghanistan, Albania, and so on Algeria, and so forth.
+12
+And each of these countries they also have this \n' which is a brake line, a special character
+13
+and you want to remove that as well.
+14
+So what I'm doing here is I'm using these comprehensions to iterate through the items of the list and
+15
+apply things like strip
+16
+in this case, so for the first list comprehension, I'm removing the \n'  characters from all
+17
+the lines.
+18
+So all of them have such a character so it's wise to remove that first.
+19
+So remove those characters for i.
+20
+For i in content if, this is that. It's good to have the comprehension generic.
+21
+So if there is an item without this character we're sure not to get an error to interrupt our script so that
+22
+shall remove the backslash from our list. I can print it out again.
+23
+And you see now that's there are no \n' characters there.
+24
+OK.
+25
+And the next thing I'd do was I used the list comprehension again so I'm building a list.
+26
+I'm saying that's put i in the list for i in content.
+27
+If i is not an empty string. For instance you have this empty string here.
+28
+So what I'm doing is I'm saying put i in a list
+29
+if i is not an empty string.
+30
+Otherwise don't put that in the list.
+31
+So I'm updating the contents list and putting all the items that are not empty strings in there.
+32
+And after that
+33
+what I do is I remove the strings
+34
+Top of Page using the same comprehension as as this one here.
+35
+So it's exactly the same.
+36
+And you can check the intermediate results at this point if you like and you'll see that there are no
+37
+empty strings now, but you still have these letters, so  O P and the countries as well.
+38
+So you want to remove the letters now and leave the countries. So how do you do that?
+39
+Well, the letters
+40
+what specific attribute do they have?
+41
+Well they have a length of one.
+42
+That's what I thought about.
+43
+If your imagination is better than mine you could find some other attributes.
+44
+So this is what I did.
+45
+Leave i there if the length of i is not equal to 1.
+46
+And so that will remove
+47
+all the single letters from the list.
+48
+Then what I did was I created a new file, and then I iterated through the clean list, and then I wrote
+49
+those lines in the list plus a brake line so that they are separated each in a separate line.
+50
+This was the script.
+51
+I hope it was clear and I'll talk to you later.
+
+--- Exercise 86 - Data Checker ---
+
+[No transcript available for this lecture]
+
+--- Exercise 86: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 87 - Add Missing Data ---
+
+0
+Hello, this is the question for exercise 87, and for this exercise
+1
+I'd like to give you this list with three items and now these items are missing in this file and you
+2
+can find this file
+3
+attached in this article, so Portugal, Germany, and Spain are not among these countries.
+4
+And what I'd like you to do is I want you to add these three items into this list.
+5
+So to create,
+6
+I want you to create a new file containing all of these countries.
+7
+So there are 201 countries there and I want you to a file contains, containing
+8
+201 plus Portugal, Germany, and Spain. That's for this exercise.
+9
+Good luck.
+10
+So you later!
+
+--- Exercise 87: Solution ---
+
+0
+Hey, this is a solution to exercise 87 and you were asked to add the missing items of this list to this
+1
+file.
+2
+And actually I wanted you to create a new file, but if you added the items to the existing file that is
+3
+fine as well.
+4
+So the new file
+5
+I created was this on here.
+6
+So from 201 countries I came up with 204 countries.
+7
+So three more. This is the solution.
+8
+What I did to this list first I added to each item I added this backslash character so that I had
+9
+them ready to insert to the text file.
+10
+So now we have Portugal backslash n, Germany backslash n, and Spain backslash n, and then I open the countries
+11
+missing file, existing file in read mode and I generated the list containing 201 countries as items
+12
+in that list. And what I did then
+13
+is a simple thing.
+14
+I have these two lists, 201 items here and 3 items there and I simply added those two lists.
+15
+So when you add up two lists you end up with a list containing the items of all the lists.
+16
+And I also sorted out that list because at this point if you print out check list
+17
+plus content.
+18
+And if you go to the top of the list you'll see that Portugal, Germany, and Spain are added in the beginning
+19
+of the list.
+20
+But you don't want that.
+21
+So that's why I applied a sorted function there which sorts the items in alphabetical order which is
+22
+what we want.
+23
+So from A to Z.
+24
+And then the last thing I did was created a file where I inserted the new list, the updated list.
+25
+So I simply iterated through that list and we have those brake lines already there.
+26
+So I just wrote each item in there and I ended up with this list. That's the solution.
+27
+I hope it was clear, and see you later.
+
+--- Exercise 88 - Data Filter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 88: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 89 - Database Filter ---
+
+0
+This is the question for exercise 89.
+1
+And here we're going to interact with databases.
+2
+So please download the database file called database.db and this file contains a table with 50 countries
+3
+along with the area for each country in square kilometers and the country population.
+4
+Let me quickly show you how the table looks like.
+5
+I'm using this small program called Browser for SQLite, or SQLite Browser. You don't need
+6
+this program. I just want to show you how the table looks like. So you can open a database and in the
+7
+file I'm giving you that you have in resources is this on here.
+8
+If you're open that you go to browse data.
+9
+This is how the data looks like.
+10
+So we have an ID, country area, and population and you have 50 countries in there.
+11
+Ok. And now what I want you to do,
+12
+I want you to use your iPhone to print out those countries that have an area of greater than 2 million
+13
+square kilometers.
+14
+So the output would be this one in here.
+15
+So just that. These are the countries that have an area of greater than 2 million square kilometers
+16
+and you have to print them out. Thisis it.
+17
+Thanks.
+18
+See you later.
+
+--- Exercise 89: Solution ---
+
+0
+Hi again, this is the solution to exercise 89.
+1
+And you were asked to access rows from a database file.
+2
+So I used sqlite3 for this exercise.
+3
+You need to install it with pip install sqlite3, and then it's quite straightforward.
+4
+As you see few lines of code you need to create a connection object using connect method of sqlite3.
+5
+So you just pass the path to the database.
+6
+This happens to be in the same directory with my 89.py file.
+7
+So I just pass the file name there cur, and then we need to create a cursor object by referring to our connection
+8
+object.
+9
+Then you apply the execute method to the cursor object.
+10
+So you want to execute a query, an sql query to your database.
+11
+So the query is select country. Contry is the name of the column.
+12
+So we want to print out country names and select country from countries. Country is the name of the
+13
+table in the database where area is greater or equal than 2 million square kilometers.
+14
+So we want countries where area is greater than that, and you need to use the fetch all method then to your
+15
+cursor object so that will create an object with tuples containing the data, the names of all the countries.
+16
+And then you need to close the connection to the database.
+17
+So that's about interacting with the database.
+18
+Now it's all Python.
+19
+So you have these rows and you just need to iterate through that and because you know these rows...
+20
+Let me print out rows.
+21
+Python 89.
+22
+Ok, this is the rows object, so it's a list of tuples and each tuple contains a country.
+23
+Therefore that's why I'm doing here for i,
+24
+so i will be each tuple.
+25
+So i,  and I'm printing the first item of i which is Russia for the first tuple, and I then Canada, and so on.
+26
+So I'm able to extract the strings and print them out in here.
+27
+That's the solution for this exercise.
+28
+If you have questions, please ask them in the Q&A area.
+29
+I hope you're enjoying the course and we have still some more exercises to go.
+30
+Thanks and I'll talk to you later.
+
+--- Exercise 90 - Database to CSV Converter ---
+
+0
+Hi! This is the question for exercise 90.
+1
+So imagine you had a web of the question and you have a database where you store the data for your web
+2
+application and then you have users who visit your web site and maybe you have a service where the users
+3
+want to create, to generate a csv file.
+4
+So a csv file is like a text file with data and they want to generate a csv file with some data from your
+5
+database.
+6
+And this exercise around this topic.
+7
+So please for this exercise, please download the database file, database.db or to use it
+8
+if you have it already from the previous exercise. It's the same file.
+9
+Please use Python to access the database table rows that have an area of greater than so an area of
+10
+2 million square kilometers or greater than that, and then please export those rows to a csv file.
+11
+And please export the rows together with area, and the csv file should look like this.
+12
+Let me execute the script.
+13
+This is the csv file.
+14
+So it has a rank column, country, area, and population.
+15
+These columns are in the database, but these are filters to include only the rows with an area of greater
+16
+or equal to 2 million square kilometers.
+17
+So this is quite useful if you build web applications because the user could have a simple interface
+18
+where he could query some data and then on the back end you use Python to generate that csv file.
+19
+So I hope you crack this, and I'll talk to you later.
+
+--- Exercise 90: Solution ---
+
+0
+Hi, this is a solution to the exercise 90.
+1
+And you were asked to produce say Susie fall out of a selection of records from your database file.
+2
+And as you can imagine this is very similar to the previous exercise.
+3
+With the only difference is that here you're not selecting countries only, so not the country column but
+4
+all the columns.
+5
+So we're using an asterisk to denote that we want all the columns from the countries table.
+6
+Yeah that's the difference.
+7
+And we're also importing pandas here because we need pandas to generate the text, the csv file.
+8
+So the key here is to use the from records method.
+9
+So pandas.DataFrame.
+10
+So you're creating a data frame object from records.
+11
+So these should be database records.
+12
+Here we are passing the rows, so you know from the previous exercise that rows they look like this.
+13
+So these are the rows, tuples with values for each column.
+14
+OK.
+15
+And yeah, we construct that frame from that.
+16
+The problem is we don't have any columns for that data frame so we need to create such columns
+17
+manually.
+18
+This is what I'm adding here.
+19
+Df.columns equals to this list of column names.
+20
+And then finally once you have the data frame which I can print out in here,
+21
+the data frame looks like this, nice and clean.
+22
+And you can just go ahead and export that data frame to csv. Give the file name and index equals
+23
+to false.
+24
+Which means that you don't want to throw this column here, the first column to the csv file because
+25
+you have this column so this should be enough rank there. You don't want this column as well.
+26
+This is the csv file. That was the exercise.
+27
+This is quite, a very useful exercise.
+28
+You may encounter later in your career.
+29
+So please take a note of this script and I'll talk to you later.
+30
+Thanks!
+
+--- Exercise 91 - CSV to Database ---
+
+0
+Hi! We have one more exercise with database.
+1
+So this is the question to exercise 91 and for this exercise please download the database file database.db
+2
+again or if you have either I did just use what you have and also please download ten_more_countries
+3
+.txt file which looks like this.
+4
+So we have 10 countries and the area along each country.
+5
+So Id, country name, and area.
+6
+And what I want you to do is I want you to add the rows of this file.
+7
+These 10 rows to the database file so that the database looks like this.
+8
+So we have 50 countries from the existing database but then we have 10 more countries added from the
+9
+text file starting from Spain.
+10
+Turkmenistan.
+11
+And so on up to Japan.
+12
+And you also see that the text file didn't have a population column and therefore these would be NULL
+13
+in here.
+14
+We have nothing to add there.
+15
+So that's the outputs points you need to generate.
+16
+Hope you find this fun and I'll talk to you later.
+
+--- Exercise 91: Solution ---
+
+0
+Hi again, this is the solution to exercise 91 where you were asked to insert these rows of this text file
+1
+to the database.db file.
+2
+This is how I did it.
+3
+And so I used SQLite3 and Pandas. I used Pandas because I wanted to load the text file as
+4
+a data frame in Python.
+5
+And then I use SQLite3 to connect to the database establishing a connection
+6
+creating a cursor object.
+7
+And then I iterate through the data frame.
+8
+Iterrows is a method that lets me access the index so it generates indexes and rows for each row.
+9
+So then you can access the value for a column for that row.
+10
+So I'm accessing the value of the country column for the first row and the value for the area column
+11
+for that first row in the first iteration.
+12
+And so one each value.
+13
+And you don't need to print those values out as I'm doing here.
+14
+So this is not obligatory to do ,but it's good, but it's good to have intermediate results.
+15
+This is the important thing.
+16
+You need to include inside the for loop.
+17
+So you want to execute an SQL query for each iteration.
+18
+So you want to insert into the country's tables a table of values NULL, so this is the auto increment ID.
+19
+You don't need to insert any value there because SQLite3 will take care by itself by increasing the
+20
+ID one by one and then
+21
+these are like placeholders that will be replaced.
+22
+This one will be replaced with the value for country and this one with the value for the area.
+23
+And this will be NULL.
+24
+So there will be no value for this
+25
+column in here, the population.
+26
+And we commit these changes.
+27
+So we're using a commit method here after we end, we finish with the loop so the loop ends there and
+28
+then we use commit to apply the changes and then we close the connection.
+29
+That's how you insert values to a database.
+30
+Yeah I hope this was clear.
+31
+I'll talk to you later.
+32
+Thanks a lot.
+
+--- Exercise 92 - File Counter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 92: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 93 - Recursive File Counter ---
+
+[No transcript available for this lecture]
+
+--- Exercise 93: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 94 - URL Cleaner ---
+
+[No transcript available for this lecture]
+
+--- Exercise 94: Solution ---
+
+0
+Hi this is the solution to exercise 94 and for this exercise I'll ask you to remove the s letters from
+1
+this file.
+2
+So in https and also add a slash in here and this is how I did it.
+3
+So first I opened the text file in read mode and I created a list containing all these lines as items
+4
+and I'm just printing the list here for intermediate results and then I created a new file where I wanted
+5
+to drop, to throw, to put the new cleaned lines in there.
+6
+So in write mode and than while the file is open I iterate through this list. Let me execute the script
+7
+to see what's going on.
+8
+So this lines list look looks like this.
+9
+And now the key here is to start from the small bits.
+10
+So first you want to remove the s letters from those lines.
+11
+And so I created this variable inside the loop so that will be equal to line.replace s with
+12
+nothing.
+13
+So I'm replacing the S letters with an empty string which means I'm removing the S letters.
+14
+This one here,
+15
+this one specifies that I want to remove, to replace the first occurrence of S letters because you know if
+16
+you don't put S there, if you don't put 1 there Python will remove for this line.
+17
+For example it will remove this S but this one also.
+18
+So you'll end up with www.tackoverflow.com. You don't want that.
+19
+So that's why you need one there.
+20
+So at this point we have, in the first iteration we have a http google.com and then what we do to google
+21
+dot com we add a slash.
+22
+So how I'm doing that is you know I split the line. Let me print this one here line_remove_s,
+23
+print line_remove_s_add_slash execute.
+24
+So this is what's going on here.
+25
+So this is line_remove_s and from this I'm accessing the first six letters which is one, two, three, four,
+26
+five, and six.
+27
+After that I add a new slash which is this one in here.
+28
+Then I concatenate that with this part of the string so starting from position 6 up to the end.
+29
+So I'm concatenating these three strings in here and yeah that's the idea. I do that for all of the iterations,
+30
+for all the lines of the text file.
+31
+And of course I write this line remove_s_add_slash variable which is a concatenation of these three
+32
+strings.
+33
+Added to the file with write method. That is the idea.
+34
+So quite tricky and I hope you understand it now. Thanks, I'll talk to you later.
+
+--- Exercise 95 - Comma Separated Input ---
+
+0
+Hi, this is a question for exercise 95 and for this exercise I'd like to ask you to create a program
+1
+that asks the user to enter some values, enter some values separated by commas.
+2
+Let's say the user enters Mars, Jupiter, Earth, and Earth.
+3
+And once they use presses enter the program will store those values in a text file.
+4
+So if there is no text file a new text file will be generated.
+5
+So it was, this was just generated.
+6
+And so you see these three values in there.
+7
+Also you want to have the program to add new values to that text file.
+8
+When someone executes the program again.
+9
+So let's say I'm adding Pluto in there. Enter and you see Pluto is added there.
+10
+Yeah that's the functionality I'd like to have for this program.
+11
+I hope you solve it and I'll talk to you later.
+
+--- Exercise 95: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 96 - File Writer ---
+
+0
+Hey this is a question for exercise 96 and for this exercise I'd like to create a program that asks
+1
+the users to submit text repeatedly which means like this.
+2
+So the user enters hey there you and so on and so forth. And the program closes when the user enters
+3
+CLOSE with capital letters.
+4
+At that point a text file has been created.
+5
+This one here, data.txt where you have all the user submitted values one in each line.
+6
+Hey there you.
+7
+And of course close it's not there because close has to be interpreted as a command to close the file
+8
+and to close the program.
+9
+And of course if someone executes the script the program again Hi again CLOSE, hi again is inserted in
+10
+the text file, in the existing text file.
+11
+That's the functionality you need to have for this program.
+
+--- Exercise 96: Solution ---
+
+0
+All right, this is a solution to exercise 96. What I'm doing is I'm opening a file in apend mode which means
+1
+if the file doesn't exist, afile with this name will be created.
+2
+Otherwise the content will be appended to the existing file. That ensures that when you execute the program
+3
+for a second time the lines of the user submits they will be added, appended to the existing text file.
+4
+So we need a loop then to ask the user repeatedly for input. Here we ask for input and immediately we
+5
+need to check if that input is equal to a closed string.
+6
+If it is equal we close the file which means we are saving the changes to the file.
+7
+And so you can view the file with other programs, the content of the file. And you also break
+8
+the loop
+9
+if that input is equal to close and that stops the program.
+10
+Otherwise if that is not equal to close, so it can be equal to anything in that case we write that
+11
+content in the file.
+12
+That's the program, quite straight forward, and I'll talk to you later.
+
+--- Exercise 97 - Advanced File Writer ---
+
+0
+All right here you are with another challenging exercise.
+1
+This is a question for exercise 97.
+2
+I'd like you to create a program that asked the user to submit text repeatedly just as you did in the
+3
+previous exercise.
+4
+But in the previous exercise we were saving the changes and closing the program and the file with one
+5
+single command.
+6
+So with the Close command. In this exercise I'd like you to change your program so that the program
+7
+saves the changes when you do submits save, but the program doesn't close, and also the program saves
+8
+changes and closes as it did in the previous exercise when the user submits close.
+9
+This is a behavioral program.
+10
+Write a value, as you can see a file was created.
+11
+Use the data, save close dot txt. You can give it any name you want.
+12
+I'm going to split it on the right here.
+13
+So a new file has been created.
+14
+Now if you enter some values. Hey.
+15
+The value is not written there immediately because the user has not entered save. Another hi.
+16
+And then if you press, if you enter save the changes will be saved in there, but the program is still running.
+17
+So if you want you can see that values there.
+18
+And save. Hi again is there. Hi once more.
+19
+Now if you press close, the program saves the last submitted line and closes.
+20
+So as you can see if this gives the user more control to the program.
+21
+I hope this is clear and I hope you solve this exercise, and yeah, I'll talk to you later.
+
+--- Exercise 97: Solution ---
+
+0
+Great, this is the solution to exercise 97.
+1
+So I'm opening the file in append mode.
+2
+Then of course I need a while loop to have the program running all the time.
+3
+I ask the user for input and if that line is equal to save, I close the file, and then I open the file again.
+4
+So I'm closing the file because if you don't close the file the changes will not be written there, so the file
+5
+is still open in Python and you can not see the file content with other programs because you haven't
+6
+saved those changes yet, so close save changes and closes the file.
+7
+However the program is still learning so what you want to do is you want to open the file again because
+8
+that's what the user wanted, so they wanted to save the changes, but not close the program.
+9
+However your solution may be different, but if you're getting the same output as mine then you
+10
+should be good to go.
+11
+And then we're using elif here because we have multiple conditions.
+12
+If line is equal to close, then we close the file and we break the while loop,
+13
+so we close the program.
+14
+Otherwise if the string is not saved and is not closed,
+15
+then we write that string to the file.
+16
+That's more or less about the solution for this exercise.
+17
+This is clear and I'll talk to you later.
+
+--- Exercise 98 - Desktop GUI ---
+
+0
+Hi again! This is very hard to solve. Anyway,
+1
+this is the question for exercise 98.
+2
+You have to create a program that asks the user to submit text through a graphical user interface.
+3
+Let me show you how this interface looks like, and all the details of how the program works.
+4
+This is a graphical user interface and it has three buttons an Add line, Safe changes, and a Save and close
+5
+button.
+6
+And it also has an entry text box where the user will enter the text.
+7
+Let's say first line in here. If the user wants to add the line to the text file it presses add line
+8
+and the text box empties.
+9
+So it's clears off and the user can enter more text lines in there.
+10
+However at this point to you as a programmer you haven't created, you haven't added the lines to a text
+11
+file yet.
+12
+If you want to do that you want to press save changes and then you see you have to create this, not that.
+13
+This
+14
+user_gui file.
+15
+So this is the first line.
+16
+Now if the user wants
+17
+to enter more lines, second line, I have a typo there.
+18
+Third line maybe, add line, save changes, and the lines are added instantly
+19
+in the text file when the user presses save changes.
+20
+And lastly if the user wants to close the program and just say save and close, and the program stops,
+21
+and the text file is there, and you can of course execute the program again.
+22
+Fourth line, add line, save and close.
+23
+Fourth line is added there. So yeah, it's a bit complex but try to build it as much as you can.
+24
+Hope you enjoy this and I'll talk to you later.
+
+--- Exercise 98: Solution ---
+
+[No transcript available for this lecture]
+
+--- Exercise 99 - Data Writer Web App ---
+
+0
+Hello.
+1
+This is the question for exercise 99. For this exercise
+2
+please create a program that asks the user to submit text through a web app.
+3
+Anyway I did go a bit too far here.
+4
+So this is quite difficult to do if you are not familiar with building web applications,
+5
+but anyway you can see the solution in the next video where I explain to you the code and maybe you'll
+6
+understand how the web applications are built.
+7
+And we're building this with a Fask web framework.
+8
+So a Python library. Let me demonstrate you the web application. I simply run the script.
+9
+That means the application is running and I can access it in this address.
+10
+So port five thousand you can write down that address or you can do localhost5000. It's the
+11
+same thing.
+12
+And this is the web application.
+13
+What this will do is let me submit some text there. Line 1 for instance, submit. That creates a text
+14
+file, a text file yes, locally.
+15
+So in this folder where the Python script is.
+16
+And then the next time when you add more lines there, line 2, line 2 is added in that existing text file
+17
+and so on.
+18
+That's the web application.
+19
+So I hope you solve this, but if you cannot then just the go and learn Flask in the next video.
+20
+Talk to you there.
+
+--- Exercise 99: Solution ---
+
+0
+Hey, this is the solution to exercise 99 where we created this web application that was writing text
+1
+in a text file.
+2
+So we are using Flask. You need to install Flask
+3
+if you haven't pip install Flask, and then from the Flask library you import the Flask class then render template
+4
+string and request. And then you create an app instance, an app, a flask object which is a central object in
+5
+a flask application and then you have to create some HTML because you know this is HTML,
+6
+the thing that renders these web pages, HTML.
+7
+It's not Python, you cannot build this with Python.
+8
+So you need HTML, and then you start creating the URLs.
+9
+So in the home URL
+10
+You attach that URL with these functions.
+11
+So when the user visits the home page which is localhost colon 5000, that's the home page without slash
+12
+sent, when the user visits that you want to render the HTML strings.
+13
+So this here which is this one in here, ok. And then you have another URL which is this one here.
+14
+So it's a localhost colon 5000 slash sent.
+15
+Here you want to specify a methods GET and POST. This by default is a get method, this first URL.
+16
+This will have a post method which means this page can also get requests from the user.
+17
+And a post method is when the user submits something to the server, to the web server so the
+18
+user is submitting data.
+19
+Therefore you need to able this app, this URL to get post requests.
+20
+And this is the function we attached to this URL.
+21
+So when of the user visits this you URL, this function will you be called.
+22
+And what I'm doing here, is let's ignore this for now.
+23
+I'm saying that if I get a post request, so I import a request from here, from here, if I get a post request,
+24
+then line equals to request.form and line which corresponds with this name in here.
+25
+So basically I'm getting from the form I am getting the text that the user is imputing in the input text
+26
+box.
+27
+So basically line here will be equal to line three for example.
+28
+And then I open a text file in append mode so that I can append lines in the text file and then I write
+29
+down the line in that text file.
+30
+So I created a line equals to none here so that if the user doesn't send anything I don't get an error here
+31
+saying that line is not defined, so I created a line equals to none and then...
+32
+So if we get the post request we render the HTML string again.
+33
+So we send the string, the text, the users text to the web server to the text file and then we render
+34
+the page again so that the user can enter more lines. And  then this two are standard lines in a Flask application
+35
+which is basically saying that if you are not importing this script,
+36
+so if you're executing 99.py and you're not importing it from another file then run
+37
+the app.
+38
+So app.run. And you also have this debug equal to true which means that if your application is not
+39
+running,
+40
+you'll see some errors in your web page.
+41
+So in localhost colon 5000. Yeah, that's the application. I know it's a bit too much if you haven't heard of Flask
+42
+before so please try to go through a tutorial maybe go through my Python Mega Course that covers quite
+43
+a lot of Flask and we're building quite a few applications there.
+44
+And yeah, this is about this exercise.
+45
+Hope you enjoyed it and I'll talk to you later.
+
+--- Exercise 100 - Username and Password Checker Web App ---
+
+0
+Hi, and let me hand you the last exercise for the course. So this is a question for exercise 100.
+1
+For this exercise please create a web app with Flask that lets users submit a username and password
+2
+through the web page of the of the web app and so
+3
+This app checks each user name exist and if the password satisfies three conditions as in exercise 81,
+4
+so you're going to have to use this code, exactly this code to implement it to a web app.
+5
+As you remember this solution was checking for a user name if it existed like Pluto exists.
+6
+But this doesn't exist.
+7
+And this password would be fine.
+8
+So users.txt has some existing usernames
+9
+and so,
+10
+here is now how this web app should look like.
+11
+So it's running on the browser, go to the browser.
+12
+Localhost 5000.
+13
+This is the web app.
+14
+Again the web apps should check the users.txt file for usernames.
+15
+Let's say I'm entering Pluto again and password 8U which is a good password, but this is saying username
+16
+exists so you have to enter username again, a username and a new password again.
+17
+So if I enter a username that doesn't exist in the file let's say me, and let me put a password.
+18
+But this is not valid.
+19
+If I say submit this will tell me to check my password.
+20
+So for the last time if I enter a valid username and a valid passport with numbers and big letters, and I
+21
+press submit, this will say success and then of course you you may want to render these text boxes again so that
+22
+the users if they want to enter, to submit data again
+23
+they can do it.
+24
+Yeah this is the web application how it looks like.
+25
+I hope you solve this.
+26
+Thanks a lot for taking this course and I hope you solved as many exercise as possible.
+27
+And yeah, thanks a lot!
+
+--- Exercise 100: Solution ---
+
+[No transcript available for this lecture]
+
+--- Your Python Skill Level ---
+
+[No transcript available for this lecture]
+
+--- Bonus Lecture ---
+
+[No transcript available for this lecture]

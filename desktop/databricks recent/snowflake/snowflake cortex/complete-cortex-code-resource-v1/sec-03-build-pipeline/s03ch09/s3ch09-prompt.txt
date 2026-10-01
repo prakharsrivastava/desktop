@@ -1,0 +1,5 @@
+Since we have header level data and item level data, can you create 2 different fact tables, one as header fact and other as item fact table and help me if this is right approach or not?
+
+Now suggest the aggregated fact table that can show daily and weekly or monthly sales for quick summary and aggregated set?
+
+since these are refreshed on daily, weekly and monthly basis, can you change the frequency accordingly than having downstream as lag.

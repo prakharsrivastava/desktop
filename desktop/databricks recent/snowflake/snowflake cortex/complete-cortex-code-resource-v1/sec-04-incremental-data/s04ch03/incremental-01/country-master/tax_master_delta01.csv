@@ -1,0 +1,4 @@
+tax_code,tax_type,tax_rate,tax_inclusive_flag,effective_start_date,effective_end_date,is_active,created_at,source_system
+DE_VAT_STD,VAT,0.19,Y,2020-01-01,9999-12-31,Y,2026-02-05 14:38:41.301594,TAX_ENGINE
+CA_GST_STD,GST,0.05,Y,2020-01-01,9999-12-31,Y,2026-02-05 14:38:41.301597,TAX_ENGINE
+AU_GST_STD,GST,0.1,Y,2020-01-01,9999-12-31,Y,2026-02-05 14:38:41.301598,TAX_ENGINE

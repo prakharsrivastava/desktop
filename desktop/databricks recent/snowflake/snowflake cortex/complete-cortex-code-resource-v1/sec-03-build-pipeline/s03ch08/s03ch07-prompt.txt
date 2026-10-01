@@ -1,0 +1,2 @@
+create a dim table like country dim table and this has only single upstream table in silver layer.
+Follow all the instruction like above dim table.

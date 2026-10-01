@@ -1,0 +1,52 @@
+-- Drop table SCDType1.Customer_Dim; 
+-- Drop table SCDType1.Customer_Stg; 
+-- Create Schema create schema SCDType1; 
+-- STEP 1: Create Target Dimension Table (Customer_Dim) 
+CREATE TABLE SCDType1.Customer_Dim 
+( CustomerID INT PRIMARY KEY, -- Business Key 
+  CustomerName VARCHAR(100), -- Customer Name 
+  Gender CHAR(1), -- Gender: M/F 
+  City VARCHAR(100) -- City of the customer 
+); 
+/* Insert Initial Records into Target Dimension */ 
+INSERT INTO SCDType1.Customer_Dim 
+  (CustomerID, CustomerName, Gender, City) 
+VALUES (1, 'Ravi Kumar', 'M', 'Hyderabad'), 
+       (2, 'Anjali Sharma', 'F', 'Mumbai'), 
+       (3, 'Suresh Reddy', 'M', 'Chennai'); 
+
+-- STEP 2: Create Staging Table (Customer_Stg) 
+CREATE TABLE SCDType1.Customer_Stg 
+( CustomerID INT, -- Business Key 
+  CustomerName VARCHAR(100), -- Updated Customer Name 
+  Gender CHAR(1), -- Updated Gender 
+  City VARCHAR(100) -- Updated City 
+); 
+
+/* Insert Incoming Records into Staging Table */ 
+INSERT INTO SCDType1.Customer_Stg 
+  (CustomerID, CustomerName, Gender, City) 
+VALUES (1, 'Ravi Kumar', 'M', 'Bangalore'), -- City changed 
+       (2, 'Anjali Sharma', 'F', 'Mumbai'), -- No change 
+       (3, 'Suresh Reddy', 'M', 'Chennai'), -- No change 
+       (4, 'Priya Singh', 'F', 'Delhi');    -- New record 
+
+-- STEP 3: Apply SCD Type 1 using MERGE 
+-- - Updates existing records with new values 
+-- - Inserts new records if not present 
+
+MERGE SCDType1.Customer_Dim AS Target 
+USING SCDType1.Customer_Stg AS Source 
+ON Target.CustomerID = Source.CustomerID 
+WHEN MATCHED THEN -- When Match found → Update existing record (overwrite old data) 
+  UPDATE SET 
+            Target.CustomerName = Source.CustomerName, 
+            Target.Gender = Source.Gender, 
+            Target.City = Source.City 
+WHEN NOT MATCHED BY TARGET THEN -- When No Match → Insert as New record 
+  INSERT (CustomerID, CustomerName, Gender, City) 
+  VALUES (Source.CustomerID, Source.CustomerName, Source.Gender, Source.City); 
+
+-- STEP 4: Final Output Check 
+SELECT * FROM SCDType1.Customer_Dim; 
+SELECT * FROM SCDType1.Customer_Stg;

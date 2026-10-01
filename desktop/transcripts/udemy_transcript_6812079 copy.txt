@@ -1,0 +1,844 @@
+All Interview Questions — Correct Answers
+
+Q1. Walk me through a core ML solution you worked on
+Correct Answer (how you should have said it):
+"In my banking project, I built a risk assessment model to determine document authenticity. Here's what I did:
+1. Data Sources: Front-end and back-end transaction data from the bank
+2. Feature Engineering: Created features like transaction frequency, amount deviation, document age
+3. Models Used: Random Forest as baseline, then XGBoost for better accuracy
+4. Hyperparameter Tuning: Used GridSearchCV for max_depth, n_estimators, learning_rate
+5. Evaluation Metrics: Precision, Recall, F1, AUC-ROC — because data was imbalanced
+6. Deployment: Exposed as REST API, monitored for data drift"
+
+Q2. How many LLM providers have you worked with?
+Correct Answer (how you should have said it):
+"I have worked with:
+* AWS Bedrock — tried Nova Pro, faced latency and cost issues
+* Databricks — fine-tuned an open source LLM, but quality wasn't sufficient
+* Anthropic Claude — via API, good reasoning but expensive
+* OpenAI GPT-4 — finally settled on this for cost-performance balance
+Key lesson: model selection depends on latency, cost, context window, and output quality for your specific use case."
+
+Q3. What kind of RAG pipeline have you worked on?
+Correct Answer (how you should have said it):
+"I built an internal knowledge base chatbot for an education company. The pipeline was:
+
+PDF/Docs → Text Extraction → Chunking (512 tokens, 50 overlap)
+→ Embedding Model (BGE) → Pinecone Vector DB
+
+User Query → Query Embedding → Similarity Search (Top K)
+→ Retrieved Chunks + Query → LLM Prompt → Answer
+
+Evaluation: Ragas framework — faithfulness, answer relevancy,
+context precision, context recall
+Challenges we faced:
+* Hallucination when retrieved chunks were irrelevant
+* Fixed by adding a relevance threshold — if similarity score below 0.75, say 'I don't know'
+* Also added re-ranking using cross-encoder model"
+
+Q4. How do you pass a natural language query to keyword search?
+Correct Answer:
+For keyword search you cannot pass the raw query — you need to extract keywords first.
+
+python
+# Two approaches:
+
+# Approach 1 — Classical NLP
+import nltk
+from nltk.corpus import stopwords
+
+query = "I need a Python developer with 5 years of experience"
+tokens = nltk.word_tokenize(query.lower())
+stop_words = set(stopwords.words('english'))
+keywords = [t for t in tokens if t not in stop_words]
+# Result: ['python', 'developer', '5', 'years', 'experience']
+
+# Pass to BM25
+from rank_bm25 import BM25Okapi
+scores = bm25.get_scores(keywords)
+
+
+# Approach 2 — LLM extraction (modern approach)
+prompt = """
+Extract keywords and filters from this query.
+Query: "I need a Python developer with 5 years of experience"
+Return JSON only:
+{
+  "keywords": ["python", "developer"],
+  "filters": {"experience_years": 5, "level": "mid-senior"}
+}
+"""
+Key concept:
+* Semantic search → uses embeddings
+* Keyword search → uses tokens/terms extracted from query
+* Both run in parallel and results are merged
+
+Q5. What dictionary size does TF-IDF create?
+Correct Answer:
+TF-IDF vocabulary size = number of unique tokens across entire corpus
+
+python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+corpus = [
+    "python developer flask experience",
+    "java engineer spring boot",
+    "python data scientist machine learning"
+]
+
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(corpus)
+
+print(X.shape)
+# (3, 11) → 3 documents, 11 unique tokens
+
+# For 1 million resumes:
+# Unique tokens ≈ 500,000 to 2,000,000
+# Matrix shape = (1,000,000 x 2,000,000) — extremely sparse
+# 99%+ values are zero
+Property	TF-IDF	Dense Embedding
+Size	= Vocab size (100k to 2M)	Fixed (768, 1024, 1536)
+Values	Mostly 0 — sparse	All non-zero — dense
+Captures semantics	No	Yes
+Exact keyword match	Yes	No
+Q6. What is an embedding?
+Correct Answer:
+An embedding is a fixed-size dense numerical vector that captures the semantic meaning of text in a high-dimensional space. Similar meanings = vectors point in similar directions.
+
+python
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('BAAI/bge-large-en')
+
+e1 = model.encode("I love dogs")
+e2 = model.encode("I adore puppies")
+e3 = model.encode("The stock market crashed")
+
+# e1 and e2 will have HIGH cosine similarity (~0.92)
+# e1 and e3 will have LOW cosine similarity (~0.10)
+
+print(e1.shape)  # (1024,) — 1024 dimensional vector
+Common embedding model dimensions:
+Model	Dimensions
+OpenAI text-embedding-ada-002	1536
+BGE-large	1024
+BGE-small	384
+Amazon Titan	1536
+Cohere embed-v3	1024
+Q7. Types of embeddings — Dense vs Sparse
+Correct Answer:
+Dense Embeddings
+
+python
+# Neural model generates fixed-size vectors
+# ALL dimensions have values
+# BGE, OpenAI, Cohere, Amazon Titan = ALL DENSE
+
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer('BAAI/bge-large-en')
+vector = model.encode("battery with 500 cycles")
+# Shape: (1024,) — every value is non-zero
+# [0.23, -0.87, 0.45, 0.12, ...] — 1024 values
+Sparse Embeddings
+
+python
+# Most values = 0
+# Only dimensions for words present in text are activated
+
+from rank_bm25 import BM25Okapi
+
+# BM25 is a sparse retrieval method
+# "battery cycles 500" activates only 3 dimensions
+# out of vocabulary of 500,000
+# [0, 0, 0, 2.3, 0, 0, 1.7, 0, 0, 3.1, 0, 0 ...]
+#              ^battery      ^cycles    ^500
+Modern Learned Sparse — SPLADE
+
+python
+# SPLADE learns which vocabulary terms to activate
+# Still sparse but much smarter than BM25
+# Can activate "automobile" when query says "car"
+When to use which:
+Use Case	Method
+Find semantically similar products	Dense embedding
+Find exact keyword match	Sparse / BM25
+Production RAG system	Both — Hybrid search
+Q8. Why cosine similarity over distance metrics?
+Correct Answer:
+
+python
+import numpy as np
+
+# Two documents about Python
+doc1 = "Python is great for data science"          # short doc
+doc2 = "Python is great for data science and machine learning \
+        and AI and deep learning and NLP"           # long doc
+
+# Their vectors will point in SAME direction
+# but doc2 vector will have LARGER magnitude
+
+# Euclidean distance would say they are FAR APART
+# because doc2 has larger magnitude
+
+# Cosine similarity ignores magnitude — only measures ANGLE
+# So doc1 and doc2 are CORRECTLY identified as similar
+
+def cosine_similarity(v1, v2):
+    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+
+# Result is between -1 and 1
+# 1.0  = identical direction = same meaning
+# 0.0  = perpendicular = no relation
+# -1.0 = opposite direction = opposite meaning
+Why not Euclidean distance?
+* Euclidean measures absolute distance in space
+* A long document and a short document about the same topic would be far apart in Euclidean space because the long doc has larger magnitude
+* Cosine measures angle only — magnitude doesn't matter
+* Perfect for text because length of document should not affect similarity
+
+Q9. System Design — Product Search Chatbot (1M products)
+Correct Answer:
+Complete Architecture
+
+DATA INGESTION LAYER
+=====================
+Snowflake (source of truth)
+    │
+    ▼ Monthly batch job (AWS Glue or Spark on EMR)
+    │
+    ├──► PostgreSQL / Aurora RDS
+    │    (structured filtering: price, cycles, certifications)
+    │
+    └──► Vector DB (Pinecone / OpenSearch / Weaviate)
+         (semantic search on product descriptions)
+
+
+EMBEDDING GENERATION
+=====================
+For each product, create a natural language description:
+
+product_text = f"""
+Product: {name}
+Category: {category}
+Description: {description}
+Key Properties: Capacity={capacity}, Cycles={cycles}
+Certifications: {certifications}
+"""
+
+embedding = embed_model.encode(product_text)
+vector_db.upsert(id=product_id, vector=embedding,
+                 metadata={price, category, certifications})
+
+
+QUERY PIPELINE
+==============
+User: "Show me batteries with minimum 500 cycles under $200"
+    │
+    ▼
+LLM extracts intent:
+{
+  "keywords": ["battery"],
+  "filters": {"cycles_min": 500, "price_max": 200},
+  "semantic_query": "rechargeable battery high cycle count"
+}
+    │
+    ├──► Semantic Search (Vector DB)
+    │    query_vector = embed("rechargeable battery high cycle count")
+    │    results = vector_db.search(query_vector, top_k=20,
+    │                               filter={"cycles": ≥500, "price": ≤200})
+    │
+    ├──► Keyword Search (BM25 / OpenSearch)
+    │    keywords = ["battery", "cycles", "rechargeable"]
+    │    results = opensearch.search(keywords, top_k=20)
+    │
+    └──► Hybrid Merge (Reciprocal Rank Fusion)
+         final_top_5 = rrf(semantic_results, keyword_results)
+              │
+              ▼
+         LLM formats final response with product details
+              │
+              ▼
+         Return Top 5 to UI
+
+
+MONTHLY DATA UPDATE
+====================
+New products from Snowflake
+    → Generate embeddings for new products only
+    → Upsert into Vector DB (don't rebuild entire index)
+    → Update RDS with new rows
+
+
+CLOUD ARCHITECTURE (AWS)
+=========================
+- AWS Glue          → ETL from Snowflake
+- Amazon EMR        → Spark processing
+- Aurora RDS        → Structured product data
+- OpenSearch        → Vector DB + BM25 (both in one)
+- AWS Bedrock       → LLM (Claude or Titan)
+- Lambda + API GW   → Backend API
+- CloudFront + S3   → Frontend hosting
+- Step Functions    → Orchestrate monthly pipeline
+
+Q10. How do you chunk product JSON data?
+Correct Answer:
+For structured product data, traditional chunking does NOT apply. Instead you convert each product into a text description and create one embedding per product.
+
+python
+import json
+
+product = {
+    "id": "PROD_001",
+    "name": "LithiumPro Battery X500",
+    "category": "Energy Storage",
+    "quantitative_properties": {
+        "capacity_wh": 500,
+        "cycle_count": 600,
+        "weight_kg": 2.3,
+        "price_usd": 180
+    },
+    "qualitative_properties": {
+        "chemistry": "Lithium Iron Phosphate",
+        "application": "Solar, EV, Industrial",
+        "certifications": ["ISO9001", "UL Listed", "CE Mark"],
+        "warranty": "5 years"
+    }
+}
+
+# Convert to natural language — this is what gets embedded
+def product_to_text(p):
+    return f"""
+    Product Name: {p['name']}
+    Category: {p['category']}
+    Capacity: {p['quantitative_properties']['capacity_wh']} Wh
+    Cycle Count: {p['quantitative_properties']['cycle_count']}
+    Weight: {p['quantitative_properties']['weight_kg']} kg
+    Price: ${p['quantitative_properties']['price_usd']}
+    Chemistry: {p['qualitative_properties']['chemistry']}
+    Applications: {p['qualitative_properties']['application']}
+    Certifications: {', '.join(p['qualitative_properties']['certifications'])}
+    Warranty: {p['qualitative_properties']['warranty']}
+    """.strip()
+
+text = product_to_text(product)
+embedding = embed_model.encode(text)
+
+# Store in vector DB with metadata for hard filtering
+vector_db.upsert(
+    id=product["id"],
+    vector=embedding,
+    metadata={
+        "price": 180,
+        "cycles": 600,
+        "category": "Energy Storage",
+        "certifications": ["ISO9001", "UL Listed"]
+    }
+)
+
+# Hard filters applied BEFORE similarity search
+# So "minimum 500 cycles" is a metadata filter, not semantic search
+results = vector_db.search(
+    vector=query_embedding,
+    filter={"cycles": {"$gte": 500}, "price": {"$lte": 200}},
+    top_k=5
+)
+
+Q11. How to handle missing and multiple categories?
+Correct Answer:
+
+python
+# Three scenarios:
+
+# SCENARIO 1: Product has NO category
+# → Use LLM to auto-classify at ingestion time
+
+def assign_category(product):
+    prompt = f"""
+    Given this product data, assign the most relevant categories.
+    Product: {json.dumps(product)}
+    Choose from: [Electronics, Energy Storage, Audio, Computing,
+                  Networking, Accessories, Industrial]
+    Return JSON: {{"categories": ["cat1", "cat2"], "confidence": 0.95}}
+    """
+    response = llm.complete(prompt)
+    return response["categories"]
+
+
+# SCENARIO 2: Product has MULTIPLE categories
+# → Store all categories as metadata array
+
+vector_db.upsert(
+    id="PROD_001",
+    vector=embedding,
+    metadata={
+        "categories": ["Electronics", "Audio", "Accessories"]
+        # Filter works on array — match if ANY category matches
+    }
+)
+
+# Query with category filter
+results = vector_db.search(
+    vector=query_embedding,
+    filter={"categories": {"$in": ["Audio", "Electronics"]}},
+    top_k=5
+)
+
+
+# SCENARIO 3: At query time — user doesn't specify category
+# → Run pure semantic search, let embeddings handle it
+# → No category filter applied
+# → Embedding of product description naturally groups similar items
+
+Q12. What does temperature do inside the model?
+Correct Answer:
+Temperature scales the logits before softmax in the output layer.
+
+python
+import numpy as np
+
+# After the transformer processes your prompt,
+# it produces RAW SCORES (logits) for every token in vocabulary
+
+logits = np.array([2.5, 1.2, 0.8, 3.1, 0.3])
+# These represent scores for tokens: ["rain", "sun", "cloud", "storm", "wind"]
+
+# SOFTMAX converts logits to probabilities
+def softmax(x):
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
+
+# Temperature = 0.0 (greedy — always pick highest)
+# Temperature = 1.0 (standard softmax — balanced)
+# Temperature = 2.0 (flat distribution — more random)
+
+def softmax_with_temperature(logits, temperature):
+    if temperature == 0:
+        # Always pick the highest scoring token
+        probs = np.zeros(len(logits))
+        probs[np.argmax(logits)] = 1.0
+        return probs
+    scaled = logits / temperature   # ← THIS is what temperature does
+    return softmax(scaled)
+
+print(softmax_with_temperature(logits, 0.1))
+# [0.01, 0.00, 0.00, 0.99, 0.00] → almost always picks "storm"
+
+print(softmax_with_temperature(logits, 1.0))
+# [0.18, 0.10, 0.07, 0.35, 0.05] → mostly "storm" but others possible
+
+print(softmax_with_temperature(logits, 2.0))
+# [0.22, 0.18, 0.17, 0.27, 0.16] → very flat, anything can be picked
+Your scenario — Poem on rainy season:
+
+T = 0.0 → Same exact poem every single time — deterministic
+T = 1.0 → Different poem each run — creative, varied word choices
+
+Q13. What is Top-P (Nucleus Sampling)?
+Correct Answer:
+Top-P selects from the smallest set of tokens whose cumulative probability ≥ P
+
+python
+import numpy as np
+
+# After applying temperature, we have probabilities:
+probs = {
+    "storm":   0.35,
+    "rain":    0.25,
+    "thunder": 0.20,
+    "cloud":   0.12,
+    "wind":    0.05,
+    "sun":     0.03
+}
+
+# Sort descending
+# storm  → cumulative: 0.35
+# rain   → cumulative: 0.60
+# thunder→ cumulative: 0.80
+# cloud  → cumulative: 0.92  ← Top-P = 0.9 cuts off HERE
+# wind   → cumulative: 0.97
+# sun    → cumulative: 1.00
+
+# With Top-P = 0.9:
+# Only sample from: ["storm", "rain", "thunder", "cloud"]
+# "wind" and "sun" are excluded
+# This prevents sampling very unlikely/weird tokens
+
+# With Top-P = 0.5:
+# Only sample from: ["storm", "rain"]
+# Very focused output
+
+# Temperature vs Top-P:
+# Temperature → reshapes the ENTIRE distribution (flatter or sharper)
+# Top-P       → CUTS OFF the tail of the distribution
+
+# In practice both are used together:
+# Temperature = 0.7, Top-P = 0.9 → common production setting
+
+Q14. Why is output token pricing 4-5x higher than input?
+Correct Answer:
+
+INPUT PROCESSING (Prefill phase):
+==================================
+All input tokens are processed IN PARALLEL
+"I need a Python developer with 5 years"
+ ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
+[processed simultaneously in one forward pass]
+→ Very efficient use of GPU
+→ Cheap per token
+
+
+OUTPUT GENERATION (Decode phase):
+===================================
+Tokens are generated ONE AT A TIME — autoregressively
+
+Step 1: Model reads all input → generates token 1 "Here"
+Step 2: Model reads input + "Here" → generates token 2 "are"
+Step 3: Model reads input + "Here are" → generates token 3 "some"
+... and so on for every single output token
+
+Each step = full forward pass through entire model
+→ Cannot be parallelized
+→ GPU memory must maintain KV-cache for all previous tokens
+→ 4-5x more compute per token than input
+Simple analogy:
+* Input = reading an entire book at once (fast, parallel)
+* Output = writing a book word by word, re-reading everything before writing each word (slow, sequential)
+
+Q15. Why does Random Forest prevent overfitting?
+Correct Answer:
+Random Forest prevents overfitting through 3 mechanisms:
+
+python
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(
+    n_estimators=100,    # 100 trees
+    max_features='sqrt', # ← KEY: each split uses random subset of features
+    bootstrap=True       # ← KEY: each tree trains on random sample of data
+)
+
+# MECHANISM 1: BAGGING (Bootstrap Aggregating)
+# Each tree trains on a DIFFERENT random sample of training data
+# (with replacement — same row can appear multiple times)
+# Tree 1 trains on rows: [1,1,3,5,7,7,9...]
+# Tree 2 trains on rows: [2,3,3,4,6,8,8...]
+# Each tree overfits its OWN sample — but differently
+# When averaged, the overfitting CANCELS OUT
+
+# MECHANISM 2: FEATURE RANDOMNESS
+# At each split point, only sqrt(n_features) are considered
+# If one feature is very dominant, not every tree will use it
+# Forces trees to learn from DIFFERENT features
+# Creates DECORRELATED trees — key to variance reduction
+
+# MECHANISM 3: AVERAGING / VOTING
+# Regression: final = average of all 100 tree predictions
+# Classification: final = majority vote of all 100 trees
+# Averaging reduces VARIANCE without increasing BIAS
+# This is the bias-variance tradeoff working in your favor
+
+# A single decision tree = low bias, HIGH variance (overfits)
+# Random Forest = low bias, LOW variance (generalizes well)
+
+Q16. Shallow copy vs Deep copy
+Correct Answer:
+
+python
+import copy
+
+# SHALLOW COPY
+# Creates new outer object
+# BUT inner nested objects are still REFERENCES to originals
+
+original = {"name": "Alice", "scores": [90, 85, 92]}
+shallow = copy.copy(original)
+
+shallow["name"] = "Bob"          # Does NOT affect original
+shallow["scores"].append(100)    # DOES affect original — shared reference!
+
+print(original)
+# {"name": "Alice", "scores": [90, 85, 92, 100]}  ← scores changed!
+
+
+# DEEP COPY
+# Creates new outer object AND recursively copies all nested objects
+# Completely independent — no shared references
+
+original = {"name": "Alice", "scores": [90, 85, 92]}
+deep = copy.deepcopy(original)
+
+deep["name"] = "Bob"
+deep["scores"].append(100)
+
+print(original)
+# {"name": "Alice", "scores": [90, 85, 92]}  ← unchanged!
+
+
+# PERFORMANCE
+# Shallow copy → O(1) for flat objects — just copies references
+# Deep copy    → O(n) — must traverse and copy entire object graph
+# Shallow is faster BUT dangerous if you mutate nested objects
+
+Summary Table
+Question	Your Answer	Correct?
+Core ML solution	Vague but acceptable	⚠️ Partial
+LLM providers used	Good breadth	✅ Good
+RAG pipeline	Too vague	⚠️ Weak
+Query to keyword search	Confused with semantic	❌ Wrong
+TF-IDF dictionary size	"Depends on columns"	❌ Wrong
+What is an embedding	Roughly right	⚠️ Partial
+Dense vs sparse	Completely confused	❌ Wrong
+Why cosine similarity	Directionally right	⚠️ Partial
+System design	Disorganized, incomplete	❌ Wrong
+Chunking JSON data	Didn't know structured data approach	❌ Wrong
+Missing/multiple categories	Partial instinct	⚠️ Partial
+Temperature mechanism	Knew softmax, not the math	⚠️ Partial
+Top-P	No knowledge	❌ Wrong
+Output token pricing	Described what not why	❌ Wrong
+Random Forest overfitting	Got bagging, missed rest	⚠️ Partial
+Shallow vs deep copy	Correct	✅ Good
+
+
+
+
+
+
+
+
+
+
+
+Question
+How will you guarantee exactly-once processing and handle duplicates/late events?
+Good Answer
+
+I would use Structured Streaming with Kafka and Delta Lake.
+
+1. Kafka offsets are checkpointed.
+2. Delta Lake provides ACID transactions.
+3. Use checkpointLocation for fault tolerance.
+4. Use watermarking for late-arriving events.
+5. Use dropDuplicates() with event keys and event time.
+6. Use MERGE INTO or deduplication logic in Silver layer.
+7. Bronze stores raw immutable data.
+8. Silver performs cleansing and deduplication.
+
+Example:
+
+df = (
+  spark.readStream
+  .format("kafka")
+  .option("subscribe", "events")
+  .load()
+)
+
+dedup_df = (
+  df.withWatermark("event_time", "10 minutes")
+    .dropDuplicates(["event_id"])
+)
+
+
+2. Checkpoint corruption recovery
+Good Answer
+
+If checkpoint gets corrupted:
+
+1. Stop the stream.
+2. Delete or move corrupted checkpoint.
+3. Replay data from Kafka offsets.
+4. Since Bronze layer stores raw immutable data,
+   pipeline can be reprocessed safely.
+5. Use idempotent writes or MERGE INTO to avoid duplicates.
+6. Delta transaction logs help maintain consistency.
+
+
+3. High-volume data optimization (8+ hour job)
+Good Answer
+
+I would troubleshoot in this order:
+
+1. Check Spark UI
+   - skewed stages
+   - shuffle size
+   - executor spill
+   - long-running tasks
+
+2. Check joins
+   - use broadcast joins for small tables
+   - avoid unnecessary shuffles
+
+3. Optimize partitioning
+   - repartition()
+   - avoid too many small files
+
+4. Use predicate pushdown and partition pruning.
+
+5. Use incremental loads instead of full loads.
+
+6. Cache reused DataFrames.
+
+7. Optimize Delta tables using:
+   - OPTIMIZE
+   - ZORDER
+
+8. Tune cluster:
+   - autoscaling
+   - executor memory
+   - shuffle partitions
+
+
+4. Difference between Partitioning and Clustering
+Correct Answer
+Partitioning	Clustering/ZORDER
+Physically divides data into folders	Organizes data within files
+Reduces file scanning	Improves data skipping
+Best for low-cardinality columns	Best for high-cardinality filtering
+Example: date, region	Example: customer_id
+Example:
+
+df.write.partitionBy("date")
+
+
+OPTIMIZE sales ZORDER BY (customer_id)
+
+
+5. What is OPTIMIZE?
+Correct Answer
+
+OPTIMIZE compacts many small files into fewer large files.
+
+Benefits:
+- fewer file reads
+- better query performance
+- reduced metadata overhead
+
+Example:
+
+OPTIMIZE sales_table
+
+
+6. What is VACUUM?
+Correct Answer
+
+VACUUM removes old unused files from Delta Lake storage.
+
+It cleans stale files that are no longer referenced
+by the Delta transaction log.
+
+Example:
+
+VACUUM sales RETAIN 168 HOURS
+
+
+7. Difference between OPTIMIZE and VACUUM
+OPTIMIZE	VACUUM
+Compacts small files	Deletes old files
+Improves performance	Saves storage
+Query optimization	Storage cleanup
+8. What is ZORDER?
+Correct Answer
+
+ZORDER colocates related column values together
+inside files for efficient data skipping.
+
+Used for frequently filtered columns.
+
+Example:
+
+OPTIMIZE sales ZORDER BY (customer_id)
+
+
+9. What is Liquid Clustering?
+Correct Answer
+
+Liquid clustering is an advanced Delta Lake optimization
+that dynamically reorganizes data without requiring static partitions.
+
+Benefits:
+- better scalability
+- avoids partition management
+- adaptive clustering
+
+Example:
+
+ALTER TABLE sales
+CLUSTER BY (customer_id)
+
+
+10. What is Auto Loader?
+Correct Answer
+
+Auto Loader incrementally processes new files
+from cloud storage efficiently.
+
+It supports:
+- schema evolution
+- scalable file discovery
+- exactly-once ingestion
+
+Example:
+
+spark.readStream.format("cloudFiles")
+
+
+11. Difference between Auto Loader and COPY INTO
+Auto Loader	COPY INTO
+Streaming/incremental	Batch ingestion
+Continuous ingestion	One-time/manual load
+Handles schema evolution	Limited schema evolution
+Best for real-time pipelines	Best for periodic batch loads
+12. What is Time Travel?
+Correct Answer
+
+Time Travel allows querying older versions
+of Delta tables using version or timestamp.
+
+Example:
+
+SELECT * FROM sales VERSION AS OF 5
+
+
+13. What is Rollback?
+Correct Answer
+
+Rollback means restoring a previous stable version
+of the Delta table using Time Travel.
+
+Example:
+
+RESTORE TABLE sales TO VERSION AS OF 5
+
+
+14. Broadcast Join
+Correct Answer
+
+Broadcast join sends small table to all executors
+to avoid large shuffle operations.
+
+Example:
+
+from pyspark.sql.functions import broadcast
+
+df1.join(broadcast(df2), "id")
+
+
+15. What causes small files?
+Correct Answer
+
+Small files are caused by:
+- frequent micro-batch writes
+- excessive partitions
+- streaming ingestion
+- repartition misuse
+
+Problems:
+* metadata overhead 
+* slow queries 
+* excessive file scanning 
+Solution:
+* OPTIMIZE 
+* auto compaction 
+* optimized writes
+
+
+All question from evolution 

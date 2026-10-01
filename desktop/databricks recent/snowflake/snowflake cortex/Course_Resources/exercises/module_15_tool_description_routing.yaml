@@ -1,0 +1,72 @@
+# ==========================================================
+# Exercise 15.1 — Write a Tool Description That Doesn't Misroute
+# Course: 1018
+# Module 15
+# ==========================================================
+#
+# Priya asked her Snowflake CoWork agent a plain sales-total question and it
+# called Cortex Search (a document lookup) instead of Cortex Analyst. Root
+# cause: Search's description said "answers questions about sales" — vague
+# enough to overlap with Analyst's scope, so the agent guessed. A tool
+# description is what the agent's routing scores against, so a sloppy one is
+# the #1 cause of misrouting.
+#
+# Your task:
+# 1. Write a tool description for cortex_search_returns_docs that is scoped to
+#    UNSTRUCTURED text only (policies, tickets, notices) — narrow enough that
+#    it can't be confused with a quantitative Analyst question.
+# 2. Fill in NAME / TYPE / DESCRIPTION / EXAMPLE_QUESTIONS the same way the
+#    course's cortex_analyst_sales_model example does.
+# 3. Add a SCOPE BOUNDARY line stating what this tool does NOT answer, so it
+#    can't collide with the sibling Analyst tool.
+# ==========================================================
+
+# YOUR CODE:
+
+tool:
+  name: ___
+  type: ___
+  description: >
+    ___
+  example_questions:
+    - "___"
+    - "___"
+  scope_boundary: >
+    Does NOT answer ___ — route those to cortex_analyst_sales_model instead.
+
+
+# ==========================================================
+# SOLUTION (attempt first before scrolling!)
+# ==========================================================
+# tool:
+#   name: cortex_search_returns_docs
+#   type: search
+#   description: >
+#     Answers questions about unstructured text only — return policies,
+#     support tickets, and recall/product notices. Does not compute numbers.
+#   example_questions:
+#     - "Why were the yogurt returns from Region X flagged last month?"
+#     - "Is there a recall notice covering SKU 4410?"
+#   scope_boundary: >
+#     Does NOT answer quantitative questions about shipment/return totals or
+#     trends — route those to cortex_analyst_sales_model instead.
+#
+# Reference checklist this exercise is built from (run it against every tool
+# before wiring it into the agent — a missing field is the #1 cause of
+# misrouting):
+#   NAME — a unique, descriptive identifier the agent and your logs both use
+#   TYPE — Search / Analyst / Custom, so the agent knows the answer's shape
+#   DESCRIPTION — specific enough to be unambiguous, not "sales data"
+#   EXAMPLE QUESTIONS — 2-3 real user phrasings the tool should catch
+#   SCOPE BOUNDARY — one line on what this tool does NOT answer
+#   ROUTING HINT — the plain-language rule that breaks a tie between tools
+#
+# Anti-pattern to avoid: don't bypass the agent's own routing with a
+# hand-coded if/else keyword matcher —
+#   if "how many" in q or "total" in q: return "cortex_analyst_sales_model"
+#   elif "why" in q or "policy" in q: return "cortex_search_returns_docs"
+# "Why did the total drop?" contains both "why" AND "total" — the first
+# matching branch wins and silently misroutes. The agent's own routing scores
+# ALL tool descriptions against the full question instead of stopping at the
+# first keyword hit. Keep plain-language routing instructions as tie-breakers
+# layered on top of that semantic match, not a substitute for it.

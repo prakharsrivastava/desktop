@@ -1,0 +1,36 @@
+
+
+=== Introduction ===
+
+
+--- What We're Building: The Complete Platform ---
+
+[No transcript available for this lecture]
+
+--- Setting Up Your Local Environment ---
+
+[No transcript available for this lecture]
+
+
+=== LLM Foundations ===
+
+
+--- Navigating the Codebase ---
+
+[No transcript available for this lecture]
+
+
+=== Agentic Workflow Patterns ===
+
+
+--- Your First LLM Call with Bedrock ---
+
+[No transcript available for this lecture]
+
+
+=== Building Production Agents ===
+
+
+--- Prompt Engineering : Chain of Thought & Few-Shot ---
+
+[No transcript available for this lecture]

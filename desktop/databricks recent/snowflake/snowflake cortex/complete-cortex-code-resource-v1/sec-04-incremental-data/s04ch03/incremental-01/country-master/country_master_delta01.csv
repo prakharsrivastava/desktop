@@ -1,0 +1,4 @@
+country_code,country_name,region_code,currency_code,tax_code,primary_language,timezone,ecommerce_supported,retail_store_supported,market_tier,population_millions,gdp_usd_billions,is_active,effective_start_date,effective_end_date,created_at,source_system
+DE,Germany,EMEA,EUR,DE_VAT_STD,German,Europe/Berlin,Y,Y,Tier1,558,26677,Y,2000-01-01,9999-12-31,2026-02-05 14:38:41.302727,MDM_CORE
+CA,Canada,AMER,CAD,CA_GST_STD,English,America/Toronto,Y,N,Tier2,656,210,Y,2000-01-01,9999-12-31,2026-02-05 14:38:41.302733,MDM_CORE
+AU,Australia,APAC,AUD,AU_GST_STD,English,Australia/Sydney,Y,Y,Tier2,568,24277,Y,2000-01-01,9999-12-31,2026-02-05 14:38:41.302737,MDM_CORE

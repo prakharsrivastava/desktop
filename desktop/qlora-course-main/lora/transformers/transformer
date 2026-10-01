@@ -1,0 +1,3839 @@
+
+Search in video
+Introduction & overview
+0:00
+Welcome back. Over the past few videos,
+0:02
+we built every piece of the transformer
+0:04
+from scratch. We saw how self attention
+0:07
+lets every word look at every other word
+0:10
+simultaneously,
+0:11
+how multihat attention runs this in
+0:13
+parallel, and how positional encoding
+0:16
+stamps each word with its location. But
+0:19
+here is the real question. How do all
+0:21
+these pieces fit together to make
+0:23
+something that can actually make sense
+0:25
+of a sentence? To answer that, we will
+0:28
+walk through the encoder architecture.
+0:30
+The full transformer has two halves, an
+0:33
+encoder and a decoder, both built from
+0:35
+the same fundamental blocks. But for
+0:38
+now, we're just focusing on the left
+0:40
+half. For today, the decoder can wait.
+0:43
+Today, we're going to focus on the
+0:44
+encoder. As I said in my last video, its
+0:47
+one and only job, take a raw sentence,
+0:50
+process it through layers of
+0:51
+mathematical operations, and produce a
+0:54
+set of rich numerical vectors. one for
+0:56
+each word where every vector is shaped
+0:59
+by the full context of the sentence.
+1:03
+Let's trace exactly how it happens step
+Input Representation (Tokenization, Embeddings & Positional Encoding)
+1:06
+by step. Our input sequence is Apple
+1:09
+released new phones. The first step is
+1:12
+tokenization. Neural networks can't read
+1:15
+text directly. They only work with
+1:17
+numbers. First, we break this sequence
+1:20
+into individual pieces called tokens.
+1:23
+From here, we assign a unique integer ID
+1:25
+to every token. Each token in our
+1:28
+sentence simply gets swapped out for its
+1:30
+corresponding ID from the vocabulary.
+1:34
+The second step is token embeddings. A
+1:37
+token ID alone is just a meaningless
+1:40
+index. We will use these token IDs to
+1:42
+generate embeddings. During training,
+1:45
+the model starts with a completely
+1:46
+random embedding weight matrix. The
+1:49
+network gradually learns the right
+1:51
+values and the weights keep updating
+1:53
+throughout training. After training, the
+1:55
+embedding matrix becomes a learned
+1:57
+lookup table where each token ID maps to
+2:00
+a meaningful vector. This is our
+2:02
+embedding lookup table. To get an
+2:04
+embedding for each token, we use its ID
+2:07
+to pick the exact row. Apple with ID 3
+2:10
+picks the third row. Released with ID 2
+2:13
+picks the second row. New with ID 1
+2:16
+picks the first row. and phones with ID
+2:19
+4 picks the fourth row. Each token
+2:22
+simply grabs its row directly from the
+2:24
+weight table. We have four tokens, so we
+2:27
+get four rows. The shape of our
+2:29
+embedding matrix X is 4x 6. Before we go
+2:33
+further, let's talk about vocabulary
+2:35
+size. In our small example, the
+2:37
+vocabulary is only four because we have
+2:40
+just four unique tokens. But real
+2:42
+language models are far larger. Some use
+2:45
+30,000 tokens, others 50,000 like GPT2
+2:49
+and BERT. And the biggest language
+2:51
+models go beyond 100,000. Real language
+2:54
+is messy. You need that many entries to
+2:57
+cover every word, subword, symbol, and
+3:00
+special token a model could ever see.
+3:03
+Now, let's talk about Dodel. The size of
+3:05
+the embedding vector assigned to each
+3:07
+token. You can think of it as how much
+3:10
+information do we want each token to
+3:12
+store. This is a design choice made by
+3:15
+us. It is a hyperparameter, meaning we
+3:17
+choose it ourselves before training
+3:19
+begins. A larger Dodel means each token
+3:22
+can carry more information about what it
+3:24
+means. But it also increases computation
+3:27
+and memory usage. So if our embedding
+3:30
+matrix is 4x 6, that means we have four
+3:32
+unique tokens and each token is
+3:34
+represented using a sixthdimensional
+3:36
+vector. You can think of it as a lookup
+3:38
+table. Every row represents one token
+3:41
+and every column stores one learned
+3:43
+feature of that token's embedding.
+3:47
+Now we move to the third and final step
+3:49
+before entering the encoder block.
+3:51
+Positional encoding. While the token
+3:54
+embeddings capture semantic meaning,
+3:56
+they contain no sequential order. Since
+3:58
+the self attention mechanism is
+4:00
+permutation invariance and processes all
+4:02
+tokens in parallel, we inject position
+4:05
+information using deterministic sign and
+4:07
+cosine functions. We only compute this
+4:10
+table once. Every position gets a unique
+4:13
+mathematical fingerprint. Now each
+4:15
+embedding vector will take its
+4:16
+respective row from this positional
+4:18
+encoding table. To combine semantic and
+4:21
+position information, we will add the
+4:23
+embedding matrix X and the positional
+4:25
+encoding matrix P. We perform an
+4:28
+element-wise addition, merging them into
+4:30
+a single representation. This gives us
+4:32
+our final input matrix. Four rows, six
+4:36
+columns. This one matrix is everything
+4:39
+the encoder will work with. This
+4:41
+combined matrix is then fed directly as
+4:43
+input to the first encoder block. From
+4:46
+here, the model starts processing the
+4:48
+data through layers of attention and
+4:49
+transformation.
+4:53
+And honestly, the inside is much simpler
+Multi-head self-attention
+4:55
+than it first looks. There are really
+4:57
+just two major operations happening
+4:59
+here. First, the tokens interact with
+5:02
+each other using multi- head
+5:04
+self-attention. Then, each token is
+5:07
+processed independently through a small
+5:09
+feed forward neural network. So, let's
+5:12
+focus on the first part, self-
+5:13
+attention, and understand what it's
+5:15
+actually doing. The core idea is simple.
+5:18
+Every token gets to look at every other
+5:20
+token to gather context. Instead of
+5:23
+understanding words independently, the
+5:25
+model understands them based on
+5:27
+surrounding words. For example, when the
+5:30
+token Apple looks at words like
+5:32
+released, new, and phones, it realizes
+5:36
+we're talking about the tech company
+5:37
+here, not the fruit.
+5:41
+Now, let's dive deeper into the multi
+5:43
+head attention block and see what
+5:45
+actually happens inside. We're going to
+5:48
+use three attention heads. Simple enough
+5:50
+to understand clearly, but rich enough
+5:52
+to be realistic. We've seen the idea
+5:55
+before. Now, let's run it with real
+5:57
+values. Our input X is just four rows,
+6:01
+one per word, and six dimensions. That's
+6:03
+our D model. Now, instead of one giant
+6:06
+projection matrix, each head gets its
+6:09
+own private set, its own WQ, WK, and WV.
+6:15
+The size of these matrices comes down to
+6:17
+one simple idea. Split the model
+6:20
+dimension equally between all heads. We
+6:23
+have six dimensions, three heads. So
+6:26
+each head gets two dimensions. That's
+6:28
+our DK equal to two. So every single
+6:32
+weight matrix WQ W K WV is shaped 6x
+6:37
+two. Small, focused, independent. Three
+6:40
+heads, three completely separate stacks
+6:43
+of weights. Each one is going to develop
+6:45
+its own way of looking at the sentence.
+6:47
+No sharing. So what actually happens
+6:50
+here? X shape 4x six gets multiplied by
+6:55
+each weight matrix shape 6x2. The six
+6:58
+columns of X match the six rows of W. So
+7:02
+they multiply cleanly and we get a
+7:04
+matrix of 4x two. That's our Q, K, and V
+7:08
+for one head. Let me show you exactly
+7:11
+what's happening. See this input matrix
+7:13
+X right here? We take it and multiply it
+7:16
+by the query weight matrix of head 1.
+7:19
+That's this WQ1. And out comes the query
+7:22
+matrix for that head shape 4x2. Same
+7:26
+idea for the key. We take X multiplied
+7:29
+by the key weight matrix and get the key
+7:31
+matrix. And for the value, same input
+7:34
+times the value weight matrix gives us
+7:36
+V. Every single head does the same
+7:39
+thing. Three projections, three separate
+7:41
+outputs.
+7:43
+And here's the clean version of what we
+7:45
+just saw. For any head, you take X,
+7:48
+multiply by that head's query weights,
+7:50
+and you get its query matrix. Same thing
+7:53
+for keys. Same thing for values. One
+7:55
+input, three different weight matrices.
+7:58
+That's the entire projection step. Do
+8:00
+that three times, once per head, and we
+8:03
+get three completely separate sets of
+8:05
+queries, keys, and values. Think of
+8:08
+queries as asking what am I looking for,
+8:11
+keys as what information do I contain,
+8:14
+and values as what actual information
+8:17
+should I pass? Stack them together, we
+8:20
+get a three-dimensional block. Three
+8:23
+heads, four tokens, two dimensions each.
+8:26
+Three different lenses, all looking at
+8:28
+the same sentence. Now, each head runs
+8:31
+its own scaled dot product attention. It
+8:34
+computes the dotproduct between the
+8:36
+query and key matrices, then scales it
+8:38
+by the square root of the head
+8:40
+dimension, DK. This scaling prevents the
+8:43
+dot products from becoming too large,
+8:45
+which would push the softmax into
+8:46
+regions where gradients become very
+8:48
+small. Look at head one. The scores are
+8:51
+small and fairly uniform. Head two has
+8:54
+much larger scores, meaning it is more
+8:57
+decisive. It has found stronger
+8:59
+relationships. Head three. Notice how
+9:02
+the top rows stand out. It's paying much
+9:04
+more attention to the first two words,
+9:06
+apple and released. After softmax, every
+9:10
+single row sums to exactly one. These
+9:13
+are the attention weights, a probability
+9:15
+distribution over all words for every
+9:18
+word. Let's make this even clearer. Here
+9:21
+are the same three attention weight
+9:22
+matrices, but as color-coded heat maps.
+9:25
+The darker the cell, the more that token
+9:27
+is attending to another token. Head one
+9:30
+is almost uniformly light. It spread its
+9:32
+attention evenly across all words. Head
+9:35
+two has strong dark patches. It found
+9:38
+decisive relationships. Head three locks
+9:41
+onto the first two words apple and
+9:43
+released heavily. Three heads, three
+9:46
+completely different perspectives on the
+9:48
+same sentence.
+9:50
+Each head runs its own attention weights
+9:52
+by its own vatrix. And what you get back
+9:55
+is that head's output. Head one values
+9:58
+are almost identical. across all four
+10:00
+rows. It spread its attention nearly
+10:02
+evenly. No strong favorites. Head two,
+10:05
+small numbers, but notice they're
+10:07
+consistent. It's picking up on something
+10:09
+quiet, something subtle. Head three,
+10:12
+these are the biggest values of the
+10:14
+three. It locked on to specific
+10:16
+relationships and ran with them. And now
+10:18
+we have three separate 4x two matrices.
+10:22
+Three completely different perspectives
+10:24
+on the same sentence. So, we just
+10:26
+stacked the three outputs side by side.
+10:28
+That's all concatenation is. And
+10:31
+suddenly, we're back to a 4x6 matrix,
+10:34
+same shape as our original X. But we're
+10:36
+not done yet. We send this through one
+10:38
+final linear layer, WO. Think of it like
+10:41
+a mixer. All three perspectives come in.
+10:44
+It decides which signals matter and
+10:46
+blends them into one. This gives us our
+10:49
+final attention output, matrix Z, which
+10:52
+has the exact same shape as our input.
+10:54
+But now every single row carries context
+10:57
+gathered from all the other tokens
+10:59
+through attention.
+11:03
+That's the full multi-head attention
+11:05
+block from X through three independent
+11:08
+heads to a single unified output Z.
+11:12
+Every row now carries context gathered
+11:14
+from the entire sentence.
+Residual connections and layer normalization
+11:17
+Z then flows straight into the next
+11:20
+block add and norm. Now, before we go
+11:22
+into normalization, there's something
+11:24
+important we need to notice. If you look
+11:27
+closely, there's a curved arrow that
+11:29
+skips over the attention block and comes
+11:31
+back later. This is called a residual or
+11:34
+skip connection, and it's actually one
+11:36
+of the key ideas that makes transformers
+11:38
+stable and powerful. Think of it as a
+11:41
+shortcut that lets the original input
+11:43
+skip ahead. It takes the original input
+11:46
+X, the one that entered this block, and
+11:48
+adds it element-wise back to the
+11:50
+attention output Z. Even if the
+11:53
+attention layer messes something up
+11:54
+during training, the original input is
+11:57
+still right there. It never gets lost.
+11:59
+The deeper we go, the more that matters.
+12:02
+And during training, gradients can skip
+12:04
+backward through that same path. That's
+12:07
+why transformers can go really deep,
+12:09
+even hundreds of layers, without
+12:11
+gradients dying out.
+12:14
+After the addition, the numbers inside
+12:17
+our vectors can be all over the place.
+12:19
+Some tiny, some way bigger. That's a
+12:22
+problem. Let me show you why.
+12:25
+Imagine pushing data through layer after
+12:27
+layer. Each time the multiplications and
+12:30
+activations nudge the numbers a little.
+12:32
+Some get bigger, some get smaller. Some
+12:34
+values may become extremely large. Some
+12:36
+may become very small. And as this
+12:39
+process repeats layer after layer, the
+12:41
+network becomes harder to train because
+12:43
+the activations are no longer stable.
+12:46
+That's where layer norm comes in. It
+12:48
+takes those chaotic numbers and reigns
+12:50
+them in. Same relative shape, but
+12:52
+brought back to a clean, consistent
+12:54
+scale. Here are those same unstable
+12:56
+activations. Watch what layer norm does
+12:59
+to them in just two steps. Step one,
+13:01
+subtract the mean, censoring every value
+13:04
+around zero. Step two, divide by the
+13:07
+standard deviation, compressing the
+13:09
+spread to a consistent scale. Now every
+13:12
+bar is centered and scale down to a
+13:14
+consistent range. Mean of zero, spread
+13:16
+of one. You might wonder why layer norm
+13:19
+and not batchnorm. With batchnorm,
+13:22
+you're normalizing across the entire
+13:23
+batch at once. Every sequence gets mixed
+13:26
+together. The problem is that in
+13:28
+language, sequences have different
+13:30
+lengths. So padding tokens are added to
+13:32
+fill the gaps. Let's see how this
+13:34
+padding breaks batch norm on a
+13:36
+simplified batch of tokens. Batchnorm
+13:38
+normalizes each word position across the
+13:40
+entire batch column by column. If we
+13:43
+calculate the mean for word three,
+13:45
+notice how the padding zero gets pulled
+13:48
+in. That zero corrupts the average,
+13:50
+which means the stats for the real words
+13:52
+are now wrong. Layer norm fixes this by
+13:55
+normalizing each sequence independently
+13:57
+across its own words rowby row. By doing
+14:00
+this, other sequences and their padding
+14:02
+tokens have absolutely zero effect.
+14:05
+Every sequence is scaled cleanly based
+14:07
+solely on its own data. That is exactly
+14:10
+what we need for language.
+14:13
+Now let's apply those exact two steps to
+14:16
+our actual data. For each individual
+14:18
+row, each word vector, we compute the
+14:21
+mean and the standard deviation. Then we
+14:23
+shift and scale every value so that the
+14:26
+row has mean zero and standard deviation
+14:28
+one. For this walkthrough, we treat
+14:30
+gamma as one and beta as zero. We will
+14:33
+cover the full formula right after the
+14:35
+calculation. Let's see this in action
+14:36
+for the entire apple vector. After
+14:39
+normalizing, the values shift and
+14:41
+compress. The resulting vector for apple
+14:43
+is clean. Mean zero, standard deviation
+14:45
+one. Crucially, this normalization
+14:48
+happens independently for every row.
+14:51
+Every word is normalized on its own.
+14:53
+After layer norm, every vector is on a
+14:55
+clean, stable scale. Now let's look at
+14:57
+the full layer norm formula. The core of
+15:00
+what we just computed. Sensor then scale
+15:02
+is right there in the middle. In a real
+15:05
+transformer, layer norm adds two extra
+15:07
+learnable parameters around that core.
+15:10
+Gamma and beta. Gamma is a scale factor.
+15:13
+It lets the network stretch or compress
+15:15
+the distribution. Beta is a shift. It
+15:17
+lets the network move the distribution
+15:19
+up or down. Both are learned during
+15:21
+training starting at one and zero
+15:23
+respectively. They give the model the
+15:25
+ability to undo the normalization if the
+15:28
+task requires it to say actually for
+15:31
+this layer a slightly different scale is
+15:33
+better. For simplicity in this video we
+15:35
+left gamma and beta out but every real
+15:37
+implementation uses them. This completes
+Feed-forward network and the 4× expansion
+15:40
+the first half. Self attention then add
+15:43
+and normalize. These four steps travel
+15:46
+together as one unit. Attention add then
+15:49
+normalize. The result is a clean stable
+15:52
+4x6 matrix. And from here we move into
+15:55
+the feed forward network.
+15:58
+Our vectors have been through attention
+16:00
+and the first addin norm clean
+16:02
+normalized. But we're only halfway
+16:04
+through one block. The other half the
+16:06
+feed forward network comes right after.
+16:09
+Let's zoom in. Unlike attention which
+16:11
+mixes words together, the feed forward
+16:13
+network processes each word
+16:15
+independently. But importantly, it
+16:17
+doesn't process them one by one. We pass
+16:20
+the entire matrix as a batch through the
+16:22
+neural network. So why do we even need
+16:25
+this? Attention is great at one thing,
+16:27
+figuring out which words are related to
+16:29
+each other, but it doesn't actually
+16:31
+transform the data. It only mixes it.
+16:34
+The feed forward network is where the
+16:36
+real computation happens. It takes that
+16:38
+mixed information and runs it through an
+16:40
+actual neural network. The real you
+16:42
+activation in the middle is what gives
+16:44
+the model the nonlinearity, the ability
+16:46
+to learn things that aren't just
+16:48
+straight lines. Without this layer, no
+16:50
+matter how many attention blocks you
+16:52
+stack, you'd just be doing the same
+16:54
+linear mixing over and over. Nothing new
+16:56
+would ever be learned. To understand how
+16:58
+it does this, notice that the input
+17:01
+layer of our feed forward network has a
+17:03
+size of six, which is exactly the same
+17:05
+size as our model dimension, D model.
+17:07
+Here's the clever part about how this is
+17:09
+built. That hidden layer isn't the same
+17:12
+size as the input. It's four times
+17:14
+bigger. So, we go from six dimensions
+17:16
+all the way up to 24. and then right
+17:19
+back down to six at the output. That's
+17:21
+the four times expansion. Think of that
+17:23
+wide middle layer as scratch space.
+17:25
+Extra room for the model to manipulate
+17:27
+and recombine information before
+17:29
+compressing it back down. And because of
+17:31
+that expansion, the feed forward layers
+17:33
+end up holding around 2/3 of all the
+17:35
+parameters in the entire transformer.
+17:37
+Now the full 4x6 matrix passes through
+17:40
+the feed forward network. Every single
+17:42
+word vector is transformed
+17:44
+simultaneously. And here is our output
+17:46
+matrix. Same shape 4x six but look at
+17:49
+the values every single one has changed.
+17:52
+Each token went in got transformed and
+17:54
+came out different.
+17:57
+After the feed forward network we apply
+17:59
+the second residual connection. The same
+18:01
+idea as before. We take the input to the
+18:03
+feed forward network and simply add it
+18:06
+back to the output of the feed forward
+18:08
+network. The result is a new residual
+18:10
+matrix. Once again the addition can
+18:12
+throw the values off scale. So layer
+18:14
+norm runs for the second time. Just like
+18:16
+in the previous normalization step, we
+18:18
+do exactly the same thing. For each
+18:21
+individual row, we calculate the mean
+18:23
+and the standard deviation, put them in
+18:25
+the formula, and normalize our values.
+18:27
+Layer norm brings everything back to a
+18:29
+stable scale. And that is it. One
+18:31
+complete encoder block done. The output
+18:34
+is a clean 4x6 matrix. 4x6 dimensions
+18:38
+unchanged, but every row now carries
+18:40
+full context. Let's summarize the
+18:42
+structure of the encoder block clearly.
+18:45
+Self attention, add and normalize, feed
+18:47
+forward, add and normalize. These are
+18:50
+the four core stages inside a single
+18:52
+encoder block. Before we stack these
+18:54
+blocks and go deeper, let's take a step
+18:56
+back and look at everything we've built
+18:58
+so far.
+19:01
+Four words, one encoder block. Let's
+19:04
+trace every step. We begin with raw
+Encoder block pipeline overview
+19:06
+text. Apple released new phones. Each
+19:10
+word gets tokenized, assigned a numeric
+19:12
+ID. An embedding layer then maps each ID
+19:15
+to a vector, and positional encoding
+19:17
+stamps in where each word sits. That
+19:20
+gives us our starting point, input
+19:22
+matrix X. This matrix answers the first
+19:24
+major block, multi- head self-attention.
+19:28
+Inside here, we run multiple
+19:29
+self-attention mechanisms in parallel.
+19:32
+Here, every word attends to every other
+19:34
+word, finding contextual relationships.
+19:37
+The result is the attention output
+19:38
+matrix Z where each vector is now
+19:41
+contextaware.
+19:43
+Now comes the add and norm step. X takes
+19:46
+a shortcut skipping over attention
+19:48
+entirely and getting added straight back
+19:50
+to Z. Then layer norm cleans up the
+19:52
+values and we get matrix 8.
+19:56
+This stable matrix H then passes through
+19:58
+the feed forward network. A two-layer
+20:00
+network pushes each word on its own,
+20:03
+digging out deeper patterns, and that
+20:05
+gives us matrix F. Finally, we apply one
+20:09
+last AD and norm operation. H bypasses
+20:12
+the feed forward network and is added to
+20:14
+F followed by layer norm. And that's it.
+20:16
+We get our final block output.
+20:21
+That is one encoder block. Notice same
+20:24
+shape in as out always 4x6 but every
+20:27
+number inside has been transformed by
+20:29
+attention by residual memory by depth.
+20:32
+This block runs six times in the
+20:34
+original transformer. Each pass richer,
+20:36
+each pass deeper. This is what
+20:38
+understanding looks like in a machine.
+20:42
+Let's look at what that stacking
+20:44
+actually looks like and why it matters.
+Stacking 6 encoder blocks: how representations deepen
+20:46
+At the start, each word is just its own
+20:49
+embedding. No awareness of anything
+20:51
+around it. After one block, it's seen
+20:54
+the whole sentence. But one pass isn't
+20:56
+enough to catch everything.
+20:59
+In the original Transformer paper, this
+21:01
+exact block is stacked six times. The
+21:05
+output of block one becomes the input of
+21:07
+block two. The output of block two
+21:10
+becomes the input of block three all the
+21:13
+way to block six. Each stack does the
+21:16
+same four steps, but on progressively
+21:18
+richer representations.
+21:21
+Think of it like building understanding
+21:23
+floor by floor. Early blocks notice
+21:26
+simple things. Which words sit next to
+21:28
+each other. Later blocks pick up on
+21:30
+bigger ideas. Subject, object, intent.
+21:33
+Each floor builds on what came before.
+21:37
+And here is something worth noting. We
+21:39
+added positional encoding at the very
+21:41
+start just once. So how does position
+21:44
+information survive through six blocks?
+21:47
+Because each residual connection adds
+21:49
+the block's input back to its output,
+21:52
+the positional signal keeps riding
+21:54
+along, never lost, block after block.
+22:00
+To see how the representations evolve
+22:03
+block by block, let's look at the output
+22:05
+from each of the six blocks shown as
+22:07
+color-coded heat maps. Each row is a
+22:10
+word, each column is a feature, and
+22:12
+brighter color just means a bigger
+22:14
+number.
+22:16
+Block one output faint low contrast. The
+22:19
+cells look similar. Basic co-occurrence
+22:22
+patterns just forming. By block three,
+22:25
+distinct signatures are emerging. By
+22:27
+block six, each word row looks
+22:30
+dramatically different from the others.
+22:32
+Vivid, distinct, deeply specialized.
+22:36
+Same shape always, 4x6. That never
+22:39
+changes. But what's packed inside those
+22:41
+numbers gets richer and richer with
+22:43
+every block. Here
+22:48
+is something crucial to understand about
+22:49
+the stacking. All six blocks are built
+22:52
+exactly the same way. Same structure,
+22:55
+same layout, but they don't share their
+22:57
+weights. Each block learns its own
+22:59
+separate set of values during training.
+23:02
+Look at the attention patterns side by
+23:04
+side. Block one shows broad, even
+23:07
+attention. All words attending roughly
+23:09
+equally to all others. soft gradients,
+23:12
+early general patterns. By block four,
+23:16
+the attention is razor sharp, locking
+23:18
+onto specific word pairs and nearly
+23:20
+ignoring everything else. The stacking
+23:23
+is not repetition. It is specialization.
+23:27
+Think about it the same way you think
+23:28
+about depth in any neural network. We
+23:31
+don't add more layers just to make
+23:32
+things bigger. We add them because each
+23:35
+layer increases what the model can
+23:36
+learn. More layers, more capacity. The
+23:40
+same logic applies here. Six encoder
+23:42
+blocks give the transformer six levels
+23:45
+of feature abstraction. Six chances to
+23:47
+refine, specialize, and deepen its
+23:49
+understanding of the sentence.
+23:54
+After the sixth block, we have our final
+23:56
+output. Every row in this matrix knows
+23:59
+the full sentence. Each word's vector
+24:01
+carries context from everything around
+24:04
+it, and it still knows where it sat in
+24:06
+the sequence. This is the encoder
+24:08
+output. Row one, apple, knows it is the
+24:11
+brand name. Row two, released, knows it
+24:14
+is the action carrying the verb meaning.
+24:17
+Row three, new, knows it is the
+24:19
+adjective modifying phones. Row four,
+24:22
+phones, knows it is the object
+24:25
+understood in relation to everything
+24:26
+else. The encoder's internal machinery
+24:29
+is complete. Every matrix traced, every
+24:32
+operation built. But what do you
+24:34
+actually do with this output? That's
+24:36
+what comes next.
+24:41
+The encoder gives us one rich vector for
+24:44
+every word. So now the question becomes,
+Real-world applications: Semantic search, NER, QA
+24:47
+how are these vectors actually used?
+24:50
+There are really five big things people
+24:52
+normally do with encoder outputs.
+24:55
+Classification uses one vector to decide
+24:58
+what the whole sentence means. Named
+25:00
+entity recognition uses every vector to
+25:03
+tag every word. Semantic search compares
+25:07
+sentence meanings. Question answering
+25:10
+finds where the answer lives in a
+25:12
+paragraph. And masked language modeling
+25:15
+predicts missing words from surrounding
+25:17
+context. All of these can be powered by
+25:20
+encoder outputs alone.
+25:24
+Now let's see how this encoder can
+25:26
+actually be used for a realworld task
+25:28
+like text classification.
+25:30
+We first add a special token at the
+25:33
+beginning of the sentence called the CLS
+25:35
+token. At the start, this token knows
+25:38
+nothing about the sentence. It's just a
+25:40
+blank slot, a placeholder that the model
+25:43
+will fill in. But after running through
+25:45
+all six layers, it transforms. Through
+25:48
+self attention, the CLS token interacts
+25:51
+with every other word in the sentence.
+25:54
+It attends to all the tokens and all the
+25:56
+tokens also influence it. With every
+26:00
+layer, the CLS token soaks up more from
+26:02
+the sentence, picking up keywords,
+26:05
+relationships, the overall mood. By the
+26:08
+last layer, this one vector holds the
+26:10
+entire sentence in a single point, our
+26:13
+final sentence embedding. And instead of
+26:16
+using every output token for
+26:18
+classification, we simply take this
+26:20
+final CLS vector pass it through a small
+26:23
+linear layer and softmax and predict the
+26:26
+final class like positive or negative
+26:28
+sentiment.
+26:30
+Application two named entity
+26:33
+recognition. Now we do not want one
+26:36
+label for the whole sentence. We want
+26:38
+one label for every word. Because every
+26:41
+word's vector already knows what the
+26:43
+full sentence said, we can classify each
+26:46
+word on its own. No extra context
+26:48
+needed. Elon and Musk become person.
+26:52
+SpaceX becomes organization. 2002
+26:56
+becomes date. The ordinary words are
+26:59
+ignored. The encoder has turned a
+27:01
+sentence into a row of useful meaning
+27:04
+vectors.
+27:06
+Application three, semantic search.
+27:09
+Keyword search cares about spelling.
+27:11
+Semantic search cares about meaning. We
+27:14
+pass a sentence through the encoder,
+27:16
+average the token vectors, and compress
+27:18
+the whole sentence into one single
+27:21
+vector. One arrow pointing in the
+27:23
+direction of its meaning. Now compare
+27:26
+arrows by angle. A query about heart
+27:29
+attacks and a document about myocardial
+27:31
+infarction point almost the same way.
+27:34
+Their cosign similarity is 0.94.
+27:38
+Different words, but nearly the same
+27:40
+meaning. But a document about chocolate
+27:43
+cake points in a completely different
+27:45
+direction. Low similarity, no match.
+27:48
+This is why encoders are so powerful for
+27:50
+search. They retrieve based on semantic
+27:53
+concepts, not just exact keyword
+27:56
+matches.
+27:58
+Two more encoder only uses are worth
+28:00
+seeing quickly. In question answering,
+28:02
+the encoder reads the question and the
+28:05
+paragraph together, then figures out
+28:07
+which word the answer starts on and
+28:09
+which word it ends on. Here, the answer
+28:12
+span is California. In masked language
+28:15
+modeling, we hide one word and ask the
+28:17
+encoder to infer it from both sides. The
+28:20
+blank sees left context and right
+28:23
+context at the same time. This is the
+28:25
+key difference from decoderon models.
+28:28
+They can only look left. The encoder
+28:30
+looks both ways. That is what makes it
+28:33
+so powerful for understanding.
+28:36
+Now we can place the encoder inside the
+28:39
+full transformer family. Encoder only
+28:42
+models like BERT, Roberta and Sentence
+28:45
+Bert are reading machines. They
+28:47
+classify, search, extract and tag.
+28:50
+Encoder decoder models read with the
+28:53
+encoder and generate with the decoder.
+28:56
+Decoder only models skip the encoder and
+28:58
+generate text one word at a time, left
+29:01
+to right. Reading is what the encoder
+29:04
+does best. If you need to classify,
+29:06
+search, extract, or tag, this is your
+29:09
+tool. And you now know exactly why. Not
+29:12
+as a black box, but piece by piece,
+29:15
+layer by layer.
+29:17
+The encoder is a reading machine. It
+29:20
+does not speak. It does not write. It
+29:22
+simply deeply understands. One word in
+29:26
+layers of transformation and on the
+29:29
+other side something that actually
+29:31
+understood what the words meant.
+
+----------------------------------
+
+Search in video
+The Problem — Why Transformers Are Order-Blind
+0:00
+We've covered self attention and
+0:01
+multi-head attention. Now, there's
+0:04
+another crucial piece, and it's one of
+0:06
+those things that seems small, but turns
+0:07
+out to be really important. Here's a
+0:10
+sentence. Dog bites man. Now, watch what
+0:14
+happens when I swap the words around.
+0:16
+Man bites dog. You and I immediately
+0:19
+know that's a completely different
+0:20
+sentence. But here's the weird part. A
+0:23
+vanilla transformer without positional
+0:25
+information literally cannot tell the
+0:28
+difference. Because a transformer takes
+0:30
+the entire sentence all at once.
+0:32
+Everything is processed in parallel
+0:35
+inside self attention block. It allows
+0:37
+every word to look at every other word
+0:39
+simultaneously. It computes dot products
+0:42
+to compare their content. But this
+0:44
+calculation has absolutely zero idea
+0:46
+about position. The model sees the same
+0:49
+collection of tokens
+0:51
+almost like tossing the words into a bag
+0:52
+and shaking them around. In other words,
+0:55
+without some notion of order, the
+0:57
+sentence becomes less like language and
+0:59
+more like an unordered set of words. And
+1:02
+that creates a massive problem because
+1:04
+language is built on sequence. Changing
+1:07
+order changes the meaning. To understand
+1:10
+what we lost by processing everything at
+1:13
+once, we should briefly look at the
+1:15
+model that came before transformers.
+1:17
+Recurrent neural networks. RNN's had
+1:20
+many problems. They were slow, hard to
+1:22
+parallelize, and struggled with
+1:24
+long-term memory. But there was one
+1:26
+thing they handled naturally, sequence.
+1:28
+An RNN reads text one word at a time.
+1:31
+First, it sees dog. It stores that
+1:34
+information in its hidden state. Then it
+1:36
+reads bytes, updating its memory. Then
+1:38
+finally, man. At every step, the
+1:41
+previous history is carried forward,
+1:43
+like passing a note from one moment to
+1:45
+the next. So order is baked directly
+1:48
+into the computation itself. the network
+1:50
+automatically knows what came first and
+1:52
+what came later. And that's exactly what
+1:55
+vanilla transformers lost.
+1:58
+So an RNN moves through time one word at
+2:00
+a time. A transformer throws all of that
+2:03
+out. It processes everything at once.
+2:06
+And that's where the problem starts.
+2:08
+Let's look at what actually happens
+2:10
+inside self attention. If you look at
+2:12
+the attention formula, the key action is
+2:14
+right here. This qtranspose term, that's
+2:18
+the dot product. That's where words look
+2:19
+at each other. Let's compute just these
+2:21
+pair-wise dotproducts for the sentence
+2:24
+dog bites man. Every word acts as a
+2:27
+query comparing its underlying meaning
+2:29
+with every other word. It builds a map
+2:31
+of relationships showing how much each
+2:33
+word cares about the others. Now let's
+2:36
+swap the words man bites dog. Same
+2:39
+words, completely different meaning.
+2:41
+Look at this. The scores are basically
+2:43
+the same. That's because the words
+2:45
+haven't changed, just their order. And
+2:48
+self attention only cares about what the
+2:50
+words are, not where they sit. Notice
+2:53
+how the attention scores are exactly the
+2:54
+same, just shifted. The interaction
+2:57
+between dog and man is identical in both
+3:00
+matrices because the mathematical
+3:02
+vectors representing them haven't
+3:04
+changed. To self attention, both
+3:06
+sentences look identical. This is the
+3:08
+permutation problem.
+3:10
+But everything changes when we add
+3:12
+positional encoding. Now, every word
+3:15
+carries its position information baked
+3:17
+right in. Look at the new embeddings.
+3:20
+Because they contain positional info,
+3:22
+they are fundamentally different between
+3:23
+the two sentences. In dog bites man, dog
+3:26
+sits at position zero. In man bites dog,
+3:29
+man takes that position zero slot
+3:31
+instead. So, when we compute attention
+3:33
+again, the interaction between dog and
+3:35
+man is now totally different because
+3:37
+their underlying vectors have changed.
+3:40
+Notice these highlighted cells. The
+3:43
+dogman interaction score is different in
+3:45
+each matrix. Now, even with identical
+3:48
+words, the model sees completely
+3:49
+different relationships. Order is
+3:52
+finally included. The two attention
+3:54
+matrices are now completely different.
+3:56
+The model can now clearly tell that dog
+3:58
+bites man is not man bites dog.
+4:01
+Positional encoding fixes the order
+4:03
+blindness problem, giving the
+4:05
+transformer a true sense of sequence.
+4:08
+So without positional encoding, same
+4:10
+attention no matter what order you
+4:12
+shuffle the words. It is completely
+4:14
+blind to order. But with positional
+4:17
+encoding, every word gets a unique
+4:19
+fingerprint. The model finally knows not
+4:21
+just what each word means, but where it
+4:24
+lives. That's the whole game. Okay. So
+Positional Encoding Approaches (Overview)
+4:27
+now that we know the problem, the
+4:29
+transformer is completely orderblind.
+4:31
+Let's start with the very simplest idea.
+4:34
+Simply take each word and assign it a
+4:36
+position number. One for the first word,
+4:39
+two for the second, three for the third.
+4:41
+Word dog at position one, byes at
+4:44
+position two, man at three. Simple,
+4:46
+clean. In math, the final vector equals
+4:49
+the word embedding plus the raw index.
+4:51
+Looks reasonable, right? Let's see what
+4:53
+breaks. Think about a long document. By
+4:56
+word 100, you're not adding a subtle
+4:58
+hint. You're dumping the number 100
+5:00
+straight into the embedding. and your
+5:03
+word vectors, they're tiny decimal
+5:05
+values like 3 org0.1
+5:08
+a 100 next to those, it completely
+5:11
+crushes them. Word embeddings are
+5:13
+basically small clusters of decimal
+5:15
+numbers, tiny subtle values. That's
+5:18
+where the meaning lives. It's not a
+5:20
+dictionary definition. It's more like a
+5:22
+location in space. And a huge number
+5:25
+like 100 just bulldozes all of that.
+5:28
+When we suddenly inject a huge number
+5:30
+like 100 into those values, the original
+5:32
+semantic structure gets drowned
+5:34
+underneath it. The meaning isn't
+5:37
+enhanced. It gets overwhelmed, like
+5:39
+trying to hear a whisper next to a jet
+5:41
+engine. To the neural network, this
+5:44
+vector no longer feels like the original
+5:46
+word embedding. It starts to look more
+5:49
+like a giant flashing label that just
+5:51
+says position 100. Okay, so raw indices
+5:55
+explode. What if we normalize them?
+5:56
+Instead of one, two, three, we divide
+5:59
+every index by the sequence length minus
+6:01
+one. That compresses every position into
+6:04
+the range 0 to one. No matter how long
+6:07
+the sentence, the values stay bounded.
+6:09
+Let's see it on a number line. Position
+6:11
+zero, the very first word gets 0.0. The
+6:14
+middle word lands at 0.5, exactly
+6:17
+halfway, and the last word gets exactly
+6:19
+1.0. All values sit neatly between zero
+6:22
+and one. Scale problem completely gone.
+6:25
+This looks like the perfect fix.
+6:26
+Bounded, clean, easy to compute. But
+6:29
+before we get too excited, there is a
+6:31
+fatal flaw hiding underneath.
+6:33
+Take the word man at index 2. In a
+6:36
+three-word sentence, its normalized
+6:38
+position is 1.0. It is the last word.
+6:41
+But in a seven-word sentence, the same
+6:42
+index 2 gives only.33,
+6:45
+a third of the way in. The exact same
+6:47
+word at the exact same index now has a
+6:50
+completely different positional
+6:51
+encoding. The model can no longer
+6:53
+compare positions consistently across
+6:56
+sentences. So both approaches break. Raw
+6:59
+integers blow up and normalized ones
+7:01
+shift depending on sentence length. What
+7:04
+if we just skip the math and let the
+7:06
+model figure it out on its own? That is
+7:08
+the idea behind learned positional
+7:10
+embeddings. We create a lookup table,
+7:12
+one row per position. Think of it as a
+7:15
+matrix. At first, it is pure random
+7:17
+noise, but through training, the model
+7:20
+keeps nudging those random numbers until
+7:22
+they mean something. It basically
+7:24
+figures out its own system for encoding
+7:26
+position. At inference time, when we
+7:29
+process the word bytes at position one,
+7:32
+we look up row one from this learned
+7:34
+table. We pull out that exact vector and
+7:36
+add it straight into the word embedding.
+7:39
+It works beautifully. The model figures
+7:41
+out a good encoding completely on its
+7:43
+own.
+7:44
+This approach works incredibly well. In
+7:46
+fact, BET and GPT2 both use it. But here
+7:49
+is the catch. It does not scale
+7:51
+infinitely. If you train with a max
+7:53
+limit of five positions and someone
+7:56
+passes in a sixth word, the model
+7:58
+literally runs out of rows. It hits a
+8:00
+wall. So, let's pause and think like an
+8:03
+engineer.
+8:04
+If we were designing the perfect
+8:06
+positional encoding from scratch, what
+8:08
+properties would we actually want? We
+8:10
+want it to be bounded values that never
+8:13
+blow up. We want it to be unique. Every
+8:15
+position gets its own signature. We want
+8:18
+it to be length agnostic.
+8:21
+The same formula works whether the
+8:22
+sentence has 10 words or 10,000. And we
+8:25
+want it to be smooth so that positions
+8:28
+that are close together have similar
+8:30
+encodings. Now, here's a question. What
+8:34
+kind of mathematical function do you
+8:35
+already know that is always bounded
+8:37
+between minus1 and one infinitely smooth
+8:40
+and periodic
+8:42
+s and cosine? Here's how positional
+8:44
+encoding works. We create a unique
+8:46
+fingerprint for every position using s
+8:48
+and cosine waves at different
+8:50
+frequencies.
+8:52
+Position zero gets a unique combination
+8:54
+of s and cosine values. Position one
+8:57
+gets a completely different pattern of
+8:59
+frequencies.
+9:00
+Position two a different fingerprint
+9:02
+again. Position three, position four.
+9:04
+The pattern keeps shifting. No two
+9:07
+positions ever produce the same vector.
+9:09
+So every word now carries its exact
+9:12
+address in the sentence, encoded as a
+9:14
+mathematical fingerprint. This is
+9:16
+sinosoidal positional encoding
+9:18
+introduced in the attention is all you
+9:20
+need paper. By mixing s and cosine waves
+9:23
+at different frequencies, we give every
+9:25
+position a unique smooth and bounded
+9:28
+fingerprint. All right, let's actually
+Sinusoidal Positional Encoding (Deep Dive)
+9:31
+look at the formula.
+9:33
+How exactly does a word's position
+9:34
+become a bunch of numbers?
+9:37
+Because those s and cosine values don't
+9:39
+just appear randomly. There's a specific
+9:42
+equation behind them straight from the
+9:43
+original attention is all you need
+9:45
+paper. This is the formula. Two
+9:48
+variants, one for sign, one for cosine.
+9:50
+Every evenumbered dimension gets filled
+9:52
+using sign and every oddnumbered
+9:55
+dimension uses cosine. That's the
+9:57
+alternating pattern. Let's lock in the
+9:59
+variables before we compute anything.
+10:02
+Three variables. Each one has a clear
+10:04
+concrete meaning. POS is the position
+10:06
+index of the word in the sequence. I is
+10:09
+the dimension pair index and D is the
+10:11
+total embedding size.
+10:15
+Now let's actually run through the
+10:16
+numbers and see what the formula spits
+10:18
+out step by step. Let's take the same
+10:20
+example. Do bites man. It has three
+10:24
+tokens. Remember, since we have six
+10:26
+dimensions in total, there will be three
+10:28
+pairs of sign and cosine values for
+10:31
+every token. Now, here is our empty
+10:33
+positional encoding matrix. Each row
+10:36
+represents a word position in the
+10:37
+sentence, and each column represents one
+10:40
+dimension of the encoding. And here is
+10:42
+the key pattern. Green columns represent
+10:45
+sign, red columns represent cosine. This
+10:48
+alternating pattern is fixed. It is what
+10:50
+gives every position its unique
+10:52
+signature. Notice how we group the
+10:54
+dimensions into pairs. The first pair of
+10:57
+s and cosine columns corresponds to
+10:59
+index zero. The second pair is for index
+11:02
+one. And the third pair is for index 2.
+11:06
+Let's go step by step for the first
+11:08
+position. Position equals 0. And the
+11:10
+first pair index is also zero. We plug
+11:13
+position equals 0 and index equals 0
+11:15
+into our formula. The angle becomes 0 /
+11:19
+1 which is just 0. So sine of 0 gives us
+11:22
+0. and applying the same angle to cosine
+11:24
+gives us cosine of 0 which is one. We
+11:27
+take these two computed results and
+11:30
+place them directly into the first two
+11:31
+columns of our matrix for position 0.
+11:35
+For position one sine of 1 is841 and
+11:38
+cosine of 1 is.540.
+11:40
+Adding this to our next row for position
+11:43
+two s of 2 is.99 and cosine of 2 is
+11:47
+minus.416.
+11:48
+Placing it in row two. Notice how even
+11:51
+in the first dimension, every position
+11:53
+is already getting different values.
+11:56
+For position zero, the angle is still
+11:58
+zero. So s is zero and cosine is 1. We
+12:01
+slot these in. For position one, s is46
+12:05
+and cosine is.999. Updating the table.
+12:08
+For position two, s is 93 and cosine
+12:12
+is.996.
+12:13
+And we add them to the matrix. The
+12:15
+values are changing much more slowly
+12:17
+here, helping the model capture medium
+12:19
+range relationships.
+12:21
+For position zero, the result is still
+12:24
+zero and one, placing them into the last
+12:26
+columns. For position one, both s and
+12:29
+cosine values are very close to 0 and
+12:31
+one, respectively, which go into the
+12:34
+next row. For position two, the values
+12:36
+still carry subtle differences that help
+12:38
+encode long range position information.
+12:41
+Completing our matrix. When you combine
+12:43
+all dimensions together, every single
+12:46
+row becomes a completely unique
+12:47
+fingerprint.
+12:49
+Our positional encoding table is now
+12:51
+complete. Each row is a unique
+12:53
+mathematical fingerprint for a word's
+12:55
+position. No two rows are identical. And
+12:58
+that is exactly what we need.
+13:01
+Here's the thing. You only build this
+13:03
+table once. Think of it as a reference
+13:05
+sheet that's already done. No need to
+13:07
+recalculate anything at runtime.
+13:10
+Once built, these values are completely
+13:12
+frozen. They are not learned weights,
+13:15
+just fixed mathematical constants.
+13:18
+At inference time, each word simply
+13:20
+grabs its corresponding row from the
+13:22
+pre-built table. Position zero takes row
+13:25
+zero, position one takes row one,
+13:27
+position two takes row two, and so on
+13:30
+for every position in the sequence. No
+13:32
+extra computation is needed. Now what if
+13:34
+a new word like tomorrow comes up in a
+13:37
+longer sequence. Since s and cosine
+13:40
+waves are continuous, we will simply
+13:42
+compute its position vector on the fly.
+13:45
+Remember this was a major problem in
+13:47
+learned positional encoding. If you
+13:49
+train on sequences up to 512 tokens, but
+13:52
+then throw in a 600 token sentence,
+13:55
+crash. It just doesn't know what to do.
+13:59
+Let's use a different sentence this
+14:01
+time. The dog chased the dog. chosen
+14:04
+specifically because it contains
+14:05
+repeated words.
+14:07
+The very first thing that happens is
+14:09
+tokenization. The text is split into
+14:11
+discrete tokens and each token is mapped
+14:14
+to an integer ID from the model's
+14:16
+vocabulary.
+14:17
+Notice how the repeated words get the
+14:19
+exact same token ID. Each token ID is
+14:22
+fed into an embedding matrix, a giant
+14:24
+lookup table of learned vectors. What
+14:27
+comes out is a dense numerical vector
+14:29
+for each word. Because the two dog
+14:31
+tokens share the same ID, they get the
+14:34
+exact same word embedding. But notice at
+14:37
+this stage, the vectors have absolutely
+14:39
+no idea where in the sentence they
+14:41
+appear. Now the key step, we simply look
+14:43
+up the positional encoding for each
+14:45
+position and add it directly to the word
+14:48
+embedding. Crucially, both the token
+14:50
+embedding and the positional encoding
+14:52
+must have the exact same dimension. In
+14:55
+this case, six. Only then can they be
+14:57
+added together element-wise. Look
+14:59
+closely at the final vectors for the two
+15:01
+dog tokens. Even though they had the
+15:04
+exact same token embedding, adding
+15:06
+different positional encodings made
+15:08
+their final vectors completely unique.
+15:11
+All five combined vectors flow into
+15:13
+multi-head attention simultaneously in
+15:15
+parallel. The transformer receives every
+15:18
+token at once, and each one arrives
+15:20
+labeled with both its meaning and its
+15:22
+exact position.
+15:31
+Now we know how positional encoding is
+15:33
+added to word embeddings before entering
+15:35
+the attention block. But we haven't
+15:38
+asked the deeper question. Why do s and
+15:40
+cosine waves work so well for this job?
+15:44
+Let's visualize exactly what makes them
+15:46
+special.
+15:48
+To see this, let's look at the different
+15:50
+frequencies generated across the
+15:52
+dimensions. We'll visualize this as
+15:54
+waves, one pair per dimension group. On
+15:57
+the x-axis, word position 0, 1,2, and so
+16:00
+on. The top wave representing dimension
+16:02
+zero has a very high frequency. Notice
+16:05
+how rapidly it oscillates from one
+16:06
+position to the next. Moving deeper,
+16:09
+dimension two, the frequency drops. It
+16:12
+takes longer to complete one full cycle.
+16:14
+And at the deepest dimensions, the wave
+16:16
+becomes extremely slow, almost a gentle
+16:19
+lean rather than a full oscillation.
+16:21
+Let's observe what happens as we move
+16:23
+across the sequence. Each vertical slice
+16:26
+samples a value from every wave forming
+16:28
+the positional encoding vector. In the
+16:31
+high frequency wave, even a single step
+16:33
+yields drastically different values.
+16:36
+While in the low frequency wave,
+16:38
+adjacent positions appear almost
+16:40
+identical. Together, these layered
+16:42
+frequencies form a mathematical
+16:44
+fingerprint that is unique to every
+16:45
+position.
+16:47
+The fast wave captures fine grained
+16:49
+local differences. The slow wave
+16:51
+captures the global position in the
+16:53
+sentence. And together, they give every
+16:56
+token a unique signature.
+16:58
+But there's one thing I've been skipping
+17:00
+over. Every formula has this 10,000 just
+Why 10,000 Dimensions? (The Design Choice)
+17:03
+sitting there. Why that number? Why not
+17:06
+a 100? Why not a million? Honestly, it
+17:10
+doesn't look like it matters until you
+17:12
+actually compare them side by side.
+17:14
+Here's the complete formula. For even
+17:17
+dimensions, we use sign. And for odd
+17:19
+dimensions, we use cosine. Both share
+17:22
+the same angle. Position divided by
+17:24
+10,000 raised to 2 I overd model. The
+17:27
+number 10,000 sits right here in the
+17:29
+denominator controlling everything.
+17:32
+Here's what that exponent actually does.
+17:34
+When I is zero, the first dimension, you
+17:36
+get 10,000 to the power of 0, which is
+17:38
+just one. When I maxes out, you get
+17:41
+10,000 to the power of 1, which is
+17:43
+surprise 10,000. So, the divisor slides
+17:47
+from one all the way up to 10,000
+17:49
+depending on how deep you go in the
+17:51
+dimensions. This means the divisor
+17:53
+starts at one for the very first
+17:54
+dimension pair, giving a high frequency
+17:57
+wave, and ends at 10,000 for the last
+18:00
+dimension pair, giving an extremely
+18:02
+slow, low-frequency wave. To really feel
+18:05
+why 10,000 is the right choice, let's
+18:08
+compare three different bases side by
+18:10
+side using the deepest dimension pair in
+18:13
+an eight-dimensional model.
+18:15
+First base equals 10. Even for the
+18:18
+deepest dimension, the wave completes
+18:20
+many full cycles across 100 positions.
+18:23
+That means distant positions end up with
+18:25
+nearly identical encodings. A
+18:27
+catastrophic collision. Now base equals
+18:30
+10,000, the original paper's choice. For
+18:33
+the deepest dimension, the wave is very
+18:35
+slow, almost flat across 100 positions.
+18:38
+That means even for long sequences, this
+18:41
+dimension stays smoothly
+18:42
+distinguishable. and base equals 1
+18:45
+million. Now, the deepest wave is so
+18:47
+slow it barely budges at all. The model
+18:50
+can't extract any meaningful distance
+18:52
+information from those dimensions.
+18:54
+Classic Goldilock situation. Base too
+18:57
+small, the slow waves spin too fast,
+19:00
+positions start colliding. Base too big,
+19:03
+the slow waves barely move, and the
+19:04
+model can't tell positions apart. 10,000
+19:08
+hits right in the middle. every
+19:10
+dimension stays useful and you can
+19:11
+handle sequences up to about 10,000
+19:13
+tokens without breaking anything.
+19:16
+Here's a beautiful analogy. Think of
+19:18
+binary counting. Each row in this table,
+19:21
+shows the four-bit binary representation
+19:23
+of a position. Here are positions 0
+19:26
+through 7, each encoded as a unique
+19:28
+combination of bits. Bit 0, the
+19:31
+rightmost column, flips every single
+19:32
+step. That's maximum frequency. Bit
+19:35
+three, the leftmost column, flips only
+19:38
+once every eight steps. That's minimum
+19:40
+frequency. Together, these bits encode
+19:42
+every number from 0 to 7 uniquely.
+19:45
+Positional encoding does exactly the
+19:47
+same thing, but with smooth s and cosine
+19:49
+waves instead of hard bit flips, and
+19:52
+with 10,000 controlling how slowly the
+19:54
+slowest wave moves.
+19:56
+So, the takeaway is this. 10,000 was
+19:59
+chosen to give the slowest wave a
+20:01
+wavelength long enough to cover typical
+20:03
+sequence lengths up to around 10,000
+20:06
+tokens while keeping every dimension
+20:08
+informative.
+20:10
+It was an empirical design decision in
+20:13
+the original attention is all you need
+20:14
+paper and it works remarkably well in
+20:17
+practice. So now we understand the math,
+20:20
+the s and cosine formula, the 10,000
+20:24
+base and how it spreads frequencies
+20:26
+across dimensions. But what does all of
+20:28
+this actually look like when you put it
+20:30
+together?
+20:32
+Let's zoom out and see the full
+20:33
+positional encoding matrix at once. When
+20:37
+we scale this up to 50 positions in 64
+20:39
+dimensions, the resulting positional
+20:42
+encoding matrix forms an intricate heat
+20:44
+map. Each row represents the complete
+20:47
+positional encoding vector for a single
+20:49
+word. As we move through each row,
+20:52
+notice how every position possesses its
+20:54
+own unique stripe of color. Blue means
+20:56
+positive. Red means negative. This isn't
+20:59
+random noise. It's structured math.
+21:01
+Observe the left side. These early
+21:04
+dimensions represent high frequencies.
+21:06
+The values change rapidly, much like the
+21:08
+second hand of a clock, capturing fine
+21:11
+grain differences between nearby words.
+21:13
+The right side is the exact opposite.
+21:16
+These later dimensions represent low
+21:17
+frequencies. The values transition
+21:20
+smoothly, similar to an hourhand,
+21:22
+capturing the broader long range
+21:24
+structural position. Fast signals on the
+21:27
+left, slow on the right. Combine them
+21:29
+and every single position gets a
+21:31
+perfectly unique code.
+21:34
+That heat map wasn't just pretty art. It
+Absolute vs Relative Position Encoding
+21:36
+reveals two remarkable properties hidden
+21:38
+inside the s and cosine formula. Let's
+21:41
+unpack them one at a time. Property
+21:44
+number one, absolute position. The s and
+21:47
+cosine formula assigns every single
+21:49
+position in the sequence its own unique
+21:51
+vector. No two positions will ever share
+21:54
+the same encoding. Take our running
+21:56
+example, dog bites, man. Three words,
+21:58
+three positions, 0, 1, and two. Now,
+22:01
+let's look at the positional encoding
+22:03
+vector each one gets. Here is each
+22:05
+position's encoding visualized as a bar
+22:07
+chart. Blue bars mean positive values.
+22:10
+Red bars mean negative. The height of
+22:12
+each bar represents the magnitude. Look
+22:15
+carefully. Every single chart has a
+22:17
+completely different pattern of bars.
+22:19
+Position zero's fingerprint looks
+22:21
+nothing like position 1's. And position
+22:24
+2's is different from both. And this is
+22:26
+the crucial insight. Every position gets
+22:29
+a completely different pattern. Dog at
+22:32
+position zero, bites at position one,
+22:34
+man at position two. Each one has a
+22:36
+unique fingerprint. The model can always
+22:38
+tell them apart purely by position. So
+22:41
+property one is clear. Every position in
+22:44
+the sequence receives a unique
+22:45
+deterministic encoding vector computed
+22:48
+entirely from s and cosine functions. No
+22:50
+learning required, no ambiguity.
+22:53
+That was property one, absolute
+22:55
+position. Now for property two, which is
+22:57
+even more remarkable. Positional
+22:59
+encoding doesn't just stamp each word
+23:01
+with a unique ID. It also lets the model
+23:04
+figure out how far apart two words are.
+23:07
+Let's use our sentence to demonstrate
+23:09
+this. Dog bites man. using four
+23:12
+dimensions for clarity. Here are the
+23:14
+actual positional encoding values the
+23:16
+formula produces for every word. Each
+23:19
+row is a unique fingerprint. That's the
+23:21
+absolute property we just saw. But how
+23:23
+does the transformer know how far apart
+23:25
+two words are? Here's the simple
+23:28
+intuition behind the math. These are the
+23:30
+angle addition formulas from
+23:32
+trigonometry.
+23:33
+They show us how to express the encoding
+23:35
+of a later position as a transformation
+23:37
+of an earlier one. Because of this, the
+23:40
+relationship between two words depends
+23:42
+only on the gap between them.
+23:45
+Now, why does this matter inside the
+23:47
+transformer? In the attention mechanism,
+23:50
+the model computes dotproducts between
+23:52
+vectors. Let me show you the dotproduct
+23:54
+of our positional encoding vectors. If
+23:57
+we take the dotproduct of the positional
+23:59
+encoding of dog with the positional
+24:01
+encoding of bytes which has a gap of one
+24:04
+and if we do the same for bytes with man
+24:07
+which is also a gap of one. Notice they
+24:09
+give exactly the same value. Now if we
+24:12
+take the dotproduct of dog with man
+24:15
+which has a gap of two the dot product
+24:17
+drops. So the model can literally feel
+24:19
+the distance between words just from
+24:22
+these dot productducts. Closer words
+24:24
+produce higher similarity. Farther words
+24:26
+produce lower similarity. This is
+24:28
+relative position in action. So the sign
+24:31
+and cosine formula gives every token
+24:33
+both an absolute address and a sense of
+24:36
+relative distance all in one elegant
+24:38
+vector.
+Final Takeaway & Outro
+24:41
+So here they are the four properties
+24:43
+that make sinosoidal positional encoding
+24:45
+so elegant. First uniqueness on the left
+24:49
+s and cosine waves across positions.
+24:51
+Each position samples a unique sign
+24:53
+value and a unique cosine value.
+24:56
+Together they form a unique coordinate
+24:58
+pair. Plotting each position on a 2D
+25:00
+plane. Sign on X, cosine on Y, every
+25:03
+position lands on a completely different
+25:05
+spot on the unit circle. No two
+25:07
+positions ever collide. Second bounded S
+25:11
+and cosine can only output values
+25:13
+between minus1 and plus one. Every value
+25:16
+in the encoding stays inside this safe
+25:18
+zone no matter what position you pick. 0
+25:21
+5 a th00and every value stays neatly
+25:24
+between minus1 and + one. This prevents
+25:27
+the encoding from blowing up the neural
+25:28
+network's activations.
+25:31
+Third, relative distance. When we
+25:34
+compute the dotproduct between
+25:35
+positional encoding vectors, something
+25:37
+beautiful emerges. Notice the diagonal
+25:40
+bands. Positions the same distance apart
+25:42
+always produce the same dotproduct
+25:44
+similarity. The model can learn relative
+25:47
+positions, not just absolute ones.
+25:50
+Finally, generalization. Unlike a
+25:53
+learned lookup table that breaks on
+25:54
+unseen lengths, s and cosine are defined
+25:57
+for every real number. The wave
+25:59
+continues smoothly beyond the training
+26:01
+range. Position 110, 150, even 10,000.
+26:05
+Each one still gets a perfectly valid,
+26:07
+unique, bounded encoding.
+26:10
+That is the power of a mathematical
+26:11
+function over a fixed table. So putting
+26:14
+it all together, positional encoding is
+26:16
+unique, bounded, relative, and
+26:19
+generalizes perfectly. Every token now
+26:22
+carries a meaningful GPS tag that
+26:24
+combines its semantic meaning with its
+26:26
+precise position. Okay, zoom out for a
+26:29
+second. We've actually covered a lot. A
+26:31
+few videos back, we broke down multi
+26:33
+head attention, and just now we nailed
+26:36
+positional encoding, how the transformer
+26:38
+knows where each word sits. But notice
+26:40
+how the architecture has two distinct
+26:42
+halves. the encoder on the left and the
+26:45
+decoder on the right. Next time we will
+26:48
+remove the decoder and all the cross
+26:50
+attention connections entirely. We will
+26:53
+understand how the encoder part of the
+26:55
+transformer works as a powerful
+26:56
+standalone model. These tasks
+26:59
+classification, named entity
+27:00
+recognition, sentiment all run on this
+27:03
+exact architecture. Next video we'll
+27:05
+strip it apart and see exactly how the
+27:08
+encoder handles all of this on its own.
+27:10
+Thank you so much for watching. If this
+27:12
+video helped you understand positional
+27:14
+encoding, please hit like and subscribe.
+27:17
+It really helps my channel grow. See you
+27:20
+in the next one.
+
+---------------------------
+
+0:06
+Hi, welcome back to the channel. In the
+0:09
+last video, we talked about the self
+0:10
+attention mechanism, the query key and
+0:14
+value. But before we go deeper, let's
+0:16
+take a step back and look at how this
+0:18
+fits into the full transformer
+0:20
+architecture. As you can see, the
+0:22
+encoder is on the left side and the
+0:24
+decoder is on the right. Now you might
+0:27
+be wondering where is self attention.
+0:31
+Well, it lives inside these multi head
+0:34
+attention blocks.
+0:38
+Specifically, today we're focusing on
+0:40
+this block in the encoder. Multi head
+0:43
+attention is essentially self attention
+0:45
+running in parallel. Instead of one
+0:47
+attention pass, it runs several at once.
+0:50
+Each one looking at the input from a
+0:52
+different angle. But before we see how
+0:54
+it works, let's first understand why we
+0:57
+even need multi-head attention in the
+0:58
+first place.
+Why single Self-Attention fails (ambiguity problem)
+1:02
+Consider this sentence. The detective
+1:04
+followed the spy with binoculars. Simple
+1:07
+enough, but there is a hidden ambiguity.
+1:10
+Who actually has the binoculars? There
+1:13
+are actually two valid interpretations.
+1:16
+Let me show you both. First
+1:18
+interpretation, the detective has the
+1:21
+binoculars and is using them to follow
+1:23
+the spy. Second interpretation, the spy
+1:27
+has the binoculars and was simply
+1:29
+carrying them. Same sentence, completely
+1:33
+different meaning. Now, we already know
+1:36
+how self attention works. Every word
+1:39
+computes attention scores with every
+1:41
+other word. So, let's apply self
+1:43
+attention to the word binoculars and see
+1:46
+what scores it gives to each word in
+1:48
+this sentence. Here are the attention
+1:51
+scores. The thickness of each line shows
+1:54
+how much attention binoculars pays to
+1:56
+that word. A thick line means high
+1:59
+attention. A thin line means low
+2:01
+attention. Look at what happens.
+2:04
+Detective gets 90% by far the strongest
+2:08
+connection. So the self attention
+2:10
+strongly concludes binoculars belongs to
+2:13
+the detective. But look at spy. It only
+2:16
+gets 20%. The line is thin, almost
+2:20
+invisible. Self attention barely notices
+2:22
+the spy at all. The second
+2:24
+interpretation is effectively ignored.
+2:27
+This is the fundamental limitation of a
+2:30
+single self attention head. It produces
+2:33
+just one attention map which means it
+2:35
+captures just one relationship, one
+2:38
+perspective and completely misses the
+2:41
+other.
+What is Multi-Head Attention? (concept)
+2:44
+Now that we know why we need it, let's
+2:46
+now understand what exactly is multi
+2:49
+head attention. For better
+2:51
+understanding, let's assume we have a
+2:53
+simple sentence with just three tokens.
+2:57
+Just like in standard self attention, we
+2:59
+first convert each token into a
+3:01
+numerical vector called an embedding.
+3:04
+Let us assume that our embedding cells
+3:06
+is 5112
+3:08
+dimensions, the standard size that was
+3:10
+used in the original transformers paper.
+3:13
+If we stack our three tokens together,
+3:15
+we get an input matrix of shape 3x 512.
+3:20
+Three tokens and 512 dimensions each.
+3:24
+Now this is something interesting. A
+3:28
+standard self attention block uses only
+3:30
+one set of weight matrices to look at
+3:32
+this data. But multi head attention says
+3:36
+what if we use multiple self attention
+3:38
+modules in parallel. We call each of
+3:42
+these parallel attention modules ahead.
+3:45
+Instead of doing one massive heavy
+3:47
+calculation on all 512 dimensions at
+3:50
+once, we actually split the workload up.
+3:54
+For example, we might divide our 512
+3:57
+dimensions across four smaller heads,
+3:59
+giving each head just 128 dimensions to
+4:02
+work with. Now, you might be wondering
+4:06
+why do we shrink the dimensions? The
+4:08
+reason is purely for computational
+4:10
+efficiency. By shrinking down to 128
+4:14
+dimensions, we can run four completely
+4:16
+independent heads for the exact same
+4:19
+computational cost as running one large
+4:21
+one. So, how do they learn different
+4:24
+things? Well, because each head has its
+4:27
+own independent weights, they just
+4:29
+naturally pick up on different patterns
+4:31
+on their own. This means instead of
+4:33
+looking at our sentence in just one
+4:35
+limited way, our model can capture
+4:38
+multiple rich perspectives all at the
+4:40
+exact same time. Each head looks at the
+4:44
+exact same sentence. But because they
+4:46
+operate independently, they act like
+4:49
+unique lenses capturing completely
+4:51
+different perspectives. Think of it like
+4:54
+a TAM of detectives working on the exact
+4:57
+same case. Instead of one detective
+4:59
+trying to do everything, you split the
+5:01
+work. One head focuses purely on
+5:04
+grammar. Another hunts for longd
+5:06
+distance relationships between words far
+5:09
+apart.
+5:10
+A third focuses strictly on subject verb
+5:14
+connections. And the last looks at
+5:17
+positional patterns where words sit
+5:20
+relative to each other. By running all
+5:23
+of these heads at the exact same time,
+5:25
+our model does not just get one limited
+5:28
+view. It captures multiple rich
+5:31
+perspectives simultaneously.
+5:33
+That is the core idea of multi- head
+5:36
+attention.
+How MHA works — step-by-step walkthrough
+5:40
+Now that we know what exactly multi-head
+5:42
+attention is, let's see how exactly it
+5:45
+works. First, we start with our input
+5:48
+embeddings. Just like in standard self
+5:51
+attention, we multiply our input by
+5:53
+three different learned weight matrices
+5:56
+to produce our query key and value
+5:58
+matrices. But here comes the major
+6:01
+difference. In standard self attention,
+6:03
+we would use these massive 512 dimension
+6:06
+matrices directly. But in multi- head
+6:09
+attention, we slice them up. If we want
+6:12
+four heads, we divide 512 by 4, giving
+6:16
+each head its own smaller
+6:19
+128 dimensional slice of Q, K, and V.
+6:23
+But why do we shrink the dimensions down
+6:25
+to 128 per head? It is strictly for
+6:30
+computational efficiency. If we ran four
+6:33
+attention heads at the full 512
+6:35
+dimensions, it would cost four times the
+6:38
+computing power. By slicing them into
+6:41
+128, we get four unique perspectives for
+6:45
+the exact same computational price as
+6:47
+one large head. Now, every single head
+6:51
+takes its smaller matrices and runs the
+6:53
+standard scale dot product attention
+6:56
+completely independently. Think of it
+6:58
+like sending four detectives into four
+7:01
+separate rooms to analyze the clues.
+7:03
+Each head produces its own unique
+7:05
+attention output matrix. We now have
+7:08
+four different contextual perspectives
+7:10
+of our sentence. So what do we do with
+7:13
+these four different outputs? We simply
+7:15
+glue them back together. We concatenate
+7:18
+them side by side because each of the
+7:21
+four heads output 128 dimensions.
+7:24
+Combining them perfectly restores our
+7:27
+original 512dimensional
+7:29
+shape. Finally, we have one last step.
+7:33
+Right now, our concatenated matrix is
+7:36
+just four separate perspectives stacked
+7:38
+next to each other. To perfectly blend
+7:41
+these perspectives, we pass this block
+7:43
+through one final linear layer. This
+7:46
+layer has a shape of 512x
+7:49
+512. It acts like a judge. It mixes the
+7:53
+information, balances which perspectives
+7:55
+matter most, and produces our final
+7:58
+unified output, keeping the same 512
+8:02
+dimensions.
+8:06
+And that is it. Our model has not just
+8:09
+looked at one meaning. It has now
+8:11
+analyzed the sentence from multiple
+8:14
+perspectives at the exact same time in
+8:17
+parallel. That is the true power of
+8:20
+multi head attention. Here is the full
+8:23
+picture in one view. Input to QV
+8:27
+sliced into heads. Each runs independent
+8:30
+attention, concatenated, and blended
+8:33
+through the final linear layer. Let's
+Final Insight — Multiple Perspectives & Same Cost
+8:35
+take a moment to really appreciate what
+8:37
+just happened. Our model didn't look at
+8:40
+the sentence once. It looked at it four
+8:43
+times simultaneously, each from a
+8:46
+completely different angle.
+8:48
+One head focuses purely on grammar. the
+8:51
+core structure of the sentence. Another
+8:53
+looks for long range relationships,
+8:56
+connecting words that are far apart. A
+8:58
+third zeros in on subject focus,
+9:01
+figuring out exactly who is doing the
+9:03
+action. And the fourth captures position
+9:06
+patterns, noticing where words sit
+9:09
+relative to each other. Four
+9:11
+specialists, each an expert in their own
+9:13
+dimension of language. And here is the
+9:16
+genius of the design. You might think
+9:19
+four separate attention heads must be
+9:21
+four times more expensive, but no. Each
+9:25
+head works in a smaller space, 128
+9:29
+dimensions instead of 512.
+9:32
+Running all four in parallel costs the
+9:34
+exact same as running just one full
+9:37
+head. We get multiple perspectives
+9:39
+completely for free. Now watch this.
+9:43
+After each head has seen what it needs
+9:45
+to see, all four perspectives are
+9:48
+gathered back together. They flow
+9:50
+through the final linear layer and merge
+9:53
+into one single rich unified embedding.
+9:56
+Four voices, one answer. Remember our
+10:00
+ambiguous sentence from the beginning.
+10:03
+While one head might strongly link the
+10:05
+binoculars to the detective, another
+10:08
+head simultaneously links them to the
+10:10
+spy. When they merge, both meanings are
+10:14
+perfectly preserved. And that is
+10:17
+multi-headed attention. It solves the
+10:19
+ambiguity of human language, not by
+10:21
+looking harder, but by looking from
+10:23
+multiple angles at the same time.
+10:26
+Multiple perspectives, the same
+10:28
+computation cost, and a far richer
+10:30
+understanding.
+10:33
+Thank you so much for watching. If this
+10:35
+video helped you understand multi-head
+10:37
+attention, please hit like and subscribe
+10:39
+button.
+
+All
+
+Watched
+
+---------------------
+
+Search in video
+0:06
+Look at this sentence. The animal didn't
+0:08
+cross the street because it was too
+0:10
+tired. Simple, right? But here's the
+0:13
+question. What does the word it refer
+0:16
+to? The street or the animal? We know
+0:20
+the answer immediately. But how do we
+0:22
+know? We looked at other words. We
+0:26
+connected it to animal almost without
+0:29
+thinking. That single act, one word
+0:32
+reaching out to understand another is
+0:35
+the core idea behind self attention. In
+0:38
+the past, recurrent neural networks or
+0:41
+RNN's read words strictly one by one,
+0:45
+left to right, sequential, no going
+0:48
+back.
+0:49
+By the time the RNN's hidden state
+0:52
+reaches the word it, the word animal is
+0:55
+already buried in the past. The context
+0:58
+and the meaning is gone. This was a
+1:00
+major problem we faced in early natural
+1:02
+language processing known as the
+1:05
+long-term dependency problem. The system
+1:07
+sees the current word, but it loses the
+1:09
+broader context. This fundamental flaw
+1:12
+in sequential processing held back AI
+1:15
+language understanding for a long time.
+1:18
+But what if we threw away the sequential
+1:20
+method entirely? What if every word
+1:23
+could process every other word
+1:26
+simultaneously? Instead of a rigid left
+1:29
+to right timeline, imagine a connected
+1:32
+web. What if the word it could reach
+1:35
+back to animal directly and instantly?
+1:39
+When researchers finally built this web,
+1:41
+they called it self attention.
+1:45
+Introduced in the 2017 landmark paper,
+1:48
+attention is all you need. The core
+1:50
+philosophy is elegant. Instead of
+1:52
+waiting in line, every single word
+1:55
+queries every other word simultaneously
+1:59
+and in parallel. Nothing is ignored.
+2:02
+Every word contributes to the meaning.
+2:04
+But seeing the idea is one thing. How
+2:07
+does the math actually work? Let's build
+2:10
+the algorithm step by step from the
+2:12
+ground up.
+2:14
+Before any attention can happen, words
+2:17
+must become numbers. Each word is mapped
+2:20
+to a dense vector of real values. This
+2:23
+is called an embedding. Think of it as
+2:26
+the word's personality fingerprint. Cat
+2:29
+might live near dog in this space and
+2:31
+far from words like satellite. In our
+2:34
+example, we have three words. The cat
+2:38
+sat. Each becomes a vector of D numbers.
+2:42
+We call these x1, x2 and x3. Stack all
+2:46
+these vectors rowby row and you get the
+2:49
+input matrix called x. The shape of the
+2:53
+matrix is 3x4 where 3 is the number of
+2:56
+tokens and four is the dimension of each
+2:59
+token. This matrix x is where self
+3:03
+attention begins. To compute attention,
+3:06
+we project the input matrix X into three
+3:10
+separate matrices. Query key and value
+3:13
+matrices. Each is derived by multiplying
+3:16
+X against a distinct learned weight
+3:19
+matrix. During training, let's isolate
+3:21
+the query matrix. We multiply the input
+3:24
+matrix X by the weight matrix WQ to
+3:28
+produce the query matrix. Each row in
+3:31
+the query matrix is a query vector
+3:34
+representing a word. We take row one of
+3:36
+X representing our first token and
+3:39
+compute the dotproduct against each
+3:41
+column of query weight matrix. This
+3:44
+populates the first row of query matrix.
+3:46
+The operation repeats for the remaining
+3:48
+tokens. We now have our query matrix.
+3:52
+Applying this exact logic across all
+3:54
+three weight matrices yields Q, K, and
+3:57
+V. These three matrices are the core
+4:00
+representations that make self attention
+4:02
+possible. Now that we have our queries
+4:05
+and keys, we can see how they interact.
+4:07
+Recall that each query represents what a
+4:09
+word is looking for, while each key
+4:11
+represents what that word has to offer.
+4:14
+To find the best matches between them,
+4:16
+we calculate their similarity. By
+4:18
+multiplying the query matrix by the
+4:20
+transposed key matrix, we generate a
+4:23
+grid of attention scores. Each row
+4:26
+represents a word asking a question and
+4:29
+each column represents a word being
+4:31
+evaluated. High values indicate a strong
+4:34
+relationship while low or negative
+4:37
+values mean the words are unrelated. The
+4:40
+model computes these scores for every
+4:42
+possible word pair. Each result fills a
+4:45
+specific cell in our attention grid.
+4:47
+These numbers tell the model exactly how
+4:49
+much focus to place on each word. Notice
+4:52
+the high scores along the diagonal. This
+4:55
+shows self attention where each word
+4:57
+naturally attends to itself. This
+4:59
+ensures the model keeps the original
+5:01
+meaning of each word intact. However, we
+5:05
+also see meaningful connections between
+5:07
+different words. For example, the
+5:09
+positive score between cat and sat shows
+5:12
+the model has linked the word to its
+5:14
+action. This grid serves as the raw
+5:16
+attention map, the blueprint of word
+5:19
+relationships. For now, these are just
+5:22
+raw numbers. Next, we'll normalize them
+5:25
+to create proper attention weights.
+5:27
+These raw numbers look straightforward,
+5:30
+but there's a catch. When the hidden
+5:32
+dimension DK is large, those scores can
+5:35
+explode in magnitude. Imagine vectors
+5:38
+with 64 dimensions, their raw alignment
+5:41
+scores can easily reach 20, 30, or
+5:44
+higher. If we feed these extreme values
+5:47
+into a softmax function, it completely
+5:50
+saturates. One token gets exactly one
+5:53
+and the rest get zero. The gradients die
+5:56
+and the network stops learning. To fix
+5:59
+this, the transformer architecture
+6:01
+introduces a brilliant stabilization
+6:03
+step. We divide the raw scores by the
+6:06
+square root of DK. If our dimension is
+6:09
+64, we divide the scores by 8. Let's see
+6:13
+the effect. The scores are compressed
+6:16
+back into a healthy zero centered range.
+6:19
+[clears throat]
+6:20
+Now when we apply softmax the resulting
+6:23
+probability distribution is smooth. This
+6:26
+allows gradients to flow smoothly during
+6:28
+back propagation.
+6:31
+This single division step is why it's
+6:34
+called scale.product attention. Let's
+6:37
+look at the complete formula. Query key
+6:40
+transpose gives the raw alignment.
+6:42
+Dividing by under root of dimension of
+6:45
+key vector stabilizes the variance
+6:49
+and softmax converts them to valid
+6:51
+attention weights. This elegant
+6:53
+mathematical trick is the engine of
+6:56
+large language models. After scaling the
+6:59
+scores, we apply the softmax function.
+7:01
+Softmax performs two vital operations.
+7:04
+First, it exponentiates the values
+7:07
+amplifying their differences. Second, it
+7:09
+normalizes them so they sum exactly to
+7:12
+one. We now have a valid probability
+7:15
+distribution. For our first token, the
+7:18
+the resulting weights look like this.
+7:20
+Notice how the highest score dominates.
+7:23
+When we stack these distributions for
+7:25
+all tokens, we form the full attention
+7:28
+weight matrix. Every row of this matrix
+7:31
+is a valid probability distribution.
+7:34
+Every row sums to one. This matrix
+7:37
+reveals exactly how much focus each
+7:39
+token places on the others. Look at the
+7:41
+diagonal. Each word attends most
+7:44
+strongly to itself. That makes intuitive
+7:46
+sense. You always know your own meaning.
+7:49
+But look further. Cat attends strongly
+7:52
+to sat, the subject reaching for its
+7:55
+verb. These are not programmed rules.
+7:58
+The model learned these grammatical
+8:00
+relationships purely from the math we
+8:02
+just described. Now that our attention
+8:04
+weights are ready, we can finally
+8:06
+calculate the finished output of the
+8:09
+self attention layer. Every symbol is
+8:11
+now familiar to you. Q is the question,
+8:15
+K is the key, and V is the value. Now
+8:19
+watch what happens at the very end. We
+8:22
+take our attention weights and compute a
+8:24
+weighted sum of the value vectors. Each
+8:27
+value gets multiplied by how much
+8:29
+attention it received. 61% of these
+8:33
+values, 25% of cats values, and 14% of
+8:37
+SATs values. Then we add them all
+8:40
+together to get our output vector. The
+8:42
+result is a brand new vector for each
+8:45
+token. But let's look at what these
+8:47
+vectors conceptually represent. The
+8:49
+output for the is mostly itself mixed
+8:53
+with a bit of cat. The output for cat is
+8:56
+a blend of itself and the word sat
+9:00
+and sat blends heavily with itself
+9:03
+incorporating its surrounding context.
+9:05
+Every word has been updated with the
+9:07
+context of the entire sentence. This is
+9:10
+the true power of self attention. We've
+9:13
+seen how attention works for a single
+9:15
+word. Now let's zoom out and look at an
+9:18
+entire sentence at once. This grid
+9:21
+represents the full attention matrix.
+9:24
+Rows are our queries and columns are our
+9:26
+keys. Brighter colors mean stronger
+9:29
+attention. And remember, because of
+9:31
+Softmax, every row must sum perfectly to
+9:34
+one. Watch how the weights distribute as
+9:37
+the model processes the sequence. Each
+9:40
+row reveals exactly what that specific
+9:42
+word is focusing on. Notice the bright
+9:45
+diagonal line. Every word pays strong
+9:48
+attention to itself to retain its own
+9:51
+core meaning. But the real magic happens
+9:53
+off the diagonal. Cat strongly attends
+9:57
+to sat. On connects directly to Matt and
+10:01
+the article the correctly links itself
+10:04
+to Matt as well. The model wasn't
+10:06
+programmed with grammar rules. It
+10:08
+discovered these structural
+10:10
+relationships purely from the math we
+10:12
+just built. Let's put everything
+10:13
+together and see the full pipeline of
+10:15
+self attention. We begin with our input
+10:18
+tokens. the cat sat each is mapped to an
+10:23
+embedding vector to form our input
+10:25
+matrix X. The input matrix is then
+10:28
+projected into three distinct matrices
+10:31
+query key and value to compute how much
+10:35
+focus each word should place on the
+10:37
+others. We multiply the queries by the
+10:39
+transposed keys and divide by the square
+10:42
+root of the dimension. This produces our
+10:45
+scaled attention scores. Next, we pass
+10:48
+these raw scores through the softmax
+10:50
+function. This normalizes them into
+10:52
+proper attention weights, ensuring each
+10:55
+row sums to exactly one. Finally, we
+10:58
+multiply these attention weights by the
+11:00
+value matrix. Each output vector is now
+11:03
+a weighted blend of the values deeply
+11:06
+enriched with contextual meaning.
+11:09
+And there you have it, the complete self
+11:12
+attention mechanism. By letting every
+11:14
+word interact with every other word,
+11:17
+transformers capture the full structure
+11:19
+and meaning of language.
+11:22
+We started with one question. What does
+11:25
+it mean? To answer it, a system must
+11:29
+look at other words. Self attention is
+11:32
+not a trick. It is not just a matrix
+11:35
+operation. Words do not exist in
+11:38
+isolation. They exist in relationship to
+11:42
+each other. Self attention gives every
+11:44
+word the ability to see the whole
+11:46
+sentence and ask, "What do I need from
+11:49
+you?" That one question scaled across
+11:52
+billions of parameters is why language
+11:54
+models finally began to understand us.
+11:57
+Self attention doesn't just process
+12:00
+language. It teaches language to
+12:02
+understand itself. But here is something
+12:05
+to think about. What if a single word
+12:08
+carries more than one meaning? Take the
+12:10
+word bank. In this sentence, bank
+12:14
+reaches toward deposit. It means a
+12:17
+financial institution. But in this
+12:19
+sentence, bank reaches toward river. A
+12:24
+completely different concept. Same word,
+12:27
+different world. A single attention head
+12:30
+can only capture one of these
+12:31
+relationships at a time. One head, one
+12:35
+meaning. But what if we could attend to
+12:37
+all meanings simultaneously? What if
+12:40
+each word could be understood through
+12:41
+multiple lenses at once? That idea is
+12:44
+known as multi- head attention. And that
+12:48
+is exactly where we are going in our
+12:50
+next video.

@@ -1,0 +1,28 @@
+{
+    "name": "tr_de_pl_de_ea_common_cse_h_dmnsn_incr",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "pl_de_ea_common_cse_h_dmnsn_incr",
+                    "type": "PipelineReference"
+                },
+                "parameters": {
+                    "id": "342",
+                    "incremental_column": "ins_ts"
+                }
+            }
+        ],
+        "type": "BlobEventsTrigger",
+        "typeProperties": {
+            "blobPathBeginsWith": "/triggers/blobs/hadoop/trg_cse_h_cnsmpn_",
+            "ignoreEmptyBlobs": false,
+            "scope": "/subscriptions/36d06495-dda5-435f-b2b9-6d565742bf07/resourceGroups/rg-global-fdn-qa/providers/Microsoft.Storage/storageAccounts/stglbfdnqa001",
+            "events": [
+                "Microsoft.Storage.BlobCreated"
+            ]
+        }
+    }
+}

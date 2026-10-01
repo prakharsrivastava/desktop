@@ -1,0 +1,3206 @@
+\0:00
+hello all my name is Kish naak and welcome to my YouTube channel so guys in one of our previous video i' had already
+0:07
+shown you how you can actually fine tune Lama 2 model with the with your own custom data set and uh over there we
+0:14
+learned about or we saw code that were related to something called as quantization Laura CLA techniques and
+0:20
+all right and all these techniques are super important if you also want to
+0:25
+train or fine-tune your own llm models with your own custom data set now when I showed the code right when I executed
+0:32
+that particular code many people had actually requested about to explain the
+0:37
+theoretical in-depth intuition about it and that is what I'm actually going to do uh the best thing is that when I
+0:44
+learned about this theoretical intuition and I'm doing it from past 2 to 3 months it's quite amazing guys you now this is
+0:50
+where that machine learning era is probably coming where I used to upload a lot of theoretical in-depth geometrical
+0:56
+intuitions regarding various machine learning algorithms similarly here here also in the series of videos in this
+1:02
+video we are going to discuss about quantization now what exactly is quantisation we going to discuss about
+1:07
+that in the upcoming video we are going to see techniques like Laura CLA every
+1:12
+maths intution that is probably involved uh and these all are important for the fine tuning technique right if I
+1:19
+probably talk about generative AI one of the most important interview questions will be something related to fine tuning
+1:26
+and what is the techniques that is usually used behind right so what all things we are going to cover in this
+1:32
+video in this video we going to talk about quantization um specifically when I say
+1:38
+quantization it is all about model quantization because if you remember in our Lama 2 code right when we doing the
+1:45
+fine tuning here you could see that we had put some parameters right regarding
+1:51
+Precision base modeling we had spoken about quanis you know when what when we
+1:57
+are downloading the models you know from from a higher bit to a lower bit why we are specifically doing this I will be
+2:04
+explaining about that right so with respect to each and every parameters definitely I will explain you the
+2:09
+theoretical intuition and later on you just go ahead and see my previous video
+2:14
+with respect to all the coding now you everything will make sense okay so what
+2:19
+exactly is quation we're going to discuss you know uh we're going to discuss about full Precision half
+2:24
+precision and this is something related to data types like how the data is stored in the memory when I specifically
+2:31
+say data in llm models I will talk about weights and parameters right because at
+2:38
+the end of the day llms are also deep learning neural networks in the form of Transformers or Bird right then we are
+2:44
+going to discuss about what exactly is calibration uh this is also called as like calibration in model quantization
+2:52
+right we are going to also make sure that we are going to see some problems right how we can actually do calibration
+2:59
+then there is different different modes of quation right uh first of all I will
+3:04
+explain you the definition then only you'll be able to understand in modes of quation we're going to discuss about two types one is post training Quant and
+3:11
+Quant aware training right so these all are very important in terms of fine tuning techniques now let's go ahead and
+3:19
+talk about quantization and we will try to see the definition right quantization
+3:26
+okay now if you want to really understand understand the meaning of
+3:31
+quantisation it is better to write a simple definition for it okay so
+3:37
+quantisation basically means conversion
+3:42
+from higher memory
+3:48
+format to a lower memory
+3:55
+format right now I've written a very generic
+4:02
+definition what exactly quantization mean it is nothing but conversion from a higher memory format to a lower memory
+4:09
+format now when I say higher memory format let's let's consider um any data
+4:15
+right and if I probably consider any neural network okay so let's say if I have neural network right and when we
+4:21
+train this neural network right all this neural network are interconnected at the end of the day what are the parameters
+4:27
+that is probably involved over here it is nothing but weights right we specifically have weights now weights
+4:34
+are usually in the form of metrics right let's say that I have a 3 cross3 weight okay I'm just taking as an
+4:41
+example in one of the layer I have 3 cross three weights and over here every
+4:46
+value right is probably stored in the memory in the form of 32
+4:55
+bits right 32 bits we also say this bits as we also we also denote it as
+5:02
+something like something like fp32 what exactly is fp32 so fp32 basically means
+5:08
+I can also consider it as see FP full form is not floating Point okay but we
+5:14
+are I'm just writing floating Point 32 bits right when I say FP FP basically
+5:20
+means it is nothing but full Precision right full Precision or single
+5:26
+Precision okay so this is the definition that is given right but in short this is
+5:31
+like a floating Point number okay so over here let's say my number is somewhere around
+5:36
+7.23 now this number is stored based on 32 bits in the memory
+5:43
+right now understand when you have a very big neural network or you have llm
+5:49
+models right as you see different different llm models right parameters keeps on increasing right some may have
+5:57
+70 billion parameters if I probably consider llama 2 with 70 billion parameters that
+6:03
+basically means it has 70 billion parameters in terms of weights and bias okay now it is not possible for me to
+6:11
+let's say I want to use this particular model and I want to probably do a some fine tuning with respect to the normal
+6:17
+GPU that I have right and let's say I have a very limited Ram in my system let's say the ram I have is somewhere
+6:23
+around 32 GB right I cannot directly download the specific model and put it
+6:29
+in my me in my Ram itself right let's say or load it in my vram that is available in the GPU because GPU also
+6:36
+has some limited Ram right and it is not possible you cannot directly download it
+6:41
+obviously it will require h space the other way is that yes I can probably take a cloud space somewhere let's say
+6:48
+in AWS I can create my instance I can say hey give me this this much RAM 64GB
+6:53
+RAM and I probably want this much GPU and then I will try to load the model over there that you can do it but over
+7:00
+there what is basically happening lot of cost is involved right based on the
+7:06
+resources the cost is involved right so in this scenario and why the 70
+7:14
+billion parameter is happening why this model has a 7on parameter because every weights or every bias that is available
+7:20
+in this you know this may be getting stored in 32 bits so what we can
+7:26
+specifically do is that we can convert this 32 bits into as I said over here
+7:34
+see conversion from a higher memory format to a lower memory format let's say I I can probably convert this 32 bit
+7:40
+into int 8 and then download the model or then use the model right after doing
+7:47
+this what will happen within my system I will be able to inference it right
+7:52
+obviously for fine tuning if I want to F tune with the new data set I will obviously require GPU but if I consider
+7:59
+with respect to inferencing it becomes quite easy because now all my values
+8:04
+that are stored in the form of 32 bits it will be stored in the form of 8 Bits so what we are specifically doing
+8:11
+over here we are converting from a high memory format to a low memory format and this is what is called as Quant
+8:19
+quantisation a very important thing now why quation is important because you
+8:26
+will be able to inference it quickly see inferencing basically means what if I have an llm model if I give any input to
+8:32
+that I should be able to get any output right I should be able to get response right now when I give any input all the
+8:39
+calculation with respect to different different weights will happen right and obviously if I have a bigger GPU this
+8:45
+inferencing will quickly happen right but if I have a GPU with less less
+8:50
+scores let's say then what will happen this calculation will take time but if I
+8:56
+convert my 32 bit to 8 Bits right every weights are basically converted into Ed bits now just imagine
+9:03
+the calculation will there be a difference yes it will happen little bit much more quicker so quantization is
+9:11
+very much important for inferencing and some of the example that I again probably talk about is that and
+9:16
+obviously you may have heard about this it's not like only in llm model we specifically do right in different Compu
+9:23
+Vision models in N LP models also where you think that there is a lot of Weights that is involved and all this if I want
+9:29
+to quantize it right I can actually do it right now this inferencing let's say
+9:35
+I want to use a specific deep learning model in my mobile phone so in my mobile phone if I want to
+9:42
+use it right in in a specific app then what I will do I will try to quantize
+9:48
+right whatever deep learning model I have created from 32 bits to 8 bit and then I will try to deploy it in my
+9:53
+mobile phone or any Edge device any Edge device right it is not
+9:59
+possible that you can probably deploy this big model over there right it is not possible so and so many parameters
+10:06
+so what we do we basically perform quantisation so I hope you're able to understand over here quantisation is
+10:13
+nothing but we are trying to lower down the memory right with respect to any
+10:18
+weights that we have like from 32 to probably 6 uh intake or let's say fp6 we
+10:26
+can also say fp16 right let's say if I have an fp32 bit that is specifically required
+10:32
+to store any information in my memory I can also convert this into FP 16bit this
+10:40
+is also quation only right usually all these values are
+10:45
+stored in floating point right we specifically say this fp32 bit we say single Precision or full Precision we uh
+10:52
+for FB 16bit if I'm trying to convert like this it is basically called as half Precision right so you should be be able
+10:59
+to understand all these technical terms right and in short these are nothing but these are floating Point numbers right
+11:06
+now similarly in tensorflow also you'll be able to see when we probably work with tensor flow you'll find tf32 bit
+11:13
+right the data types the the numbers are stored in this particular format right
+11:18
+and it is important okay this all our terminologies that are super important but I hope you got an idea what what is
+11:26
+the main aim what is the main motivation out of cont ization is that if I have a bigger model I should be able to
+11:32
+quantize it and make it as a smaller model so that I can use it for my faster inferencing purpose both in Mobile
+11:40
+phones in Edge devices let's say in even watches smart watches I want to use it
+11:45
+over here I can actually do that right now if I talk with respect to llm model
+11:51
+also with the help of contag see once we compress this particular model right
+11:57
+later on we can also perform fine tuning right fine tuning but here there is one
+12:04
+disadvantage when we quantize right when we perform this quation since we are converting from 32
+12:11
+bits to intake let's say as an example there is some loss of information also and because of this there will be some
+12:17
+loss of accuracy now how to overcome this we will talk about it there are
+12:22
+different different techniques how we can specifically overcome it but I hope you got an example what exactly is
+12:29
+quation what is full Precision half Precision half Precision example is something like this now let's talk about
+12:36
+what exactly is calibration now calibration basically means how we will
+12:41
+be able to convert this 32bit into int 8 like what is the formula what is the
+12:47
+mathematical intuition that is specifically required let's go ahead and discuss that so guys now let's go ahead
+12:54
+and try to understand how to perform quantisation and this this is super
+13:00
+important in terms of mathematical concept that I'm probably going to talk about because with with the help of
+13:07
+tensor flow just by writing four lines of code you know I will be able to perform quation but it is important you
+13:13
+should know that how you can actually do it manually whenever I talk in terms of
+13:18
+what are the types of quation that we have so we have two different types of
+13:23
+contag one is symmetric contag and one is called as asymmetric contag
+13:29
+now just by showing you an example you will be able to understand what is the exact difference between them okay let's
+13:35
+say I have a task and this first task that I am probably going to talk is with respect to symmetric and understand I
+13:42
+hope in deep learning you have heard of something called as batch normalization so if you have heard about
+13:48
+this batch normalization so batch normalization is a technique of symmetric quantisation right so every
+13:56
+time you'll be able to see that whenever we do forward propagation backward propagation between all the layers we
+14:01
+apply batch normalization so that all our all our weights are zero centered
+14:07
+that is near the zero and the entire distribution of the weights will be centered near zero okay so batch
+14:13
+normalization is one technique uh of symmetric quantization so let's go ahead and see one example so this will be my
+14:20
+first example over here I will go ahead and write it down and now you'll be able to understand it how symmetric
+14:26
+quantisation is basically performed what is Quant you have understood from higher memory format to lower memory format
+14:32
+we'll try to convert okay so here we are going to understand the mathematical intution so let's go ahead and talk
+14:38
+about one technique which is called as symmetric unsigned unsigned in it unsigned in8
+14:48
+okay quantization so we will see this technique first now here what is our main aim
+14:55
+let's say I have a floating Point number okay so let's go ahead and write it down
+15:02
+let's say I have a floating Point number between 0 to, now just imagine that
+15:07
+these are my weights right whatever Matrix Ms I have my values ranges between 0 to th000
+15:15
+Let's consider in this particular way right and this is let's say these are
+15:20
+the weights for my larger model OKAY larger model okay now one very important thing
+15:28
+that you really need to understand right when I talk about any larger model let's consider any llm model okay so in llm
+15:36
+model you have lot of parameters let's consider this is one kind of llm model
+15:42
+now when I say all these weights are there this may be getting stored in 32 bits okay usually uh what will happen
+15:49
+guys the weights will not be in this range also okay it will be in the minimalistic range so I will just
+15:55
+consider this as some numbers okay so that you don't get confused with respect
+16:00
+to these are some numbers I will also not consider llm model over here and let's say this this this numbers are
+16:06
+stored in the form of 32 bits okay now my main aim is to convert this
+16:14
+into unsigned int 8 that basically means
+16:19
+8bit right so 8bit basically means what 2 to 8 is how much 2 to 8 but when we
+16:26
+say U unsigned that basically means my value will be ranging between 0 to 255 so I want to quantise from this values
+16:34
+to this value okay what is my aim I want to quantise my range of values between 0 to th000 to 0 to
+16:42
+255 okay this is what is my aim with respect to this okay so this is what is
+16:48
+my target now let's see okay so if I probably draw just a real points and the
+16:54
+same thing we will do with the weights over there whatever quantization process we have specific Al doing let's say I
+16:59
+have values between zero and this is basically th000 okay then what I will do
+17:05
+over here I want to convert this into again 0 to 255 okay now let me talk about one
+17:14
+very important thing guys whenever we have any let's let's consider this one
+17:20
+if we have this single Precision single Precision floating point
+17:29
+32 right if you have this number how this number is stored do you know that
+17:35
+the one bit will specifically be used for sign or unsign values right let's
+17:41
+say positive or negative if positive is there then this will be plus one if negative is there it will be minus one so all the values are basically saved
+17:47
+between 0 to 1 right uh it can be0 or 1 okay then the next eight bits are
+17:55
+stored for export component okay 1 2 3 4
+18:00
+5 6 7 8 okay so this is for
+18:06
+sign these all numbers that you see it is basically stored for
+18:14
+exponent this is how it is stored inside the memory and remaining 23
+18:20
+numbers all this 23 bits will basically be saved for
+18:26
+manesa this is specifically for the fraction so if I have a number which looks like
+18:32
+7.32 now 7.32 is a number it is a positive number so for my sign bit there
+18:38
+will be a positive value let's say one over here then this seven will be
+18:44
+probably put up in this 8 Bit And remaining 32 will be put up in this
+18:50
+mantisa right so this is how the numbers are basically stored in the memory right
+18:56
+if I consider an example with respect to FP 16 right half Precision floating
+19:03
+Point 16 bit then you'll be able to see there will be one bit for the sign number there'll be five bits for the
+19:10
+exponent we basically say exponent 1 2 3 4 five let's consider this
+19:17
+five let's let's draw till here okay so this let's let's let's say that this is
+19:22
+five 1 2 3 4 5 Okay so this will be five and remaining
+19:28
+remaining 10 bits will be saved with respect to mantisa mantisa so we basically say this
+19:35
+as a fraction right anything that comes after the decimal right and this is how you will be able to see it will take
+19:41
+this will take less memory this will take High memory right now what is our main aim over here I already have a
+19:47
+32-bit number I need to probably convert this into a range of unsigned inate
+19:53
+unsigned int basically means I will not take any negative numbers it will be between 0 to 255
+19:58
+right this is what I really want to do okay now for this what will be the
+20:04
+equation and I hope you have heard about something called as minmax scalar I've
+20:09
+I've repeated so many times this in my machine learning sections also so any number that is over here how will I be
+20:16
+able to convert from this floating point to this unit8 unit inate right unsigned
+20:22
+inent right how I will be able to do it now for this let's go ahead and calculate it and what equation is
+20:28
+specifically required okay so that basically means over here what we are going to do 0.0 will be converted into a
+20:36
+quantise value of zero okay not 0 Z it'll be zero and similarly thousand
+20:42
+should be converted to a quantise value of 255 at the end of the day the bits are decreasing so quantization is
+20:48
+basically happening but we have to probably come up with a scale factor now what exactly is a scale factor so let me
+20:54
+Define a scale over here so here the scale formula will be x max / x mean and then
+21:03
+they will be divided by Q Max minus Q mean this Q is nothing but quantization
+21:10
+now what is the x max over here 1,000 right so this I will consider as my X
+21:16
+this I will consider as my Q right I'm showing you how quation happens in a
+21:21
+symmetric distribution symmetric basically means all the data is evenly distributed okay and we really need to
+21:28
+convert this based on this itself these are evenly distributed now what is xmax
+21:34
+xmax is nothing but 1,000 - 0 then qax qmax basically means
+21:41
+255 - 0 right so if I probably go ahead with this specific division right then
+21:49
+what will be the value that I will be having right 1,000 divid by 255 it is nothing but
+21:55
+3.92 so this is nothing but this is called as a scale factor right scale
+22:01
+factor so any number that I have over here if I want to convert from this fp32
+22:08
+bit to U in 8 I just need to use the scale along with one formula which is
+22:14
+called as round okay so I will apply round with respect to any number let's say if I consider 500 divided by
+22:24
+3.92 or let's let's just consider 250 divide by 3.92 so if I want to see what
+22:32
+will happen to 250 right what will be the number in this U inate so I can probably go ahead
+22:38
+and divide it it'll be nothing but 250 / by 3.92 so if I go and calculate it it is
+22:46
+nothing but 63.7 so if I do the rounding that basically means this will
+22:52
+be 64 so in short any number that is over here let's say it is 2 50 over here
+22:59
+this will get converted to a quanti value to 64 right so the same thing the
+23:05
+code will also be doing and this is for symmetric unsigned inate okay quation if
+23:12
+I want a quation some for some other Factor let's let's talk about this okay so let's say um I have another kind of
+23:20
+distribution and this is time that it is asymmetric and I want this as u in 8
+23:28
+so if I want to perform this contration so what will happen now in this particular case let's say if I have a
+23:34
+values between minus 20.0 to 1,000 okay so these are my
+23:41
+floating point now I want to perform quation and convert this into 0 to
+23:47
+255 right now in case of asymmetric what will happen is that in my real number
+23:52
+section right this numbers are not symmetrically distributed it may be right skewed it may be left skewed okay
+24:00
+so in this scenario you'll be able to see that my values are ranging between - 20 to 1,000 I want to convert this into
+24:07
+this now in this scenario if I apply the same formula x max minus x mean so how
+24:12
+it will be 1,000 - 20 so minus of - 20 is nothing plus + 20 divid by 255 so if
+24:22
+I probably do the calculation then you will be able to see that I will be getting somewhere around 4.0
+24:29
+okay now very important thing that basically means this
+24:34
+20.0 if I quantize it right if I quantize it it will get
+24:40
+converted to something like 4.0 oh sorry this this is the my scale factor okay
+24:47
+scale factor now if I take any number and try to convert it let's consider minus 20 if I try to convert it by
+24:53
+dividing by 4.0 right and if I do the round so what it will become -5 right
+25:01
+minus 5 of round this much I will probably get minus 5 right now you can
+25:07
+understand that this - 20.0 is getting converted to - 5.0 but you can see over
+25:12
+here my distribution starts from 0 to 255 so how can I forcefully make this -
+25:19
+20.0 to 0o all you have to do is that go ahead and add the same number in a positive way so in this case the number
+25:27
+that you see this five right this is basically called as 0 point
+25:35
+right so there are two important parameters that we specifically talk with respect to quantization one is 0
+25:43
+point for for the above one since we have a symmetrical distribution here the
+25:48
+0 point was Zero only and the scale was 3.92 in this particular case since it
+25:55
+asymmetrical distribution here here we have a 0 point as nothing but five but
+26:02
+scale is 4.0 so this two parameters we usually require to perform quantization
+26:11
+okay and these are some of the examples that I have shown you to just give you an idea like how quantization basically
+26:17
+happens and super important in terms of understanding is the simple equations
+26:23
+you'll be able to understand how things are basically working right at the end of the
+26:28
+day understand quantization is a simple process of converting that high uh full
+26:35
+single Precision or full Precision floating Point 32 bits into small bits
+26:40
+you know it can be uh unsigned integer 8 it can be signed integer 8 if we say
+26:45
+signed integer eight then what will happen it is that it will be ranging betweenus 128 to 127 and based on that
+26:53
+you can specifically apply the formula right now let's go go ahead see we had
+26:59
+already discussed about these two topics one is this and second one we wanted to
+27:05
+discuss about calibration now this squeezing that you could see right from here
+27:10
+to here to here here to here we squeezing it right this squeezing
+27:16
+process is basically called as calibration whatever process we are basically applying in this quantization
+27:22
+process it is nothing but it is called as calibration because we are squeezing those values from higher format to a
+27:28
+lower format okay so that is nothing but calibration so we have completed both
+27:33
+this thing okay now let's see what are the different modes of quantisation one
+27:39
+is called as post training quantisation and quantisation aware training right I will talk about this why it is super
+27:45
+important both this technique okay so you'll get an idea about it over here so first of all we will go ahead and say
+27:52
+post training quantization
+27:59
+so what exactly is posttraining conation here we already have a
+28:04
+pre-trained model so we already have a pre-trained
+28:11
+model now if I want to use this pre-train model obviously the weights are very high here we
+28:20
+apply calibration right when I say calibration
+28:25
+that basically means squeezing the value from high format to a lower format right and then after performing this
+28:31
+particular calibration we take what kind of data we take that weights data
+28:37
+whatever weights data is basically there in this particular preer model and then we convert this into a quantized
+28:48
+model okay so once we apply this process then only we'll be able to get the
+28:53
+quantise model and then we can use this entire model for any use cases okay for
+29:00
+any use cases right this is a simple mechanism with respect to post training quation see understand post trining
+29:07
+basically means I already have a pre-train model where my weights are fixed I don't need to change those
+29:13
+weights I will just take or download those weights I will take this weights data apply the calibration and then
+29:20
+convert this into a quantized model right the second technique that we have
+29:25
+written over is quantization aware training okay quantization aware
+29:31
+training so let's talk about this
+29:37
+quantization aware training this is also called as
+29:43
+CU so this is also called as Q8 okay so we can write it as
+29:50
+Q8 okay quantization aware technique this is basically called as ptq ptq okay
+29:57
+so over here what is the exact difference we'll try to see between this two okay now in quantisation a training
+30:05
+what happens see over here what is the problem if I probably perform calibration and if I create a quantise
+30:11
+model there is a loss of data and because of this what will happen is that
+30:18
+the accuracy will also decrease okay for any use cases but in the case of quantisation
+30:25
+aware training okay you'll be able to see that we will be taking our train
+30:31
+model whatever train model is there train model is there okay let me
+30:37
+just go ahead and write it down train model is there then we
+30:43
+perform quantisation again quation is what same the calibration process will apply over
+30:50
+there we will probably do all these things okay and then once we do this The
+30:56
+Next Step is that we will go ahead and perform fine
+31:04
+tuning see we know that we know that with the help of ptq
+31:10
+you'll be seeing over here on the top some loss of data and accuracy is there but here with respect to finetuning we
+31:17
+will take new training
+31:23
+data new training data now once we specifically take new training data we
+31:29
+will be fine-tuning this model and then we create a contage model Quant model so with respect to any
+31:38
+fine-tuning technique that we will be seeing we don't use post trining quantization we specifically use
+31:45
+quantization away training technique so that basically means we are just not losing accuracy or data over here
+31:51
+because we are in turn adding more data for the training purpose and through this we will be fine-tuning our data and
+31:58
+then we create our quantized models right so this is the basic difference so
+32:03
+all the fine-tuning technique that I will probably show you in the future will be of this type that is quantisation aware training so that we
+32:10
+do not lose much data accuracy so I hope you got an idea with respect to all these three techniques guys going ahead
+32:17
+there are two important techniques that we really need to understand one is claa and one is
+32:23
+Laura so this techniques specifically will be also understanding with respect to fine tuning so I hope you got an idea
+32:31
+just get to know about all these things guys this is important because someone if someone ask in the interview what
+32:37
+exactly it is then you'll be able to understand it very much easily and again explaining all these things will be
+32:42
+important if you're really interesting because in generative a what I feel is the most important thing is with respect to the fine tuning things so I hope uh
+32:49
+you like this particular video uh this was it for my side I'll see you in the next video have a great day thank you and all take care bye-bye
+
+
+
+
+Search in video
+0:00
+hello my name is krishak and welcome to
+0:03
+my YouTube channel so guys we are into
+0:05
+the part two of fine-tuning series and
+0:07
+in this particular video we're going to
+0:09
+discuss about Laura and CLA indepth
+0:13
+intuition already in the playlist of
+0:16
+fine tuning I've discussed about quation
+0:18
+and I hope you have seen the video early
+0:20
+many people were requesting for Laura
+0:22
+and claa also so let's uh discuss uh and
+0:25
+uh we will try to discuss the complete
+0:28
+in-depth maths intuition uh the best
+0:31
+thing will be that guys I'll try to
+0:33
+explain this math in depth intuition uh
+0:36
+I've already seen the research paper and
+0:38
+there are lot of complicated things that
+0:40
+is probably there in the research paper
+0:43
+but I will try to teach you in such a
+0:46
+way that at least you should be able to
+0:48
+understand you know what exactly is
+0:50
+Laura what exactly is claa and then
+0:52
+we'll also see one example you know how
+0:55
+with the help of code you will be able
+0:57
+to do it and trust me these are some of
+1:00
+the very important things in fine tuning
+1:02
+because tomorrow you go in any
+1:04
+interviews you are going to get asked
+1:07
+respect to this kind of questions that
+1:09
+may be coming because at the end of the
+1:11
+day any generative AI projects
+1:14
+specifically with llm right llm models
+1:17
+if you are working in the company they
+1:19
+will be giving you fine-tuning task so
+1:21
+let me quickly share my screen and show
+1:24
+it to you so here already I have
+1:26
+uploaded a video uh part one where we
+1:29
+have discussed just about
+1:30
+quation uh a good 32 minutes video
+1:34
+Everything you'll be able to understand
+1:35
+it because here I've also used all the
+1:37
+mathematical intuitions everything as
+1:39
+possible as as much as possible uh to
+1:42
+talk about the research paper so what
+1:44
+does Laura means Laura basically means
+1:46
+low rack adaptation of large language
+1:49
+models uh this is this amazing research
+1:52
+paper and uh probably you'll be seeing
+1:54
+lot of this kind of equations as you go
+1:57
+ahead there'll be different different
+1:58
+performance metrics
+2:00
+but as usual I will do what I'm good at
+2:03
+I will try to break down all these
+2:05
+things and probably explain you with
+2:07
+respect to examples with respect to code
+2:10
+and many more things so quickly let's go
+2:14
+ahead so why Laura and CLA is basically
+2:18
+used Laura basically means low low rank
+2:21
+adaptation lower order rank adaptation
+2:24
+it is specifically used in fine-tuning
+2:27
+of llm models okay so let's go ahead and
+2:31
+discuss this and I've created this
+2:32
+amazing diagram over here initially
+2:36
+whenever whenever you have a pre-trained
+2:38
+nlm model that basically means uh let's
+2:41
+say that there's a model something like
+2:43
+GPT 4 or GPT 4 Turbo right and this
+2:48
+model has been created by opening a so
+2:51
+we basically see this model as the base
+2:53
+model OKAY gp4 turbo and this model is
+2:58
+trained with huge amount of data right
+3:00
+so the data sources will be internet it
+3:04
+can be books it can be multiple sources
+3:07
+right at the end of the day all these
+3:10
+models how you can measure them they may
+3:13
+be saying that hey uh it supports 1.5
+3:16
+million tokens you know it has been
+3:18
+trained with this many number of words
+3:20
+right so many tokens of words now what
+3:23
+will happen is that all these models you
+3:24
+know probably to predict the next word
+3:27
+it will have the context of all those
+3:29
+tokens
+3:30
+and then it'll be able to give you the
+3:31
+response so these all models are
+3:33
+basically base model and we also say
+3:36
+this as a pre-train model OKAY some of
+3:38
+the examples again I'll be telling you
+3:40
+GPT 4 gp4 Turbo right gpt3 GPT 3.5
+3:45
+something so all these models are
+3:47
+specifically pre-trained models now
+3:50
+further we can take this model and there
+3:52
+are various ways of fine tuning it
+3:54
+please make sure that you watch this
+3:56
+video till the end if you watch this
+3:58
+video you will understand everything
+4:00
+that is actually required with respect
+4:02
+to fine tuning and there are multiple
+4:05
+ways of fine tuning also now let's say
+4:07
+that I take this model I do some amount
+4:08
+of fine tuning okay and this fine tuning
+4:11
+is done on all the weights of the
+4:13
+specific model right so some of the
+4:15
+application that we may generate is like
+4:17
+chat GPT you know we may generate like
+4:20
+Cloud uh cloudy chat GPT right cloudy
+4:23
+GPT itself like the chatbot that we
+4:25
+specifically use some of the examples
+4:27
+okay so this one way of fine tuning is
+4:29
+there where we train all our parameters
+4:32
+so here we specifically say
+4:35
+full full full parameter training okay
+4:38
+so here you can see full parameter fine
+4:40
+tuning so here I'm going to write full
+4:42
+parameter fine tuning now this is one
+4:46
+way of fine tuning where we train our
+4:48
+entire parameter based on our data that
+4:50
+we have okay and after training it we
+4:54
+can develop applications like chat GPT
+4:56
+or any custom GPT that you specifically
+4:58
+create as we go ahead you can also take
+5:03
+these models and
+5:05
+perform domain specific fine tuning okay
+5:09
+so one type of fine tuning is this the
+5:11
+other tune other fine tuning technique
+5:13
+that you can specifically use is called
+5:15
+as domain specific fine tuning some of
+5:17
+the example let's say that I'm
+5:18
+fine-tuning a a a chatbot model you know
+5:22
+which will be for finance it can be for
+5:25
+sales it can be for different different
+5:27
+domains itself right so here the main
+5:30
+important word is domain so this
+5:32
+fine-tuning also we can perform okay
+5:34
+again why I'm saying all these things
+5:36
+because there are various ways of fine
+5:38
+tuning things right one more fine tuning
+5:41
+we can basically divide by is something
+5:44
+called as specific task fine tuning in
+5:46
+case of specific task fine tuning these
+5:48
+are my different different task let's
+5:50
+say this is Task a b c d this task can
+5:54
+be something related to Q&A chatbot this
+5:57
+task can be something related to to
+5:59
+document q& ad but different different
+6:01
+applications so that is the reason why
+6:03
+we are specifically saying over here as
+6:06
+specific task okay specific task
+6:08
+finetuning now perfect now this is good
+6:11
+you have seen all the different ways of
+6:13
+f tuning okay now let's talk about full
+6:17
+parameter F tuning again I'll repeat it
+6:19
+this is my base model right now if you
+6:21
+use it as an example as I said gp4 turbo
+6:24
+GPT 3.5 you know Gemini Gemini 1.4
+6:29
+different different models can be there
+6:31
+we can take this base model we can
+6:33
+finetune and create applications like
+6:34
+chat GPT we can create other other
+6:36
+application like stable diffusions you
+6:38
+know not specifically to llm but L we
+6:41
+can actually do it then we can also
+6:43
+further fine-tune this based on domain
+6:46
+specific fine tuning right based on
+6:48
+different different domains like Finance
+6:50
+sales retail we can also take this model
+6:53
+and do more specific task F tuning like
+6:56
+task a task B task D let's say I want to
+6:59
+convert this into text to SQL I want to
+7:01
+have this as document Q&A so I can
+7:04
+further fine tune it based on specific
+7:06
+task now let's talk about this full
+7:08
+parameter fine tuning okay and what are
+7:11
+the challenges with full parameter fine
+7:13
+tuning and that is where see I'm
+7:14
+building up the story later on I'll be
+7:16
+explaining you where Laura will be used
+7:19
+now in full parameter fine tuning the
+7:21
+major challenge is that we really need
+7:23
+to update all the model weights let's
+7:26
+say that I have I have a model which has
+7:29
+somewhere around 175 billion parameters
+7:32
+that basically means 175 billion weights
+7:36
+now in this particular case whenever I
+7:38
+fine tune this model I need to update
+7:41
+all the weights great now when I'm
+7:43
+saying updating all the model weights
+7:47
+and when we talk about this many number
+7:48
+of parameters white can be a challenge
+7:51
+because there will be Hardware resource
+7:54
+constraint right so with respect to
+7:56
+different different task if I really
+7:59
+want to use this particular model that
+8:01
+much RAM I really require for
+8:03
+inferencing purpose that much GPU I
+8:05
+really require right so for Downstream
+8:10
+task it becomes very difficult now what
+8:13
+is Downstream task Downstream task some
+8:16
+of the example is like model
+8:18
+monitoring right model
+8:21
+monitoring the other task can be like uh
+8:25
+model
+8:26
+inferencing right model inference ing
+8:31
+similarly the GPU constraint that we may
+8:33
+have the ram constraint that we may have
+8:36
+so we may face multiple challenges when
+8:39
+we have this full parameter
+8:41
+tuning full parameter fine tuning now in
+8:44
+order to overcome this challenge we will
+8:47
+specifically use Laura and clora okay
+8:52
+what exactly is Laura as I said low
+8:54
+order rank adaptation and clora is
+8:57
+something it is also called as la 2.0 so
+9:00
+we'll discuss about both of them with
+9:02
+respect to mathematical intuition and
+9:04
+you'll get a complete idea what I'm
+9:05
+actually trying to say now what does
+9:08
+Laura do okay now let's read the first
+9:11
+point and this is very much important
+9:13
+because in the research paper you will
+9:15
+find this equation okay this equation
+9:18
+now what exactly Laura will do Laura
+9:20
+says that instead of updating all the
+9:23
+weights in full parameter fine tuning
+9:25
+right instead of updating all the
+9:28
+weights it will not update them instead
+9:31
+it will track the
+9:33
+changes it will track the changes now
+9:37
+what changes this is basically tracking
+9:39
+it will track the changes of the new
+9:41
+weights based on finetuning okay this is
+9:44
+very much important to understand so uh
+9:48
+based on the new weights how we are
+9:50
+going to combine this weights with the
+9:52
+pre-trained weights okay so here you can
+9:54
+see these are my pre-trained weights
+9:56
+from the base model like let's say that
+9:59
+uh this model is llama 2 now if you're
+10:01
+performing fine tuning using Laura then
+10:03
+Laura will track the new weights over
+10:07
+here which will be of the same size okay
+10:10
+so let's say if this weight is 3 cross 3
+10:14
+then the new weights when it is probably
+10:16
+doing the forward and the backward
+10:18
+propagation those new weights will be
+10:20
+tracked in a separate Matrix and then
+10:22
+this two weights will be combined
+10:25
+wherein we will get the fine tune
+10:27
+weights now this way what will happen is
+10:30
+that this tracking will happen in a
+10:31
+separate way but still you may be
+10:33
+thinking Kish here also we are updating
+10:36
+all the weights itself right so here
+10:39
+also the resource constraint will
+10:41
+definitely happen yeah fine I'm talking
+10:43
+about 3 cross 3 but what about uh
+10:45
+weights and parameters where there are
+10:47
+175 billion right 175 billion parameters
+10:50
+or 7 billion parameters that time I'll
+10:52
+be having a huge metrix right so at that
+10:55
+scenario you need to Now understand how
+10:58
+Laura works because this
+11:01
+weights how it is getting tracked it
+11:04
+will just not get tracked in this 3
+11:05
+cross3 Matrix instead all these weights
+11:09
+that is getting
+11:10
+tracked there a simple mathematical
+11:13
+equation will happen uh I'll not say
+11:15
+mathematical equation will happen but
+11:18
+there will be a technique that will
+11:19
+happen which is called as metrix
+11:21
+decomposition that basically means the
+11:23
+same 3 cross3 Matrix is saved it in a
+11:27
+two smaller mat Matrix now in this two
+11:30
+smaller Matrix you can see this is
+11:32
+nothing but 1 cross 3 and this is
+11:34
+nothing but 3 cross 1 right sorry this
+11:38
+is 3 CR 1 and this is 1 CR 3 right so
+11:41
+this is 3 CR 1 and this is 1 cross 3
+11:45
+when we multiply both these weights then
+11:47
+I will be getting this weight only right
+11:49
+so over here if I consider I have some
+11:52
+around nine weights 4 5 6 7 8 9 right
+11:58
+you'll be be able to see that I will be
+12:00
+able to get all these nine weights from
+12:03
+how many number of parameters just six
+12:07
+parameters right because when we
+12:09
+multiply this then you'll be able to see
+12:12
+that I'll get all these nine parameters
+12:13
+or nine weights that I have right so in
+12:17
+short what Laura is doing is that it is
+12:19
+performing this Matrix decomposition
+12:21
+where a big Matrix and this Matrix can
+12:23
+be of any size is decomposed into two
+12:27
+smaller Matrix based based on a
+12:29
+parameter which is called as
+12:31
+rank how to calculate a rank of a metrix
+12:34
+you can definitely check out any YouTube
+12:36
+channel it is a simple algebraic
+12:39
+equations based on transpose of a metrix
+12:42
+how we calculate the rank but let's say
+12:44
+that this Matrix that I have which is a
+12:46
+3 cross one over here the rank of this
+12:48
+particular Matrix is one right and if I
+12:53
+use this two matric you can obviously
+12:56
+see that the number of parameters that
+12:57
+I'm storing over here is less when
+
+
+
+Search in video
+hello all my name is krishak and welcome
+to my YouTube channel so guys uh one of
+the most interesting thing in the field
+of data science or generative AI is that
+the kind of research that is currently
+happening right every day you'll be
+seeing some new things that are actually
+happening which is very much beneficial
+for the entire Community who are working
+with llm models uh specifically today I
+saw this amazing research paper where it
+is written as era of 1 bit llm so I'll
+be going to talk about this particular
+research paper and what exactly one bit
+llm is and how it is far more
+advantageous when compared to those
+32bit or 16bit llms models okay so
+everything I'll be discussing about one
+important thing that I also want to make
+sure that you learn from this particular
+video is that how do you read a research
+paper what are the important points that
+you should definitely highlight while
+reading a research paper and how you
+should definit and one thing is that you
+cannot directly understand just by
+reading it you really need to have some
+basic knowledge and without that
+particular basic knowledge it will be
+very diff difficult to understand so if
+you're following my tutorials I always
+make sure that whenever I make my videos
+right I definitely watch or see all the
+research papers and then with respect to
+that I simplify the those Concepts and
+try to explain it to you so let's go
+ahead and understand about this one bit
+llm now guys uh if you remember in my
+previous video we have already discussed
+about quation right so quation was
+covered now with respect to quantisation
+what we were doing is that let's say I
+have a model which is called as Lama 2
+which is an open source model let's say
+this model is 7 billion having 7 billion
+parameters when we say 7 billion
+parameters I'm talking about weights
+okay now obviously if I have a system
+where I don't have very high
+configuration not I have resource
+constraint I have limited amount of Ram
+or gpus what we specifically do we
+perform quantisation and we convert this
+Lama 2 model which is probably in FP
+32bit and we try to convert this into
+int 8bit okay
+int 8 which is nothing but 8 Bits right
+now when we are once we are doing this
+specific process what is basically
+happening is that the model size is
+getting decreased right and because of
+that we will be able to load it and
+we'll be able to perform any task along
+with this we can also perform fine
+tuning with the help of Laura and CLA
+right so I hope you know this Laura and
+CLA I've already discussed in my
+previous video please just go click on
+my uh click on my channel otherwise just
+go ahead and see in the description I've
+been providing that particular links
+with respect to fine tuning now with the
+help of LA and cl we can perform the
+fine tuning okay now the question is
+that what is this one bit llm right as I
+said that with the help of quantisation
+we will try to convert this into 32 to
+16 bit or it can be 8 bit right but
+converting this into a one bit that can
+be again uh if you're trying if you now
+just by seeing this right if you are
+able to convert this into one bit that
+basically means we will never be having
+any resource constraint right resource
+constraint yes with limited Ram with
+limited GPU with limited storage we can
+probably perform everything from fine
+tuning to inferencing right so
+inferencing can also be performed right
+and this is what is so amazing about
+this and this is I I don't know like
+what is going to happen just in some
+days because once this is probably gone
+right now we just have the research
+paper once this implementation gets
+started trust me it will be quite
+amazing for the entire Community who are
+working with llm models okay so this was
+just a brief idea about this one now
+let's go ahead and discuss what is 1 bit
+llm okay and when we say to be precise
+when we say that all large language
+models it is basically in 1.58 bits okay
+why it is 1.58 we'll discuss about it
+and there are many points that needs to
+be discussed uh along with me please
+make sure that you watch this video till
+the end because I'm going to read over
+here because this will also give you an
+idea that how you should probably go
+ahead and read the research paper so let
+me quickly uh go ahead and clear this
+let's see whether it'll getting cleared
+or not okay so over here okay clear is
+basically
+happening um okay I will just rub it
+okay now let's go ahead and discuss
+about this and let's read some of the
+important information that is present
+over here okay and trust me guys read
+along with me then only you'll be able
+to understand how you can read the
+research paper okay now what exactly
+this one bit llm model is um in this
+work we introduce a onebit llm variant
+namely bit net okay so bit net is the
+llm model name one bit llm model name
+and then where every single parameter or
+weight of the llm is Turner right now it
+is not floating 62 bit or sorry 32bit or
+16 bit it is Turner Turner basically
+means it has only three values it can
+have only three values weights it can be
+minus1 0 or 1 one okay it matches the
+full Precision Transformer M with the
+same model size and training tokens in
+terms of perplexity perplexity basically
+means so with respect to any query that
+I ask and endtoend task performance
+right while being significantly more
+coste effective in performance of latent
+memory throughput and energy consumption
+so obviously at the end of the day all
+the llm model will specifically have
+this kind of constraint right which are
+specifically with huge uh number of
+parameters let's say 7 billion 170
+billion right right and if you're just
+using this three numbers Min -1 0 1
+you'll be able to understand why I'm
+saying that because of this tary values
+right you'll be seeing how abundance the
+performance improves okay so furthermore
+uh so here you can probably see all this
+points uh Laten memory throughput and
+energy consump uh consumption uh energy
+consumption can be with respect to
+inferencing with respect to fine tuning
+and all okay now let's understand how
+this
+operators how this values will be
+basically used okay this is also
+important so with respect to this what I
+am actually going to do I am going to
+make sure that to explain you I take the
+right thing okay so let's understand
+this okay understand guys whenever we
+talk about parameters these are my
+weights okay these are my
+weights let's see so these are my
+weights
+okay and these are my weights so let's
+consider that my initial Transformer llm
+weights is this one okay now by when we
+say 1 bit
+llm we are going to convert all these
+values and replace them with either of
+these three values minus one 0 comma 1
+okay so that is the reason that you see
+over here all these weights is being
+getting converted into something like
+this okay minus1 0 or 1 only that three
+parameters is is there okay and this is
+what we basically say as bitnet B
+1.58 okay and this is also called as
+parito Improvement how this is basically
+happening I will talk about it okay just
+give me some time there will be some
+kind of quantization getting applied
+here also okay quantization getting
+applied over here okay to convert these
+values to this okay now let's understand
+one very important thing okay and this
+is the most important thing what will
+happen if you convert this values to
+this see with respect to any fine-tuning
+or forward propagation backward
+propagation what exactly happens the
+model weights the model weights over
+here is basically getting multiplied by
+the inputs and then we get the output
+right yes additionally we add a bias so
+it's okay we don't include a bias right
+now over here just to show it to you so
+over here this let's consider that this
+is my floating Point 16 number so every
+number will get multiplied by the input
+right and then what will happen is
+that after that all the it's it's just
+like this right summation of I equal to
+1 to n w of x + B right so this is what
+is the operation that is basically
+happening whenever we do the forward
+propagation Whenever there is an
+updation of weight that basically means
+we are doing the summation of weights
+and the input right so once we are doing
+this and then we are doing the sumission
+okay but if we have all these weights in
+the form of -1 1 0 then what will happen
+is that over here you'll be seeing that
+multiplication operation will not be you
+know that much valuable right so over
+here first of all we are doing
+multiplication then addition but over
+here we are just doing addition no
+multiplication because any number it
+will be multiplied by 0 is z only any
+number that is multiplied by one is one
+only any number that is multiplied by
+minus1 is minus1 only so over here the
+main thing is that your add addition
+operation is only
+happening addition operation is only
+Happening Now obviously if you only need
+to do addition operation then what will
+happen your GPU will not be requiring
+that much GPU also so your GPU will also
+get reduced why why this operation takes
+more GPU because multiple multiplication
+needs to happen right with respect to
+different different weights right then
+addition of all those values needs to
+happen because in the forward
+propagation this is what is the equation
+that specifically happens right we
+multiply
+the weights with the inputs and then we
+do the sumission and then finally we add
+the bias right so this is the most
+important thing so here you'll be able
+to understand with floating 16 right all
+the numbers is first of all multiplied
+by the inputs and then the sumission is
+done but here your values are with
+respect to Turner that is min -1 0 1 so
+here multiplication is already skipped
+because 1 into x0 is x0 only right it is
+a simple multiplication right and that
+much resources will not be required for
+simplistic multiplication so here
+maximum to maximum only addition will be
+required right so I hope you're able to
+understand because of this technique of
+Paro Improvement because of this
+technique of Paro Improvement you'll be
+able to see that what we are able to
+achieve right and obviously when we are
+able to achieve this the GPU will be
+required less when we are doing the
+fine-tuning or training right so I hope
+you have got this as an complete idea
+and you have understood right why we
+specifically do this how it is done how
+this transformation is done so here you
+can probably see that it provides a Paro
+solutions to reduce inferencing cost
+latency throughput and energy of llm
+while maintaining the model performance
+the new computation Paradigm of Paradigm
+of bitnet 1.58 calls for Action to
+design new hardware optimization for
+1bit llm right I know guys this is more
+of a research paper so I'm reading and
+I'm telling you each and everything and
+also explaining you the concept I know
+this can be a little bit of boring but
+trust me you need to understand in this
+specific way okay now let's talk more
+about this and we will have highlighted
+main main things in this green color
+okay these models have demonstrated
+remarkable performance in a wide range
+of natural language processing tasks
+like llm models but their increasing
+size has posed challenges for deployment
+and raised concern about the
+environmental and economic impact due to
+high energy consumption obviously this
+is the problem with llms that are
+already available one approach to
+address the challenges to use post
+trining quantization to create low bit
+models for inferencing I've already
+discussed about this quantization Laura
+clora everything this technique reduces
+the Precision of weights and activation
+significantly reducing the memory and
+computational requirement of llm the
+trend has been to move from 16 bit to
+lower bit such as 4bit variant this is
+what is basically happening with respect
+to llm models right this is with llm
+okay this is with
+llm so here I'll write llm models now
+let's see with the help of one bit
+architecture one bit model architecture
+what we can solve so recent work on one
+bit model architecture such as bitnet
+presents a promising direction from
+reducing the cost of llm while
+maintaining the performance vanina llms
+vanila llms are in 16bit flow flating
+values and the bulk of L LM is matrix
+multiplication therefore the major
+computation cost comes from floating
+Point addition and multiplication
+operation I said you just now on top of
+it right in contract the matrix
+multiplication of bit net only involves
+integer addition because anything
+multiplied by one is one uh anything
+multiplied by one is that same number
+anything multiplied by minus one is that
+same number with a negative sign
+anything multiplied by 0 is obviously
+zero right so as the fun FAL limit to
+compute performance in many chips is
+power this energy saving can be
+translated into faster computation now
+this is the most important thing right
+and here you can clearly see the things
+that I've highlighted right I hope you
+get an idea how good this one bit llm
+can be okay then you can still read
+about it here we are going to just use
+terally values like Min -1 0 1 and
+obviously because of this zero your 58
+bit is basically increasing there are
+two major advantages of using this also
+it is written over here
+see further more bitnet oh my God why
+this is getting highlighted like okay
+furthermore bitnet offers two additional
+Advantage first its modeling capacity is
+stronger due to explicit support for
+feature filtering how feature filtering
+happen because anything multiplied by
+Zer will be zero onina right made
+possible by the inclusion of zero in the
+model weight which can significantly
+improve the performance of 1 bit llm
+secondly our experiment shows can match
+full Precision Baseline in terms of this
+end to end task performance starting
+from a 3B size okay now most of the
+things that you are able to see right
+now let's discuss about one more
+important thing uh that is how this
+transformation is happening how this
+number are getting converted to this it
+is just by using the simple mathematical
+equation or this quantization function
+okay Quant qu ization
+function quantization function okay and
+this quantization function is called as
+absolute mean quation and this is the
+formula that is basically used by which
+all the numbers are basically getting
+converted to only this three values okay
+0 1
+okay 1 0 1 okay just by applying this
+particular formula okay so in uh and
+there is also one more change with
+respect to the Transformer it replaces
+nn. linear with bit linear okay so this
+bit linear I think uh you'll be able to
+see that it trained from scratch with
+1.58 bit weights and 8 bit Activation so
+this is what it is basically done with
+respect to the initial training okay so
+most of the thing I have actually
+discussed over here uh let's talk about
+the performance so over here you'll be
+able to see that uh the Llama model of
+700 million parameters bitnet will also
+have 7 million parameters but here you
+see the memory is in decreasing right
+over here 2.08 1.18 12.33 is getting
+reduced to
+8.96 and then this PPL is basically
+12.87 so over here you can see that how
+
+
+
+it is getting reduced now similarlhello all my name is krishak and welcome
+to my YouTube channel so guys yet
+another amazing video for everyone of
+you out there in this particular video
+we are going to discuss about llm Ops
+along with that we'll be building llm
+pipelines in minutes without writing any
+code right so if you're already
+following my playlist in Lang chain Lama
+index uh we have created so many amazing
+projects by using different different
+models like Google Gman Pro open AI
+we've used open source models like Lama
+2 mrol and many more things right and
+there we created some amazing end to end
+projects where we have also used Vector
+embeddings uh we have used Vector
+databases like cassendra data Stacks we
+have used databases like uh you know uh
+specifically Vector databases we have
+specifically used like pine cone chroma
+DB and all these things we used we
+solved some amazing projects right now
+one challenge that I probably see in
+while you're building an LM application
+there is a dependency of of lot many
+different different tools okay let's say
+that I'm specifically using a model
+let's say I'm using open Ai and I also
+want to integrate my llm app with
+external sources it can be documents it
+can be Google search API it can be
+Wikipedia search API so for all this
+kind of work I really need to integrate
+with different different apis Al
+together I need to have an environment
+key created everywhere let's say with
+respect to Google search API let's say
+if I want to use Vector iding I need to
+have a separate key stored for the
+vector databases uh like chroma DB pine
+cone if I want to probably integrate
+with cassendra DB in data Stacks I need
+to have different different connection
+points now this is always a challenge
+when you are creating a project from
+scratch because here to create this
+entire llm pipeline it will definitely
+take a lot of time along with that you
+really need to manage all the the
+configuration now here in this video I'm
+going to talk about this amazing
+platform which is called as Vex vext and
+here we will be simplifying this entire
+llm Ops along with that we'll be
+building llm pipelines without writing
+any code so here you have almost every
+feature if you want to probably
+implement application L document Q&A
+Vector embedding is integrated over here
+if you're dependent on any external
+sources like Wikipedia or CF uh if
+you're uh dependent on Google search
+everything is available over here so you
+don't have to probably save all the
+configuration or create all the apis
+just with one API you can actually build
+this entire llm Pipeline and use that
+specific API in your chat uh chat B in
+your llm application anywhere that you
+specifically want to use now let us go
+ahead and let us see that how things
+will probably go ahead in this you can
+also start completely for free so I will
+just go ahead and log in over here so I
+have already logged in so here you can
+see with my my email ID I've already
+logged in I'll show you step by step how
+you can probably perform all these
+things right please make sure that you
+watch this video till the end and
+amazing platform alog together at the
+end of the day I should be able to
+explain you and teach you many more
+things as we go ahead right so quickly
+let's say I will go ahead and log
+in so once it is logged in and then we
+will go ahead and see to it let's see I
+will go ahead and log in in this way
+so once we login over here so you here
+you can see that you'll be able to see a
+dashboard okay once you probably login
+now after you log in all you have to do
+is that go and towards this AI project
+section okay if you have not logged in
+you have to sign up in this specific
+platform now what I will do is that I
+will go ahead and create a AI project so
+let me go ahead and create an AI project
+and I will name this AI project to
+something else let's say I will write uh
+document Q&A something I can write up to
+you okay so whatever application let's
+say I will say rag system right so I I'm
+actually trying to create this I will
+enable this also make sure that you
+enable this then only your application
+will probably get started now in this
+entire pipeline initially you'll be able
+to see two important section one is
+query and one is output okay so query
+basically means an event that starts the
+flow now this will be super important
+guys because a person who does not know
+much coding can also probably use this
+and create its own application right
+entire llm application with llm Ops
+right and you can also build the entire
+pipeline very simple you don't even
+require a developer over here now here
+you have query here you have output
+output basically means whatever is the
+final response that you will probably
+get now in between this there is a plus
+sign over here if I click on the plus
+sign I have all these options right so
+let me zoom in so that you will be able
+to see to it okay so over here you'll be
+able to see once I click on Plus in here
+you have an option to add an action so
+first you can add a generate response
+generate response basically means a
+response from a specific llm model you
+can also add data sets let's say you
+want to implement a document Q&A or a
+system over here then you can add your
+own data set along with that you also
+have an option where you can execute a
+function like this or smart function now
+what is this exactly smart function I
+will go ahead and explain you okay now
+let me do one thing let me first of all
+add this searge data set let's say that
+I have some multiple PDF file I want to
+probably create a document Q&A or it can
+be a retrieval augmentation generation
+right that kind of rag system we can we
+want to create so for this I will go
+ahead and add a data set over here let's
+go ahead and create a dat data set let's
+say this data set I will say these are
+nothing but research papers okay so I
+will go ahead and create this research
+paper now inside this research paper
+what I will do I will go ahead and add
+the data set itself right so over here
+you'll be seeing you'll be having
+multiple option you can upload a plane
+text you can upload a file you can
+upload a p caller you can even uh use
+Google Drive any file that is available
+in the Google Drive that also you can
+add in notion in Confluence so still
+many more options are probably coming up
+uh as I said said for people who is not
+much familiar with respect to coding in
+LM they can specifically use this now
+let me go ahead and let me upload a file
+now over here I'll click on upload a
+file and then I will go ahead and upload
+one file over here let's say this is one
+of the research paper um uh we'll try to
+see what this research paper is all
+about and I'll click on upload okay so
+this one PDF has got uploaded this is
+one of the research paper on PFT P
+basically means that Laura and CLA
+configuration the fine-tuning spe
+specifically that we use in llm models
+right so that research paper we have
+added so I will go ahead and click on
+ADD resource okay now as soon as I click
+on ad Source you'll be able to see that
+this PDF file will get uploaded over
+here let me see that okay let me say
+that I have more files to be added over
+here so I will go ahead and click on ADD
+source and let me go ahead and upload
+one more file so now uh there is one
+more research paper that is available
+over here I'll write attention attention
+is all you need okay so I will go ahead
+and click it over here so this is
+another search paper that was available
+uh attention is all you need uh that is
+something related to Transformers so I
+will also go ahead and upload this
+particular file okay so as soon as I
+upload it you will be seeing that I have
+added the source so inside this
+particular data set that is research
+paper I have this two uh two PDF files
+okay the research papers itself and I
+can have any number of research papers
+because people will again say hey Krish
+can we just only add one or we can add
+any number you can add any number but
+the maximum maimum PDF size should be 5
+MB okay so this is there I've added it
+now let me go back to my project now
+inside my project the rack system that I
+had actually created right now I just
+have this two flows right my l in my llm
+pipeline now I'll go ahead and add
+something called as search data set so
+as soon as I add this search data set
+you will be able to see that it will
+give me an option to select the data set
+right whatever I have uploaded so over
+there you'll be able to see that I have
+my data set called as research paper so
+I'll add it over over here okay now you
+can see both this specific file has got
+added right now once this is getting
+added there is uh in the right corner
+right you'll be able to see there there
+is a button in the right corner which is
+called as save I will go ahead and click
+on Save okay so once I click on save
+that basically means this injection the
+data injection that is specifically
+required is now available inside the
+search data set okay so over here you'll
+be able to see this search data set
+because I want to implement RG system or
+it can be a document Q&A I can probably
+ask any question it should be able to
+give me the response so inside this this
+particular data has got added but
+internally what the system is doing it
+is already creating that entire
+embeddings that is specifically required
+internally if it is requiring any Vector
+store it is creating all those things
+okay now this is done so this in to is
+my data injection step now coming to the
+next step here let me go ahead and
+generate a response because
+here what I will do I'll create an I'll
+add an llm model okay now any question
+that I specifically ask to my data set
+it should be able to give me the answer
+and summarize that answer using this llm
+whatever llm I'm selecting over here so
+generate a response you basically select
+over here and you have multiple options
+of selecting different different models
+now see it is also providing all these
+models uh Azure open GPT 3.5 Azure
+opening GPD 4 anthropic Cloud instant
+anthropic Cloud Google Pro Beta And in
+the future so many different different
+models are coming like llama 2 and all
+are also coming okay and the best thing
+about this model is that they have they
+have hosted this particular model in
+their cloud and they are providing it as
+a service to
+you now let's go ahead and select anyone
+so let's say I will go ahead and select
+Azure open AI gp4 okay now here you can
+see it is it is showing the next field
+as purpose so in short here you'll write
+your prompt like how you want this
+particular model to prompt to behave so
+I'll say you are a helpful
+assistant
+who please
+answer please
+answer the questions based on the
+context okay so this is what is my
+prompt I've written it over here now
+there is also one more option which is
+called as Behavior any additional thing
+that you really need to give on top of
+that particular prompt you can give it
+over here let's say over here one
+example is the behavior of this AI
+application be as specific as possible
+be very helpful and assist user
+something any any additional prompt that
+you really want to right right now I'm
+not giving anything so let me quickly um
+or let me just give one okay so that uh
+I'll say B
+helpful as much
+as much as
+possible okay so this is done so now
+what I will do I will go ahead and save
+this okay so on the bottom right corner
+you'll be able to see a save button so
+I'm going to save this now this is my
+entire llm application right so any quy
+that it will go it'll go and probably
+search in this particular data set and
+then it'll give me a response Now
+quickly to check this whether it is
+working absolutely fine or not here
+there is an option of
+playground okay now in this playground I
+will go ahead and ask all my questions
+that I want see two research paper that
+I had added I will talk about both those
+research paper one is PFT for uh one
+research paper was something for this
+parameter efficient transfer learning
+and one research paper was attention is
+all you need so here I will go ahead and
+ask the question what
+is parameter efficient transfer learning
+okay so I will go ahead and click on
+send now let's see whether we'll be able
+to see the response or not so in short
+what is happening now any query that I'm
+giving first of all it'll go and search
+from this particular data set which is
+already in the vector embedding format
+and then whatever information is going
+to come based on on the prom it is going
+to get summarized by this llm model and
+finally we going to see the output
+result and understand one thing is that
+based on the context whatever context it
+is available or whatever context we are
+able to retrieve from this particular
+data set that response we will
+specifically get it okay till we get the
+response I will just go ahead and search
+for some more questions over here okay
+let's see um experiments uh let's say I
+will go ahead and ask in distantiation
+for the Transformer Network now here you
+can see I've got the response parameter
+efficient transform refers to the method
+used in machine learning and
+specifically natural language processing
+that allows for the transfer of
+knowledge and here you are specifically
+getting your entire answer okay let me
+just go ahead and let me talk about what
+is attention is all you need okay so
+because that research paper also I have
+added
+okay please summarize okay so I've given
+this and here I will go ahead and click
+on send now the best thing is that the
+same functionality I can integrate with
+any chat Bots that I specifically want
+let's say in telegram channel in
+WhatsApp channel in any channel as such
+that option also I'll show now again
+I've got it so attention is all you need
+is a semi research paper by Ashish
+bashwani and colleagues so perfectly we
+are able to get it okay so any Q&A with
+respect to the data set you will be able
+to get it now here you see that you do
+not have to write much line of code
+right and it was very simple just by
+drag and drop adding the feature adding
+the data set everything you are able to
+do it okay now let me go ahead and add
+one more
+function let's say that I'm going to add
+a smart function okay see execute a
+function basically means here you will
+get some options to write to probably do
+basic maths uh Wikipedia search Google
+search Rive like let's say you want to
+ask queries from this particular um you
+know RF where all the research paper are
+uploaded you can use this okay so you
+can specifically use any of this
+activation function one more if you want
+to go ahead with is something called as
+smart function now inside this smart
+function you can add multiple functions
+Al together so let's say that I want to
+do a Google search so I will say over
+here you can see in the description it
+allows users to perform searches on the
+Google let's say I want to also go ahead
+and use RF if I want to also go ahead
+and use wik Wikipedia I can actually use
+over here so let's say that I'm adding
+all this smart function over here and
+for right now what I will do is that
+from my first flow I will remove this
+search data set because I don't want to
+use data set right so let's say uh I'm
+using in this particular way now let me
+go ahead and quickly search in this
+playground so if I go ahead and write
+what is machine learning okay so if I
+press enter you'll be able to see that
+now it is going to do the Google search
+and it is going to give me the specific
+answer okay so and for the first time
+once you set it for the first request it
+will take some time but from the
+upcoming request will become very smooth
+so here you can see machine learning is
+a branch of artificial intelligence and
+all so let's say I will go ahead and
+write who is crish naak so here if I go
+ahead and click on send here also you
+can probably see that if it is using the
+right API Google search API it should be
+able to give me the answer uh about
+myself okay so krishn is a YouTuber and
+data scientist known for his educational
+content on machine learning so all the
+answers are perfectly coming up right
+now this is what is the most amazing
+thing about this but again that question
+will come Krish what is the use of all
+these things you know you are saying
+that we can do all these things in a
+specific platform but how to probably do
+this in the coding because I want to use
+this entire functionality Implement in
+my chatbot okay so let me talk about
+that okay so if you go ahead and click
+on the outut so here is what is the most
+important thing here you'll be able to
+see that you get the HTTP request and
+you can also get the entire post request
+right so once you probably get this post
+request inside this post request you
+just need to set the API key and then by
+using whatever payload like whatever is
+the question you need to include it over
+here and then by hitting this particular
+URL and this channel token you can
+probably see this should be unique some
+unique name okay so here I will show you
+okay I'll give you the code also how you
+can actually hit the post request with
+the help of Python programming language
+now what I will do first of all I
+require an API key right so if in order
+to create an API key what I will do I
+will go ahead and click over here and
+here you can see I will go ahead and
+click create an API key so let's say I
+go ahead and write test uh this is my AI
+project or the rack system and this will
+be my API key okay please make sure that
+you save the API key so I'll copy this
+API key I'll paste it over here okay so
+this is my API key now what I will do I
+will go back to my AI project okay I'll
+go back to my AI project I will take the
+code the post request okay now see this
+this entire pipeline I just require one
+API and with that I can do a post I can
+do a get and all the functionality I'll
+do I don't have to even worry about the
+vector embeddings I don't have to worry
+about the apis of search Google search
+or RC or Wikipedia I don't have to worry
+about it all I'll be worried about this
+specific API itself right so what I will
+do the same Cur post request that you'll
+be seeing I have written this in a
+normal python code okay so here is the
+entire python code here you can see uh
+this is my API key so API key I'll just
+update it this is my older API key that
+I had actually tried it out but don't
+use this API key it'll be of no use
+because I'll be deleting it and then
+here I will write the query what is
+machine learning then I'll set the
+headers of content type of application
+Json the same thing see over here
+content type is application Json API key
+I need to set it up and then the payload
+which will have my query okay so I will
+go over here so API key I have set it to
+API key whatever API key is there my
+query is what is machine learning and
+this is my entire data payload all I did
+I took that curl post I just searched in
+the chat GPT and it gave me this entire
+code okay then this is My URL and
+instead of that catch token I'm writing
+Krishna 06 a unique value you can put it
+anything over here and then I'm doing
+request. poost with this URL with this
+Json data and headers is equal to
+headers okay and I'm printing the
+response. text again see the code it is
+very simple I'm setting the API key this
+is my query this is my headers this is
+my data I'm just setting it up whatever
+is the post request and now let me go
+ahead and execute it now if I go ahead
+and execute it the best thing will be
+that see I will write python test. py
+I've asked the question what is machine
+learning okay now here you'll be able to
+see that I will be getting that entire
+okay text it shows unauthorized okay
+let's see what is the error um okay I
+have not saved this one it's okay no
+worries I not saved it so that is the
+reason now I will be able to see the
+response cannot match app with endpoint
+perfect so still this is not matching
+because I had already tried it out
+previously so let me do one thing let me
+call copy this again and then you'll be
+able to see it okay so I will copy this
+entire URL and the channel token will be
+almost same okay so from catch I'm
+pasting it over here so I'll remove this
+I think it is dollar catch uh this catch
+should get removed and this will be my
+dollar Channel token perfect now let's
+see
+okay now it should
+run what is is machine learning and now
+I think I should be able to get the
+answer okay so let's wait for the first
+time it will take time but after that I
+think it will work absolutely fine so
+this is done but at the end of the day
+you can see that it's a simple python
+code you know a post python code and how
+you really want to use it from the front
+end point of view it is up to you you
+can specifically use it but this is my
+Endo this this is called as an endpoint
+this is my API key the API key is
+basically getting appended over
+here so now here you can see
+that I'm getting the response machine
+learning is a subfield of artificial
+intelligence that involves the creation
+of algorithm so and so everything is
+there now this simple post I can include
+it in any API that I specifically want
+okay that is the most amazing thing so
+coding wise you can now see you don't
+have much dependency now one more thing
+that I really want to show there is
+something called as app directory you
+can also connect with Google Drive
+Confluence jaier slack teams so all
+these things are coming soon later on
+you can also work directly with llms and
+bring your own llm to the platform here
+you have a AWS s maker Bedrock hugging
+face it is also having this entire
+support so I hope you like this
+particular video this was about how you
+can actually create or build llm
+pipelines without writing a single line
+of code which is quite amazing
+specifically seniors managers leads I
+think you should definitely go ahead and
+use
+this is not a kind of promotion but this
+is something that I really found very
+interesting and you should all know
+about this so I hope you like this
+particular video this was it from my
+side I'll see you in the next video have
+a great day thank you wonder all take
+care bye-byey when
+the billion of parameters are basically
+increasing right let's say with Lama is
+1.3 billion right the parameter will be
+same but memory again 1.14 is required
+97 11.29 right and similarly over here
+also you'll be able to see the same
+thing is basically happening so memory
+is decreasing latency is also decreasing
+for the inferencing purpose perfect and
+uh one more parameter that you'll be
+able to see with respect to model size
+and latency right model size so the the
+blue color is basically the Llama model
+OKAY the orange color is basically one
+bit llm models you'll be able to see how
+much huge latency difference is there
+similarly with respect to this how much
+huge memory differences there right to
+save this kind of models so uh this is
+just the research paper that has come up
+recently but uh I'm really really happy
+to see this because in the future many
+things is going to happen so again I
+would like to welcome you all to the era
+of 1 bit llm models and now you'll also
+be able to use this onebit llm model
+soon I think first of all hugging face
+will only come and try to implement all
+these things where you can also easily
+create your application using gender AI
+so I hope you like this part video if
+you like it please make sure that you
+subscribe my channel press the Bell
+notification icon I'll see you in the
+next video have a great day thank you
+one all take care bye-bye
+12:59
+compared to this right yes there will be
+13:02
+a loss in Precision but it is making
+13:04
+sure that when we combine both this
+13:06
+metrics we'll be able to get the entire
+13:09
+updated weights and just imagine start
+13:11
+thinking guys let's say that if I have 7
+13:14
+billion parameters now I'm trying to
+13:16
+perform fine-tuning on those parameters
+13:19
+so whenever I track those weights this
+13:21
+huge metrix will be decomposed into two
+13:24
+smaller Matrix and when we are
+13:27
+decomposing this
+13:29
+this metrix this updated track weights
+13:31
+metrix into two smaller metrix obviously
+13:33
+we'll be requiring less parameter to
+13:36
+store all these values right and this
+13:39
+way your fine-tuning becomes very much
+13:41
+efficient and this really solves the
+13:44
+resource constraint right this is the
+13:47
+most important thing right and so in any
+13:51
+research paper that you go ahead you'll
+13:53
+be seeing this equation w0 this is my
+13:56
+pre-trained weights Plus the track
+13:59
+changed weights is nothing but my
+14:02
+pre-trained weights plus b multiplied by
+14:05
+a what is b b is this a is this so when
+14:09
+we multiply this you'll be able to see
+14:11
+that we are able to get the all the
+14:13
+track change weights right and obviously
+14:16
+this requires less parameter if you are
+14:18
+decomposing our bigger Matrix into two
+14:20
+smaller Matrix less parameters is
+14:23
+required now what will happen if we keep
+14:25
+on increasing the ranks if we keep on
+14:28
+increasing the ranks this parameters
+14:30
+will also keep on increasing but it will
+14:33
+always be less than this right if I have
+14:37
+7 billion parameters if I try to
+14:39
+decompose that into two two matrices two
+14:42
+small matrices with increasing rank then
+14:45
+also the parameters that will be
+14:46
+required will be less how I am saying
+14:49
+this because in the research paper also
+14:51
+they have tried with multiple trainable
+14:53
+parameters now let's see over here there
+14:55
+are multiple techniques of fine tuning
+14:57
+some of the techniques that
+14:59
+are there is something called as prefix
+15:00
+embed prefix layer adapter adapter is
+15:03
+one very famous thing that is probably
+15:05
+used before Laura right you can see as
+15:08
+the rank is increasing the parameters
+15:10
+also increases right initially the
+15:13
+trainable parameters are 175 billion but
+15:16
+when I use techniques like adapter right
+15:18
+so initially it will have 7.5 7.1
+15:21
+million parameters with rank is equal to
+15:23
+one but as I keep on increasing the rank
+15:26
+as I keep on increasing the rank you'll
+15:28
+be able to see that this parameters also
+15:29
+get increased but you can see from 175
+15:32
+billion parameter if I compare 7.1
+15:34
+million weights the percentage is very
+15:36
+less now similarly in Laura because of
+15:39
+that uh metrix decomposition you'll be
+15:42
+able to see that as I keep on increasing
+15:45
+my ranks so these are my ranks with
+15:47
+respect to Q KV because in transer you
+15:50
+have this three parameter qkv there only
+15:52
+all the matrix multiplication will
+15:54
+happen with respect to this three
+15:55
+parameters and then we as we keep on
+15:57
+increasing the rank here you can see
+15:59
+four here you can see 8 here you can see
+16:02
+64 then you'll be able to see initially
+16:04
+we got 4.7 million parameters compare
+16:07
+from 175 billion to 4.7 million how this
+16:11
+was possible because of the because of
+16:13
+the metric
+16:16
+decomposition because of the metrix
+16:19
+decomposition right and as we keep on
+16:22
+increasing the rank you'll be seeing
+16:24
+that the parameters are increasing right
+16:26
+the parameters are obviously increasing
+16:28
+but if I compare it with 175 billion
+16:31
+parameter this is very less 9.4 million
+16:34
+if you just see the percentage right so
+16:37
+here also uh when rank is equal to 8
+16:39
+37.7 million then rank is equal to 6430
+16:42
+1.9 million right parameters are there
+16:45
+so still it is making sure that the
+16:47
+parameter is not that much like like not
+16:50
+not like 175 billion or not near to this
+16:52
+if I talk with respect to percentage it
+16:54
+is very very less I've also made another
+16:56
+table right just to show show you if I
+16:59
+have different different models number
+17:02
+of trainable
+17:08
+parameter number of trainable parameter
+17:11
+here you can see I have one llm model
+17:13
+with 7 billion if I use rank is equal to
+17:15
+1 then I will be having 167k parameters
+17:18
+to fine tune fine tune weights based on
+17:20
+fine tune weights then and this 17 67k
+17:24
+parameter basically means what this
+17:26
+decomposed Matrix that I have right two
+17:28
+Matrix
+17:29
+that many number of parameters so in the
+17:30
+first case it is just nothing but 7 167k
+17:34
+parameters that is the available in this
+17:35
+decomposed Matrix okay when we combine
+17:38
+them then we will be able to get how
+17:41
+many 7 billion parameters if we combine
+17:44
+both this metrix then we'll be getting
+17:46
+uh 7 billion parameters okay then
+17:48
+similarly you can see in 13 billion then
+17:50
+you have 228k parameters in 70 billion
+17:52
+you have 529k parameters in 180 billion
+17:56
+you have 849k parameters so as you keep
+17:58
+on increasing the weight this parameters
+18:00
+will keep on increasing but it is not
+18:02
+increasing with that huge amount right
+18:04
+even you can see when we keep the rank
+18:06
+as 52 right so here you can see 86
+18:08
+million parameters is there when
+18:10
+compared to billions right uh Microsoft
+18:14
+uh you know it came up with this Laura
+18:16
+technique uh in one of the research
+18:17
+paper and it has used rank is equal to 8
+18:20
+okay to probably do the finding and it
+18:22
+has performed absolutely well so most of
+18:24
+the time we select this particular value
+18:27
+but at the end of the day how to select
+18:31
+this right it won't matter you know
+18:33
+because the parameters are increasing by
+18:35
+very less number over here as we go
+18:37
+ahead so usually you can select rank one
+18:39
+2 8 while you're performing fine tuning
+18:42
+
+
+Rank means:
+How many people are doing truly independent work.
+All chefs copy same work.
+Even though 3 chefs exist,
+ actual independent work = only 1.
+Rank = 1
+Determinant = 0
+Meaning:
+system became dependent
+no unique workflow
+process collapsed
+
+—--------------------------------
+
+Fine Tuning
+
+# Install required packages for QLoRA fine-tuning
+%pip install accelerate peft bitsandbytes datasets
+
+
+import torch
+from transformers import (
+   AutoModelForCausalLM,
+   TrainingArguments,
+   Trainer,
+   DataCollatorForLanguageModeling
+)
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+import mlflow
+from datasets import Dataset
+
+
+print("✓ Packages imported successfully")
+
+
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
+4 bit
+model_id = "mistralai/Mistral-7B-v0.1"
+
+8bit 
+model_id = "facebook/opt-1.3b"
+
+# Quantization config
+bnb_config = BitsAndBytesConfig(
+load_in_4bit=True,
+bnb_4bit_quant_type="nf4", # NormalFloat4
+bnb_4bit_compute_dtype=torch.float16,
+bnb_4bit_use_double_quant=True
+)
+
+Or
+
+bnb_config = BitsAndBytesConfig(
+load_in_8bit=True
+)
+
+
+
+# Tokenizer
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+# Load model 4 bit
+model = AutoModelForCausalLM.from_pretrained(
+model_id,
+quantization_config=bnb_config,
+device_map="auto"
+)
+
+Or 
+
+model = AutoModelForCausalLM.from_pretrained(
+model=model_is for 8 bit
+quantization_config=bnb_config,
+device_map="auto"
+)
+
+
+print("Model loaded successfully")
+
+Base LLM
+   ↓
+4-bit Quantization
+   ↓
+Frozen weights
+   ↓
+Inject LoRA adapters
+   ↓
+Train only adapters
+   ↓
+Save tiny adapter files
+—------------------------------------------
+
+# Configure LoRA for efficient fine-tuning
+lora_config = LoraConfig(
+   r=16,  # LoRA rank -> Less or higher learning capacity
+   lora_alpha=32,  # LoRA alpha | how strongly
+   target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],  # Attention layers 
+   lora_dropout=0.05,
+   bias="none",
+   task_type="CAUSAL_LM"
+)
+
+
+# Apply LoRA to the model
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+
+
+print("\n✓ QLoRA configured successfully")
+
+Dataset
+   ↓
+Trainer
+   ↓
+TrainingArguments decide:
+   - speed
+   - memory
+   - stability
+   - checkpoints
+—------------------------
+# Training arguments
+training_args = TrainingArguments(
+   output_dir="./mixtral-8x7b-qlora-dolly",
+   num_train_epochs=2,
+   per_device_train_batch_size=2,
+   gradient_accumulation_steps=4,
+   learning_rate=2e-4,
+   fp16=False,
+   bf16=True,  # Use bfloat16 for better stability
+   logging_steps=10,
+   save_steps=100,
+   save_total_limit=2,
+   warmup_steps=10,
+   optim="paged_adamw_8bit",  # 8-bit optimizer for memory efficiency
+   report_to="mlflow",  # Log to MLflow
+)
+
+
+# Data collator for language modeling
+data_collator = DataCollatorForLanguageModeling(
+   tokenizer=tokenizer,
+   mlm=False  # Causal LM, not masked LM
+)
+
+
+print("✓ Training configuration ready")
+
+
+# Start MLflow run and train
+import time
+
+
+run_name = f"mixtral-8x7b-qlora-{time.strftime('%Y%m%d-%H%M%S')}"
+
+
+with mlflow.start_run(run_name=run_name) as run:
+   # Log hyperparameters
+   mlflow.log_params({
+       "model_id": model_id,
+       "num_epochs": 2,
+       "batch_size": 2,
+       "learning_rate": 2e-4,
+       "lora_r": 16,
+       "lora_alpha": 32,
+       "dataset_size": len(train_dataset)
+   })
+  
+   # Create Trainer
+   trainer = Trainer(
+       model=model,
+       args=training_args,
+       train_dataset=train_dataset,
+       data_collator=data_collator,
+   )
+  
+   print(f"🚀 Starting training...")
+   print(f"MLflow Run ID: {run.info.run_id}")
+  
+   # Train
+   trainer.train()
+  
+   # Save the fine-tuned model
+   trainer.save_model("./final_model")
+  
+   # Log model to MLflow
+   mlflow.transformers.log_model(
+       transformers_model={"model": trainer.model, "tokenizer": tokenizer},
+       artifact_path="model",
+       registered_model_name="mixtral-8x7b-qlora-dolly"
+   )
+  
+   print(f"\n✅ Training complete!")
+   print(f"Model saved to: ./final_model")
+   print(f"MLflow UI: Check the Experiments tab")
+
+“Let me explain the fine-tuning pipeline briefly.
+We first load a pretrained LLM like Mistral or OPT using Hugging Face Transformers. Since large models consume huge GPU memory, we use quantization with BitsAndBytesConfig to load the model in 4-bit or 8-bit precision. In QLoRA, 4-bit quantization is commonly used with NF4 quantization type for better accuracy and memory efficiency.
+After loading the quantized model, the base model weights are frozen. Then we inject LoRA adapters into transformer attention layers like q_proj, k_proj, v_proj, and o_proj. Instead of training the full billions of parameters, only these small low-rank adapter matrices are trained, which drastically reduces GPU memory and training cost.
+The LoRA configuration controls:
+rank r → learning capacity
+alpha → strength of LoRA updates
+dropout → overfitting prevention
+Next, TrainingArguments defines training behavior like:
+batch size
+gradient accumulation
+learning rate
+BF16 precision
+checkpointing
+8-bit optimizer for memory efficiency
+We use DataCollatorForLanguageModeling with mlm=False because this is causal language modeling, meaning next-token prediction like GPT or Mistral.
+Then Hugging Face Trainer handles the actual training loop:
+forward pass
+loss calculation
+backpropagation
+optimizer updates
+During training, only LoRA adapters are updated while the quantized base model remains frozen.
+We also integrate MLflow to track experiments, hyperparameters, metrics, checkpoints, and model versions for enterprise governance and reproducibility.
+Finally, we save the fine-tuned LoRA adapters and register the model into MLflow Model Registry for deployment.
+So overall, QLoRA combines:
+4-bit quantization
+LoRA adapters
+memory-efficient optimizers
+to fine-tune large language models efficiently on smaller GPU infrastructure while maintaining good model quality.”
+
+Input is document-> llm-> generic answer
+o/p is specific domain answwer
+
+now there may be also scenario that when
+18:44
+should we use very high rank when to use
+18:47
+high
+18:48
+rank when to use high rank this answer
+18:54
+because in the interview they may ask
+18:55
+you if the model wants to learn complex
+19:01
+things complex things then you can
+19:03
+specifically use high rank right let's
+19:06
+say some of the model is not trained to
+19:09
+probably uh interact or probably uh
+19:12
+perform some of the behavior at that
+19:13
+point of time those complex things can
+19:15
+be handled when you are probably
+19:17
+increasing the number of ranks okay so
+19:19
+this can be a very simple question that
+19:21
+may be asked in the interview but I hope
+19:23
+you got a complete idea at the end of
+19:25
+the day this is the equation that you'll
+19:27
+be able to see in most of the research
+19:28
+paper uh what Laura is doing is that
+19:31
+nothing very simple all the track
+19:33
+weights is decomposed into two smaller
+19:35
+matrixes with different different ranks
+19:37
+it can be different different ranks when
+19:38
+you're fine tuning the first thing is
+19:40
+that you really need to set that rank
+19:43
+okay if you set that rank like in this
+19:45
+particular case if I probably see if I
+19:46
+go ahead and calculate with all the
+19:48
+mathematical stuff I will be able to get
+19:50
+the rank is equal to one okay uh for
+19:52
+this also rank is equal to one right so
+19:54
+similarly if you have rank two so one of
+19:56
+the Matrix can be something like this so
+19:58
+decomposed Matrix so this is based on
+20:01
+rank two okay so if I probably combine
+20:04
+this right so how many 1 2 3 4 5 6 7 8 9
+20:07
+10 11 12 right if I multiply this I'll
+20:10
+be getting a metrix uh of much more
+20:12
+parameters right but at the end of the
+20:14
+day for in this particular case it is
+20:15
+less number of parameters right so this
+20:18
+is what Laura is all about and because
+20:20
+of this technique the fine tuning is
+20:22
+done less the the weights the parameters
+20:25
+becomes less so this is how the main
+20:27
+resource constraint is done
+20:28
+and uh with respect to all the
+20:30
+downstream task it becomes very much
+20:32
+easy now one more thing that I really
+20:34
+want to talk about is clora okay
+20:38
+chora chora basically means
+20:41
+quantized quantized Laura okay now you
+20:45
+have already learned from the first
+20:47
+video what is quantied quantied
+20:49
+basically means now in clora case what
+20:52
+will happen is that all these parameters
+20:53
+that is probably stored in float float
+20:57
+16bit okay we will try to convert this
+21:00
+into 4bit that's it okay once we do this
+21:04
+you'll be able to see that we reduce the
+21:07
+Precision and then we try to reduce this
+21:09
+values also by this you won't require
+21:12
+much more memory so that is the reason
+21:14
+we say quantized Laura technique okay
+21:17
+and the best thing about is this is that
+21:19
+U clora also has one amazing algorithm
+21:22
+which will be able to take care of both
+21:24
+this part let's say if there is a float
+21:26
+16bit I quantize it 4 bit I can also
+21:29
+convert this back into 16 bit okay so
+21:32
+with respect to this explanation guys
+21:34
+I've already spoken about many things
+21:36
+over here Laura and CLA uh just to show
+21:38
+you an example so here is one example uh
+21:42
+I've already shown you this fine tuning
+21:44
+using Google Gamma model let me talk
+21:45
+about quantisation quation over here is
+21:48
+basically done by bits and bytes config
+21:50
+so here it says load in 4bit true that
+21:53
+basically means we going to convert that
+21:55
+entire model of 16bit to 4bit
+21:57
+quantisation technique te that we are
+21:58
+going to use is something called as nh4
+22:00
+and all the further fine tuning is
+22:03
+basically done in V float 16 okay um now
+22:08
+there is also one more thing right see
+22:09
+Laura configuration here we have
+22:11
+selecting the first rank value eight and
+22:13
+then Target modules where we need to
+22:15
+apply this particular decomposition and
+22:17
+the task type casual LM once you do this
+22:20
+and just execute everything you'll be
+22:22
+able to see it right and that is how the
+22:24
+entire quation and the Laura happens uh
+22:27
+you can obvious ly check this entire
+22:29
+projects I've already done it in my
+22:30
+previous videoos so you can check it out
+22:32
+you can go ahead and execute it now I
+22:33
+think everything makes sense with
+22:36
+respect to the fine tuning so yes this
+22:38
+was it for my side I hope you like this
+22:39
+particular video I will see you all in
+22:41
+the next video have a great day thank
+22:42
+you one all take care bye-bye
+
+
+
+Rank means:
+How many people are doing truly independent work.
+All chefs copy same work.
+Even though 3 chefs exist,
+ actual independent work = only 1.
+Rank = 1
+Determinant = 0
+Meaning:
+system became dependent
+no unique workflow
+process collapsed
+
+—--------------------------------
+
+Fine Tuning
+
+# Install required packages for QLoRA fine-tuning
+%pip install accelerate peft bitsandbytes datasets
+
+
+import torch
+from transformers import (
+   AutoModelForCausalLM,
+   TrainingArguments,
+   Trainer,
+   DataCollatorForLanguageModeling
+)
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+import mlflow
+from datasets import Dataset
+
+
+print("✓ Packages imported successfully")
+
+
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
+4 bit
+model_id = "mistralai/Mistral-7B-v0.1"
+
+8bit 
+model_id = "facebook/opt-1.3b"
+
+# Quantization config
+bnb_config = BitsAndBytesConfig(
+load_in_4bit=True,
+bnb_4bit_quant_type="nf4", # NormalFloat4
+bnb_4bit_compute_dtype=torch.float16,
+bnb_4bit_use_double_quant=True
+)
+
+Or
+
+bnb_config = BitsAndBytesConfig(
+load_in_8bit=True
+)
+
+
+
+# Tokenizer
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+# Load model 4 bit
+model = AutoModelForCausalLM.from_pretrained(
+model_id,
+quantization_config=bnb_config,
+device_map="auto"
+)
+
+Or 
+
+model = AutoModelForCausalLM.from_pretrained(
+model=model_is for 8 bit
+quantization_config=bnb_config,
+device_map="auto"
+)
+
+
+print("Model loaded successfully")
+
+Base LLM
+   ↓
+4-bit Quantization
+   ↓
+Frozen weights
+   ↓
+Inject LoRA adapters
+   ↓
+Train only adapters
+   ↓
+Save tiny adapter files
+—------------------------------------------
+
+# Configure LoRA for efficient fine-tuning
+lora_config = LoraConfig(
+   r=16,  # LoRA rank -> Less or higher learning capacity
+   lora_alpha=32,  # LoRA alpha | how strongly
+   target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],  # Attention layers 
+   lora_dropout=0.05,
+   bias="none",
+   task_type="CAUSAL_LM"
+)
+
+
+# Apply LoRA to the model
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+
+
+print("\n✓ QLoRA configured successfully")
+
+Dataset
+   ↓
+Trainer
+   ↓
+TrainingArguments decide:
+   - speed
+   - memory
+   - stability
+   - checkpoints
+—------------------------
+# Training arguments
+training_args = TrainingArguments(
+   output_dir="./mixtral-8x7b-qlora-dolly",
+   num_train_epochs=2,
+   per_device_train_batch_size=2,
+   gradient_accumulation_steps=4,
+   learning_rate=2e-4,
+   fp16=False,
+   bf16=True,  # Use bfloat16 for better stability
+   logging_steps=10,
+   save_steps=100,
+   save_total_limit=2,
+   warmup_steps=10,
+   optim="paged_adamw_8bit",  # 8-bit optimizer for memory efficiency
+   report_to="mlflow",  # Log to MLflow
+)
+
+
+# Data collator for language modeling
+data_collator = DataCollatorForLanguageModeling(
+   tokenizer=tokenizer,
+   mlm=False  # Causal LM, not masked LM
+)
+
+
+print("✓ Training configuration ready")
+
+
+# Start MLflow run and train
+import time
+
+
+run_name = f"mixtral-8x7b-qlora-{time.strftime('%Y%m%d-%H%M%S')}"
+
+
+with mlflow.start_run(run_name=run_name) as run:
+   # Log hyperparameters
+   mlflow.log_params({
+       "model_id": model_id,
+       "num_epochs": 2,
+       "batch_size": 2,
+       "learning_rate": 2e-4,
+       "lora_r": 16,
+       "lora_alpha": 32,
+       "dataset_size": len(train_dataset)
+   })
+  
+   # Create Trainer
+   trainer = Trainer(
+       model=model,
+       args=training_args,
+       train_dataset=train_dataset,
+       data_collator=data_collator,
+   )
+  
+   print(f"🚀 Starting training...")
+   print(f"MLflow Run ID: {run.info.run_id}")
+  
+   # Train
+   trainer.train()
+  
+   # Save the fine-tuned model
+   trainer.save_model("./final_model")
+  
+   # Log model to MLflow
+   mlflow.transformers.log_model(
+       transformers_model={"model": trainer.model, "tokenizer": tokenizer},
+       artifact_path="model",
+       registered_model_name="mixtral-8x7b-qlora-dolly"
+   )
+  
+   print(f"\n✅ Training complete!")
+   print(f"Model saved to: ./final_model")
+   print(f"MLflow UI: Check the Experiments tab")
+
+“Let me explain the fine-tuning pipeline briefly.
+We first load a pretrained LLM like Mistral or OPT using Hugging Face Transformers. Since large models consume huge GPU memory, we use quantization with BitsAndBytesConfig to load the model in 4-bit or 8-bit precision. In QLoRA, 4-bit quantization is commonly used with NF4 quantization type for better accuracy and memory efficiency.
+After loading the quantized model, the base model weights are frozen. Then we inject LoRA adapters into transformer attention layers like q_proj, k_proj, v_proj, and o_proj. Instead of training the full billions of parameters, only these small low-rank adapter matrices are trained, which drastically reduces GPU memory and training cost.
+The LoRA configuration controls:
+rank r → learning capacity
+alpha → strength of LoRA updates
+dropout → overfitting prevention
+Next, TrainingArguments defines training behavior like:
+batch size
+gradient accumulation
+learning rate
+BF16 precision
+checkpointing
+8-bit optimizer for memory efficiency
+We use DataCollatorForLanguageModeling with mlm=False because this is causal language modeling, meaning next-token prediction like GPT or Mistral.
+Then Hugging Face Trainer handles the actual training loop:
+forward pass
+loss calculation
+backpropagation
+optimizer updates
+During training, only LoRA adapters are updated while the quantized base model remains frozen.
+We also integrate MLflow to track experiments, hyperparameters, metrics, checkpoints, and model versions for enterprise governance and reproducibility.
+Finally, we save the fine-tuned LoRA adapters and register the model into MLflow Model Registry for deployment.
+So overall, QLoRA combines:
+4-bit quantization
+LoRA adapters
+memory-efficient optimizers
+to fine-tune large language models efficiently on smaller GPU infrastructure while maintaining good model quality.”
+
+Input is document-> llm-> generic answer
+o/p is specific domain answwer
+
+
+

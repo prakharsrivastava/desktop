@@ -1,0 +1,24 @@
+# ============================================================
+# Course 1018 — Module 20
+# On-slide YAML reference  (1 snippets)
+# Authentic code as shown on the course slides. Copy, run, experiment.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# Listing Metadata, Conceptually
+# ----------------------------------------------------------
+
+# conceptual LISTING manifest sketch — verify exact schema against current docs
+listing:
+  title: "CPG Demand Forecast Assistant"
+  subtitle: "Cortex-powered demand forecast summaries for CPG sales data"
+  categories:
+    - "Data & AI Applications"
+  description: "Cortex-powered demand forecast summaries for CPG sales data"
+  required_privileges:
+    - SELECT on consumer-provided sales table
+  custom_contact: "support@example.com"
+  offers:
+    - type: "free-trial-then-paid"
+

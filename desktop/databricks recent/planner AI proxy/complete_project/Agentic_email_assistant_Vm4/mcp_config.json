@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "sentiment-analysis": {
+      "command": "python",
+      "args": ["mcp_sentiment_server.py"],
+      "env": {
+        "PYTHONPATH": "."
+      },
+      "description": "Healthcare email sentiment analysis MCP server"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# ============================================================
+# Course 1018 — Module 17
+# On-slide YAML reference  (1 snippets)
+# Authentic code as shown on the course slides. Copy, run, experiment.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# Finding the Stale Mapping
+# ----------------------------------------------------------
+
+# semantic model YAML — stale column reference
+tables:
+  - name: finance_summary
+    dimensions: []
+    measures:
+      - name: net_revenue_metric
+        expr: gross_revenue   # <- renamed 3 weeks ago in the table
+        synonyms: ["net revenue", "revenue"]
+# actual table now has: net_revenue -- no CI check on the model
+# gross_revenue partially still resolves via a legacy view alias,
+# which is exactly what hid the bug from every smoke test
+

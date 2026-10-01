@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;\red220\green161\blue13;}
+{\*\expandedcolortbl;;\cssrgb\c89412\c68627\c3922;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 \
+\
+\pard\pardeftab560\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://tabs.ultimate-guitar.com/tab/scoopwhoop/60-years-of-bollywood-in-4-chords-chords-3960541"}}{\fldrslt 
+\f1\b\fs40 \cf2 https://tabs.ultimate-guitar.com/tab/scoopwhoop/60-years-of-bollywood-in-4-chords-chords-3960541}}
+\f1\b\fs40 \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\fs26 \cf0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\b0 \cf0 Enterprise Docs\
+
+\f2 \uc0\u8595 
+\f0 \
+Chunking\
+
+\f2 \uc0\u8595 
+\f0 \
+Embeddings\
+
+\f2 \uc0\u8595 
+\f0 \
+Vector Search\
+
+\f2 \uc0\u8595 
+\f0 \
+Hybrid Retrieval\
+
+\f2 \uc0\u8595 
+\f0 \
+QLoRA Fine-tuned LLM\
+
+\f2 \uc0\u8595 
+\f0 \
+Grounded Enterprise Answer\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 write new notebook with simple example For 3-class CNN: use Conv2D 
+\f2 \uc0\u8594 
+\f0  MaxPool 
+\f2 \uc0\u8594 
+\f0  Flatten 
+\f2 \uc0\u8594 
+\f0  Dense 
+\f2 \uc0\u8594 
+\f0  Softmax (not sigmoid \'97 sigmoid is for binary). Loss = categorical cross-entropy. Optimizer = Adam. Train with batches, monitor val accuracy/loss to detect overfitting.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Key hyperparams: learning rate, batch size, epochs, dropout rate. Tuning methods: Grid Search (exhaustive), Random Search (faster), Bayesian optimisation (smarter). Learning rate schedulers (warm-up + cosine decay) are standard in deep learning. Use MLflow to log all runs and compare.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Fine-tuning methods: Full fine-tuning (expensive), LoRA/QLoRA (efficient \'97 only tune low-rank adapters), PEFT (parameter-efficient). Steps: prepare instruction-tuned dataset 
+\f2 \uc0\u8594 
+\f0  set learning rate (small: 1e-4 to 1e-5) 
+\f2 \uc0\u8594 
+\f0  train with gradient checkpointing 
+\f2 \uc0\u8594 
+\f0  evaluate with ROUGE, BLEU, or task-specific metrics. Use Hugging Face Trainer or Databricks MLflow.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Temperature controls output randomness. Range: 0\'962. At 0, model picks highest-probability token (deterministic). At 1+, distribution is more uniform (creative/random). Use 0 for RAG/factual tasks, 0.7\'961 for creative generation. Also related: top-p (nucleus sampling) and top-k sampling.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Real-time ingestion: File lands on S3/ADLS 
+\f2 \uc0\u8594 
+\f0  Event trigger (Event Grid/Lambda) 
+\f2 \uc0\u8594 
+\f0  Kafka topic 
+\f2 \uc0\u8594 
+\f0  Consumer: parse PDF (Unstructured.io / PyMuPDF for text+images, OCR if scanned) 
+\f2 \uc0\u8594 
+\f0  Chunk 
+\f2 \uc0\u8594 
+\f0  Embed 
+\f2 \uc0\u8594 
+\f0  Upsert to vector DB. Use document hash for idempotency. Delta table tracks ingestion status.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Overfitting = model performs well on training data but poorly on unseen data (high variance). Remedies: (1) More training data, (2) Regularisation \'97 L1 (Lasso, sparse features) or L2 (Ridge, smooth weights), (3) Dropout (for neural nets), (4) Cross-validation (k-fold), (5) Early stopping, (6) Simpler model architecture. Outliers are a data quality issue, not overfitting.}

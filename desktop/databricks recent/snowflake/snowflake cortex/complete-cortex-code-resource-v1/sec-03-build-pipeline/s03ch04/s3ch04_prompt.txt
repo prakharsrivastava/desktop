@@ -1,0 +1,1 @@
+Create silver layer dynamic table for PRODUCT_MASTER with deduplication and quality check.

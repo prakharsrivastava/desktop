@@ -1,0 +1,923 @@
+
+
+=== Introduction ===
+
+
+--- Introduction ---
+
+Hello everyone, and welcome to this course on evaluation for Loan Applications.
+I am truly excited to have you here.
+I hold a PhD in Artificial Intelligence.
+Over the past years, I've specialized in working with large language models, exploring how they behave,
+how they fail, and most importantly, how we can evaluate and improve them.
+Why this course?
+Because today large language models are everywhere, powering chatbots, search engines, customer support
+systems, and even decision making tools.
+But one challenge remains universal.
+How do we know if these models are performing well?
+How do we measure accuracy, safety, helpfulness, and efficiency in real world settings?
+The goal of this course is to give you a complete toolkit for answering those questions.
+By the end, you'll know how to design evaluation pipelines, monitor systems in production, and optimize
+both quality and costs.
+Now, let me give you an overview of what we will explore together in section one.
+Foundations of LLM evaluation will start with the basics.
+You'll learn the difference between intrinsic and extrinsic evaluation.
+What makes a model good and the key challenges in evaluating generative outputs.
+This section sets the stage for everything else.
+Then, in section two, Instrumentation and Observability, we'll dive into the technical foundation.
+You'll see how to log inputs, outputs and metadata, and how to build observability pipelines using
+tools like Opentelemetry, Prometheus, and Grafana.
+We'll also cover the essential metrics to track including latency, token usage, and user satisfaction.
+In section three, systematic error analysis will go deeper into failure analysis.
+You'll learn how to categorize model failures, hallucinations, bias, and toxicity.
+We'll use frameworks like the five Whys and fishbone diagrams to trace problems back to their root causes,
+and will design feedback loops to make sure errors lead to continuous improvement.
+Next, in section four, evaluation techniques and LM judge approaches will compare human and automatic
+evaluation.
+We'll also look at LL as a judge methods, where one model evaluates another and will explore pairwise
+comparisons and scoring systems.
+The goal here is to show you the strengths and weaknesses of each method, and how to combine them effectively.
+Then we'll move on to section five.
+Evaluating Rag systems retrieval.
+Augmented generation has become one of the most common patterns in modern applications.
+In this section, we'll examine what makes Rag unique how to measure retrieval quality with recall and
+precision, and how to evaluate both retrieval and generation, together with joint metrics like faithfulness
+and source attribution in section six production, monitoring and continuous evaluation will shift our
+focus to real world deployment.
+You'll learn how to design evaluation in production environments, integrate checks into CI CD pipelines,
+and set up alerts, thresholds, and incident response playbooks.
+This section ensures that your systems stay reliable at scale.
+Finally, in section seven, human review and cost optimization will address two practical but critical
+aspects you'll learn how to design scalable human in the loop review systems, balance evaluation quality
+with budget constraints, and apply strategies like token efficiency and model selection to control
+costs without sacrificing quality.
+Each section builds on the previous one, giving you a full framework for evaluating applications both
+in theory and in practice.
+I'm very excited to guide you through this journey.
+So welcome once again, let's dive in and get started with our first section, foundations of MLM evaluation.
+
+--- Download Course Materials ---
+
+[No transcript available for this lecture]
+
+
+=== Section 1: Foundations of LLM Evaluation ===
+
+
+--- Types of evaluations – intrinsic vs extrinsic ---
+
+Hello everyone.
+In this slide we are going to talk about the two main types of evaluations for large language models
+intrinsic and extrinsic.
+This distinction is important because it shapes the way we understand a model's performance.
+Let's begin with intrinsic evaluation.
+This type of evaluation focuses on the model in isolation without looking at any specific application.
+For example, we might calculate the perplexity of the model to check how well it predicts the next
+word in a sequence.
+Or we could measure benchmark scores like Belle Vue or accuracy on a data set.
+These methods are quick and easy to automate, and they provide standardized results that allow us to
+compare models.
+However, the limitation is that intrinsic evaluation doesn't always reflect how the model performs
+in the real world.
+In other words, a model can score very high on a benchmark but still fail to deliver useful answers
+to real users.
+And this is exactly where extrinsic evaluation comes in.
+Instead of testing the model in isolation.
+Extrinsic evaluation looks at how the model performs within a real application or task.
+For instance, imagine we are using an LM inside a customer support chatbot.
+Here we don't just care about benchmark accuracy.
+Instead, we measure whether the chatbot actually solves customer problems, how satisfied users feel
+with the interaction, and even how fast the responses are.
+This approach is more realistic because it reflects the true value the model provides in practice.
+At the same time, it is also more challenging because it requires human feedback.
+Real tasks and often continuous monitoring.
+So to connect the two ideas, intrinsic evaluation asks the question does the model generate good outputs
+by itself?
+While extrinsic evaluation asks does the model help solve real world problems effectively?
+Both types are necessary and they complement each other.
+Intrinsic methods give us efficiency and comparability, while extrinsic methods give us relevance and
+impact.
+That is why in practice, a strong evaluation strategy usually combines both approaches.
+
+
+=== Section 2: Instrumentation & Observability ===
+
+
+--- What makes an LLM "good"? (accuracy, helpfulness, safety, latency) ---
+
+Hello everyone.
+In this slide we are going to explore a very important question.
+What makes a large language model good?
+This is not just about having the latest or the largest model.
+Instead, it's about the qualities that truly matter for users and organizations.
+First of all, let's talk about accuracy.
+Accuracy means that the model produces correct and reliable answers.
+For example, if a user asks for the capital of a country or the steps of an algorithm, the model should
+return the right information without inventing facts without accuracy.
+Even the most sophisticated model can become useless because people cannot trust the output.
+Now accuracy alone is not enough.
+This brings us to helpfulness.
+Helpfulness is about providing answers that are not only correct, but also relevant, clear, and actionable.
+For instance, if someone asks a question about debugging Python code, the model should not just repeat
+the documentation.
+It should explain the issue in simple terms and give a practical solution.
+This is what makes the model feel like a real assistant rather than just a database of information.
+Next, we need to consider safety.
+Safety ensures that the model avoids harmful, biased or inappropriate outputs.
+This is especially critical when LMS are deployed in sensitive areas like healthcare, education or
+customer service.
+Imagine a chatbot giving financial or medical advice without proper safeguards.
+The risks can be significant.
+So a good model must include mechanisms to reduce harmful content and maintain ethical standards.
+Finally, let's talk about latency.
+Latency refers to how quickly the model responds, even if the answers are accurate, helpful, and
+safe.
+Users will get frustrated if they have to wait too long.
+For example, in a live chat bot for e-commerce, a delay of several seconds can reduce customer satisfaction
+and even impact sales.
+So speed is a key part of the user experience.
+To connect all these points together, we can say that a good LLM balances these four dimensions.
+It is accurate, it is helpful, it is safe and it is fast.
+If one of these dimensions is missing the overall quality of the model drops.
+This is why evaluating llms always involves looking at multiple criteria, not just a single metric.
+
+
+=== Section 3: Systematic Error Analysis ===
+
+
+--- Challenges in evaluating generative outputs ---
+
+Hello everyone.
+In this slide we are going to discuss the main challenges in evaluating generative outputs from large
+language models.
+This is a critical topic because unlike traditional software, the outputs of Llms are not always predictable
+or easy to score.
+The first challenge is subjectivity.
+When an LLM generates text, different people may judge the quality in different ways.
+For example, if the model writes a summary of a news article, one person might find it clear and concise,
+while another person might think it is missing key details.
+This subjectivity makes evaluation inconsistent and harder to standardize.
+Closely related to this is the challenge of open endedness.
+In many cases, there is not just one correct answer.
+For instance, if you ask a model to write an introduction to machine learning, there could be dozens
+of different valid responses, each with a different style, structure, or level of detail.
+Unlike a math problem, there is no single ground truth, which makes automatic scoring very difficult.
+Another big challenge is context sensitivity.
+The quality of a response often depends on the situation or the user's specific needs.
+For example, if a user asks about Python functions.
+A beginner might want a simple explanation with an example, while an advanced developer might expect
+details about decorators and performance.
+The same answer could be rated as excellent by one user and completely unhelpful by another.
+Finally, there is the problem of scalability.
+Human evaluation remains the gold standard, but it is costly, time consuming, and does not scale
+well when thousands of outputs need to be checked.
+Imagine a system generating millions of responses every day.
+It would be impossible to have humans review all of them.
+This is why automation, LLC based judges and sampling strategies are often introduced.
+Even if they are not perfect to bring all these points together, evaluating generative outputs is challenging
+because we are dealing with subjective judgments, open ended answers, context dependent quality,
+and the high cost of human review.
+These challenges explain why evaluation in the world is still an active research area, and why new
+methods are constantly being explored.
+
+
+=== Section 4: Evaluation Techniques & LLM-Judge Approaches ===
+
+
+--- Logging LLM inputs, outputs, and metadata ---
+
+Hello everyone.
+In this slide we are going to talk about one of the most important practices in evaluating ML systems,
+which is logging inputs, outputs and metadata.
+This is the foundation of systematic error analysis because without proper logs, we cannot understand
+why a model failed or how to improve it.
+Let's begin with the inputs.
+Inputs are everything that goes into the model.
+This includes the user's prompt, the system instructions, and any context documents that were passed
+along.
+It also includes model parameters such as the temperature, maximum tokens or sampling settings like
+top k and top P.
+For example, if a user asks the chatbot to summarize this article in three bullet points, the log
+should contain the article itself, the prompt, and the parameter values used.
+By saving all these inputs, we can later reproduce the exact same conditions when we investigate an
+error.
+Now let's move to the outputs.
+Outputs are the responses generated by the model.
+Logging them means capturing the full text that was returned and if available, any confidence scores
+or ranking values.
+This is essential because when a model produces an incorrect, biased or unsafe response, we need to
+have that output recorded for review.
+For example, if a customer service chatbot incorrectly explains a refund policy, the logged output
+allows us to trace the issue, compare it to the input, and decide how to retrain or adjust the system.
+In short, outputs give us the evidence of what the model actually said.
+Next, we need to talk about the metadata.
+Metadata is the surrounding context of the interaction.
+It includes technical details like timestamps, latency, token usage, and even the API version used.
+It can also include user related information such as the session ID, the user's role, or the application
+context.
+For example, if we notice that latency spikes during peak traffic hours, metadata provides the evidence
+to confirm this pattern.
+Another case could be when errors only happen for certain user roles.
+Without metadata, we would never see these correlations.
+So when we combine inputs, outputs and metadata, we create a complete trace of each interaction with
+the model.
+This trace allows us to reproduce errors, analyze conditions, and continuously improve performance.
+Without it, we are essentially blind, unable to explain or fix problems in a systematic way.
+
+
+=== Section 5: Evaluating RAG Systems ===
+
+
+--- Setting up observability pipelines (OpenTelemetry, Prometheus, etc.) ---
+
+Hello everyone.
+In this slide we are going to explore how to set up observability pipelines for large language models.
+This is a critical step because once a model is running in production, we need continuous visibility
+into its behavior.
+Without observability, problems can remain hidden until they cause serious failures.
+Let's begin with the question why do we need observability?
+The answer is simple observability helps us detect errors, performance bottlenecks, and even safety
+issues in real time.
+For example, if response latency suddenly increases or if token usage spikes abnormally, observability
+tools allow us to notice these changes immediately.
+This transparency is essential for debugging and optimization, ensuring that the model delivers consistent
+performance.
+Now let's look at some key tools used in observability pipelines.
+The first one is Opentelemetry, which is a standard framework for collecting traces, logs, and metrics.
+It acts like a universal data collector for your service.
+Then we have Prometheus, a system designed to store and query metrics such as latency, token usage,
+or error rates.
+It allows us to analyze historical trends as well as current performance.
+Finally, we have Grafana, which provides dashboards to visualize the metrics and generate alerts.
+For example, Grafana can show a live graph of average latency per user request and send a notification
+if latency crosses a certain threshold.
+So how does all of this work together?
+Imagine a pipeline where your service is continuously sending logs and metrics.
+Opentelemetry captures them, Prometheus stores them, and Grafana visualizes them in a clear dashboard.
+When an anomaly occurs, say, the model suddenly consumes twice the normal number of tokens.
+The system can immediately alert engineers to investigate.
+This way, issues are caught early before they escalate into bigger problems.
+To summarize, observability pipelines make systems trackable, measurable, and reliable.
+They transform raw logs and metrics into actionable insights, allowing teams to continuously monitor,
+detect anomalies and ensure high quality service in production.
+
+
+=== Section 6: Production Monitoring & Continuous Evaluation ===
+
+
+--- Metrics to track (latency, token usage, user satisfaction) ---
+
+Hello everyone.
+In this slide we are going to talk about the key metrics we need to track when running large language
+models in production.
+Metrics are the backbone of systematic error analysis because they transform raw system activity into
+measurable signals of quality and performance.
+Latency measures the time it takes for the system to go from receiving a request to delivering a response.
+For example, if a customer sends a question to a support chatbot and it takes more than three seconds
+to reply, the experience will feel slow.
+In real time.
+Applications such as search voice assistants or customer service.
+Low latency is critical for user satisfaction.
+That is why latency is one of the first metrics that engineers track.
+Next, we need to track token usage.
+Every request consumes tokens for both input and output, and these tokens translate directly into cost.
+For example, a long user query with a long generated answer can consume thousands of tokens by logging
+token usage, we can identify which requests are the most expensive, optimize prompts, and control
+overall expenses.
+This metric is not only about efficiency, but also about making LLM systems financially sustainable
+at scale.
+Now let's look at user satisfaction.
+Technical metrics like latency and tokens are important, but they do not tell the whole story.
+User satisfaction captures whether the answers are actually helpful and valuable in practice.
+This can be measured through explicit feedback like thumbs up and thumbs down ratings, or through implicit
+signals like whether a user rephrases the same question because the first answer was not useful.
+For instance, if a user asks for a step by step tutorial and immediately asks again, that's a sign,
+the first response didn't meet their expectations.
+In addition to this, we can also track error rates such as timeouts or API failures and safety violations
+where the model produces harmful or inappropriate outputs.
+These are essential for keeping the system stable and safe in production.
+To connect all these points together, latency tells us about speed.
+Token usage tells us about cost, and user satisfaction tells us about quality.
+When combined with error rates and safety checks, these metrics provide a balanced view of how well
+an LLM system is performing, both technically and from a human perspective.
+
+
+=== Section 7: Human Review & Cost Optimization ===
+
+
+--- Categorizing LLM failures (hallucinations, bias, toxicity) ---
+
+Hello everyone.
+And this slide we are going to talk about the different categories of failures that large language models
+can produce.
+Understanding these categories is important because it allows us to identify patterns and design specific
+solutions, instead of treating all errors the same way.
+The first category is hallucinations.
+This happens when the model generates content that sounds convincing but is completely false or fabricated.
+For example, a model might invent a research paper that doesn't exist or give a wrong statistic when
+summarizing data.
+Hallucinations are dangerous because the text often looks credible, and users may trust it without
+verifying the facts.
+The second category is bias.
+Llms are trained on large datasets that contain human language, and unfortunately, human language
+often carries stereotypes and prejudices.
+As a result, the model may generate outputs that are biased against gender, race, or other social
+groups.
+For instance, if an LLM is asked for hiring suggestions and it favors one gender over another without
+justification, That is, a biased output bias can reduce fairness and damage trust in the system.
+The third category is toxicity.
+This refers to harmful or unsafe language such as offensive comments, abusive responses, or dangerous
+advice.
+For example, a chatbot that responds aggressively to a user or one that provides unsafe instructions
+about handling medication falls under toxicity.
+This category is especially critical because toxic outputs can create serious harm for users and organizations.
+So why do we need to categorize failures?
+Because each type requires a different mitigation strategy.
+Hallucinations can be reduced with grounding techniques like retrieval.
+Augmented generation bias can be mitigated through data curation and fairness checks, and toxicity
+can be controlled with safety filters, moderation layers, and clear guardrails.
+To sum up, failures in llms often fall into three main categories hallucinations, bias, and toxicity.
+By categorizing them, we can move from a vague understanding of the model made a mistake to a structured
+process of diagnosing problems and applying targeted solutions.
+
+
+=== Course Conclusion – Key Takeaways ===
+
+
+--- Root cause analysis frameworks ---
+
+Hello everyone.
+In this slide we are going to talk about root cause analysis frameworks and why they are so important
+for evaluating large language models.
+When something goes wrong, it is not enough to just note the error.
+We need to understand why it happened and how to prevent it from happening again.
+Let's start with the purpose of root cause analysis.
+The idea is to go beyond surface level symptoms and uncover the underlying reasons for a failure.
+For example, if a chatbot produces a hallucinated fact, the symptom is the answer was wrong, but
+the root cause could be missing data in the training set.
+Or maybe the retrieval pipeline didn't return the right documents.
+By identifying the root cause, we can design a solution that prevents the same error from repeating.
+There are several frameworks we can use.
+The first one is the five whys technique.
+This is a simple method where we keep asking why until we arrive at the true cause.
+For instance, why was the output wrong?
+Because the document was missing.
+Why was the document missing?
+Because the retrieval index was outdated.
+Why was it outdated?
+Because the update job failed by the fifth.
+Why?
+We have reached the actionable problem.
+Another useful tool is the fishbone diagram, also called the Ishikawa diagram.
+This framework helps categorize possible causes into groups such as data issues, model limitations,
+deployment errors, or even user behavior.
+For example, a toxic response could come from biased training data, from weak filtering in the deployment
+layer, or even from a user deliberately prompting in a harmful way.
+The fishbone diagram helps visualize these different categories.
+Finally, we have fault tree analysis.
+This method maps how multiple smaller issues can combine into a bigger failure.
+For example, high latency might result from a combination of network delays, large prompt sizes,
+and inefficient token generation.
+Fault tree analysis shows how these factors connect and lead to the observed problem.
+So to summarize, root cause analysis is about diagnosing problems systematically instead of just saying
+the model failed.
+We use frameworks like the five whys, fishbone diagrams, or fault tree analysis to trace failures
+back to their true origins.
+This way, we can not only fix the current error, but also design systems that avoid similar issues
+in the future.
+
+--- Feedback loops and error logging strategies ---
+
+Hello everyone.
+In this slide we are going to focus on feedback loops and error logging strategies.
+These two elements are at the heart of continuous improvement, because they ensure that every error
+becomes an opportunity to learn and improve the system.
+Let's begin with the idea of a feedback loop in practice.
+No system is perfect, so what matters is how quickly it can adapt.
+Feedback loops allow us to capture signals from users and from the system itself, and then feed those
+signals back into improvements.
+Without feedback loops, mistakes are repeated again and again.
+There are two main types of feedback.
+The first is explicit feedback, where users directly tell us what they think.
+For example, thumbs up and thumbs down buttons, short surveys, or rating scales after a chat bot
+interaction.
+This is very clear feedback, but users don't always take the time to provide it.
+The second type is implicit feedback, which is often just as valuable.
+This includes signals like when a user repeats the same question, abandons a session quickly, or spends
+longer than expected to reach a solution.
+For example, if many users re-ask the same query in different words.
+That is a strong signal that the initial answer was not satisfying.
+Now let's connect this to error logging strategies.
+When errors occur, we should log them with a full trace including the input, output and metadata.
+Each error should be tagged by category.
+For example, hallucination, bias, toxicity or latency issue.
+By tagging, we can later identify which problems are the most frequent and which have the greatest
+impact.
+This prioritization helps teams focus on solving the issues that matter most.
+Finally, we need to talk about closing the loop.
+It's not enough to just collect feedback and errors.
+We must use them.
+This means feeding error data back into retraining models, optimizing prompts, or strengthening guardrails.
+It also requires regular reviews to ensure that fixes are effective and that failure rates are going
+down over time.
+So to summarize, feedback loops capture both explicit and implicit user signals, while error logging
+strategies systematically record and categorize failures.
+When combined, they turn raw errors into actionable insights that drive continuous improvement in LM
+systems.
+
+--- Human evaluation vs automatic evaluation ---
+
+Hello everyone.
+In this slide we are going to compare human evaluation and automatic evaluation of large language models.
+Both approaches are widely used, but each has strengths and weaknesses that make them suitable for
+different situations.
+Let's start with human evaluation.
+This means that real people review the outputs of the model and judge them based on criteria such as
+quality, helpfulness, or safety.
+For example, if a model generates a medical explanation, a human evaluator can assess whether the
+explanation is clear, accurate, and appropriate for the audience.
+The advantage of human evaluation is that people bring nuance and contextual understanding that automated
+metrics often miss.
+However, the downside is that human evaluation is expensive, time consuming, and cannot easily scale
+when thousands of outputs need to be checked.
+Now let's look at automatic evaluation.
+This approach uses predefined metrics to measure model performance.
+For example, metrics like blue or rouge are commonly used in summarization tasks.
+While perplexity is often used to measure how well a model predicts sequences.
+The big advantage is that automatic evaluation is fast, scalable, and provides standardized results.
+But the limitation is that it often fails to capture subjective qualities like tone, clarity, or usefulness.
+For example, a summary could score well on rouge, but still feel confusing or incomplete to a human
+reader.
+So how do we decide between the two?
+The reality is that both methods have their place.
+Human evaluation provides depth and nuance, while automatic evaluation provides scale and speed.
+That's why the best practice in evaluation is usually to combine both approaches.
+For instance, automatic metrics can be used to screen large volumes of outputs, and human reviewers
+can then focus on the most critical or ambiguous cases.
+To sum up, human evaluation and automatic evaluation are not competitors, but complementary tools.
+Together, they provide a more complete and reliable view of performance.
+
+--- Using LLMs to grade other LLMs (LLM-as-a-judge techniques) ---
+
+Hello everyone.
+In this slide we are going to explore a fascinating method called law as a judge, where one language
+model is used to evaluate the outputs of another.
+This approach has gained popularity because it promises both scalability and flexibility in evaluation.
+So what does it mean in practice?
+Imagine we have a model generating answers to user questions, and instead of asking a human to rate
+each answer, we use another law to act as a grader.
+The judge model can be asked to assign a score, rank multiple outputs, or provide feedback on dimensions
+such as accuracy, clarity, or helpfulness.
+For example, if two different models generate summaries of an article, a judge LLM can compare them
+and decide which one is clearer or more complete.
+The advantages of this approach are clear.
+First, it is highly scalable.
+A judge can evaluate thousands of outputs quickly, something that would be impossible with human reviewers
+alone.
+Second, it is flexible since we can design prompts that instruct the judge to look for specific qualities
+such as relevance, tone, or style.
+And third, it is more cost effective compared to paying for large scale human annotation.
+However, there are also important limitations.
+A judge may carry the same biases as the models it is evaluating, which means it could reinforce unfair
+patterns instead of correcting them.
+There is also the risk of hallucinated judgments where the judge provides inconsistent or unjustified
+scores.
+And finally, while useful judges are still not as reliable as expert human evaluators, especially
+in critical domains like healthcare or law.
+So what are the best practices when using law as judges?
+One strategy is to combine them with human spot checks, where a subset of outputs is reviewed by humans
+to ensure calibration.
+Another is to design clear evaluation prompts that reduce ambiguity for the judge model.
+And finally, using multiple judge models and aggregating their results can improve reliability.
+In summary, as a judge, techniques provide a powerful way to scale evaluation, but they should not
+replace humans entirely.
+Instead, they work best when integrated into a hybrid system that combines automation with human oversight.
+
+--- Pairwise comparison and scoring methods ---
+
+Hello everyone.
+In this slide we are going to discuss two important evaluation methods pairwise comparison and scoring.
+Both techniques are widely used to measure the quality of outputs from large language models, but they
+work in slightly different ways.
+Let's start with pairwise comparison.
+In this approach, we take two outputs, usually from two different models or two different versions
+of the same model, and we compare them side by side.
+The evaluator, whether a human or an LLM as a judge, then chooses which output is better.
+For example, if we are testing two summarization models, we show both summaries of the same article
+and simply ask which one is clearer and more accurate.
+This method is very effective for a B testing because it forces a direct comparison.
+Now let's move to scoring methods.
+Instead of choosing between two options, the evaluator assigns a numerical score to a single output,
+often on a scale like 1 to 5.
+The output can be scored across multiple dimensions such as accuracy, clarity, safety, or helpfulness.
+For example, a chatbot answer might receive a four out of five for accuracy, but only a two out of
+five for clarity.
+By aggregating these scores across many outputs, we can build detailed metrics that show where the
+model performs well and where it struggles.
+Both approaches have advantages and limitations.
+Pairwise comparison reduces subjectivity because it is often easier to decide which of two outputs is
+better than to assign a precise score.
+However, pairwise only tells us relative quality.
+It doesn't say whether either output is actually good.
+On the other hand, scoring gives us fine grained insights across different evaluation dimensions,
+but it can suffer from inconsistency if different evaluators interpret the scale differently.
+So what is the best practice?
+In reality, these two methods are complementary.
+Pairwise comparison works well when we need relative comparisons between systems, while scoring is
+better for building detailed quality profiles across dimensions.
+By combining both approaches, organizations can achieve a more balanced and reliable evaluation of
+outputs.
+
+--- What makes Retrieval-Augmented Generation different? ---
+
+Hello everyone.
+In this slide we are going to discuss what makes retrieval augmented generation or R.a.g different from
+standard.
+This is an important concept because Rag has quickly become one of the most common ways to make language
+models more reliable and useful.
+Let's begin with a simple definition.
+R stands for retrieval augmented generation.
+It is a framework that combines two components.
+First, a retriever, which searches for relevant documents or knowledge from external sources, and
+second, a generator, which is the LL that produces the final answer by using the retrieved information
+as context.
+Now why is this different from plain LL?
+A standard LL relies only on the data it was trained on, which means its knowledge is fixed at training
+time.
+This can lead to hallucinations or outdated answers.
+For example, if you ask a plain ll about the latest research paper published last month, it won't
+know because it has no access to fresh data.
+With Rag, the retriever can pull in recent documents and the generator can integrate them into the
+response, making the answer both more factual and more up to date.
+There are several advantages to this approach.
+First, Rag helps reduce hallucinations by grounding responses in real documents.
+Second, it allows domain specific customization.
+For instance, a Rag system for healthcare can search medical literature before generating answers.
+And third, it improves trustworthiness since users can often be shown the sources that were retrieved.
+But of course, there are also challenges.
+If the retriever brings back irrelevant or wrong documents, then even the best generator will produce
+a poor answer.
+There is also integration complexity.
+Because the retriever and the generator must work seamlessly together to provide consistent results.
+So to summarize, Rag is different from plain llms because it adds a retrieval layer that supplies the
+model with relevant real world data at the time of the query.
+This makes the system more factual and reliable, but also introduces new challenges that must be carefully
+evaluated.
+
+--- Evaluating retrieval quality (recall, precision, relevance) ---
+
+Hello everyone.
+In this slide we are going to discuss how to evaluate the quality of retrieval in retrieval augmented
+generation systems.
+This is a crucial step because if the retrieval component fails, the generation component will almost
+always produce a weak or misleading answer.
+Let's begin with recall.
+Recall measures how many of the truly relevant documents were actually retrieved by the system.
+For example, if there are ten relevant papers in the database and the retriever brings back eight of
+them, then recall is 80%.
+High recall means the system is not missing important information.
+The risk of low recall is that the generator might have to work with incomplete context, which can
+easily lead to hallucinations or oversimplified answers.
+Now let's move to precision.
+Precision looks at the other side.
+Out of all the documents retrieved, how many are truly relevant?
+For example, if the retriever returns ten documents and only seven are relevant, then precision is
+70% high.
+Precision means users are not overloaded with irrelevant content.
+Low precision, on the other hand, can confuse the generator because it mixes useful data with noisy
+or unrelated material beyond recall and precision.
+We also need to consider relevance.
+This is more qualitative.
+It's not just about numbers, but about the actual usefulness of the retrieved documents.
+For instance, imagine a user asks what are the latest techniques in cancer treatment?
+The retriever might return a paper that mentions cancer but is focused on diagnostics rather than treatment.
+Technically, it's related, but it doesn't fully answer the query.
+So relevance is low.
+So why is all of this important?
+Because in rag, poor retrieval equals poor generation.
+If the retriever fails to bring back the right information, the l.l.m. will produce an answer that
+is inaccurate or incomplete.
+No matter how advanced the model is.
+On the other hand, strong retrieval ensures that answers are factual, grounded, and trustworthy.
+To sum up, evaluating retrieval quality means looking at recall, precision, and relevance.
+Together, these metrics provide a clear picture of how well the retrieval system is supporting the
+generation process.
+
+--- Combined evaluation of retrieval + generation ---
+
+Hello everyone.
+In this slide we are going to discuss how to evaluate the quality of retrieval in retrieval augmented
+generation systems.
+This is a crucial step because if the retrieval component fails, the generation component will almost
+always produce a weak or misleading answer.
+Let's begin with recall.
+Recall measures how many of the truly relevant documents were actually retrieved by the system.
+For example, if there are ten relevant papers in the database and the retrieval brings back eight of
+them, then recall is 80%.
+High recall means the system is not missing important information.
+The risk of low recall is that the generator might have to work with incomplete context, which can
+easily lead to hallucinations or oversimplified answers.
+Now let's move to precision.
+Precision looks at the other side.
+Out of all the documents retrieved, how many are truly relevant?
+For example, if the retrieval returns ten documents and only seven are relevant, then precision is
+70% high.
+Precision means users are not overloaded with irrelevant content.
+Low precision, on the other hand, can confuse the generator because it mixes useful data with noisy
+or unrelated material beyond recall and precision.
+We also need to consider relevance.
+This is more qualitative.
+It's not just about numbers, but about the actual usefulness of the retrieved documents.
+For instance, imagine a user asks what are the latest techniques in cancer treatment?
+The retriever might return a paper that mentions cancer but is focused on diagnostics rather than treatment.
+Technically, it's related, but it doesn't fully answer the query.
+So relevance is low.
+So why is all of this important?
+Because in rag, poor retrieval equals poor generation.
+If the retriever fails to bring back the right information, the LL will produce an answer that is inaccurate
+or incomplete.
+No matter how advanced the model is.
+On the other hand, strong retrieval ensures that answers are factual, grounded, and trustworthy.
+To sum up, evaluating retrieval quality means looking at recall, precision, and relevance.
+Together, these metrics provide a clear picture of how well the retrieval system is supporting the
+generation process.
+
+--- Designing evaluation in production environments ---
+
+Hello everyone.
+In this slide we are going to talk about designing evaluation in production environments.
+This is a crucial step because evaluating a model only in the lab is not enough.
+Real world conditions often expose issues that benchmarks cannot capture.
+Let's start with the why.
+In controlled tests, we measure performance using benchmarks and synthetic datasets.
+But in production, models face real users, unpredictable inputs, and much larger scale.
+For example, a chatbot may work perfectly on internal test prompts, but struggle when customers ask
+questions in slang, abbreviations, or mixed languages.
+This is why evaluation in production is essential.
+It tells us how the model behaves under actual use.
+Now let's look at the key considerations.
+First we need continuous logging of inputs, outputs and metadata.
+This allows teams to analyze failures later and reproduce issues if needed.
+Second, we need real time monitoring.
+This includes tracking latency, error rates, and even safety violations as they happen.
+For instance, if toxic content is generated, the system should flag it immediately instead of waiting
+for offline review.
+Third, we should collect user feedback directly from the production system.
+This can be explicit feedback like thumbs up and down, or implicit signals like whether users abandon
+the conversation quickly.
+These signals are extremely valuable for continuous evaluation.
+Of course, there are trade offs.
+Running heavy evaluation in production can slow down the system or increase costs.
+We also need to consider privacy and compliance when storing logs and user data, especially in regulated
+industries like healthcare or finance.
+So to summarize, designing evaluation in production means creating a framework that runs live continuously
+and safely.
+It requires logging, monitoring, and feedback collection, all while balancing performance, cost,
+and privacy.
+
+--- Integrating eval into CI/CD or workflow pipelines ---
+
+Hello everyone.
+In this slide we are going to talk about integrating evaluation into CI, CD and workflow pipelines.
+This is important because deploying models without automated evaluation is risky.
+Even small updates can introduce regressions that harm user experience.
+Let's start with the why.
+In traditional software engineering, CI CD pipelines ensure that every code change is automatically
+tested before going live.
+The same principle applies to systems.
+We need automated evaluation steps so that issues are detected early, not after deployment.
+For example, a new model version might have slightly better accuracy, but suddenly generates slower
+responses.
+Without automated checks, this could go unnoticed until users complain.
+Now let's look at the key steps.
+The first step is running pre-deployment checks, where we evaluate the new model on benchmarks before
+release.
+This ensures that accuracy, safety, and efficiency meet the required standards.
+The second step is automated testing.
+Here, evaluation scripts are integrated directly into the CI CD Pipeline checking metrics such as latency,
+token usage and safety thresholds automatically.
+This way, if a change fails, it is blocked before deployment.
+The third step is canary deployments.
+Instead of rolling out a new model to everyone, we release it to a small percentage of users first.
+We then monitor its behavior in real world conditions and if no issues are found, we expand to full
+deployment.
+This reduces risk and gives us more confidence in the update.
+Now let's connect this to workflow integration in MLOps pipelines.
+Evaluation should not just happen once.
+It should be embedded into both staging and production environments, using monitoring tools like Prometheus
+or Grafana to continuously track performance after deployment.
+This way, evaluation is not a separate step.
+It is part of the development life cycle itself.
+To summarize, integrating evaluation into CI CD pipelines ensures early detection of problems, continuous
+quality assurance, and faster iteration cycles.
+It allows teams to innovate quickly while maintaining reliability and user trust.
+
+--- Alerting, thresholds, and incident response ---
+
+Hello everyone.
+In this slide we are going to cover alerting thresholds and incident response in production evaluation.
+This is where monitoring turns into action, because detecting a problem is only useful if the right
+people are alerted quickly and know how to respond.
+Let's begin with why alerts are needed.
+Even with strong monitoring in place, issues can still occur in production.
+Latency might suddenly spike, token usage could skyrocket, or the model might produce unsafe outputs.
+If we wait for users to report these problems, the damage is already done.
+Alerts allow us to detect anomalies early and take action before users are heavily affected.
+Now let's talk about thresholds.
+Thresholds define the acceptable limits for system performance and safety.
+For example, we might set a rule that if latency exceeds three seconds for more than 5% of requests,
+an alert is triggered, or if the system's toxicity score rises above 0.2, the response is flagged
+for review.
+By defining thresholds, we turn raw metrics into meaningful signals that indicate when something is
+going wrong.
+Next, we need to consider the alerting systems themselves.
+Popular tools like Prometheus and Grafana can monitor metrics and generate alerts.
+Pagerduty and slack integrations are often used to notify engineers directly, but one key principle
+is to make alerts actionable and prioritized.
+If the system sends hundreds of alerts every hour, engineers will start ignoring them.
+This is called alert fatigue, so alerts must be designed to focus on what truly matters.
+Finally, let's move to incident response.
+When an alert fires, there must be a clear playbook that defines how to respond.
+This includes steps like rolling back to a previous model version, temporarily disabling a risky feature,
+or escalating the issue to the right team.
+Equally important is clear ownership.
+Everyone should know who is responsible for handling alerts and how quickly they must respond.
+So to summarize, alerting thresholds and incident response ensure that when issues occur in production,
+they are detected quickly, escalated properly and resolved efficiently.
+This minimizes downtime, maintains reliability, and most importantly, protects user trust in the
+system.
+
+--- Creating scalable human-in-the-loop review systems ---
+
+Hello everyone.
+In this slide we are going to discuss how to create scalable human in the loop review systems.
+This is essential because while automated evaluation is powerful, it cannot replace the nuanced judgment
+that humans provide.
+Let's begin with the why automated metrics.
+And as a judge, systems can evaluate outputs at scale, but they often miss subtle issues.
+For example, they might score an answer as accurate even though it contains a misleading tone or a
+cultural bias.
+Humans, on the other hand, are much better at catching these edge cases, especially in sensitive
+areas like healthcare, finance, or education.
+That's why human review remains a critical part of evaluation.
+Of course, human review has challenges.
+It is expensive, slow and very difficult to scale when dealing with thousands or millions of outputs.
+If every single response had to be reviewed manually, the system would quickly become unsustainable.
+So how do we make it scalable?
+One method is sampling.
+Instead of reviewing all outputs, we only review a statistically significant subset.
+For example, checking 5% of chatbot conversations each day can already provide a reliable view of overall
+quality.
+Another method is triage, focusing human review on high risk scenarios.
+For instance, an e-commerce chatbot giving delivery information may not need human review, but a medical
+chatbot suggesting treatments definitely does.
+By prioritizing critical use cases, we use human time where it matters most.
+Finally, we can build hybrid systems.
+This means using automated checks for routine cases like flagging toxic language or latency issues,
+while reserving human reviewers for complex or sensitive outputs.
+This hybrid approach balances efficiency and depth.
+So to summarize, scalable human in the loop systems rely on sampling, triage, and hybrid designs.
+The best practice is to involve humans only where their judgment adds the most value, while letting
+automation handle the rest.
+
+--- Balancing eval quality vs budget constraints ---
+
+Hello everyone.
+In this slide we are going to talk about balancing evaluation quality against budget constraints.
+This is a key challenge because while we want accurate and reliable evaluation, we also need to make
+sure the process remains affordable.
+Let's begin with the trade off.
+On one side, high quality human review provides deep insights and nuanced judgments, but it is expensive
+and slow.
+On the other side, automated checks are much cheaper and faster, but they can miss subtle issues like
+tone, fairness, or context.
+This creates a constant balancing act between depth and cost.
+So how do we manage this balance?
+One approach is sampling.
+Instead of reviewing all outputs, we review only a fraction.
+For example, reviewing 10% of chatbot sessions may already give a good picture of performance while
+keeping costs under control.
+Another approach is tiered evaluation.
+This means adjusting the level of review based on the domain and risk.
+For instance, legal or medical outputs may require heavy human review, while product recommendation
+systems may need far less.
+This allows organizations to focus resources where mistakes would be most damaging.
+Finally, there is the hybrid approach.
+Here we combine automated scoring with human spot checks.
+Automation handles large scale tasks like detecting latency spikes or toxic outputs, while humans step
+in to review cases where judgment and nuance are required to make this effective.
+Teams should also use cost aware metrics.
+This means prioritizing the metrics that have the biggest impact on business outcomes like user satisfaction,
+safety, or compliance.
+Spending heavily on low impact metrics.
+For example, fine tuning minor stylistic issues is rarely worth the investment.
+So, to summarize, balancing quality and budget requires smart allocation of resources by using sampling,
+tiered evaluation, and hybrid systems.
+Organizations can achieve reliable evaluation without overspending.
+
+--- Token and model selection strategies to reduce costs ---
+
+Hello everyone.
+In this slide we are going to talk about token and model selection strategies to reduce costs.
+This is a very practical part of cost optimization, because most expenses are directly tied to how
+many tokens we use and which model we choose.
+Let's begin with token efficiency.
+Every word we send to and receive from an LLM is counted as tokens, and costs increase with the number
+of tokens used.
+One way to reduce this cost is by designing shorter, more efficient prompts.
+For example, instead of pasting a full customer history into every query, we can summarize it and
+only provide the essential context.
+Another strategy is to truncate or compress long conversations before feeding them back into the model.
+These techniques keep token counts lower while still preserving the key information.
+Now let's talk about model selection.
+Not every task requires the most powerful and expensive model for routing queries like FAQ answers or
+simple text classification.
+A lightweight model such as GPT 3.5 is often sufficient, but for complex reasoning safety, critical
+tasks, or high stakes decision making.
+Larger models like GPT four or Claude Opus are more appropriate.
+We can also explore open source models, which can be fine tuned for specific domains and deployed at
+lower cost.
+Another powerful idea is using hybrid strategies.
+This means routing queries intelligently.
+Simple requests are handled by a cheaper model, while only the complex or high value queries are sent
+to the advanced model.
+For example, a customer support system might use a lightweight model for delivery status questions,
+but escalate to a stronger model for refund policy or legal queries.
+In addition, retrieval augmented generation can reduce token usage by retrieving only the most relevant
+documents instead of passing long contexts.
+So, to summarize, token and model strategies are about matching resources to the task by keeping prompts
+efficient, choosing the right model for the job, and using hybrid strategies, we can minimize costs
+without sacrificing quality.
+
+--- Course Conclusion – Key Takeaways ---
+
+Hello everyone, and welcome to the conclusion of our course on evaluation for Loan Applications.
+In this final session, we are going to recap what we have learned together step by step across the
+seven key sections.
+The goal here is not just to summarize, but to connect all the concepts into one clear picture of how
+to evaluate large language models in real world environments.
+Let's begin with section one foundations of LM evaluation.
+Here we explored the basic principles we learned about intrinsic versus extrinsic evaluation.
+Intrinsic being quick automated tests like perplexity and extrinsic being about how the model performs
+in real tasks.
+We also discussed what makes a model good, including accuracy, helpfulness, safety, and latency.
+And finally, we saw the challenges of evaluating generative outputs subjectivity, open endedness,
+context sensitivity, and scalability.
+This foundation helped us see that evaluation is Valuation is never one dimensional, but always a balance
+of multiple factors.
+Then in section two.
+Instrumentation and observability, we moved into the technical side.
+We talked about logging inputs, outputs and metadata so we can reproduce and diagnose errors.
+We introduced observability pipelines with tools like Opentelemetry, Prometheus and Grafana and how
+they provide real time monitoring.
+Finally, we highlighted the key metrics to track latency, token usage, and user satisfaction.
+This section showed us that good evaluation depends on having the right data infrastructure in place.
+Next came section three systematic error analysis.
+Here we looked at how to categorize failures into three main types hallucinations, bias, and toxicity.
+We introduced root cause analysis frameworks like the five whys, fishbone diagrams, and fault tree
+analysis to trace problems back to their origins.
+And we discussed feedback loops and error logging strategies, emphasizing that errors should not just
+be recorded, but fed back into system improvement.
+This section reminded us that evaluation is not just about measuring performance, but about diagnosing
+and learning from failures.
+In section four, evaluation techniques and LM judge approaches, we compared human and automatic evaluation
+methods.
+We saw that human evaluation brings depth and nuance, but is costly.
+While automatic evaluation is fast and scalable but less nuanced.
+We also explored L as a judge techniques where one model evaluates another while powerful.
+These methods need calibration to avoid bias.
+Finally, we covered pairwise comparisons and scoring, showing how they can complement each other for
+relative and detailed evaluation.
+The big lesson here is that evaluation requires hybrid approaches combining automation with human oversight.
+Then we move to section five evaluating Rag systems.
+We explained how retrieval augmented generation is different from plain L, because it adds a retrieval
+step that provides up to date domain specific knowledge.
+We learned how to evaluate retrieval quality using recall precision and relevance.
+And we saw the importance of combined evaluation, looking at retrieval and generation together with
+joint metrics like faithfulness, source attribution, and end to end success rate.
+This section taught us that in our ag systems, the quality of answers depends on both the retriever
+and the generator working together.
+In section six production, monitoring and continuous evaluation, we shifted focus to live environments.
+We talked about designing evaluation in production with continuous logging, real time monitoring and
+user feedback collection.
+We saw how to integrate evaluation into CI CD pipelines with pre-deployment checks, automated tests
+and canary deployments.
+And finally we discussed alerting thresholds and incident response, making sure issues are detected
+early and resolved quickly.
+The key takeaway is that evaluation must be continuous, not just a one time exercise before deployment.
+Finally, in section seven, human Review and Cost Optimization, we discussed how to keep evaluation
+practical and affordable.
+We explored human in the loop review systems.
+Using sampling, triage and hybrid approaches to scale, we examined the balance between evaluation
+quality and budget constraints, showing how to apply more review where risks are higher, and we looked
+at cost saving strategies, including token efficiency, model selection, and hybrid routing of queries
+between lightweight and advanced models.
+This section reminded us that evaluation is not just a technical challenge, but also a question of
+resources and optimization.
+The big picture is this evaluation is not a single step, but a continuous process.
+It combines infrastructure metrics, human judgment, automation, and cost management to ensure that
+LLM applications are not only powerful but also reliable, safe and efficient.
+Congratulations on reaching the end of this course.
+You now have a complete framework for evaluating applications in both theory and practice.
+The next step is to take these tools and apply them in your own projects.
+Building systems that deliver real value while maintaining trust and performance.

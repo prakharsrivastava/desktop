@@ -1,0 +1,1 @@
+create a semantic model by using all the fact/dim tables that exist in gold layer and enable snowflake anlyst so I can talk to the data using natural language.

@@ -1,0 +1,85 @@
+# ==========================================================
+# Capstone Layer 3 — Cortex Analyst Semantic Model
+# Meridian Foods: pos_sales + product_catalog + loyalty_members
+# Pattern from: module 9 (semantic model YAML anatomy),
+#               module 10 (relationships, joins), lesson_84 (Meridian's model)
+# ==========================================================
+#
+# Search (Layer 2) answers "what does this document say"; this semantic
+# model answers "what do the numbers say". A semantic model names tables,
+# joins, and metrics ONCE, so "sell-through by region" means one thing,
+# always — without it, every analyst writes a slightly different JOIN and
+# gets a slightly different number.
+#
+# IMPORTANT nesting rule (module 9): facts, dimensions, and synonyms live
+# INSIDE each table's own block — never as a flat top-level list. Only
+# `relationships` is a separate top-level key, referencing tables by name.
+
+name: meridian_sales_model
+
+tables:
+  - name: pos_sales
+    base_table: { database: MERIDIAN_DB, schema: ANALYTICS, table: POS_SALES }
+    primary_key: { columns: [sale_id] }
+    facts:
+      # TODO: sell_through_units — expr: units_sold, default_aggregation: sum
+      - name: sell_through_units
+        expr: ___
+        default_aggregation: ___
+      # TODO: shelf_revenue — expr should multiply units_sold by unit_price
+      - name: shelf_revenue
+        expr: ___
+        default_aggregation: sum
+    dimensions:
+      - name: sale_date
+      - name: store_id
+      - name: sku_id
+
+  - name: product_catalog
+    base_table: { database: MERIDIAN_DB, schema: ANALYTICS, table: PRODUCT_CATALOG }
+    primary_key: { columns: [sku_id] }
+    dimensions:
+      - name: category
+      - name: brand
+      # TODO (your extension): add a synonyms list to at least one
+      # dimension here, e.g. category: synonyms: ["product type", "segment"]
+
+  - name: loyalty_members
+    base_table: { database: MERIDIAN_DB, schema: ANALYTICS, table: LOYALTY_MEMBERS }
+    primary_key: { columns: [member_id] }
+    dimensions:
+      - name: member_tier
+    # TODO: loyalty_members.email must stay out of this semantic model's
+    # dimensions/facts entirely, or be routed through a masked view —
+    # the masking policy in 05/governance applies at the table level, but
+    # the semantic model shouldn't expose a raw PII column to the agent.
+
+# Relationships are top-level, not nested inside a table block — this is
+# what lets pos_sales join to BOTH product_catalog and loyalty_members.
+relationships:
+  # TODO: name this relationship (e.g. sales_to_catalog), left_table:
+  # pos_sales, right_table: product_catalog, relationship_columns joining
+  # sku_id to sku_id.
+  - name: ___
+    left_table: pos_sales
+    right_table: product_catalog
+    relationship_columns:
+      - { left_column: ___, right_column: ___ }
+  # TODO: name this relationship (e.g. sales_to_loyalty), left_table:
+  # pos_sales, right_table: loyalty_members, relationship_columns joining
+  # member_id to member_id.
+  - name: ___
+    left_table: pos_sales
+    right_table: loyalty_members
+    relationship_columns:
+      - { left_column: ___, right_column: ___ }
+
+# TODO (your extension, module 9's "Anatomy of a Verified Query" pattern):
+# add one verified_queries entry here for the exact lesson_01 question,
+# e.g. name: sku_sellthrough_check, question: "what's the recent
+# sell-through for SKU-48213?", with a sql: block joining pos_sales to
+# product_catalog and filtering on sku_id, use_as_onboarding_question: true.
+
+# Checkpoint 3 (README rubric): facts/dimensions/synonyms nested INSIDE
+# each table's block (not flattened); sell_through_units and shelf_revenue
+# each resolve to one metric definition.

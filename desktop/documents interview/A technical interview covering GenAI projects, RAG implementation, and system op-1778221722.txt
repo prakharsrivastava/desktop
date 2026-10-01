@@ -1,0 +1,840 @@
+A technical interview covering GenAI projects, RAG implementation, and system optimization.
+
+candidate who can join our team and have a good um good set of experience in data engineering and also in data science too. So, uh that's my background and um I'm living in Virginia and I have two kids.
+
+Okay.
+
+Yeah.
+
+All right.
+
+I would like to know more about you.
+
+You can get it started.
+
+Yeah.
+
+Uh so, what's now like I have completed my B.Tech from Manipal Institute of Technology in 2022 and after that I joined Emphasis.
+
+It's been approximately three years since I joined. Uh in these three years I've been under multiple multiple projects.
+
+So, where I have worked mainly on uh AWS and also with uh Gen AI uh Gen AI perspective, Rag perspective.
+
+So, first I'll just talk about my project. So, first I'll talk about new data.
+
+So, here what we are trying to do is to we are trying to modernize a legacy code. Uh like we have let's say we have a Cobol code. So, we are trying to convert uh you know, we are trying to modernize it as most of the systems are still using the Cobol one. And uh here how the flow works is so you can the data ingestion you can get you can either you know, upload the file or you can get you know, put it via Git GitHub or GitLab you can send out the link.
+
+And after that we will we get we'll do some preprocessing and then we will we'll uh we'll chunk uh we'll chunk these files uh individually we'll chunk we'll chunk these files with uh we try with couple of methods like fixed chunking, overlapping, semantic and for that overlapping which is best for us. So, we we went with that. And then we convert it into embeddings.
+
+Here also we tried with multiple embedding models. We finally ended up with using Titan V2.
+
+And then we store it in Pine DB. And in apart from the Cobol files also we are also taking the uh into consideration about the artifacts. The majorly artifacts you can think of it as a supporting documents of what you have uh stored it what you have about the code. Like let's say you have an architecture or you have a runbook kind of a thing about the about the code.
+
+We are taking that as well. And we are the same like let's say if it has any um you know, it has any tables or something like that. We are sending it to Amazon Textract to extract it or if it has any images image images. So, we are uh we are giving it to an LLM to extract the summary of it and then converting those things into embeddings and pushing it to files.
+
+Next here Let me let me let me just um yeah, interrupt you.
+
+Uh what is the main objective of your of this project which you are doing? The current project. Uh the current which I do. The main objective was to uh modernize the legacy code but if this I was worked on a part of it which is new data we had different different parts in it. Uh modernize the when you say to modernize the code uh can you elaborate a little bit?
+
+Okay.
+
+So, in one word I can say like converting a Cobol uh Cobol language into a Python or a Java. You can think of like that.
+
+In one word if I have to say.
+
+Why are we doing why are you guys doing it?
+
+Uh like first we had a client requirement.
+
+I have to be honest.
+
+So, they wanted to they have so much of Cobol code where they don't they know they're not even getting that much of developers as well. So, they want to convert it and then work on the work on the new languages where you have to be honest compared to Cobol now let's say if you talk about Python, uh you have so much of frameworks. It's easy to understand.
+
+You'll get so much so many developers as well.
+
+And even uh if you want to do with an LLM or work with an LLM, I think as of now the Java like most of the LLMs are very proficient with the Java and the uh and the Python per se.
+
+So, that is what our aim was.
+
+No, but but still I would like to understand why what is the main objective of this thing?
+
+Yeah, your work.
+
+I know you you are trying to convert into Cobol to Python.
+
+But what is the main objective of your work?
+
+What are you planning to make? Planning to make in the sense I didn't get you. What are you trying to make? Like let's say um we are building a banking system or you are building what kind of banking system it is?
+
+I just wanted to go deep into about the project, the main project.
+
+I know you have done a lot of things I can see in your resume.
+
+But what what is the main project? If I say what are you building? If I say what is the project and what are you building?
+
+So, the part which I worked our main objective was to build a graph graph-based rag model so that this this will be the primary source for the next for the next steps which other teams are going to take. So, whatever you know, we have other steps to create user stories or to create you know, architecture out of it.
+
+All these things will be done solely based upon the graph rag which we which we are which we are generating or creating uh using the Cobol code.
+
+That is our main objective for this.
+
+I'm still getting hard time to understand your project.
+
+But that's okay.
+
+Maybe you don't have proper information about it. Uh the one project which you are doing it looks like that it's a banking system, right? It is related to the banking.
+
+Right.
+
+Yes.
+
+So, there are some PHI PII information as well and a lot of official people would not have the access to it.
+
+Right?
+
+So, what are the steps have you used to redact that or are you in are you actually doing it or not?
+
+Um I'm sorry.
+
+Can you come again?
+
+Okay.
+
+So, the banking system is quite critical, right?
+
+Yes.
+
+A lot of information are personal information and according to the US law you are not supposed to do it. Yeah, information and the reduction.
+
+Yes.
+
+PII.
+
+Yeah.
+
+For that for that we are using a service called Comprehend.
+
+We have AWS Comprehend where it will uh where it will you know, it will detect the PII information and it will either it can mask it and or redact it based upon our uh our need. And also apart from that let's say some we uh you know, even that got passed through it and we have a we have a guardrail like let's say you are asking as the chatbot it has to go to an LLM. We have a guardrail setup where it also checks for a PII information where if it has anything it's going to it's going to stop it and it's going to uh you know, um it's going to cut off the answer from it.
+
+Right.
+
+Yes.
+
+I am aware of the guardrail. It is very good in some of the Open AI models and Gemini models.
+
+What model are you using right now in your system?
+
+Um the models which Nova Pro. Nova Pro.
+
+Okay.
+
+Amazon.
+
+I got it.
+
+Because most of your services are Amazon.
+
+That's why you use Nova Pro.
+
+Okay.
+
+Yes.
+
+Like we have tried multiple. Like we are not using only one model for the all all it's a multi-agent system, right? We are not using one model for everything. Like for uh for our main orchestration we are using an Nova Pro. For one of the we have an authentication agent as it doesn't need much of a complexity. There we were using a plot Haiku model where it's fast and there won't be any complexity out of it.
+
+So, we have you know, divided as such based upon the complexity. We we have done a parallel and other kind of a thing. And like that we have we have done that.
+
+Okay.
+
+One question I have.
+
+How long have you working in this project, the current project?
+
+Um the chatbot.
+
+Mhm.
+
+Uh have worked there for around six months.
+
+Like yeah. Yeah.
+
+Six months I guess.
+
+Okay.
+
+So, have you faced have you heard about that these models get retired, right? These models.
+
+Have you heard that? So, how do you tackle this situation?
+
+Uh Or are you having tackled it at all?
+
+Like uh we were we were checking it basically we uh I know some of the models will get retired and they will convert into legacy and they won't work as much as the newer models. So, you like basically I am more into like what's happening into the you know, AI world or the Gen AI world.
+
+I'll be constantly constantly up to it and what is happening. So, usually like whenever a new new models comes out, I'll try to pitch it to my you know, my managers or the leaders so that if there is any possibility we can use that. So, I haven't got into you know, into the retired stage. Into the words.
+
+Yes.
+
+I completely understand.
+
+Um but we are facing a lot of issues.
+
+So, the the project which I am working it's like three years from from last three years we're working on it.
+
+And we started with Open AI Open AI ChatGPT model and since then we have changed four different versions. And still I get it.
+
+Um the only issue is like um how generally people or your team tackle these things so that um we can get rid of like these retirement. Um so you don't so you're not aware of that.
+
+That's what I meant. That's what you want to say.
+
+Right?
+
+Uh I wasn't I didn't aware of that because I was up to the date I can say what's happening in the world. So, that's what I said.
+
+Yeah. Yeah.
+
+That's completely understandable.
+
+Right.
+
+Okay.
+
+So, now now as as I know that you're working on these um these Gen AI models.
+
+Uh there tell me like two ways how can you save the cost? Uh to save the cost.
+
+Okay.
+
+Um So, basically like if you want to save the cost in an LLM model I think it's not about the in number of invocation. It's about number of uh what do you call number of tokens you are using. So, so let's say like uh you know, if you if you want to reduce the tokens like let's say if you're building let's say you have an agent you're building an agent. Obviously you'll have a you'll have a session ID. You'll have a you know, conversation history available with you. You can't send everything directly to an LLM.
+
+Like all that conversation.
+
+Let's say it's happened 20 to 21 conversations.
+
+You can't send everything directly into it. Instead of that what we can do is you know, uh have a you know, convert that conversation into you know, you can keep a recent five conversations and remaining that you can convert into a summary and give it to it as a context. Or else we can use Redis to have a short-term memory where if you want to have a like say you have a frequent questions kind of a thing. You can use a short you can use Redis where instead of going to the model it will go into your Redis and fetch the fetch the response. Did you say Redis?
+
+Yes.
+
+Can you elaborate a little bit more about it?
+
+Um like it's it's a Redis is kind of a short-term uh how to say that? You want to say cache?
+
+Yeah. Yeah.
+
+Cache. Cache.
+
+Yeah.
+
+Cache.
+
+Yeah.
+
+All right.
+
+Um so the cost of caching or regular token is it same or different?
+
+Uh I think if you're building for a smaller uh smaller project kind of a thing I think the token will be uh cheaper but if you have a very enterprise kind of a one as it will also increase your speed I think you can go with the cache.
+
+Cache.
+
+Yeah.
+
+My question is is the cost different or same?
+
+Okay.
+
+Uh yeah.
+
+So, the answer is cost will be different because cache is Yes. Cost will be different.
+
+Yeah. Yeah.
+
+All right.
+
+Um now tell me now tell me about the rag pipeline you have built.
+
+Okay.
+
+Um the rag pipeline, right?
+
+So, uh as I was telling we have the data.
+
+Data will be ingested.
+
+First we'll do the chunking. Uh we've used different chunking methods. Like I said uh you know, overlapping, fixed, uh semantic.
+
+Without semantic it won't work better as it it will understand the context but it didn't.
+
+So, we went with overlapping itself.
+
+It's giving a better accuracy.
+
+And then next we convert we do the embeddings. We tried with Hugging Face transformer embedding but uh later on we shifted to Titan V2 as it has a larger context and the dimensions also uh bigger one. So, we went with the Titan V2. And then next uh and next we store it into the files. And from there we are doing the retrieval. And while retrieving we are doing the reranking to get a better to get our retrieval chunks faster you know, faster and better way. We are doing a reranking and we're getting the output. And apart from that we are looking for a groundness truth as well.
+
+Where like after like let's say after you got the response like with the user query and you got you know, it generated the answer. We are also trying to found you know, we are also trying to find out like the similarity between the extracted chunk and the generated answer as generated answer as well.
+
+Like how much is it uh how to say that? How much is it similar? So, that even the LLM should not it it should not we seeing that LLM also it's not go out of the context. It's it's hallucinating as such.
+
+So, these are the steps we have taken.
+
+Okay.
+
+So, how do you tackle hallucination?
+
+Yeah.
+
+As I said this just now, right?
+
+We can do that. We can see the groundness of it groundness groundness truth to tackle the hallucination. And the best way like the straightforward way is to control your temperature. I say because reducing or increasing that you can reduce the temperature. And you can have a uh and also you can have a one more LLM one more LLM as a judge to look into what's happening apart from the groundness truth.
+
+So, if it if it feels is there any inconsistency or if it is hallucinating if it is deviating from the answer, it can ask for a it can ask for a redoing it again and we can do it.
+
+And the rag obviously the rag the why we built rag is to reduce the entire hallucination.
+
+So, that's a straightforward one again.
+
+All right.
+
+That is good to know.
+
+But using multiple LLM models, isn't it costly?
+
+Like one time you're asking to give the prediction and then other time you're asking check and validate if the prediction is correct. So, in that case you are using two two models and whether do you think it is cheaper or it's okay to use? No, like uh I think it's a trade-off like which one you are mainly focusing on. Uh if you're making like if you want to use this method if you if you feel it's more costlier, you can you can go with the groundness method or if you want I'm sorry. If you want to You want to have a glass of water maybe? Maybe take some time and take a glass of water.
+
+It's It's happening a lot.
+
+Like everybody's getting sick. Even my kids are sick. Even my dad uh was not feeling well. He was he he was he was under the ICU for past two days.
+
+Oh my gosh.
+
+Yeah.
+
+Severe dehydration.
+
+Yeah.
+
+He's feeling better now. He's feeling better.
+
+My gosh.
+
+I'm sorry. I'm I'm I'm really sorry about that.
+
+Uh if you like you can we can we can schedule this interview later.
+
+No, no.
+
+It's okay. It's okay.
+
+Are you sure?
+
+He's feeling better now. He's feeling better.
+
+Okay.
+
+All right.
+
+Okay.
+
+Yeah.
+
+That's uh I can say it's a trade-off between what you actually want. Like obviously uh uh how to say this?
+
+Yeah.
+
+If you want to go with this method, uh obviously the cost will be the more but I can say your uh accuracy will also increase. Or I think you can go for a um embedding your you know, fine-tuning your embedding model. I think that's one more better way where you can have a better you know, usually you'll have hallucinations if you're using a building a rag having hallucination that might be an issue with your rag pipeline. And there we can fine-tune your embedding model or you fine-tuning an LLM model also.
+
+Right.
+
+So, have you tried any fine-tuning your LLM model?
+
+Did it work?
+
+Yeah.
+
+Um I tried it but it didn't work as I expected.
+
+So, do I.
+
+Okay.
+
+That's good to know.
+
+Um second thing the now let's go now I understand how you build the model. Now the big question.
+
+Accuracy.
+
+How do you calculate it? How do you find out that your model is working perfectly fine?
+
+Um I think first and the foremost and the best way is like human in the loop I can say because most of the things human and look into it whether it's right or wrong. That's I think that's the best way rather than going with any other way. And apart from that if you want to have an accuracy like I think it's uh you can ask for a confidence score from the LLM itself.
+
+How much confident are you? Like if you like let's say if you're asking for a classification like we can ask for how much confident are you with that classification if it comes on the class and say like 60%, 70%, 80% kind of a But isn't it a black box?
+
+Because these confidence scores are not coming.
+
+How do you when you go to the review board? Are you aware of review board?
+
+Or no? So, here No. So, let me tell you. So, if you go to the there is a board which actually verify whether you're doing the right attorney general go over to your project and see whether you are doing the right thing.
+
+Please because these LLMs are open source. Not open source but Yes.
+
+You are you are giving the customer's information to these LLMs.
+
+Yes.
+
+So, when you go to the these people they will they will say no this is not the right way. Right?
+
+Like um Yeah.
+
+So, have you ever tackled these situation?
+
+Uh the accuracy is always a how to put this?
+
+That's okay. That's okay.
+
+Now because review board is generally the manage management work and how do you get I completely agree.
+
+Um okay.
+
+So, you can you can continue elaborate what else you were you were saying.
+
+Um regarding
+ Okay, so human in the loop you said this one way to do the do it, human in the loop.
+
+Uh but let's say you have millions of records, right? And you do not have million people to look over all the records, right? So what else you can do so that you can take the advantage of let's say you have only two subject matter expert, right? And uh let's say not two but four you have, but you have millions of records, you cannot ask them to check everyone. What you can do in that case?
+
+Yeah.
+
+What you can do then?
+
+Yeah.
+
+Yes.
+
+Yeah.
+
+So, again, I can think of LLM as a judge or something like that, but uh it's again as you said, it's a black box, you can't predict it. And the same we can use the groundness approach also, but I feel like I said it for the uh hallucination. You can you can use, reuse that.
+
+I would say, have you heard about um like sampling your stuff and giving it to the human and ask them to judge it? And then this is how you calculate your accuracy.
+
+Sampling, I'm sorry, can you come again?
+
+Okay, so there is a big chunk of 1 million records, you cannot send all the records to get to find out whether your model is working or not. Maybe you can just take out a sub sample of those million records, let's say 1000.
+
+And ask SMEs to go and review it. And then you create a interrater agreement about because every human is different, right?
+
+Yeah.
+
+Some subject matter expert, somebody is strict, somebody is not, somebody is lenient.
+
+So you're going to get the interrater agreement and then you can finalize, okay, your accuracy. But now you have your accuracy. And let's say your data is subjective, your prediction is a subjective thing, right?
+
+Okay.
+
+In that case, what else you can apply to get a proper accuracy? Accuracy.
+
+Hmm?
+
+You have worked in that NLTK, right? You have worked in text. Yeah, I have worked in NLTK.
+
+Uh-huh, then you might know. Yeah, I have worked in NLTK, you know.
+
+And I see in your resume, it's written somewhere like about it.
+
+Yeah.
+
+That's okay. Okay, tell me about the Rouge score. That's okay. What about the tell me about the Rouge, R O U G E. Have you heard that before? Yeah, I've heard that before, but forgot about it.
+
+Okay.
+
+I want you to read it, maybe sometime when you have time. So now when you have subjective data and you have and numbers just accuracy will just give you the numbers, but Rouge is another thing which can um give you better accuracy. All right, even also give you the partial and um full um what is it?
+
+Match.
+
+Okay, okay.
+
+How much percentage it's correct? You mean by it.
+
+Yes.
+
+How much part of it's correct? Correct.
+
+Yes.
+
+Okay.
+
+So you use Rouge for that.
+
+Okay.
+
+Have you worked on BM25?
+
+No, it's keyword search, right?
+
+Yeah.
+
+Okay, so tell me um any scenario where you have worked and it worked in your project.
+
+Oh, we haven't we haven't used it. I haven't particularly worked on worked on keyword search or we haven't tried with the hybrid search, but uh um like instead of what I know what what it does, like in general, what it does is like it, you know, it tries for a similarity search, but here it tries for a uh you know, similar word than the similarity search. Uh I can say that uh I I like the post has a and I know that post has can have can it can be used for a hybrid uh can be used for both uh both both doing for uh similarity search and for the keyword search.
+
+Okay.
+
+Perfect.
+
+Have you heard about the retrieval score?
+
+You know, like uh precision and recall, right?
+
+I mean by retrieval score.
+
+Okay.
+
+I think in that how many like in the retrieve in the retrieved chunks, how many are actually relevant and how many actually relevant is where we'll get the precision and how high it got it is a recall.
+
+Okay.
+
+If you have a low recall, which thing would you like to improve?
+
+Uh like from my perspective, I think I'll I'll always prefer going with the precision because it's okay for me to get my chunk in a lower in the uh you know, the lower place also, but I need the actual result. I need the I need proper chunk to be available for me.
+
+I think that is my like usually my my how I think is like it's okay if it take a little bit of time, but accuracy is the important one. Overall accuracy you're saying is important than precision or recall?
+
+Okay.
+
+Yes.
+
+Let's take this example because you are in a banking domain right now.
+
+Yeah.
+
+For you, for the banking people, which one is more important that your model can predict that out of 100, 99 are not a fraud and one is a fraud. Like they can predict 99 as non-fraud. But your model cannot predict a single fraud case.
+
+So, uh and you know why it is important because here recall is very much important.
+
+For fraud cases, recall, that's what we want.
+
+So, do you still go with overall accuracy because your overall accuracy would be like 98% in that case? Will you go with that? I think I would go with that.
+
+You will? Okay, you let let the fraud happen. Okay.
+
+No, it's not like fraud happened like uh Fraud doesn't happen every single day, like you will not see every day it's a fraud.
+
+It is once in a blue moon, right?
+
+Yeah.
+
+And that's what we have to catch.
+
+Yes.
+
+The odd one.
+
+Yeah.
+
+So I would say my answer would be recall, but you're saying you're fine with overall.
+
+Okay.
+
+I will go with you.
+
+All right.
+
+Tell me uh one of your project where you have faced um I mean, faced some problems, but you were the one who fixed it. Um like like I was the this how to say this like uh we were having a trouble with the hallucination itself while we were doing it. I think I was the one who pitched in and said we can go with the groundness. They were trying to uh they we were trying we were continuously trying about, you know, let's change the embedding models for the chunking or retrieving all these things, but I was the one like can say that I I was the one who pitched in let's say that let's try with this groundness.
+
+I think it will work. Initially they didn't go for it, but later on, uh you know, I wear them down, let's just do it. Just give it a chance for once and then we tried it and uh like it it gave a better result.
+
+I don't say the best one.
+
+It gave it a better result.
+
+Okay.
+
+That's good to know.
+
+Um All right, I have couple of questions.
+
+Let me just quickly go over. Okay, let's talk about LangGraph.
+
+Where did you use and how does it work?
+
+Okay, the LangGraph I have used LangGraph like we have done a project for a flight dynamic pricing. So here uh we like we have uh developed a you know, two major like three agents, but two are the main one. Uh one it's just First first describe the project, like what was the objective of the project? Okay, uh the objective of the project like uh you know, so let's say uh this is for the not customer point of view, this is for the company point of view. So uh the you know, as regularly the flights will change the prices, right? So we are trying to optimize it how to change the prices.
+
+So uh let's say you suddenly like uh there is a like let's say this is the or let's say there is a in India.
+
+As you know, it's a very big one and the prices will be high. Like you will you will arrange you will uh what do you call? You will you will fix the prices, but not only fixing the prices, but you have to maintain the seats as well. So as it's a, it's not, you know, all the most of the people will go, but not uh you know, most of them will be a middle class or middle middle class people itself. So they won't go for you know, first class or premium economy. Most of the people will go for an economy itself. So we try to, you know, do the seat allocation in such a way that for like if any event comes in, what kind of seat allocation I can do, what kind of how my prices can increase or decrease, like the prices we like we did for different multipliers like uh uh uh you know, for um we took into consideration for weather and for the competitors and um like few things I don't exactly remember other. So we we did this and we also kept a threshold like it should not go more than this, more than uh more than that or less than this. So this is a high level idea of what we tried to do. So main objective is to to catch up with your competitors, right? Catch up with the competitors, but still uh gain the profit.
+
+To main objective.
+
+So which flight did you work?
+
+Like this is a kind of a POC. They have uh you know, this is not a this is just a POC. One of the clients has requested for this is not a full-fledged one.
+
+We just did it. Okay, so there is no particular flight you did it airline you haven't done it for any of the airline, it's just a uh dummy project? It's a dummy project, yeah.
+
+Okay, that is good to know.
+
+Okay, now tell me, how did you use the LangGraph? Now.
+
+So like I think the one of the best thing I have like about the LangGraph is the state where you can have the consistency across across all the agents. Even if you change it, you can change even one agent change one of the one of the state in in that place, it will be reflected in your in your main main place and then main state main state and it will be reflected to the other agents also when it uh when it comes across to that agent.
+
+We have went with the uh like we how we have done it is like we have a supervisor agent and we have two, three two, three sub agents we have for that uh like all these sub agents is not going to talk themselves. Everything will goes to the supervisor, like supervisor says to agent A and agent A go to supervisor, then it will find out like which agent should I go next.
+
+So all these things, I think the LangGraph and to be honest, I have worked with uh uh Bedrock Bedrock agents as well. There I didn't find this much flexibility as I have found with the LangGraph.
+
+But yeah, as it took some time because in in Bedrock agents you just you can just go and write something.
+
+All plugins are available, but you'll have flexibility with the LangGraph.
+
+Okay.
+
+So, um what problem have you faced?
+
+Like what LangGraph cannot do? In the sense what it is already doing it, like what LangGraph uh having trouble with, which give you trouble?
+
+Um because I know LangGraph has creates the a flowchart kind of things.
+
+But then there are multiple conditions and sometimes you you if you have a code, you can easily go and fix it. But when you are creating the nodes and then under the node and these kind of things, what problem have you faced in that?
+
+Or it is it is working completely fine. Uh, when we tried it, it didn't give much of a headache to us. It worked fine for us.
+
+So, um if if it was so easy, why did you use LangGraph and why not using normal LangChain or any other thing?
+
+Like using your own code.
+
+Why did you choose to use LangGraph?
+
+Uh like uh initially we thought of going with the AutoCAD. So as it can have a little debatable kind of a thing, then we switch switch to LangGraph as uh as again, um like it's a cool thing, let's try it.
+
+Yeah.
+
+Okay.
+
+All right.
+
+That that makes sense a little bit.
+
+Okay.
+
+So now next question I have for you.
+
+Give me just a second.
+
+MLflow, right?
+
+Have you heard that before? Yeah, I've heard about MLflow.
+
+Okay, let's say you have a project. Okay.
+
+And um you have a project, it is already running fine, but it is giving you finally a accuracy score like a kind of health report for your project. Now, um from couple of days you are seeing in the in the project that the accuracy report accuracy is kind of decreasing, precision, recall, everything. And your team find out the problem is in the prompt, like now the your prompt, which is currently in your system, is not working the way it should be because there there might be the data changes or something happened. Now, you your task is to improve the prompt in such a way you have very less human intervention.
+
+Um and but still it should be proficient and by using MLflow, how you're going to do it? By using MLflow.
+
+Uh-huh.
+
+If you don't want to use MLflow, it's okay.
+
+Tell me any other method.
+
+Like I can try with something.
+
+If you only want to improve your prompt, based upon prompt, you want to increase the accuracy, I'll say that I'll go with APO, automatic prompt optimization. As you said, you have the you have the prompt and you have the precision and recalls, everything is available with us. So you the how APO works is it's kind of a uh you know, you're training a model, but instead of training a model, you're training your prompt to behave in a better way. It needs to have a data set like how what is the prompt and what is the uh what is the accuracy uh what is the output, the accuracy you got and what will be the actual output. So as I have my uh I have the data available, which you said like everything has been logged into MLflow, you got all the records.
+
+So based upon based upon that, I'll train my prompt to become a optimized one.
+
+How? How you train your prompt?
+
+Like because I have Okay. Okay.
+
+Uh so uh like this will be costly. I'm saying it before, this will be costly, the APO will be costly. Okay, so I have a set of set of prompts and what the result it gave and what will be the actual result. You have a data set, no?
+
+I will uh the LM like uh um it's a you can think of it as a loop. You have a uh out Okay. First, I'll send the prompt and say that this this is the output you have given and this is the actual output and uh what do you call? You tell me what wrong there what wrong it has done it and it will generate a prompt and with that prompt you like with that response, you will get to know what are the negatives which you have done.
+
+And in the in our data set, we also have the positives. So we'll ask the same thing here.
+
+What right I have done, what wrong I have done.
+
+With both the uh with both the with both the results, I'll uh I'll get a uh I'll I'll get a like a response, right?
+
+Like this you have done it good, this you have done it wrong. And with that, I'll send it to an LLM again, saying that this is what you this is what you have done previously good, this is what you have done it wrong. You you will you you improve the prompt based that it will work perfectly every time. So we'll iterate it for few for few times where it will become uh you know, where your prompt will become optimized.
+
+Okay, so my question is, how did you apply the APO? Like how um what services you're going to use? What you're going to do so that it can automatically improve the prompt? Is that what you're saying?
+
+We have a direct library, they have a direct APO library available.
+
+Okay.
+
+So we Yeah.
+
+What you're going to do? You're going to you're going to create a prompt so that you can improve your prompt. Is that what you're saying?
+
+Yes. Yes, kind of, yes.
+
+Okay.
+
+And building the MLflow, how you're going to do it? Like um are you going to do it in MLflow or you just going to because you're just saying that you're going to compare the result and every time you compare it and then improve it. So in that case, you're going to use MLflow or you're going to use human intervention between that?
+
+Um like as it's automatic, we won't be having any human intervention to it.
+
+Okay, good.
+
+But will you provide any threshold now?
+
+This is the time you stop. This is perfect.
+
+Or no?
+
+Yeah, I'll give yeah, we have to give the number of loops which you are going to do.
+
+Let's say you have provided 100 loops, but it did not improve.
+
+Or you're going to say that I want this precision, this recall, this accuracy, and then stop. Yeah, I think uh I think we can go with, you know, if if you reach this this precision, this recall, you can stop.
+
+And we're trying it out again, right?
+
+To see what is wrong, what is right.
+
+So, uh if you hit that threshold, you can stop it and you can save you can create one more version of your prompt, which you have which we already have. Can you can you tell me like elaborate the structure you will make for MLflow? Like how will you apply, how will you do that a little bit?
+
+Um I haven't really much worked on MLflow.
+
+I just know about MLflow like how to do the log.
+
+don't exist in Amazon AWS.
+
+Yeah, um yeah, yes, we have it in SageMaker. We have it in SageMaker. We have it available.
+
+Okay, perfect. Okay.
+
+Um, have you heard about building the job and pipeline?
+
+Yeah, uh, like the thing about preprocessing jobs, training jobs, all this, right?
+
+Yes.
+
+In the pipeline, in the SageMaker, basically.
+
+Yeah.
+
+SageMaker is, okay.
+
+So, how do you Let me say if you have to create a pipeline, right?
+
+Okay.
+
+Job and pipeline.
+
+And in the SageMaker, you have you won't keep all your stuff in one file, right? You have multiple files, multiple reports.
+
+Yes. Yes.
+
+How do you connect it so that it can work in MLflow?
+
+Um, like, uh, okay. So, uh, Sorry, can you come again? I'm sorry.
+
+Can you come again?
+
+I would like to know how MLflow works so that you have multiple files, notebooks, and a lot of other things in your SageMaker. And you have to create a pipeline using MLflow.
+
+How do you do that?
+
+Create a pipeline using MLflow?
+
+Mhm.
+
+I have done using SageMaker pipelines to create the pipeline.
+
+That's how you do it.
+
+Yes.
+
+That's correct.
+
+Yeah, I use SageMaker pipelines where we have, where, you know, let's say you have a preprocessing job and then, uh, you have a after that you'll keep it in a feature store where you'll keep the features and all. And then you have a, uh, training, you have a training job, then the tuning job, then the evaluation, uh, in in all these things, we'll connect everything to the ML with the MLflow where you can keep the logs or the parameters which you are using as majorly. I think it will benefit for the tuning job where you can have which parameter getting which how much of the, you know, uh, accuracy. So that it will auto, you know, uh, it will automatically takes the best one.
+
+That is different. But even if you want to go and look back to it, you have a observability of how much is what it is doing. And even you have artifacts, like you are generating any, uh, plots or graphs, you can store those things also into an into MLflow. And then you have a, in the end we have an evaluation job. You look into it if the accuracy score is as you are expected, above the threshold, you'll create an endpoint, uh, you'll create an endpoint to it. Uh, you'll you'll store the model into the MLflow registry. And then you'll create a SageMaker endpoint to it.
+
+So, or you can do batch transform. Where you can do it in offline way if you have a larger dataset.
+
+Yeah, that makes sense.
+
+Okay.
+
+Now, uh, this would be my last question because we are running out of time.
+
+Um, you have millions, billions of records, right? And you have to and you have built a process, whatever your GenAI pipeline and everything you just told me. Now, your bottleneck is you have only one API, right? Where your processing is basically done, which is your ChatGPT or any of the LLM, um, models pipeline where you send it. You have to send billion records, but the but the problem is it is taking more many hours, like and you have a window of 12 hours only. And you would like to optimize it is going above the window, like maybe 24 hours. You have to optimize it, right? What steps you can do?
+
+Uh, I'm sorry, let me tell this.
+
+Like you're saying you have only one API where it is going to get all the data. How are you going to optimize it? Optimize the pipeline.
+
+Yes.
+
+Because it's a pipeline. Pipeline.
+
+Million million records will will go through the structure you have built where you have only one API, right? You're hitting every calls, every record goes and hits the API at least once, right?
+
+Okay.
+
+And because of that, it is taking longer time. Because if it is sequential, it is taking longer than expected time.
+
+Yeah, yeah.
+
+You have to optimize it. So, first, I'll try to, uh, I'll try to add a load balancer to the API where it will if it cross that threshold, I'll have one more API available where it will automatically But you won't get any. You have only one allotted to you.
+
+So, I'll try, I'll try to make it in a parallel, I'll try to make it in an asynchronous way. I'll try to run a parallel job, a parallel job of the, uh, what do you call, a parallel job of my pipeline where, uh, let's say I can increase the like in the in the SageMaker, you can, let's say, if I talk about any hyperparameter tuning, so, you can increase the number of parallel jobs which you can do. You can do for instead of two, I can do a three or four where, uh, my at least where the where my time will where my time will reduce. And also I can increase the size of an instance where it can do the do my job in a faster way.
+
+So, What are the parallel processing steps will you apply?
+
+Do you have anything in mind, any library or anything?
+
+Um, with an async I will.
+
+Very good.
+
+Yes. Yes.
+
+This is one way for GenAI, but, um, let's say the problem it is GenAI, but there are some other things with so there is one API, but you are doing multiple steps, you are preprocessing, postprocessing.
+
+Yeah.
+
+So, for GenAI, definitely async I will work.
+
+What else you can apply to optimize it?
+
+Have you tried any I think SageMaker Spark doesn't work, right? Spark won't work.
+
+Um, okay.
+
+Thread pool or something like that, will you consider?
+
+So, like multithreading, multiprocessing. Multithreading, yes.
+
+Yeah, yeah, we can we yeah, we can do that. Yeah, we can do multithreading.
+
+All right.
+
+Okay, that makes sense.
+
+Uh, that as I said, it was my last question, but, um, anything you would like to tell me other than other than this? Uh, no, I it's really good talking to you.
+
+I think it went it felt like more of a conversation than an interview, I can say. I can actually, yeah, it's it's really nice. It's really nice.
+
+Yeah.
+
+Interview should be like that, I feel. It should be like that.
+
+Yeah.
+
+Because some of the interviews which I took, it was really like, okay, I'm saying this, you tell me this. But it it really didn't felt that way, I think.
+
+Thank you. Thank you for that.
+
+I don't know what to say.
+
+Thank you, Vishnu, for for giving us your uh, this time.
+
+And I I hope your father is better.
+
+Yeah, thank you. And I will get back to you. I will give the report to Prakhar and I will get back to you on that.
+
+But thank you so much for your time. Thank you. Thank you, Archana. Thank you so much. Thank you.
+
+एक सेकंड एक सेकंड

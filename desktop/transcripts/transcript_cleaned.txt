@@ -1,0 +1,791 @@
+Speaker 1  (00:02)
+Yeah, we can start.
+
+Speaker 2  (00:04)
+Ok. The government substance — move. Could you please switch on camera?
+
+Speaker 1  (00:10)
+Yes.
+
+Speaker 1  (00:21)
+Yeah, yeah, we can start.
+
+Speaker 2  (00:24)
+Okay, just a minute.
+
+Speaker 2  (00:40)
+Ok yeah, Prakhar, we will start with a quick introduction. Then we will get into the project, then we will go for technical discussions. I will introduce myself.
+
+Speaker 2  (00:52)
+So my name is Santosh Kumar. I do carry almost like 13 years of experience in software engineering and ML-related work. Yeah, so we can start with yours.
+
+Speaker 1  (01:06)
+Sure. So myself, Prakhar, around 14 years of experience in data engineering and combining with the AI/ML side. I started with data engineering, and then I switched to the AI/ML side. So currently, I have worked mostly with the...
+
+Speaker 1  (01:25)
+...AWS, Azure, Databricks, Snowflake, and then on the ML side I have worked with the LLM and RAG systems and pipelines. Yeah, so these are the things that I have knowledge of. So my current time I'm working with Emphasis for the last 3 years, but before that, I was working with Morgan Stanley and HSBC, which is mostly the banking domain.
+
+Speaker 1  (01:49)
+I'm currently working in the educational domain. So here we have an application which is used by the teachers and the students to get the assessments, and then they can review that. Based on the review, they can clear to the next grade. Here I have built the chatbots majorly, where we have the documentation from the organisation and then we have dumped it down, and then we have the RAG pipeline built using the vector store and embeddings and using prompt engineering.
+
+Speaker 1  (02:25)
+Then we are asking the questions accordingly and getting the response. We have used the encoder model also, like BERT, there before sending it to the... before sending it to the LLMs. And also there is another application which I have worked on within the same project, which is related to giving the feedback to the agents. So there we have the system getting the transcripts, we are sending it to the encoders, and then the selections.
+
+Speaker 1  (02:56)
+And then we are ranking based on the parameters that they have assigned. We have the AI/ML team, which is doing all kinds of — they are the ones doing predictions and labelling, and along with that they are monitoring the use cases also. Along with that I have worked as an individual contributor as well as a lead.
+
+Speaker 1  (03:20)
+Also. But here I am working as an individual contributor, working with the US client. They have their Agile system, so 15 days of sprint, 3 months of PSI.
+
+Speaker 1  (03:32)
+Okay, my battery is about to...
+
+Speaker 1  (04:06)
+Yes, sir.
+
+Speaker 2  (04:11)
+Fine, since you have mentioned about it — so what is the tech stack you are using for the RAG system?
+
+Speaker 1  (04:20)
+For the RAG system, we are using the prompts, basically vector DBs and embeddings.
+
+Speaker 2  (04:25)
+What kind of vector DB?
+
+Speaker 1  (04:27)
+We're working with Pinecone. We initially also used Chroma. You know, but mostly I work with Pinecone.
+
+Speaker 2  (04:39)
+So now basically, are your documents only PDFs or what kind of documents?
+
+Speaker 1  (04:47)
+Yeah, PDFs and Word docs. Also some transcripts from the videos. Yeah, majorly these are the things in terms of the text format.
+
+Speaker 2  (04:59)
+Could you walk me through the pipelines as part of this RAG system?
+
+Speaker 1  (05:05)
+Based on the RAG system, while building...
+
+Speaker 2  (05:08)
+Is that system right? So you would have come up with a pipeline side?
+
+Speaker 1  (05:13)
+Um yeah, I mean, on the pipeline — what we are doing is we were doing the chunking, and then the embedding, then sending the embedding to the vector DB. For that pipeline we have created it using LangChain, basically.
+
+Speaker 1  (05:32)
+Using the LangChain framework. So once it's done, then we've created and are sending all the vectors, all the embeddings to the vector space, and then we are querying it through the templates. On the templates we have built in multiple modules also, because for each module we have different tests, different cases. And then the user queries that, and they will get the response.
+
+Speaker 2  (05:58)
+Thank you. Okay, for the documents while building — okay, so where are these documents stored?
+
+Speaker 1  (06:05)
+Yeah, initially they were in the file system. But they have been transferred to the database.
+
+Speaker 2  (06:13)
+Which database?
+
+Speaker 1  (06:14)
+Because it was a PostgreSQL database we were using, so that can store data as tables.
+
+Speaker 2  (06:23)
+I mean, storing documents to the table?
+
+Speaker 1  (06:26)
+Correct. Yeah.
+
+Speaker 2  (06:31)
+From there, you are retrieving these documents for chunking, correct?
+
+Speaker 1  (06:36)
+Yeah, chunking, and then no matter what.
+
+Speaker 2  (06:39)
+Ok, what kind of strategies you have used for chunking?
+
+Speaker 1  (06:44)
+Um, for the chunking, right. So we've used the number of tokens that we have assigned, and the overlapping. So a simple text splitter we have used for chunking.
+
+Speaker 2  (07:03)
+Okay, what is tokenization?
+
+Speaker 1  (07:05)
+Tokenization is nothing but breaking the sentence into words. Okay, and each word contains a token.
+
+Speaker 1  (07:17)
+So that's tokenization.
+
+Speaker 2  (07:21)
+What is lemmatization?
+
+Speaker 1  (07:23)
+Lemmatization is like — we have different word forms like "eat", "eating" and something similar. So it just transforms them into one root word. So just reducing the word to its base form basically.
+
+Speaker 2  (07:36)
+Ok, so basically like you have documents, you are chunking it, that will break down into word-level tokens. So these words you are converting into embeddings, correct? Yeah, so what was the chunking size you have used in your project?
+
+Speaker 1  (07:51)
+Chunking size was around 2,000 to 3,000 tokens. And the overlap was around 10% of that.
+
+Speaker 1  (08:08)
+Ok, I'll be more specific — around 512 to 560.
+
+Speaker 2  (08:09)
+What okay? What is the embedding model you have used?
+
+Speaker 1  (08:14)
+We have used the OpenAI embedding model — the text-embedding-ada-002 — the large one.
+
+Speaker 2  (08:21)
+Ok, I have a question here — so you are saying your chunking is around 2,000 to 3,000 tokens, and the overlap is around 10 to 25%, and what was the dimension of the embedding?
+
+Speaker 1  (08:33)
+Um, it was around by default 3,072, but we reduced it to something around 2,000 or something.
+
+Speaker 2  (08:48)
+Okay, as I know, the text-embedding-ada-002 model is about 1,536 dimensions — that is the exact number, yeah.
+
+Speaker 1  (08:56)
+It was basically the large one, yeah, we are using the large model. That's why the chunking was 3,000. Yeah, for the small one...
+
+Speaker 1  (09:06)
+...it's around 1,500.
+
+Speaker 2  (09:08)
+It's 1,536 actually. Yeah, fine. So now like you have got chunking and you have the embeddings.
+
+Speaker 2  (09:15)
+How have you been storing them in the vector DB?
+
+Speaker 1  (09:18)
+How are you storing in the vector DB? So we have created the indexes. Okay, the indexes — we have multiple for the multiple use cases — we have created the indexes, and in those indexes we were keeping the embeddings basically. So...
+
+Speaker 2  (09:41)
+When you say indexes, what does it mean actually? What does it contain?
+
+Speaker 1  (09:48)
+Indexes — it's not about what it contains in terms of data. It's just a namespace, okay, just like a folder with some metadata.
+
+Speaker 1  (10:00)
+That's all — it contains the vector data organised under that namespace.
+
+Speaker 2  (10:03)
+Okay, so what was the total document size?
+
+Speaker 1  (10:08)
+Document size? I am not aware of the exact size because we have the database managed by the infra team.
+
+Speaker 2  (10:14)
+Ok. In that case, if you see any new document comes — same document name is the same, but the content would vary.
+
+Speaker 2  (10:23)
+So how do you handle it if we don't know about that document change?
+
+Speaker 1  (10:27)
+Yeah, at that time we need to do the re-indexing of the vector DB, just in case if our embeddings are getting changed or the vector database is getting updated. So in that case, we need to do the re-indexing.
+
+Speaker 2  (10:43)
+Okay, yeah, so you are using Chroma also?
+
+Speaker 1  (10:50)
+I have worked on that, but not much.
+
+Speaker 2  (10:54)
+Not much, I see. Okay, fine. So now what was the size of this vector DB?
+
+Speaker 2  (10:59)
+In terms of chunks stored.
+
+Speaker 1  (11:00)
+Size of the vector DB.
+
+Speaker 2  (11:03)
+You have chunked it right, somewhere you are storing. So what was the size?
+
+Speaker 1  (11:09)
+Not sure about the exact size.
+
+Speaker 2  (11:11)
+Okay, so what was the total chunk size? I'm sorry — for chunk size, total — like you have got all the final documents right? You chunked them out and you are ready for storing them.
+
+Speaker 2  (11:29)
+Embedding, along with chunks to this vector DB. So what was the total number of chunks?
+
+Speaker 1  (11:37)
+Ok, so we were making each chunk around 3,000 to 3,500 tokens with overlap.
+
+Speaker 2  (11:47)
+No, that is the chunking strategy. When I say chunks — it's a group of words, right? You will be storing them as vectors in the vector DB.
+
+Speaker 2  (11:57)
+It's a JSON — you wrap the chunk, embedding, and metadata as a JSON object, and you store it, right? Okay.
+
+Speaker 2  (12:05)
+So you would be having some — like, let's say, if documents are 500, it can take up to 100,000 chunks, something like that, you will be storing, right? Like how many were there like that?
+
+Speaker 1  (12:20)
+Yes, similar, same way — I think around 500 or something. But are you talking about the tokens?
+
+Speaker 2  (12:26)
+Yeah, total tokens — actually, not tokens, chunks. Chunks — a chunk is a group of tokens, right?
+
+Speaker 1  (12:33)
+Hmm, yeah.
+
+Speaker 2  (12:36)
+Basically a list of words or something like that. That is one chunk — like how many were there?
+
+Speaker 1  (12:42)
+They were not much because we were doing the summarisation also in between, so around 400 to 500.
+
+Speaker 2  (12:53)
+Okay, no problem, so yeah, once you are done with the chunking — like what else you are doing? Like so, I mean, let's say we are storing the data in the DB. What is the next sequence of actions in the pipeline?
+
+Speaker 1  (13:07)
+Yeah, then we were doing the prompts. We are sending the prompts, from the prompts we are getting the embeddings, and then we are doing the similarity search on that vector DB, and then with that similarity result, we are again sending it to the LLMs.
+
+Speaker 2  (13:27)
+Ok, what are the index methods deployed over there?
+
+Speaker 1  (13:31)
+What are the index methods? Not sure about the exact name.
+
+Speaker 2  (13:39)
+Okay. Now yeah, how does it — when you put a query — like how does it get the relevant information from the vector DB?
+
+Speaker 1  (13:48)
+Yeah, I mean, we have applied the top-K retrieval approach.
+
+Speaker 1  (13:58)
+Top-K set approach.
+
+Speaker 2  (13:59)
+You have used that, yeah. But what is the technical thing behind top-K? When you say top-K 5 or something, it could be right. How does it fetch the data?
+
+Speaker 1  (14:10)
+Yeah, based on the scores. Right, the similarity scores are listed for each of the stored vectors. So based on that, it automatically fetches the top rows with the highest score, but we have to sort it out basically.
+
+Speaker 1  (14:27)
+And then we get the top K results.
+
+Speaker 2  (14:29)
+Yeah, basically it's going to give some score, right? A similarity score something like that.
+
+Speaker 2  (14:34)
+So based on what does it get the value?
+
+Speaker 1  (14:38)
+Based on the cosine similarity.
+
+Speaker 2  (14:44)
+Yeah, I think.
+
+Speaker 1  (14:46)
+Cosine similarity.
+
+Speaker 2  (14:48)
+Yeah, similarity. So let's say you have 500 documents and it is having almost a lakh of chunks. Now you put one query, so that query will be converted to embeddings, right? Now it has to go through all the chunks and get the relevant K documents. Okay, so there is some mechanism there in the RAG system which speeds up the retrieval. What is that?
+
+Speaker 2  (15:16)
+What is the technique? Cosine similarity helps you to find the similarity. Okay, but your query will be compared with each and every chunk.
+
+Speaker 2  (15:33)
+In the vector DB, one by one — that's a brute-force approach, but there are other mechanisms also to speed up this comparison and get the relevant information from the vector DB.
+
+Speaker 1  (15:52)
+Even it's based on the index that we do.
+
+Speaker 2  (15:55)
+Yeah, have you heard about it?
+
+Speaker 1  (15:58)
+Yes, I've heard of HNSW. Yeah, I've only heard about it, I haven't written about it.
+
+Speaker 2  (16:08)
+Ok, any indexing mechanism you are aware of? HNSW?
+
+Speaker 2  (16:12)
+Yes.
+
+Speaker 1  (16:13)
+IVF — Inverted File Index.
+
+Speaker 2  (16:15)
+IVF. Okay. Okay, no problem. Like testing on the indexing.
+
+Speaker 2  (16:20)
+It's an approximation, and it's approximate nearest neighbour. Yeah, it was nearest right. So it tries to put the data into clusters, that's okay, not an issue.
+
+Speaker 2  (16:30)
+Ok, fine. Your RAG pipeline is ready. Now like how do you make it production ready?
+
+Speaker 1  (16:37)
+How do I make it production ready, right?
+
+Speaker 2  (16:42)
+Yes.
+
+Speaker 1  (16:44)
+Ok, so we have the MLflow — ok, in place. But I have not worked on the production side, but I'm just mentioning — we have the MLflow which usually takes the best version and saves it to the database. We have deployed it.
+
+Speaker 2  (17:07)
+See, MLflow is for MLOps, right? It tells — like when you have different models which are running on an experimental basis — which one could be the best, the best out of these models can be picked for production. MLflow is for that, right?
+
+Speaker 2  (17:24)
+Okay, so — but yeah, so in a RAG system, let us say the RAG is just a service. Once it's done, somewhere you have to deploy it and integrate it with your application. You are saying, right, like you have worked on the chatbot.
+
+Speaker 2  (17:37)
+So how do you integrate? How do you — what was the next set of actions which you can take up to productise the things?
+
+Speaker 1  (17:50)
+Not sure about that.
+
+Speaker 2  (17:54)
+Okay. Scan. What are the splitting mechanisms?
+
+Speaker 2  (17:59)
+You are aware of LangChain?
+
+Speaker 1  (18:01)
+On LangChain, I know about the text splitter and recursive character text splitter.
+
+Speaker 2  (18:06)
+When do we go for text splitter, when do we go for character text splitter?
+
+Speaker 1  (18:15)
+When we have long text — a long set of data — okay, and when we have a short set of data — so for the short set of data when we need character by character, we need the character splitter. Maybe the characteristics have a token size which is very huge, so in that case we need the text splitter to create proper sized chunks.
+
+Speaker 2  (18:43)
+Yeah, so apart from this recursive character splitter, what are the other advanced or customised splitting mechanisms you are aware of?
+
+Speaker 1  (18:54)
+Yeah, I mean, I have to recall it. I don't remember it. I...
+
+Speaker 2  (18:59)
+Maybe something like semantic chunking?
+
+Speaker 1  (19:03)
+Yeah, I've heard of it. There are semantic chunking models — just to get the context of that chunk. Okay, not the exact word count-based split.
+
+Speaker 1  (19:15)
+But the summarisation of the context.
+
+Speaker 2  (19:18)
+What does it do exactly? Why do we use semantic chunking — how is it going to be beneficial?
+
+Speaker 1  (19:24)
+Yeah, I mean, so far — let's say we have 1,000 words, it will summarise to some 100 or 200 words.
+
+Speaker 1  (19:32)
+So that's my understanding of it — summarisation-based chunking.
+
+Speaker 2  (19:37)
+Okay. How do you do the re-ranking?
+
+Speaker 1  (19:42)
+How do you do the re-ranking? I'm not sure about it.
+
+Speaker 2  (19:49)
+Have you heard about BM25?
+
+Speaker 1  (19:52)
+Yeah, BM25 is a better version of TF-IDF.
+
+Speaker 2  (20:00)
+What is BM25?
+
+Speaker 1  (20:06)
+Not sure exactly. Sorry. It comes into a hybrid search.
+
+Speaker 2  (20:12)
+TF-IDF, right. What is TF-IDF? What does it do?
+
+Speaker 1  (20:15)
+Yeah, TF-IDF. Yes. The use of it is that if a word is very unique, it will give a high rank, and if the frequency of the word is very common, then it will give the lowest score to that term. 
+
+Speaker 1  (20:34)
+So that's the use of it. It comes into what you'd call count vectorisation or bag of words. I'm sorry for the confusion.
+
+Speaker 1  (20:54)
+Not exactly bag of words, but...
+
+Speaker 2  (20:56)
+Thank you sir. So have you got a chance to work on any agent framework — building agents and all?
+
+Speaker 1  (21:06)
+Building an agent — I have not worked on it, but I'm learning that.
+
+Speaker 2  (21:11)
+Okay. Okay, could you please explain the architecture of a transformer?
+
+Speaker 1  (21:17)
+Architecture of Transformers — we are talking about the GPT, right? Encoder-decoder basically.
+
+Speaker 2  (21:27)
+Yeah, I'm asking about the same algorithm which is part of the attention mechanism.
+
+Speaker 1  (21:32)
+The attention mechanism — it's based on the decoder. ChatGPT is based on the decoder only. And if we talk about the other models — like ALBERT, DistilBERT — all those things, they have both encoders and decoders. Okay, so in that one, we have the embeddings, then we have the attention head, and feed-forward layers.
+
+Speaker 1  (21:57)
+Okay, so...
+
+Speaker 2  (21:59)
+What are the components? Basically, what are the — can you highlight some of the components of the attention mechanism in the transformer algorithm?
+
+Speaker 1  (22:07)
+Yeah, I mean, so each word is going to be tagged with all of the other words just to see what word it should predict next. Okay, so it will be going to be connected with the next predicted word. Okay, so that is how it works using the attention head and the feed-forward layers, and then for the next embedding, for each word it will basically check for the next word it is going to put out.
+
+Speaker 2  (22:35)
+Yeah, what exactly is the encoder into decoder relationship?
+
+Speaker 1  (22:41)
+The encoder does translation — okay, of the input — just to predict the next word representation. That's it.
+
+Speaker 1  (22:52)
+Ok, sure.
+
+Speaker 2  (22:53)
+Now again — encoder and decoder — two things, right? The encoder is doing something, okay, and the decoder is trying to...
+
+Speaker 1  (23:02)
+Understand that.
+
+Speaker 2  (23:03)
+Physical understanding in this generative context. Fine, so can you talk about some of the hyperparameters? The parameters used in LLMs.
+
+Speaker 1  (23:13)
+Yeah, hyperparameters — like we have worked with the weights. Weight training — for the linear regression we used to check the R-squared. We used to check the accuracy for the study.
+
+Speaker 1  (23:25)
+For the classification we used to check the accuracy.
+
+Speaker 2  (23:29)
+I'm talking about the classical activity — while using the LLM, right? So we wanted to control the behaviour of the generation, so there are a set of parameters. You would have heard about Top-P.
+
+Speaker 2  (23:43)
+There could also be like some parameter to control the randomness — like temperature. These are some of the typical parameters. Okay, so you can...
+
+Speaker 2  (23:57)
+You are not mentioning those. Yeah, talking. So have you got a chance to work on classical ML?
+
+Speaker 1  (24:08)
+Yeah, I've worked in classical ML.
+
+Speaker 2  (24:11)
+Ok, ok. So what is your favourite ML algorithm?
+
+Speaker 1  (24:16)
+Mostly I've used the Random Forest — it is more robust.
+
+Speaker 2  (24:22)
+Ok, Random Forest — what is the basic problem that Random Forest is trying to solve?
+
+Speaker 1  (24:32)
+Um, it helps to make decisions. So if the data has some missing values, okay, it handles the outliers, it handles all the things that the linear model has problems with — like data imbalance. So in all those things, the Random Forest is more efficient.
+
+Speaker 1  (24:55)
+There are several things — some I can't recall right now, sorry.
+
+Speaker 2  (25:03)
+Basically, what problem is Random Forest trying to solve?
+
+Speaker 1  (25:06)
+Feature selection and overfitting.
+
+Speaker 2  (25:09)
+Thank you. So how is it different from a Decision Tree?
+
+Speaker 1  (25:17)
+How it is different from the Decision Tree. So that's what I told you the advantage — I mean the Decision Tree uses a threshold, okay, just to take the decision, whether yes or no. But Random Forest is a more enhanced version of the Decision Tree.
+
+Speaker 2  (25:38)
+Oh, what is "Forest" in the name "Random Forest"? Forest.
+
+Speaker 1  (25:43)
+They didn't have anything? Right. So it's going to have multiple — we can get multiple trees. But the idea is — let's say, it will go and create all the scenarios with all the trees, nothing...
+
+Speaker 1  (25:58)
+But the nodes — at the particular nodes we have, right?
+
+Speaker 2  (26:02)
+What are you calling that?
+
+Speaker 1  (26:04)
+The features.
+
+Speaker 2  (26:06)
+Yeah, yeah. In a forest — we call it — like the mechanism of having one root node and two child nodes, right?
+
+Speaker 2  (26:12)
+What do you call that?
+
+Speaker 1  (26:15)
+A tree — we call it a tree.
+
+Speaker 2  (26:18)
+Stumps — something with stumps — stumps, like a group of stumps it forms — no problem. Okay. Yeah, so can you just tell me at a high level how this Random Forest works?
+
+Speaker 2  (26:32)
+The mechanism — there is some technical mechanism behind it.
+
+Speaker 1  (26:39)
+Random Forest basically works on the thresholds. Ok, so let's say we have multiple features — age, salary — so it will go and pick one feature, it will create a tree based on that feature, let's say age.
+
+Speaker 1  (26:57)
+So, if...
+
+Speaker 2  (26:58)
+Not talking about like that. Explain how it is working. I'm not asking about the features — there is something called Bagging and OOB, right?
+
+Speaker 1  (27:10)
+Yeah, Bag of Words.
+
+Speaker 2  (27:13)
+Talking about Bagging. What is Bagging?
+
+Speaker 1  (27:16)
+Bagging is nothing but — it tells about the frequency of the words that the text contains.
+
+Speaker 2  (27:23)
+That is Bag of Words. Bag of Words — we are having BOW, that is Bag of Words. But there is something called Bagging — Bagging and Boosting, or some approaches there. What happens — it creates multiple trees, we call it Random Forest trees.
+
+Speaker 2  (27:43)
+Then it applies something called aggregation. A voting mechanism will be applied over there, and it asks multiple decision trees which is the right one. Then it takes whichever is the majority.
+
+Speaker 1  (28:01)
+Voting right — so that's an ensemble technique. We call it ensemble technique.
+
+Speaker 2  (28:08)
+Yeah, so here like Bagging means — somewhere a voting technique will be deployed to pick the right answer for classification. Do you have any idea like what could happen in regression?
+
+Speaker 1  (28:21)
+In case of regression...
+
+Speaker 2  (28:23)
+Yeah, because Random Forest supports both, right? It could be regression or classification.
+
+Speaker 1  (28:29)
+Yeah, for the regression — similar to logistic regression, right.
+
+Speaker 2  (28:33)
+Now, here, Random Forest, while doing regression — it has to come up with a final single number, it could be integer or floating or whatever it may be. How does it agree on that value?
+
+Speaker 1  (28:47)
+Based on the decision that it took, right — Random Forest is aggregating by taking the votes. Sorry, I didn't get your question. So you're asking about the linear...
+
+Speaker 2  (29:01)
+For example, classification — let's say there are 100 trees. Okay, so in each tree, around 70 are saying yes. Okay, since yes is dominated out of 100.
+
+Speaker 2  (29:15)
+So my final result for the classification will be yes. In case of classification, okay. But in regression there won't be yes or no, right — we are looking for a numerical value.
+
+Speaker 2  (29:28)
+Okay, how will that be finalised?
+
+Speaker 1  (29:33)
+Ok, based on the data modelling — based on the data balance really.
+
+Speaker 2  (29:38)
+Basically let me tell you — basically what happens is it looks at a weighted mean, or it could also take the average of those respective values, and it could also be a weighted mean. No problem.
+
+Speaker 2  (29:55)
+Yeah, so I just want to ask a couple of questions on the Python side. Do you have a share screen option? Yeah, sure. Can you share your screen?
+
+Speaker 1  (30:09)
+Yes.
+
+Speaker 1  (30:22)
+It's not giving me the option to share.
+
+Speaker 2  (30:24)
+Okay, no problem. I'll share my screen then.
+
+Speaker 2  (30:52)
+Can you see my screen?
+
+Speaker 1  (30:53)
+Yes, I can see it.
+
+Speaker 2  (30:56)
+Yeah, I'll give you control. Okay.
+
+Speaker 2  (31:10)
+I want you to reverse this number.
+
+Speaker 1  (31:15)
+You want me to reverse this number? There is a reverse method that we can use.
+
+Speaker 2  (31:32)
+No, I don't want to use the existing one. Basically, I'm looking for an index-based approach.
+
+Speaker 1  (31:39)
+Okay, come. Yeah, so we have to write it — I mean, using a for loop, right.
+
+Speaker 2  (31:47)
+That is somewhat time consuming. There is something called index-based traversal — something like that?
+
+Speaker 1  (31:57)
+Ok, traversal — on the other hand for numbers. I mean, I know only 2 approaches — either that or...
+
+Speaker 2  (32:05)
+There is something called — you would have heard about it. That's okay. Not an issue, okay.
+
+Speaker 2  (32:16)
+So like — you take the same number here. I want you to traverse it and I want something result like 14, 9, 3, 5 sorry.
+
+Speaker 2  (32:33)
+1, 6, 9, 5 — I want the output to be like this. You should use list comprehension.
+
+Speaker 1  (32:42)
+Ok, and try. In the list comprehension — I'll try for 3, 5.
+
+Speaker 1  (33:06)
+Is this the right approach? The built-in assembly method — can also do this. List comprehension. Let me try.
+
+Speaker 2  (33:26)
+Ok, no problem, fine. So now I want you to get something like this — like number or even.
+
+Speaker 1  (33:43)
+Or even?
+
+Speaker 2  (33:46)
+The output there. Okay. Based on the number, you should get something like this.
+
+Speaker 2  (33:51)
+You can use whichever approach you are comfortable with.
+
+Speaker 1  (33:58)
+Okay, I'll use a for loop for even numbers. Let me think, okay.
+
+Speaker 2  (34:05)
+This is a base case.
+
+Speaker 1  (34:07)
+Data, okay. Sorry, let me write. One is hot and the other is hydrated — I mean odd and even.
+
+Speaker 1  (34:15)
+Okay, for the given condition — let me write it the same way, okay.
+
+Speaker 1  (34:44)
+So we are using a list comprehension. Can you give me the — let's say an enumerate-based approach?
+
+Speaker 1  (34:56)
+Using enumerate. Enumerate — okay, no — one condition is satisfied.
+
+Speaker 1  (35:19)
+If the number index — I want it to go to 0. Let me try. Remove null, update, update the logic. Just a moment.
+
+Speaker 1  (35:45)
+Map here, okay. What the dictionary is there — with the map function, something like that I'll do.
+
+Speaker 2  (35:56)
+No problem, that's fine naturally. So I could also see — you have experience on Azure and Databricks, right? Ok, what are the AI services you have used in your work?
+
+Speaker 1  (36:19)
+The AI services, right? So I have not used AI services on the Azure side, but on the AWS side we are moving our data to Bedrock. Okay, and in Azure, I have used the Azure Data Factory pipelines.
+
+Speaker 2  (36:39)
+Ok, Bedrock — you have used that, right?
+
+Speaker 1  (36:42)
+Yeah, for the agent.
+
+Speaker 2  (36:45)
+So what are the features you have used as part of Bedrock?
+
+Speaker 1  (36:49)
+Bedrock — for agents.
+
+Speaker 2  (36:50)
+Thank you. I think we take an example — like I want you to build a system.
+
+Speaker 2  (36:56)
+This system will be on AWS, okay. It should have a storage.
+
+Speaker 2  (37:06)
+The storage account should have some functions. And it should also include a trigger mechanism. Once it's triggered, it should trigger another function, which should talk to the vector DB and get the relevant data. And it should do some kind of RAG-related information — like retrieval or chunking, whatever it may be.
+
+Speaker 2  (37:31)
+Finally, it should display on a website, or it could also be an API server response relatively. We are having that. Okay, tell me like how do you decide what are those different services you want to choose as part of your base?
+
+Speaker 2  (37:48)
+Services you want to choose as part of your AWS-based architecture?
+
+Speaker 1  (37:51)
+Yeah, use Lambda functions, okay, S3. So once you dump the file, it will automatically trigger the Lambda, then we can have — so based on the event, if you are going to trigger the functions, and just to orchestrate it, we can also orchestrate it using Step Functions. Then yeah, these are a few things that I am going to use for building the pipelines. And yeah, when?
+
+Speaker 1  (38:25)
+Sorry.
+
+Speaker 2  (38:28)
+Ok, hey okay, can you give me a minute? Just give me a minute, okay.
+
+Speaker 1  (39:19)
+Think about this.
+
+Speaker 1  (40:18)
+Ah, yes, yeah.
+
+Speaker 2  (40:19)
+Sorry, I got some — yeah, okay. Where were you?
+
+Speaker 1  (40:29)
+At the AWS Lambda and S3 part.
+
+Speaker 2  (40:31)
+Okay. Okay. So now like take an example — like we have Amazon Bedrock.
+
+Speaker 2  (40:37)
+What are the different — you know, like? There are other services in Amazon Bedrock also — are you aware about those?
+
+Speaker 1  (40:46)
+No, for the agent one — it's kind of new to me, some mistakes.
+
+Speaker 2  (40:52)
+Right? Because in Amazon Bedrock, we have something called Knowledge Manager. Okay, and we have something called Flow Executor.
+
+Speaker 2  (41:02)
+Are you no — so what are the models you have used in Amazon Bedrock?
+
+Speaker 1  (41:07)
+We've used the Agentic one only.
+
+Speaker 2  (41:10)
+No, not models — actually, the agent means it's just a piece of code which talks to the LLM, right? The LLM is the model — given by the LLM provider, like OpenAI provides — GPT provides an open API.
+
+Speaker 2  (41:22)
+OpenAI provides the GPT model, okay?
+
+Speaker 1  (41:28)
+We are talking about the Claude model?
+
+Speaker 2  (41:29)
+In terms of Amazon — what are we using? Yeah, that's available. We have only the Titan models, right? And some of the Anthropic models.
+
+Speaker 2  (41:46)
+Okay. I think I'm done. So do you have any questions?
+
+Speaker 1  (41:52)
+Yeah, can you tell me about the company and the role?
+
+Speaker 2  (41:56)
+Okay, company — you know, like — you would have heard already from the HR — Kyndryl. Ok, so, you know, like — previously we were with IBM.
+
+Speaker 2  (42:06)
+We spun off from IBM in 2020, I think. So now yeah, mostly like the company is focusing more on Agentic AI solutions as a separate vertical — only we have different businesses. This is one of the new vertical business certifications.
+
+Speaker 2  (42:23)
+That's very much the hiring happening in this part. So we are looking for a candidate who is good at classical ML. Okay, and who can solve some of the real world problem statements, what the customer is looking for, you know.
+
+Speaker 2  (42:39)
+So yeah, so these are about it. Yeah.
+
+Speaker 1  (42:42)
+Okay, yeah, I got it, sir. Thank you.
+
+Speaker 2  (42:47)
+Thank you, Brother, nice — thank you to you.
+
+Speaker 1  (42:51)
+Yeah, thank you. Bye.

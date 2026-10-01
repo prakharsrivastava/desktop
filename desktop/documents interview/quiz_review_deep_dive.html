@@ -1,0 +1,253 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1rem 0}
+.section-hdr{font-size:11px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;padding-left:2px}
+.q-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:10px;overflow:hidden}
+.q-head{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer}
+.q-head:hover{background:var(--color-background-secondary)}
+.score-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.dot-full{background:#EAF3DE;color:#27500A}
+.dot-half{background:#FAEEDA;color:#633806}
+.dot-zero{background:#FCEBEB;color:#791F1F}
+.q-meta{flex:1;min-width:0}
+.q-title{font-size:14px;font-weight:500;color:var(--color-text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.chev{font-size:16px;color:var(--color-text-secondary);transition:transform .2s}
+.chev.open{transform:rotate(180deg)}
+.q-body{display:none;border-top:0.5px solid var(--color-border-tertiary)}
+.q-body.open{display:block}
+.section{padding:14px 16px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.section:last-child{border-bottom:none}
+.sec-label{font-size:10px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.what-said{background:#FAEEDA;border-left:3px solid #EF9F27;border-radius:0;padding:10px 12px;font-size:13px;color:#412402;line-height:1.6}
+.what-missing{background:#FCEBEB;border-left:3px solid #E24B4A;border-radius:0;padding:10px 12px;font-size:13px;color:#501313;line-height:1.6;margin-top:8px}
+.ideal{background:#EAF3DE;border-left:3px solid #639922;border-radius:0;padding:10px 12px;font-size:13px;color:#173404;line-height:1.6}
+.analogy{background:#E6F1FB;border-left:3px solid #378ADD;border-radius:0;padding:10px 12px;font-size:13px;color:#042C53;line-height:1.6;margin-top:8px}
+.code{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--color-text-primary);line-height:1.6;margin-top:8px;white-space:pre-wrap}
+.key-pts{margin-top:8px}
+.pt{display:flex;gap:8px;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.pt:last-child{border-bottom:none}
+.pt-icon{color:#639922;font-size:14px;flex-shrink:0;margin-top:1px}
+.remember{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-top:8px}
+.remember::before{content:"Remember: ";color:var(--color-text-secondary);font-weight:400}
+</style>
+
+<div class="wrap">
+<div class="section-hdr">Q1 & Q2 — Perfect. Skipping these.</div>
+
+<div id="cards"></div>
+</div>
+
+<script>
+const reviews = [
+  {
+    num:3, score:"5/10", dotClass:"dot-half",
+    title:"Why can't we full fine-tune a 7B model on a normal GPU?",
+    whatSaid:"You likely mentioned GPU/memory constraints — which is correct. That's why you got half marks.",
+    whatMissing:"What was missing: the specific numbers. Interviewers want you to be precise — not just 'it's too big' but WHY it's too big with actual figures.",
+    ideal:"A 7B model at FP32 = 7B × 4 bytes = ~28 GB just for weights. Add gradients (another 28 GB) and Adam optimizer states (momentum + variance = another 56 GB) — total ~112 GB. No single consumer or prosumer GPU has that. Even cloud A100s (80 GB) can't fit it in one shot at full precision.",
+    analogy:"Think of it like loading a 100-page book into a 10-page notebook — you simply can't. Quantization tears out every other line to make it fit.",
+    keyPoints:[
+      "Weights alone: 7B × 4 bytes (FP32) = 28 GB",
+      "Gradients: same size as weights = another 28 GB",
+      "Adam optimizer states: 2× weights = 56 GB",
+      "Total for full fine-tuning at FP32: ~112 GB",
+      "QLoRA reduces this to ~6–10 GB by quantizing base weights to 4-bit and only training small adapters"
+    ],
+    remember:"The magic number: 4 bytes per param at FP32, 2 at FP16/BF16, 0.5 at INT4."
+  },
+  {
+    num:4, score:"0/10", dotClass:"dot-zero",
+    title:"What is `prepare_model_for_kbit_training()` and when must you call it?",
+    whatSaid:"You likely described it vaguely as 'prepares the model for training' — which is too generic to score.",
+    whatMissing:"The specific 3 things it does internally, and the exact position in the pipeline where it must be called (after quantized load, before LoRA injection).",
+    ideal:"It does 3 specific things: (1) Enables gradient checkpointing so activations are recomputed during backprop rather than stored — saves activation memory. (2) Casts all LayerNorm layers to float32 — quantized layer norms cause NaN gradients, this prevents that. (3) Enables input_require_grad on the embedding layer so gradients can flow from the frozen base model back to the LoRA adapters. Without this call, calling trainer.train() on a 4-bit model crashes.",
+    analogy:"It's like installing a clutch plate between a frozen engine and a live gearbox. The engine (base model) stays locked, but the clutch (grad hooks) lets power (gradients) transfer to the adapter wheels.",
+    keyPoints:[
+      "Call order: load quantized model → prepare_model_for_kbit_training() → LoraConfig → get_peft_model()",
+      "LayerNorms MUST stay in float32 — they are numerically sensitive",
+      "Without it: backprop on quantized model raises RuntimeError or produces NaN loss",
+      "It also calls model.enable_input_require_grads() internally",
+      "gradient_checkpointing=True trades compute for memory — recomputes activations on backward pass"
+    ],
+    remember:"Without prepare_model_for_kbit_training(), gradients can't flow and your loss will be NaN or training will crash entirely."
+  },
+  {
+    num:5, score:"5/10", dotClass:"dot-half",
+    title:"Explain W_new = W₀ + B×A. What are W₀, B, A, and why does this save memory?",
+    whatSaid:"You got the concept right — frozen weights plus two small matrices. Half marks for the idea.",
+    whatMissing:"The actual numbers showing the parameter reduction. Saying 'smaller matrices' is not enough — you need to quantify HOW much smaller.",
+    ideal:"W₀: frozen original weight matrix, e.g. shape 4096×4096 = 16.7M parameters — never updated. A: shape (r × d_in) = (16 × 4096) = 65K params, initialized with random Gaussian. B: shape (d_out × r) = (4096 × 16) = 65K params, initialized to zero (so at step 0, B×A = 0 and the model starts identical to base). Total trainable: 130K vs 16.7M — a 128× reduction for this one layer.",
+    analogy:"Instead of rewriting the whole dictionary to add new words, you attach a sticky-note appendix. The dictionary (W₀) stays unchanged. The sticky note (B×A) holds just the new stuff.",
+    keyPoints:[
+      "B initialized to zero so training starts from the base model — no random disruption",
+      "A initialized with random Gaussian — provides diverse starting directions for the optimizer",
+      "At inference, merge: W_final = W₀ + B×A — single matrix, zero latency overhead",
+      "r=16 on a 4096×4096 layer: saves (16.7M - 130K) / 16.7M = 99.2% of parameters",
+      "Scaling: output is multiplied by alpha/r before addition — alpha/r controls update strength"
+    ],
+    remember:"B is zero-initialized. A is random. This is why LoRA starts stable and gradually shifts the model behavior."
+  },
+  {
+    num:6, score:"0/10", dotClass:"dot-zero",
+    title:"What is NF4 and why is it better than plain INT4 for neural network weights?",
+    whatSaid:"You likely said something like 'NF4 is a 4-bit format used in QLoRA' — correct but incomplete.",
+    whatMissing:"The key insight: WHY the distribution of quantization levels matters, and how NF4 matches the actual weight distribution of neural networks.",
+    ideal:"NF4 = NormalFloat4. A 4-bit type has 16 possible values. INT4 spaces those 16 values uniformly (e.g. -8 to +7 with step 1). But neural network weights are NOT uniformly distributed — they cluster around zero in a bell curve (normal distribution). So INT4 wastes most of its 16 levels on the sparse tails and doesn't have enough levels where the weights actually are (near zero). NF4 places its 16 quantization levels according to the quantiles of a normal distribution — dense near zero, sparse in the tails — perfectly matching where the weights cluster. Result: less rounding error, better model quality at the same 4-bit memory cost.",
+    analogy:"Imagine measuring heights in a school. Uniform bins (INT4): 0–1ft, 1–2ft, 2–3ft... most children are 4–5ft so you've wasted bins. Normal bins (NF4): pack lots of bins between 4–5ft where children actually are. You get more precise measurements where it counts.",
+    keyPoints:[
+      "4-bit = 16 possible values total — every level matters",
+      "INT4: uniform spacing — wrong assumption for neural weights",
+      "NF4: quantile-spaced — levels are denser where weights actually cluster (near zero)",
+      "Result: NF4 has lower quantization error than INT4 at the same bit width",
+      "NF4 is information-theoretically optimal for normally distributed data — proven in the QLoRA paper"
+    ],
+    remember:"NF4 works because neural network weights are empirically Gaussian. It's not a random choice — it's mathematically optimal for that distribution."
+  },
+  {
+    num:7, score:"0/10", dotClass:"dot-zero",
+    title:"What is the difference between `lora_alpha` and `r` (rank)?",
+    whatSaid:"You likely confused the two or described only one of them.",
+    whatMissing:"The interaction between them — that what actually matters is the ratio alpha/r, not the individual values. And the standard rule of thumb.",
+    ideal:"r (rank) controls the size of matrices A and B — higher r = more parameters = more learning capacity. lora_alpha is a scalar: the adapter output B×A is multiplied by alpha/r before being added to W₀. So alpha/r is the effective learning rate multiplier for the adapter. If alpha=32 and r=16, the ratio is 2 — the adapter updates are scaled 2× before merging. Standard practice: set alpha = 2 × r. This keeps the ratio at 2 regardless of rank, so you can change r freely without re-tuning alpha. Microsoft's original LoRA paper used r=8, alpha=8 (ratio=1). Krish Naik's notebooks use r=16, alpha=32 (ratio=2).",
+    analogy:"r is how many musicians are in the band (capacity). alpha is how loud the amplifier is (strength). The ratio alpha/r is the actual volume. You could have 1 musician very loud or 10 musicians quietly — same volume, different dynamics.",
+    keyPoints:[
+      "r controls parameter count: higher r = more trainable params",
+      "alpha/r controls update strength: higher ratio = stronger adapter influence",
+      "Standard: alpha = 2 × r (ratio = 2)",
+      "Increasing r without adjusting alpha weakens the adapter (ratio drops)",
+      "If you double r, also double alpha to maintain the same effective scaling",
+      "For complex tasks: higher r (32–64). For simple domain adaptation: r=4–16 is enough"
+    ],
+    remember:"What matters is the ratio alpha/r, not the individual values. Always think of them together."
+  },
+  {
+    num:8, score:"0/10", dotClass:"dot-zero",
+    title:"What does `mlm=False` mean in DataCollatorForLanguageModeling?",
+    whatSaid:"You likely didn't know this one or gave a vague answer about language modeling.",
+    whatMissing:"The contrast between causal LM and masked LM, and why using the wrong one with Mistral would be a disaster.",
+    ideal:"MLM = Masked Language Modeling (BERT style). It randomly masks ~15% of input tokens and trains the model to predict them from both left AND right context (bidirectional). mlm=False = Causal Language Modeling (GPT/Mistral style). The model predicts the NEXT token given only all previous tokens (left context only). Labels = input_ids shifted right by 1. Mistral is a decoder-only causal model — it has a causal attention mask that prevents it from seeing future tokens. If you set mlm=True on Mistral, the DataCollator would randomly mask tokens expecting bidirectional prediction, but the model physically cannot see right-context due to the causal mask — training would produce garbage loss and a broken model.",
+    analogy:"Causal LM is like writing a story word by word — you can only see what you've already written. Masked LM is like a fill-in-the-blank test — you see the whole sentence and guess the blank. Giving a 'write word by word' model a fill-in-the-blank task breaks it.",
+    keyPoints:[
+      "mlm=False → Causal LM → labels = input_ids shifted by 1 (next-token prediction)",
+      "mlm=True → Masked LM → 15% tokens masked, bidirectional context",
+      "Mistral, LLaMA, GPT are ALL causal decoders — always mlm=False",
+      "BERT, RoBERTa, DeBERTa are masked models — mlm=True",
+      "Using mlm=True with a causal model: loss will be nonsensical, model will degrade"
+    ],
+    remember:"Decoder models (GPT, Mistral, LLaMA) = mlm=False always. If you see mlm=True, it's for BERT-family models only."
+  },
+  {
+    num:9, score:"0/10", dotClass:"dot-zero",
+    title:"GPU keeps OOM during QLoRA fine-tuning — 4 specific fixes.",
+    whatSaid:"You likely mentioned reducing batch size — which is correct but only one fix.",
+    whatMissing:"The full toolkit of 6 specific levers, each with the mechanism explaining WHY it saves memory.",
+    ideal:"Memory in training comes from 4 buckets: (1) model weights, (2) activations, (3) gradients, (4) optimizer states. Each fix targets one bucket.",
+    analogy:"Your GPU is a full glass of water. You need to pour some out from each quadrant — not just one.",
+    keyPoints:[
+      "Reduce per_device_train_batch_size to 1 → fewer activations stored simultaneously",
+      "Increase gradient_accumulation_steps (e.g. to 8) → simulates batch=8 without the VRAM spike",
+      "Set gradient_checkpointing=True → recomputes activations on backward pass instead of storing them (30–40% less activation memory, ~20% slower)",
+      "Use optim='paged_adamw_8bit' → stores Adam momentum+variance in 8-bit on CPU, not GPU. Saves ~2× model size in optimizer state VRAM",
+      "Lower LoRA rank r (e.g. 16 → 4) → smaller A and B matrices, fewer gradient tensors",
+      "Use load_in_4bit instead of load_in_8bit → base model VRAM halved again",
+      "Bonus: max_grad_norm clipping prevents occasional gradient spikes that cause OOM on otherwise stable training"
+    ],
+    remember:"paged_adamw_8bit is the single biggest hidden VRAM win — Adam states alone can be 2× model size."
+  },
+  {
+    num:10, score:"0/10", dotClass:"dot-zero",
+    title:"Explain double quantization in QLoRA.",
+    whatSaid:"You likely didn't know this one — it's a deep implementation detail from the QLoRA paper.",
+    whatMissing:"Understanding that quantization itself produces constants, and those constants can be quantized again.",
+    ideal:"Standard 4-bit quantization divides weights into small blocks (e.g. 64 weights per block). Each block gets a scale factor (quantization constant) stored in FP32 — 32 bits. For a 7B model with 64-weight blocks: 7B/64 = ~110M scale constants × 32 bits = ~440MB just for the constants. Double quantization quantizes THOSE scale constants — a second round of quantization. The FP32 constants (32 bits each) are themselves quantized to 8-bit float (FP8), reducing them from 32 bits to 8 bits each. Saving: (32-8)/64 = 0.375 bits per original parameter. For 7B params: 0.375 × 7B bits ÷ 8 = ~328MB saved. On top of the 4-bit base savings. Small but meaningful when every MB counts.",
+    analogy:"You compressed your files into a ZIP. Then you realized the ZIP file header/index is itself large, so you compress that too. Double compression of the metadata.",
+    keyPoints:[
+      "Standard quantization produces per-block scale constants stored in FP32",
+      "Double quantization quantizes those scale constants from FP32 to FP8",
+      "Saving: ~0.37 bits per parameter ≈ 350MB for a 7B model",
+      "Enabled by: bnb_4bit_use_double_quant=True in BitsAndBytesConfig",
+      "No accuracy impact — the constants are low-variance and quantize cleanly to 8-bit"
+    ],
+    remember:"Double quantization = quantize the quantization constants. It's the metadata compression step."
+  },
+  {
+    num:11, score:"0/10", dotClass:"dot-zero",
+    title:"LoRA vs Adapter layers — why does LoRA have zero inference latency overhead?",
+    whatSaid:"You likely said something general about LoRA being more efficient, without explaining the serial vs parallel architecture difference.",
+    whatMissing:"The specific structural reason: Adapters are serial (in the forward path), LoRA is parallel (merged before inference).",
+    ideal:"Adapter layers sit IN SERIES between transformer sub-layers: input → attention → [adapter bottleneck] → FFN → [adapter bottleneck] → output. Every forward pass must pass through the adapter — unavoidable latency proportional to adapter size. LoRA adapters are PARALLEL: they compute B×A alongside the original layer but are merged into W₀ BEFORE deployment. W_merged = W₀ + B×A is precomputed once. At inference, it's a single matmul with the same W shape as the original — identical computation to the base model. No extra operations, no extra latency.",
+    analogy:"Adapters: you must drive through a toll booth (extra stop every time). LoRA: the toll is pre-paid and the booth removed before you leave — you drive the same road as before.",
+    keyPoints:[
+      "Adapter: serial insertion — adds a bottleneck layer to every forward pass",
+      "LoRA: parallel injection — B×A computed alongside original, then merged",
+      "Merge command: model.merge_and_unload() — fuses adapters into base weights permanently",
+      "After merging: the model is indistinguishable from a normally-trained model",
+      "Adapter latency scales with adapter dimension; LoRA latency = zero post-merge",
+      "Adapters also use more parameters than LoRA for the same rank"
+    ],
+    remember:"LoRA has zero inference overhead because W_merged = W₀ + B×A is precomputed. Adapters can't do this because they're serial, not additive."
+  },
+  {
+    num:12, score:"0/10", dotClass:"dot-zero",
+    title:"Should you always increase rank to 128 for better accuracy?",
+    whatSaid:"You likely said 'yes it gives better accuracy' — which is only sometimes true.",
+    whatMissing:"The overfitting risk, the task-complexity dependency, and the correct empirical strategy.",
+    ideal:"Higher rank increases capacity — but capacity without sufficient data causes overfitting. At r=128 on a small dataset (e.g. 5K examples), the adapter has millions of parameters and will memorize training examples rather than generalize. The validation loss rises while training loss drops — classic overfit. High rank (64–128) is only warranted when: (a) the task requires genuinely new knowledge the base model never saw, (b) you have a large, diverse dataset (100K+ examples), or (c) you need complex behavioral change (e.g. new language, new reasoning style). For simple domain adaptation (medical vocabulary, tone change, format change), r=4–16 is sufficient and generalizes better. Correct approach: start at r=8, train, evaluate on held-out set. If validation loss is still decreasing (underfitting), increase rank. If train loss drops but val loss rises (overfitting), decrease rank or add dropout.",
+    analogy:"Rank is like the number of brush strokes a painter uses. Too few: can't capture detail (underfit). Too many on a small canvas: smears everything together and loses the image (overfit).",
+    keyPoints:[
+      "High rank + small dataset = overfitting (memorization, poor generalization)",
+      "High rank = more VRAM, slower training, not always better quality",
+      "For simple tasks (tone, format, vocabulary): r=4–16 is enough",
+      "For complex tasks (new knowledge, new language): r=32–128 may help",
+      "Always validate: monitor val loss separately from train loss",
+      "lora_dropout=0.05–0.1 helps regularize high-rank adapters",
+      "Microsoft used r=8 in their original paper and it performed well on most tasks"
+    ],
+    remember:"Rank is not 'more is always better.' Match rank to task complexity and dataset size. Start low, validate, scale up only if underfitting."
+  }
+];
+
+const container = document.getElementById('cards');
+
+reviews.forEach((r,i) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  const id = 'rev'+i;
+  card.innerHTML = `
+    <div class="q-head" onclick="tog('${id}',this)">
+      <div class="score-dot ${r.dotClass}">${r.score}</div>
+      <div class="q-meta">
+        <div class="q-title">Q${r.num}: ${r.title}</div>
+        <div class="q-sub">${r.score === '5/10' ? 'Half marks — click to see what was missing' : 'Zero marks — full explanation inside'}</div>
+      </div>
+      <i class="ti ti-chevron-down chev" id="chev_${id}"></i>
+    </div>
+    <div class="q-body" id="${id}">
+      <div class="section">
+        <div class="sec-label">What you likely said</div>
+        <div class="what-said">${r.whatSaid}</div>
+        <div class="what-missing">${r.whatMissing}</div>
+      </div>
+      <div class="section">
+        <div class="sec-label">Full correct answer</div>
+        <div class="ideal">${r.ideal}</div>
+        ${r.analogy ? `<div class="analogy"><strong>Analogy:</strong> ${r.analogy}</div>` : ''}
+      </div>
+      <div class="section">
+        <div class="sec-label">Key points to memorize</div>
+        <div class="key-pts">${r.keyPoints.map(p=>`<div class="pt"><i class="ti ti-check pt-icon" aria-hidden="true"></i><span>${p}</span></div>`).join('')}</div>
+        <div class="remember">${r.remember}</div>
+      </div>
+    </div>`;
+  container.appendChild(card);
+});
+
+function tog(id, head){
+  const b=document.getElementById(id);
+  const c=head.querySelector('.chev');
+  const open=b.classList.toggle('open');
+  c.classList.toggle('open',open);
+}
+</script>

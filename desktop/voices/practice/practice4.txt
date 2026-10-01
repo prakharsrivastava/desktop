@@ -1,0 +1,225 @@
+Handson Test Paper
+AI Engineer Test
+Case Study: DocAssist+
+Build an AI assistant that:
+ Answers questions from documents (RAG)
+ Detects user intent (Question, Complaint, Request, Feedback)
+ Detects user emotion (Happy, Neutral, Frustrated, Angry)
+ Adjusts response based on intent and emotion
+
+Sample Context
+Document:
+“Returns are accepted within 7 days of delivery. Refunds are processed within 5
+business days.”
+Queries:
+1. What is your return policy?
+2. This is ridiculous, my refund is still not processed
+
+Section A: System Design
+1. Design the end-to-end architecture:
+o Document ingestion
+o Chunking and embeddings
+o Vector storage
+o Query processing
+o Intent detection
+o Emotion detection
+o Response generation
+2. Explain where intent and emotion are used and how they impact the response
+3. Describe step-by-step flow for:
+o Document upload
+o User query
+
+4. Explain key decisions:
+o Embedding approach
+o Top-K retrieval
+o When to use LLM vs not
+
+Section B: APIs and Core Logic
+1. Design API:
+POST /documents/upload
+o Extract text
+o Chunk with overlap
+o Generate embeddings
+o Store with userId and documentId
+2. Design API:
+POST /query
+o Detect intent
+o Detect emotion
+o Retrieve top-K chunks
+o Generate response
+3. Share request and response JSON for both APIs
+4. Write pseudocode or code for main logic
+
+Section C: Intent and Emotion
+1. How will you detect intent
+2. How will you detect emotion
+3. How will you handle low confidence
+4. How will response style change based on emotion
+
+Section D: Production Thinking
+1. How will you support multiple users
+2. How will you reduce response time
+3. How will you reduce cost of LLM usage
+
+Section E: Edge Cases
+
+1. If wrong data is retrieved
+2. If intent is incorrect
+3. If response is slow
+Explain how you will handle these
+
+Deliverables
+ Architecture diagram or explanation
+ API design with JSON
+ Pseudocode or partial implementation
+ Prompt template
+
+Section F
+Problem Statement
+ 
+Build a VoiceBot for Customer Support that can:
+ 
+Understand user input (text or voice)
+ 
+Identify user intent
+ 
+Maintain conversation context across multiple turns
+ 
+Respond intelligently
+ 
+Handle basic real-world scenarios (status check, complaint, query)
+ 
+Scope of Work
+1. Core Flow (Mandatory)
+ 
+Build an end-to-end system:
+ 
+User Input → Intent Detection → Context Handling → Response → Output
+Minimum Requirements:
+ 
+API-based system (FastAPI / Flask preferred)
+ 
+LLM integration (OpenAI / open-source)
+ 
+
+STT/TTS optional (can mock)
+ 
+2. Intent Handling (Mandatory)
+ 
+Support minimum 3 intents:
+ 
+Check Status
+ 
+Raise Complaint
+ 
+General Query
+ 
+System should correctly identify and route queries.
+ 
+3. Context Handling (MANDATORY – Most Important)
+ 
+Your system must support multi-turn conversations.
+ 
+Required Scenarios:
+Scenario 1: Slot Filling
+User: Check my loan status
+Bot: Please provide Loan ID
+User: 12345
+Bot: Your loan is approved
+Scenario 2: Context Continuity
+User: I want to raise a complaint
+Bot: Please describe your issue
+User: Payment failed
+Bot: Complaint registered (Ticket ID: 5678)
+User: What is the status?
+Bot: Your complaint (Ticket 5678) is in progress
+Scenario 3: Context Switch
+User: Check my loan status
+Bot: Please provide Loan ID
+User: Actually I want to raise complaint
+Bot: Sure, please describe your issue
+Expected Implementation:
+ 
+Session-based memory (in-memory / Redis / DB)
+ 
+Slot tracking (loan_id, complaint_id, etc.)
+ 
+Ability to reset or switch context
+ 
+4. Prompt Design
+ 
+
+Design prompts to ensure:
+ 
+Clear, structured responses
+ 
+No hallucinations
+ 
+Proper fallback (e.g., “Connecting to agent”)
+ 
+5. API Design
+ 
+Expose at least:
+ 
+POST /chat → text interaction
+ 
+POST /voice → optional (can simulate)
+ 
+Architecture Note (Mandatory – 1 Page)
+ 
+Explain briefly:
+ 
+System architecture (components used)
+ 
+How context is managed
+ 
+How system will scale to production
+ 
+How you will handle:
+ 
+Latency
+ 
+Failures (LLM/STT issues)
+ 
+Multiple concurrent users
+ 
+Cost optimization
+ 
+What You Need to Deliver
+ 
+Submit the following:
+ 
+1. Code Repository
+ 
+Clean, modular code
+ 
+Proper folder structure
+ 
+
+2. README File (Important)
+ 
+Include:
+ 
+Setup steps
+ 
+How to run APIs
+ 
+Assumptions made
+ 
+Tools/LLMs used
+ 
+3. Working APIs
+ 
+Demonstrate:
+ 
+Multi-turn conversation
+ 
+Context retention
+ 
+Intent handling
+ 
+4. Sample Inputs &amp; Outputs
+ 
+Provide examples showing:
+ 
+All 3 scenarios working

@@ -1,0 +1,204 @@
+
+
+=== Welcome & Course Overview ===
+
+
+--- What is MLOps? Why 87% of Models Never Ship ---
+
+[No transcript available for this lecture]
+
+--- What You'll Build — The End-to-End Project Tour ---
+
+[No transcript available for this lecture]
+
+
+=== Foundations & Tooling ===
+
+
+--- MLOps Maturity Levels 0 ---
+
+[No transcript available for this lecture]
+
+
+=== Reproducibility: Data & Experiment Tracking ===
+
+
+--- How to Get the Most + Setup ---
+
+[No transcript available for this lecture]
+
+
+=== Building ML Pipelines ===
+
+
+--- A Reproducible Project Structure ---
+
+[No transcript available for this lecture]
+
+
+=== Packaging & Serving Models ===
+
+
+--- Git & GitHub for ML Teams ---
+
+[No transcript available for this lecture]
+
+
+=== CI/CD for Machine Learning ===
+
+
+--- Docker for ML Engineers ---
+
+[No transcript available for this lecture]
+
+
+=== Deployment to the Cloud ===
+
+
+--- The Cloud & Free Tiers ---
+
+[No transcript available for this lecture]
+
+
+=== Monitoring & Observability ===
+
+
+--- The Reproducibility Problem ---
+
+[No transcript available for this lecture]
+
+
+=== Capstone: End-to-End MLOps System ===
+
+
+--- Data & Model Versioning with DVC ---
+
+[No transcript available for this lecture]
+
+
+=== Career, Best Practices & What's Next ===
+
+
+--- Experiment Tracking with MLflow ---
+
+[No transcript available for this lecture]
+
+--- The Model Registry: Staging → Production ---
+
+[No transcript available for this lecture]
+
+--- From Messy Notebooks to Clean Pipelines ---
+
+[No transcript available for this lecture]
+
+--- Feature & Training Pipelines with scikit-learn ---
+
+[No transcript available for this lecture]
+
+--- Config Management with Hydra ---
+
+[No transcript available for this lecture]
+
+--- Orchestration: Airflow vs Prefect ---
+
+[No transcript available for this lecture]
+
+--- Model Serialization: pickle, joblib, ONNX ---
+
+[No transcript available for this lecture]
+
+--- Build a Prediction API with FastAPI ---
+
+[No transcript available for this lecture]
+
+--- Containerize the Model Service ---
+
+[No transcript available for this lecture]
+
+--- Serving Patterns: Batch vs Online vs Streaming ---
+
+[No transcript available for this lecture]
+
+--- Why ML CI/CD Is Different ---
+
+[No transcript available for this lecture]
+
+--- Testing ML: Data, Model & Contract Tests ---
+
+[No transcript available for this lecture]
+
+--- GitHub Actions Pipelines for ML ---
+
+[No transcript available for this lecture]
+
+--- Continuous Training with CML ---
+
+[No transcript available for this lecture]
+
+--- Deployment Strategies: Blue-Green, Canary, Shadow ---
+
+[No transcript available for this lecture]
+
+--- Deploy to a Free Cloud Runtime ---
+
+[No transcript available for this lecture]
+
+--- Kubernetes Basics for ML ---
+
+[No transcript available for this lecture]
+
+--- Infrastructure as Code with Terraform ---
+
+[No transcript available for this lecture]
+
+--- Detect data and concept drift and monitor a live model's health with Evidently, ---
+
+[No transcript available for this lecture]
+
+--- Logging, Metrics & Observability ---
+
+[No transcript available for this lecture]
+
+--- Drift Detection with Evidently ---
+
+[No transcript available for this lecture]
+
+--- Dashboards & Alerts: Prometheus + Grafana ---
+
+[No transcript available for this lecture]
+
+--- Architecture Overview — The Full Loop ---
+
+[No transcript available for this lecture]
+
+--- Build the Data + Training Pipeline ---
+
+[No transcript available for this lecture]
+
+--- Serve, Containerize & CI/CD ---
+
+[No transcript available for this lecture]
+
+--- Deploy & Monitor ---
+
+[No transcript available for this lecture]
+
+--- Turn It Into a Portfolio Piece ---
+
+[No transcript available for this lecture]
+
+--- The MLOps Best-Practices Checklist ---
+
+[No transcript available for this lecture]
+
+--- The 2026 MLOps Tooling Landscape ---
+
+[No transcript available for this lecture]
+
+--- Resume, LinkedIn & Portfolio ---
+
+[No transcript available for this lecture]
+
+--- Where to Go Next ---
+
+[No transcript available for this lecture]

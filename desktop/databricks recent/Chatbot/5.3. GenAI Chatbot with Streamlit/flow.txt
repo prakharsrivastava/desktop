@@ -1,0 +1,16 @@
+user query
+
+display user query
+
+save query to chat_history
+
+send the chat_history to llm
+
+get response form llm
+
+save response in chat history
+
+display llm response
+
+
+[{"role": "system", "content": "You are a helpful assistant"},{"role": "user", "content": "What is ML?"}]

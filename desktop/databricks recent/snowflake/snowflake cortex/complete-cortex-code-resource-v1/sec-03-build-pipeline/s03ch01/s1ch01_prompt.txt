@@ -1,0 +1,7 @@
+Refer the image attached and provide ddl statement as per the diagram. Make the dev & qa database transient and have the production database as 7 days time travel. Also suggest why 7 days time travel is good, is this a best practice? 
+
+Execute the DDL statements to create DEV/QA/PROD databases with transient and time travel settings
+
+Prompt I would like one modification in the database names, don't use the prefix APPLE and just have it sales_dev, sales_qa and sales_prod.
+
+

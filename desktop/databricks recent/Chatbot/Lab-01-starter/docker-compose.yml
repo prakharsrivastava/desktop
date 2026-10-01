@@ -1,0 +1,42 @@
+# Local LLM + embedding stack for the Advanced RAG labs — no API key required.
+#
+#   docker compose up -d        # start Ollama and auto-pull all three models (~3.6 GB, first run only)
+#   docker compose logs -f ollama-pull   # watch the one-time model download
+#   docker compose down         # stop (models stay cached in the named volume)
+#
+# The notebooks talk to http://localhost:11434/v1 (OpenAI-compatible).
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: helix-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  # One-shot: waits for the server, pulls the three models, then exits 0.
+  ollama-pull:
+    image: ollama/ollama:latest
+    container_name: helix-ollama-pull
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=ollama:11434
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        ollama pull qwen2.5:3b &&
+        ollama pull qwen2.5:1.5b &&
+        ollama pull qwen3-embedding:0.6b &&
+        echo 'All models pulled — labs are ready.'
+    restart: "no"
+
+volumes:
+  ollama:

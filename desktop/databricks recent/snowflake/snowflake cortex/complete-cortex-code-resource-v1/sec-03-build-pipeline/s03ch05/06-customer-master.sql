@@ -1,0 +1,62 @@
+-- =====================================================
+-- Silver Layer - CUSTOMER_MASTER Dynamic Table
+-- Deduplication, data quality checks, incremental refresh
+-- =====================================================
+
+CREATE OR REPLACE DYNAMIC TABLE SALES_DEV.SILVER.CUSTOMER_MASTER
+    TARGET_LAG = DOWNSTREAM
+    WAREHOUSE = COMPUTE_WH
+    REFRESH_MODE = INCREMENTAL
+    INITIALIZE = ON_CREATE
+    COMMENT = 'Silver layer customer master with deduplication and quality validation'
+AS
+SELECT
+    CUSTOMER_ID,
+    CUSTOMER_NUMBER,
+    FIRST_NAME,
+    LAST_NAME,
+    FULL_NAME,
+    GENDER,
+    DATE_OF_BIRTH,
+    EMAIL,
+    PHONE_NUMBER,
+    STREET_ADDRESS,
+    CITY,
+    STATE_PROVINCE,
+    POSTAL_CODE,
+    COUNTRY_CODE,
+    COUNTRY_NAME,
+    REGION,
+    PREFERRED_LANGUAGE,
+    CUSTOMER_SEGMENT,
+    LOYALTY_TIER,
+    REGISTRATION_DATE,
+    IS_ACTIVE,
+    SOURCE_SYSTEM,
+    RECORD_SOURCE,
+    CREATED_AT,
+    UPDATED_AT,
+    
+    -- Data Quality Flag
+    CASE 
+        WHEN CUSTOMER_ID IS NULL THEN FALSE
+        WHEN CUSTOMER_NUMBER IS NULL THEN FALSE
+        WHEN EMAIL IS NULL OR EMAIL NOT LIKE '%@%.%' THEN FALSE
+        WHEN DATE_OF_BIRTH > '2026-03-02'::DATE THEN FALSE
+        WHEN REGISTRATION_DATE > '2026-03-02'::DATE THEN FALSE
+        WHEN COUNTRY_CODE IS NULL THEN FALSE
+        ELSE TRUE
+    END AS IS_VALID_RECORD,
+    
+    -- Audit Columns
+    __FILE_NAME,
+    __ROW_NUMBER AS __SOURCE_ROW_NUMBER,
+    __LOAD_TS AS __BRONZE_LOAD_TS
+
+FROM SALES_DEV.BRONZE.CUSTOMER_MASTER
+
+-- Deduplication: Keep latest record per CUSTOMER_ID
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY CUSTOMER_ID 
+    ORDER BY __LOAD_TS DESC, __ROW_NUMBER DESC
+) = 1;

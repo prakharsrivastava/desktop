@@ -1,0 +1,12 @@
+*.zip
+*.pdf
+*.zip
+*.pdf
+.DS_Store
+*.zip
+desktop/databricks recent/evaluation/deepeval-agent-demo.zip
+desktop/databricks recent/evaluation/deepeval-agent-demo.zip
+desktop/databricks recent/evaluation/deepeval-agent-demo.zip
+.DS_Store
+__pycache__/
+*.pyc

@@ -1,0 +1,11 @@
+{
+  "name": "My Dev Container",
+  "image": "python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "postCreateCommand": "pip install numpy pandas matplotlib seaborn",
+  "configurations": [
+  
+  ]
+}

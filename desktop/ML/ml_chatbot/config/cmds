@@ -1,0 +1,70 @@
+✅ Clean .env file banao
+
+Sirf ye rakho:
+
+MONGO_DB_URL=mongodb://host.docker.internal:27017
+MONGO_DB_NAME=chat_db
+
+OLLAMA_URL=http://host.docker.internal:11434
+OLLAMA_MODELS=gemma2:2b,llama3:latest,mistral:7b
+🔥 Important (Docker use kar rahe ho)
+
+Container ke andar:
+
+❌ localhost = container khud
+✅ Mac host machine access karne ke liye:
+
+host.docker.internal
+
+So Mongo + Ollama dono ke liye localhost mat use karo.
+
+✅ requirements.txt alag file me rakho
+
+requirements.txt
+
+streamlit
+ollama
+llama-index==0.14.0
+llama-index-llms-ollama==0.7.2
+pymongo==4.14.1
+pydantic==2.11.7
+pydantic-settings==2.10.1
+python-dotenv==1.1.1
+✅ Then rebuild
+docker build -t mlchatbot .
+docker run -p 8501:8501 --env-file .env mlchatbot
+🔥 Also check Settings.py
+
+Should be like:
+
+class Settings(BaseSettings):
+    MONGO_DB_URL: str
+    MONGO_DB_NAME: str
+    OLLAMA_URL: str
+    OLLAMA_MODELS: str
+📌 Why Error Came
+
+Because:
+
+MONGO_DB_URL missing
+mongo_uri extra forbidden
+
+Means code wants:
+
+MONGO_DB_URL=
+
+but tum de rahe the:
+
+MONGO_URI=
+🚀 My Strong Guess
+
+Tumne .env + requirements.txt ek hi file me paste kar diya accidentally.
+
+If you paste Dockerfile + settings.py + project structure, main full production-ready fix de dunga.
+
+
+admin@admins-MacBook-Air ml_chatbot % docker run --name mlchatbot-debug \
+-p 8501:8501 \
+--env-file .env \
+-v $(pwd):/app \
+-it mlchatbot

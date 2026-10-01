@@ -1,0 +1,122 @@
+# ============================================================
+# Course 1018 — Module 09
+# On-slide YAML reference  (6 snippets)
+# Authentic code as shown on the course slides. Copy, run, experiment.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# Minimum Viable Semantic Model in YAML
+# ----------------------------------------------------------
+
+name: cpg_sales_model
+tables:
+  - name: fact_sales
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+    primary_key: { columns: [sale_id] }
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+  - name: dim_store
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_STORE }
+    primary_key: { columns: [store_id] }
+relationships:
+  - name: sales_to_store
+    left_table: fact_sales
+    right_table: dim_store
+    relationship_columns:
+      - { left_column: store_id, right_column: store_id }
+
+
+# ----------------------------------------------------------
+# Declaring the Tables
+# ----------------------------------------------------------
+
+tables:
+  - name: fact_sales
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+    primary_key: { columns: [sale_id] }
+  - name: dim_product
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_PRODUCT }
+    primary_key: { columns: [product_id] }
+  - name: dim_store
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_STORE }
+    primary_key: { columns: [store_id] }
+  - name: dim_time
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_TIME }
+    primary_key: { columns: [date_id] }
+
+
+# ----------------------------------------------------------
+# Defining Metrics Once, Reused Everywhere
+# ----------------------------------------------------------
+
+tables:
+  - name: fact_sales
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+      - name: units_sold
+        expr: units_sold
+        default_aggregation: sum
+      - name: avg_unit_price
+        expr: net_sales_amount / NULLIF(units_sold, 0)
+        default_aggregation: avg
+  - name: dim_product
+    dimensions:
+      - name: category
+        expr: category
+  - name: dim_store
+    dimensions:
+      - name: region
+        expr: region
+
+
+# ----------------------------------------------------------
+# Category Codes Are Prose to the Model, Not a Validated Enum
+# ----------------------------------------------------------
+
+synonyms + sample_values:
+  channel_code:
+    description: "MT=Modern Trade, GT=General Trade, ECOM=E-commerce"
+    sample_values: [MT, GT, ECOM]
+    synonyms: ["channel", "trade channel", "sales channel"]
+
+
+# ----------------------------------------------------------
+# Synonyms — One Metric, Five Ways of Asking
+# ----------------------------------------------------------
+
+tables:
+  - name: fact_sales
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+        synonyms: [revenue, topline, sales dollars]
+  - name: dim_store
+    dimensions:
+      - name: region
+        expr: region
+        synonyms: [territory, market area]
+
+
+# ----------------------------------------------------------
+# Anatomy of a Verified Query
+# ----------------------------------------------------------
+
+verified_queries:
+  - name: quarterly_sellthrough_by_category
+    question: "What was last quarter's sell-through by category?"
+    sql: |
+      SELECT p.category,
+             SUM(f.units_sold) AS total_units
+      FROM fact_sales f
+      JOIN dim_product p ON f.product_id = p.product_id
+      JOIN dim_time t ON f.date_id = t.date_id
+      WHERE t.quarter = DATEADD(quarter, -1, CURRENT_DATE())
+      GROUP BY p.category
+    use_as_onboarding_question: true
+

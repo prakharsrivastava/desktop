@@ -1,0 +1,2461 @@
+
+
+=== Introduction ===
+
+
+--- Introduction ---
+
+Hello.
+Welcome to my Intermediate to Advanced course on Monday.
+I'm a project manager that has been using Monday and other project management tools for years.
+In this course, we're going to learn all the best practices and advanced features that you can use
+in Monday in order to manage successful projects.
+We're going to look at how we properly do sprint planning.
+In Monday, we're going to have a look at how we set up a project approval board.
+We're going to look at the difference between a high level board and a low level board, and how we
+can actually connect the two boards together.
+We're going to talk about a lot of best practices for agile project management, for collaboration,
+and for saving time.
+We're going to have a look at many useful features within Monday.
+For example, how do we properly use the whiteboard?
+How we can use online docs and a lot of other useful features and best practices that you're going to
+learn over the next two hours.
+Monday is such a great tool, and this course is going to bring your skill level to the next level.
+You're going to learn from someone that's got years of experience using the tool, and it's definitely
+gonna help you in order to manage projects more efficiently.
+Let's get going and proceed with the first lesson.
+
+
+=== Monday.com features for productivity ===
+
+
+--- Batch Actions ---
+
+Welcome to the first lesson.
+In this section, I'm going to show you a lot of useful features in Monday that you may miss if someone
+doesn't show you how to properly use them.
+And what are the best practices?
+The first thing that you want to do is create a board that you can play around with.
+If you have one at the moment that you can use to learn this new features, you can go ahead and use
+it.
+Otherwise, what you can do is you can click on add.
+Then you can click on new from template.
+Click on See More templates.
+And the one that I'm going to be using is going to be powerful project management.
+If you don't see it here recommended for you just.
+Just type powerful project management.
+And you can just click on use.
+And this is going to be loaded to your Monday.com account.
+Here's what it's going to look like.
+And let's have a look at batch actions.
+Now what can be quite annoying when you lead different projects is that during a meeting, you go through
+the different statuses of some activities and then you have to amend, for example, the status of each
+one of them individually.
+Imagine that during a meeting you discuss 20 items and you find out that from the 20 items you have
+to update 18 from from no status to in progress.
+What most people will do is go here and then one by one switch them to working on it, working on it,
+working on it.
+And they will do this 18 times, for example.
+Now what you can do in order to make this process more efficient is to use the batch actions functionality.
+So for example, on planning let's click on planning here.
+The first option is for you to select Select All activities.
+This is going to select all the activities within this group.
+And then you can click on status and change the status of everything by using just one click.
+Let me change it back now.
+If you want more flexibility, another option that you have is to.
+Click for example on the first one.
+The second one.
+And let's say that you want to select everything up to activity two.
+Then if you hold the shift key.
+Hold the shift key and press here on activity two.
+This is going to select all the items until activity two.
+And then once you click on status here and changes to working on it, you're going to be able now to
+change just the four activities where you got an update that the status has been changed.
+And this is going to save you a lot of time.
+Let's go ahead to execution now.
+And let's say that we select all items.
+Select all activities.
+And let's say that we found out that all activities are going to be all.
+Let's say the first activity is going to be delayed with two days, which means that if there is a dependency
+on the first activity, all the other activities within execution will be delayed also with two days.
+Then what you can do is just select them all.
+Click on the days here and use the option at the bottom.
+Shift selected items by days and from here you can shift all the selected items with two days.
+Just click on shift.
+And all the items are shifted without you having to go individually through each item on the list.
+Another great option that you have is this bar here that was introduced by Monday, which allows you
+to do certain things on only the selected activities.
+For example, all the activities that have now selected or all items that have selected.
+I can duplicate them.
+This is really useful.
+For example, if you have recurrent activities and you you just want to copy and paste the same activities
+that you have already on the board.
+If you want to update someone on the status of certain activities, you can export these items from
+here.
+You can archive and delete them and you can also move them, which makes it so much easier to do the
+admin work on your project on multiple items at the same time.
+And this is going to save you a lot of time in the long run by just knowing this.
+Small features available in Monday batch actions are one of my favorite features in Monday, and I know
+for sure that for myself, they saved me a lot of hours every single month on managing my projects.
+Let's now proceed to the next lesson.
+
+--- Use a Whiteboard within Monday.com! ---
+
+Welcome back.
+In this lesson, I'm going to show you how to use the whiteboarding feature in Monday.com.
+Whiteboards are something that a lot of teams enjoy using because they can be great for brainstorming
+sessions, and there's just something special about how they can make you more creative in terms of
+finding a solution to a problem.
+This is why Monday introduced a great view on whiteboarding that you can use.
+What you need to do is click on all views here and from Add View.
+You see here that we have the standard views table timeline, Gantt chart, calendar.
+So what you need to do is click on apps and start searching for whiteboards in the search box.
+And straight away this is gonna appear here.
+So I'm just going to add the view.
+And they're going to name it Whiteboard Club for collaboration.
+Here's our whiteboard.
+This is a great place to brainstorm ideas with your teammates, or your team.
+Members that have access to the board will be able to find the whiteboard here.
+You don't have to give them any special permissions in order for them to use it, and you can use the
+whiteboard with your team at the same time.
+You see that here?
+Here's my name.
+And as soon as your teammates start using it, you're going to see their names next to yours as well.
+And everyone can work on the whiteboard at the same time.
+You can change the color here and you can draw.
+Strategy.
+2022.
+You can use text to add text here.
+Increase revenue by 20%.
+Higher.
+Finally more people and etc. you can use the first arrow here in order to move what you have done so
+I can move the text for example.
+Or you can select the whole drawing that I did, and I can also move it around with this option.
+You can also insert images from an image URL.
+Just copy the image address from the internet and here it is.
+And you can erase something using the last option.
+Here.
+You just select it like I did on the image and then you just click on delete.
+If you want to delete the whole thing, you do it from here and start over again.
+If you want to see your plan.
+At the same time, you can click on settings and click on Split Mode.
+And then I can have my whiteboard at the top and my plan at the bottom, and I can scroll it and see.
+Let me switch back to full screen view.
+Here it is.
+If you want to really focus on the whiteboard, you can click on Open Full Screen.
+And this is going to make your full screen only display the whiteboard.
+This is usually what I do when working with my team using the whiteboard.
+And this is how you use the whiteboard app within Monday in order to collaborate with your team.
+Enjoy using it.
+Let's now proceed to the next lesson.
+
+
+=== Advanced Project Management best practices - Don't depend on Templates ===
+
+
+--- Using the Favorites Workspace ---
+
+Hey.
+Welcome back.
+Something that may seem like a basic feature is the possibility to make some of your boards favorite.
+So, for example, if this portfolio management board is one of the things that I look every single
+day, there is no need for me to go through a lot of different workspaces and folders in order to find
+it.
+Now, in our case here, the structure is not very complex.
+We only have a few workspaces, and within these few workspaces we have a few folders with a few boards.
+However, when you start working in a real environment in a corporation, at some point here it's going
+to be like a wild West.
+So you're going to have dozens of different workspaces within these workspaces.
+We're going to have many different folders.
+You're going to have a lot of boards, and if you don't have a proper roles in the company on how to
+structure all these workspaces, it can be really hard to find things that you need on a daily basis.
+So this is why I always tend to make favorites of the boards and dashboards that I use on a daily basis.
+So what I usually do is, for example, if I use this board, I make it a favorite from here from the
+options are to favorites.
+If I'm using something else, like for example, this dashboard are also going to make it a favorite.
+And then from another workspace I'm going to choose what I'm using so I don't have to go through every
+single workspace.
+And then when I come to Monday.com, I simply go to favorites.
+And here I have a list of, for example, the 5 or 6 different boards and dashboards that I need on
+a regular basis.
+And what's even better is that Monday recently introduced the option to actually add folders to your
+favorites, so you can actually add folders here.
+By the way, in order to add a folder, you first need to add a board or a dashboard here, just keep
+that in mind and then you can further split your work.
+So for example for example daily for things that you're checking daily.
+Weekly.
+Manfred.
+This is just one use case.
+If you want them like this in a specific format, obviously you can have different folders for different
+departments or whatever works for you.
+But if I need to advise you on something is definitely start using favorites and even if not in the
+beginning, once you get into a more complex environment with a lot of boards, we have all heard about
+information overload, so we're going to be much more effective if you place the things that you actually
+need to work on in here under favorites.
+So that's it.
+Let's now proceed to the next lesson.
+
+
+=== File Management in Monday.com ===
+
+
+--- Conditional Coloring ---
+
+Welcome back.
+In order to take your Monday.com project management to the next level, you can think about using some
+of the nice little features that Monday recently introduced.
+For example, you can use the conditional coloring.
+I find this really useful in order to make it very clear that some tasks will take a longer time, or
+they will require more resources.
+So for example, here we have the planned effort.
+Maybe I want to highlight anything that's above 30 hours, which will be a clear flag to management
+and to and for the project team that we will need to keep an eye on this item and allocate the necessary
+resources in order to complete it on time.
+So you just click on conditional coloring and from here you select the column that you want.
+For example I want to select Planned Effort and you put the condition here I'm going to make this anything
+that's equal or above 30.
+And obviously you have some other options some project managers use.
+This is empty.
+For example, if you have a column that you definitely you want the team to populate, you can tag this
+as is empty.
+So you straight away gonna see where you still missing information, but I just put the condition equal
+or above 30.
+And now all my items that are planned to take more than 30 hours are gonna be flagged for me.
+And you can add multiple conditions here.
+Now keep in mind that if we pretty much do the same kind of conditional formatting with the exact same
+condition, the second condition is going to be the one that's going to be displayed on the board.
+So now everything is going to be switched to the second condition here.
+And this is how you use conditional coloring to bring attention to a specific item.
+Let's now proceed to the next lesson.
+
+
+=== Other useful info to know ===
+
+
+--- The Bolt Switch ---
+
+When you start using Monday more extensively for all the projects that you're involved in, and especially
+if within your organization Monday is used, then you end up with dozens of different spaces, right?
+Just let me create a few.
+So you're gonna have a lot of spaces, and you're gonna have a lot of projects within the spaces.
+And it can be really hard to find something.
+I've been at a place where I've had my work Monday populated with hundreds of projects, and it takes
+a lot of time to find what I'm looking for.
+The great news is that Monday has got this feature called the Boat Switch, which is this one here,
+which allows you to really quickly find the project that you're looking for.
+So let's just click on it.
+And I say that I know that the project that I'm looking for is daily team tasks.
+I can just start typing it and here it is.
+I can open it straight away from here.
+This way, using keywords, you can really quickly find what you need.
+Projects I find the projects one.
+And I don't have to scroll.
+I can switch really easily.
+And also remember that there is a shortcut.
+So for Mac it's command and B, and for a PC it's control and B in order to open the boat switch.
+This was just a quick tip on how to navigate through Monday to make it easier for you, let's now proceed
+to the next lesson.
+
+
+=== Integrations ===
+
+
+--- Deadline Mode ---
+
+Welcome back.
+The deadline mode feature in Monday is something that our advise you to use on all your boards, and
+let's see how this works.
+It's already applied on the timeline within this template.
+So what I'm going to do is I'm going to click on the options and I'm going to remove the deadline mode.
+Now if I again click on the options and click on set as a deadline, I can link this column to the status
+column in order to say that if the status column is not set to complete, then this is going to trigger
+a notification that I'm beyond the deadline.
+You also have the option to link this to a person column so I can link it to the owner.
+And then I'm just going to connect the columns.
+And here's what happens now.
+If a task is overdue, it's going to be in red.
+And when you hover over it, it's going to say exactly when it was due, for example, due yesterday.
+Then when you hover over the other tasks, it's gonna let you know how many days you have until the
+deadline.
+If I switch the status column for one of these tasks.
+So let's say, for example, I switch this to done.
+Straight away it's going to say done.
+One day after deadline.
+So it's going to remember here that this was done.
+But it wasn't done on time because it was done one day after the deadline.
+I still have one day until this deadline here.
+So if I set this to done now, and if I hover over this, it's just going to say done on time.
+I have two days here.
+So if I click on done it's going to just say done on time.
+So it's not going to say done two days before the deadline for example.
+You also have the option to define what's a done status in the status column.
+So if I click on the status column and go to Column Settings.
+From here you can define what's the status done.
+For example, if you don't really have done but you have something else such as completed and it's a
+different color, for example, working on it just just as an example, you can add it here.
+This is useful because, for example, if there's some tasks that were cancelled or put on hold and
+you don't want them to be flagged as beyond deadline, you can mark them here.
+Because in some projects there are some optional tasks that due to the decision, they're not going
+to be completed.
+You may decide to add a status for them so you don't have it displayed as beyond deadline.
+Okay, I'm going to take this off.
+So I'm just going to leave down here on the settings.
+As a project manager, I always also select the option Add Date reminders in this template here.
+There's already some automations done, so you see that there is the automation when status changes
+to done, set actual date to current date, which is a great automation to have on all of your boards.
+If you have an actual date when timeline arrives and status is not done, change it to stock.
+This is just an optional one.
+I really don't want it at the moment, so I'm gonna switch it off.
+When actual date arrives, notify item subscribers and another one that you can do.
+And I always do it.
+Go to due dates.
+October when a date arrives 9 a.m. and.
+Status.
+Is not done.
+This item seems to be delayed.
+And then you notify the owner.
+Or you can notify here the project manager.
+This way you make sure that items get updated on time, because I find it that in a lot of these projects,
+people actually working on the items and sometimes they have even completed them, but they simply don't
+log into the project management software in order to update their item.
+So it's a good idea to set these reminders so they get a notification in their mailbox, which is going
+to prompt them to update their items.
+This is going to avoid a lot of unnecessary follow up.
+That's how you set the deadline mode and some best practices on following up with your team.
+Let's now proceed to the next lesson.
+
+
+=== App Development in Monday ===
+
+
+--- Collaborate better using Online Docs features ---
+
+Welcome back.
+In this lesson, I'm going to show you the online docs application in Monday.
+When working on a project, one of the tasks that requires a lot of collaboration is working on documents
+and preparing documents, such as.
+You need to prepare the business case.
+You need to prepare some other word document for the stakeholder.
+All this means a lot of collaboration within the team, and it can become really hard to constantly
+having to save this in a certain platform, a SharePoint or some other website where you need to go
+every time in order to get to your document and work on it.
+Monday.
+Solve this by introducing online docs.
+Using online docs, you're going to be able to embed documents inside Monday and collaborate on them
+straight away from the Monday website, without the need to even leave the Monday.com website.
+Let me show you how this works.
+So from views I'm going to click on Add View and I'm going to go to apps.
+And I'm going to look for online docs online docs.
+And I'm going to add this.
+Online docs works by copy and pasting an embed link here.
+Now keep in mind this should be an embed link.
+It shouldn't be a simple URL.
+In this way you'll be able to actually input the document within the screen here.
+So this creates another view for us which is called online docs.
+And what we want to do here is now on this screen embed the document.
+The example that I'm going to show you is a CV.
+So what we'll try to do is to embed a CV from our Google Docs environment.
+So this is my Google Docs environment.
+Let me open the first one here.
+So this is a template for CV and I want to embed it to my Monday.com project.
+So what I'll do is I'll click on.
+File, then I'll click on share.
+And I want to get a link.
+So I'm going to copy the link.
+And once I've copied the link, I'm gonna go back to Monday.
+And here I'm going to paste it here.
+And I'm going to name the link CV.
+And I'm going to click on Embed link.
+So here's the file here on the right.
+And here's the actual CV in the middle.
+So you can see that I can actually start collaborating collaborating on this straight away here with
+my team.
+So everyone with an access to the board will be able to update the CV here now.
+And in this way you can work on the same document with your team at the same time and collaborate properly.
+So the great news is that money is so smart that because this is a template divided into sections in
+word, it even divides the sections here.
+So I can quickly switch to skills from the menu here.
+And here it is.
+So for example, if I had a document that was 50 pages when I was when I clicked on a different section,
+it's going to jump to the section.
+And let's say I make some updates.
+Example.
+So I changed this to example.
+And just like this, I can update that experience.
+Project manager.
+Then I can go to a different board.
+I'll go to the main table and when you go back from views to online docs.
+You see, this is going to be on the right and here it is.
+The details are saved so everyone in the team can collaborate.
+There is no limit to what you can embed here.
+You can even embed a map from Google Maps, for example.
+You just need the embed link.
+And you can use this in order to collaborate on any document that you need to do within your project.
+And if you want to export it, just click on File Download and then you can download it in a few different
+options here.
+Let me, for example, download it in PDF.
+This is going to be downloaded here.
+And when you open it just like that, you worked with your team within Monday.com to collaborate on
+a document.
+And the end result is a PDF that you can use for any reason that you need.
+This is a new feature that I tend to use all the time to collaborate on documents, so I just want to
+show it to you because I believe it can be really useful.
+If your team doesn't want to actually amend the document, they can put some comments for you to review.
+So for example here, an experience where I put project manager, if I right click I can put a comment.
+We need to review this part.
+For example, I can comment on this and here's the comment going to be on the right and you're going
+to have it highlighted in yellow.
+So let me do one more.
+Just example comment.
+Okay.
+So if I, for example, click on the first one, this is gonna highlight for me the comment that someone
+from my team made.
+And if I click on the second one, same thing is going to happen.
+Another option that you have here is to.
+Use suggest edits.
+We should skip this position and you can actually mention someone.
+In order to tag them, so they receive a notification that you've either suggested an edit or commented
+on their document only.
+Docs is a great feature.
+I definitely gonna advise you to have a look at it and try to use it within your team in the long run,
+once you get used to it, I believe it's going to be one of the most useful things you'll find in Monday.
+If you're getting an error when trying to embed a document.
+I've seen this a lot of times within my team, and most of the time it is because, for example, the
+link that you are trying to embed is not embedded link, and in some cases some sites don't allow embedding
+and we will not allow for you to embed their links externally.
+But this is going to work for things such as Google Drive, OneDrive and other places where people normally
+keep their documents online.
+This is how you use online docs.
+Let's now proceed to the next lesson.
+
+
+=== Next Steps ===
+
+
+--- Make the team focus on outstanding work - archive done tasks ---
+
+Welcome back.
+In this lesson I'm going to teach you how to keep your board in Monday clean so your team can be focused
+on the items that are really important.
+If you have a lot of tasks within your plan.
+And let's say, for example, at the moment in this plan we have only about 20 tasks.
+But in most projects that I've been part of over the years, we've had probably close to 100 tasks,
+and it can be really hard to focus on what's important within this plan if you have the done tasks also
+within it.
+For example, what we see now on this board is that the first two groups here, planning and execution,
+we have one, two, three.
+Nine tasks in total.
+However, six of these tasks have already been completed, so in reality we only have three tasks here.
+So what you may decide to do is to archive the done tasks and only leave the tasks that are still to
+be done, so your team can focus on what's really important.
+And this way you actually put a bit more urgency on your team, because when you look at the plan and
+from 20 tasks, you have 18 completed, it's just human nature that this relaxes you.
+You think, oh, okay, so I've done 18 out of the 20 tasks, so we're good even if this task is near
+the deadline.
+If we did everything else on time, then then we should be able to do it.
+But in my opinion, when I want to put more pressure and I and I say this in the positive kind of way,
+I actually automate my board to archive my done tasks and only leave the tasks that the team needs to
+focus on.
+I don't do it manually.
+Because you have the option to manually go through the tasks here.
+For example, I can select activity one and I can click on archive.
+Just like this, right?
+But this is a lot of admin work.
+So what I'll propose you to do is set up an automation that's gonna do this for you automatically.
+So here's how this is done.
+We go to automate.
+And then we click on Add New Automation.
+And then you can just search here.
+When?
+Status.
+And you can just put the keywords here.
+So I'm going to put archive.
+This is where it is within the status change category.
+And I'm going to select when status changes to something archived item.
+And I'm going to say when status changes to done.
+Archive this item and I will add this to the board.
+And this is now on.
+I'm gonna close this.
+Now, this is only gonna work on the new items that you set to start as done, because the automation
+works when something is set to the status.
+So if I go on this one and select and change it to work, working on it, and then I change it back
+to done.
+This is going to disappear because this is going to be archived.
+Again working on it, and then I'm going to set it back to done.
+So it's important to if you want to set this kind of automations where it takes into account the status
+change, it's better to do it early than later, because in this way you would avoid the admin work,
+because now if I want to set everything that's done to archive, then I need to still do it manually
+because I did the automation after I had done tasks.
+This is just a small best practice that I tend to use because this way now in planning I only have two
+items and my team can only focus on the two items here.
+Some may say, but this means that no one's going to see all the work that we've done.
+But this is not true, because if you need to still see the tasks, once you archive them, you can
+still find them.
+So you just go and go here to the board settings from this menu.
+And you're going to go to Archived history.
+And you can simply restore everything that you've done here.
+And when you go back to the board, you're now going to have your items back.
+So in my opinion, you should think about archiving your items so your team can focus on what's really
+important in the plan.
+And this is a small best practice that I wanted to share with you.
+Let's now proceed to the next lesson.
+
+--- Something went wrong? Restore deleted items easily! ---
+
+Welcome back when you are managing a project in a project management tool.
+In my opinion, the scariest thing is for you or someone else on the team to delete something by mistake.
+So let's say that you've created this great board.
+You have everything aligned, you have everyone assigned, and then for some reason, someone within
+the team deletes your column on timeline.
+A new column simply disappears, and if you want to get it back, you have to start all over again,
+right?
+Because you only have here 10s in order to undo the damage that's done.
+This used to be the case because Monday previously didn't have a way to restore this deleted items back,
+so you had to go over and start recreating what you've deleted.
+However, they've recently introduced a new feature which you're gonna find under your account.
+So if you go to.
+Your count from this menu.
+Here you will find the recycle Bin and within the recycle bin are all the things that you have deleted.
+For example, this is the last column that I've deleted here, which was the timeline from low level
+board one.
+And what you can do is to simply restore it from here.
+And then when I go back to the workspaces and go back to my board, here's my timeline.
+And the great news about this feature is that it's going to keep everything deleted over the last 30
+days.
+So even if something was deleted one week ago, and now you've had a meeting with the management and
+you regret deleting it, you can simply go to the recycle bin and restore it in just a minute.
+I want to share this with you in case something goes wrong with your projects.
+Let's now proceed to the next lesson.
+
+--- High-Level Board for Program Management ---
+
+So far we've talked about how we can manage individual projects, even complex projects, but what we
+haven't talked about is how you can manage a complex multi project program within Monday.com.
+This is where things get serious.
+And for example, if you're leading a program that involves six different projects, you need a way
+in order to track all these six projects and report to management on a weekly basis how things are going
+for each project.
+For this, what I use is a high level board.
+In order to create a high level board, let's click on add.
+And then we're going to click on new blank board.
+And we're gonna name this high level.
+Program Management board and we're going to create it.
+The idea of the high level board is to give key information of all the different projects that are part
+of the program.
+The idea here is not to have every single task for each project.
+This is not a task board.
+This is a high level board that that's more suitable for the program team, the management team and
+the company leadership to have a high level understanding of where each project is.
+And this is also used to work with management in order to prioritize the different projects.
+Let's say our program is to move our business intelligence solutions to a new platform.
+For example, this will mean that we need to move thousands of reports that are already generated in
+a certain business intelligence tool and move them to a new environment.
+This is going to be a program that's going to involve a lot of projects.
+So for example, what we can do is let's say that we want to do that over one year.
+So our groups here, we can use them in order to track the different quarters Q1 projects.
+We're gonna list all the different projects here.
+So the first one is going to be analysis of impact.
+This can sound like a simple task, but remember that here we're moving thousands of reports and we're
+moving users.
+So the analysis itself gonna be a separate project that's going to take a long time.
+Then the second project here is going to be prepare the backend systems.
+Training for admins and data resources because the organization is going to be using a new tool.
+So this is going to involve some training here.
+So let's say that this is for Q1.
+And then.
+We're going to have q-2 projects.
+Here.
+We want to finalize the new solution.
+Migrate 20% of the data solutions.
+And let's say that this is for Q2.
+Then I founded a new group.
+And they're going to move the new group to the bottom.
+And this is going to be Q3 projects.
+Then we're going to have change management for users.
+Then we're going to have.
+Movement of the other 80%, then you're going to add one more item.
+Again.
+I'm going to move it to the bottom here.
+Okay.
+Move this to the third.
+So let me move it to the bottom.
+Lounge the new system to production.
+Sunset the old system.
+Because in the beginning you don't want to sunset the previous solution until everything works fine.
+And that's about it.
+So this program that's gonna take a year to complete in order to move.
+The best solution is gonna involve completing nine different projects.
+Imagine having all this on one board.
+First of all, there will be different teams that are going to be managing the different projects,
+the training of for admins and data resources.
+This is something for which some consultants will need to be hired and etc..
+So this is not going to be the same as people that will be responsible for the preparing of the back
+end, so it doesn't make sense to have it everything on one board.
+But it's important for management and for for the program leads to understand where each track is.
+Now.
+For example, in this case, most of the projects are not gonna run in parallel.
+But imagine that during the first meeting, management decides that all this needs to be done in two
+quarters instead of three.
+Then you need to move the change management here.
+You need to move all these projects within just two quarters.
+Let me delete it.
+Let's leave it this way.
+And then this means that you're going to have, at any given time, at least 4 to 5 projects running
+at the same time.
+And these projects will need a different lead.
+They will have a different status.
+They'll have different issues.
+They will have different risks.
+So you definitely want to have them on a separate board with all the different tasks for each project.
+You don't want to have everything here on the same board.
+What you do next is use the person column for project lead.
+So for the different projects you're going to have different leads.
+For example.
+Peter's gonna run this one.
+Let me invite someone else.
+For example.
+Mary.
+Example Hotmail.com.
+Mary is gonna run this one.
+George is gonna run this one.
+Mary is gonna run this one.
+Peter.
+George.
+Peter and Mary.
+So each project will have a different project lead.
+And then you're going to have the status here and you can update the statuses.
+You can put a new label.
+For example.
+I don't want this to be working on it.
+I want it to be in progress.
+Stuck.
+Done.
+Not started.
+At risk.
+And let's say that the this one is in progress.
+This is also in progress.
+This is at risk.
+This is in progress.
+Or this talk in progress in progress talk not started and this are not started yet.
+Then you can add a timeline.
+For example, this is this started back in December until eight.
+This one starts on the first until.
+22nd.
+Ninth to 30th.
+Let me assign some timelines for everything.
+They're not going to be proper timelines for the quarters.
+But just as an example and this can be a deadline, but I'm not going to go and assign them.
+Oh.
+If this is something that you're going to use to work with management, you can have something like
+budget here.
+So this is going to be the necessary budget.
+For example 30,000 160,000.
+80,000 and 180,000.
+Obviously you can go to Column Settings and put this in dollars.
+So how does this work?
+This is going to be our high level board, which you're going to use in order to see at a glance where
+the overall program is.
+From here you see the project, you see the lead, you see the overall status of the project.
+You see the deadline was the actual timeline budget.
+You can put here the team and put the the people that are part of this project.
+Even if they're ten, you can put them here, put the team.
+Then you can add uh, for example, a drop down column.
+You can create a label here.
+And let's say this is going to be a priority.
+High priority.
+Medium priority.
+Just.
+Just as an example.
+Low priority.
+And then you're going to select high priority here.
+Medium priority.
+This is just one of the ways to do a priority by the way.
+There are obviously other ways.
+And you can also do the color formatting that we've used in a previous lesson.
+So the idea is to have the key information here that's relevant to the leadership.
+But don't go into the detail for the details.
+You need a low level board, which is then going to list all the different tasks.
+And let's proceed to the next lesson to see how this should be done.
+
+--- Low-Level Board ---
+
+Welcome back.
+Let's now look at an example of how we use a low level boards as part of our high level board strategy.
+So in the previous lesson we've created a high level board which lists all the different projects that
+we need to complete in Q1 and Q2.
+So we have nine projects here that our company is going to complete over the next half.
+Now, each one of these projects will need its own board within Monday in order to track it properly.
+And I've created one example here.
+So you see that I have created a new board here which is called low level boards.
+Unsettled system.
+And this is just a really simple board that I've created, divided into two sections Planning and Execution.
+And here all the planning items that we need to do in order to sunset our Otbi system, create a list
+of reports, create lists of users potential impact to systems, potential impact to users.
+Analysis sessions with users for each group.
+Allocate resources for the sunset.
+So this is where we plan the sunset.
+And then in the execution we sunset 10% of the reports.
+We test the impact of sunsetting this 10% and we sunset the remaining reports, cancel all the subscriptions
+for the different servers and BI systems that we have, and then we archive all the documentation on
+the old system.
+So these are all the tasks that we need to do in order to sunset the old system.
+And you see that in the high level board we have the sunset, the old system, a simple one line here.
+So the idea here is now is that here we just show to management the overall progress with sunsetting
+the old system.
+And then we use the low level board in order to actually manage the process of sunsetting the system.
+And this is the main difference between a low level board and a high level board.
+Now in the next lesson we're going to see how we can actually link the two boards together.
+So we don't have to copy and paste the information from the low level board to the high level board.
+This is where we actually start getting to the more advanced usage of Monte, and making sure that we
+use Monte to its full potential.
+So let's proceed to the next lesson and see how we can do that.
+
+--- Connect the High-Level and Low-Level boards ---
+
+Welcome back.
+In this lesson, we're going to see how we can link a high level board to a low level board.
+The first thing that we will need to do is go to the high level board.
+And then we're going to click on add column and we're gonna select Connect Boards.
+And from here we're going to again click on select a board.
+And we're going to select the low level board that we've created for the sunset system.
+And we're going to link the board.
+And from here we can straight away add a mirror column and we're going to select status.
+And we're going to click on done.
+So what we want to do is display the status from the low level board into this column here.
+Here you can select the items that you want to display.
+Let's say for example I want to select the tasks from the planning.
+I don't want to display everything.
+I just want to display the task from the planning.
+And you're going to see that straight away.
+The different statuses from the low board are displayed here.
+Let me go back to low level board.
+The connection here was automatic, so I straight away can see that it's connected to the high level
+board sunset, the old system.
+And here we have one, two, three, four, five, six different items in the planning group where four
+are in progress, one is done and one is stuck.
+And if I now go back to the high level board, you'll be able to see that I get the same statuses here,
+which is great, which means that if I'm having a review with management and they ask me how is this
+going, we can simply quickly go and see that we have six items and four are in progress, one is done
+and one is stuck.
+And you can add more mirror columns here.
+For example, I can click on more columns.
+From here I can search for mirror.
+Added to the board and then.
+Again, I'll select the low level board and I can select anything else.
+For example, if I select person.
+Which is the owner?
+Pretty much.
+I can do that.
+And then if I go to the lower level board.
+You see that only have one person there because I didn't assign all the different tasks, but let me
+assign them.
+So, Mary.
+And that's it.
+Let me go back to the high level board.
+And if I scroll to the right, you'll see that this is now going to display me, the different owners.
+And I can change the status here to gold status because we once have the status here.
+And this is for example in progress.
+But the detailed status is the different statuses for all the activities.
+And here you can have the owners project managers for example.
+It's going to depend on what kind of columns you have in the low level boards.
+For example, if you had budget here and let me add budget by clicking on numbers.
+Yes, twice.
+So let me delete one of them.
+So this is our budget.
+And let's say that here have 5000.
+Then I have 3000.
+And I'm just going to put some random numbers here.
+So the total is 350.
+And I will just change this to dollars.
+So the budget for the planning is $350,000.
+So we'll come back here and I'll add a new column which is going to be a mirror column.
+When added to the board.
+And then I'm gonna link this.
+To the low level boards, and I'm going to link it to the budget and I want to have the some.
+Okay.
+And I can see that straight away.
+Okay, let me change this to budget.
+Straight away I can see that the budget is $350,000, which means that I no longer need to track the
+budget here manually so I can delete this column.
+And my budget is going to be tracked from the low level boards, so I don't have to keep maintaining
+it in two places.
+And let me put it here a bit more to the left.
+And I'm going to put the detailed status here.
+I don't need this for now with the project manager, so I'm going to delete it now.
+This approach works if the low level board includes details about the specifics of all the different
+projects within the high level board.
+So for example, if the analysis of impact includes the.
+Planning items or few planning items from the low level board.
+Then if you have, for example, the sunset, include a different part, for example the execution part,
+then this is gonna work.
+Let's go.
+Let me go to the low level boards.
+Then if I assign something to the budget here, for example, some numbers.
+Then this is going to be updated on my high level board as well, which means that this approach will
+work if, for example, you have a really big program, but you track the program here on the high level
+board, a separate main items, and within the low level board, each of these main items is a different
+group for you.
+This is not going to work.
+If you have the nine projects here as nine separate boards, because you can only do the linking to
+one board at a time.
+In order to display all the information in one column.
+Otherwise, you end up with having to have a budget column for each one of the different boards here.
+If you want to use this approach, then what you will have to do is have the high level board with the
+different main projects here or main areas of the project here, for example analysis of impact.
+And then on the low level board, you're going to have the whole group here as analysis.
+Of impact.
+Then the second one here is prepared the back end systems.
+So then on the low level board your second group is going to be prepare the back end systems.
+Then you're going to add a new group.
+And this new group is going to be the training for admins and data resources.
+And you're going to move it down here.
+And then what you're going to have is the different tasks here.
+For example, train users, train data resources and etc. and within the high level board for training
+for admins and data resources.
+Is still linked to the low level board.
+You're just gonna link the two new items here that you have.
+And then once you put a budget.
+Here.
+This is going to be displayed in the high level board.
+So this is how you use the connect board and mirror columns within Monday.
+Keep in mind that the limitation here is that you need to have 1 to 1 relationship here.
+In order for this to properly work.
+There are some workarounds that you can use in order to have all the projects as a separate board here,
+and then have one place where you put the status of each project as an overview page.
+And this is what we're going to review next.
+How to achieve that, if that's what you want to do.
+Let's now proceed to the next lesson.
+
+--- Overview Dashboard for multiple projects ---
+
+Welcome back.
+In the last lesson we talked about high level boards, a low level board, how we connect them, what
+this is good to be used for and what are the limitations.
+One of the limitations was that it's not efficient to have multiple low level boards and then try to
+connect them to a high level board, because it's simply not possible to do it in a good enough way.
+So for this, I'm going to show you how we can use a dashboard in order to display all the information
+from the different projects that you're running on separate low level reports.
+So I'm going to click on add and I'm gonna click on New Blank Dashboard.
+I'm going to name this program overview or even management program overview.
+Then from the next section, you can select what boards you want to display information out from.
+Let me, for example, decide to choose a few.
+So for example, our first board, low level board and projects.
+And I'm going to click on done.
+From here, you can select straight away a widget that I want to add, and the one that I really want
+to add is the status overview.
+So I'm going to click on this one.
+And I'm going to say that.
+I want to use the status, but I only want to use it from.
+The first dashboard here, which is projects, because I want to display the status of the activities
+from this board first.
+And I'm going to click on done.
+And here it is.
+And in order to not confuse you let me rename this to.
+Low level bought one.
+Then I'm gonna rename this to Low Level Board two, and I'll find the other one, this one.
+And I'm gonna name this.
+Low level board three, because the idea here is to show you how you can use a dashboard in order to
+show the statuses of a lot of different low level dashboards, of a lot of different low level boards
+that are displaying information about different projects.
+And let me click on edit here.
+So this is low level port one.
+And if you're wondering if that's correct, you can just go to settings.
+And you see that I'm only picking the data from low level port one, which is this one here.
+And my battery chart here is created from the statuses on this port only.
+Okay.
+Done.
+Then what I'll do is I'll add another widget.
+So this is going to be again a battery.
+And here I'm not going to pick it from low level board 1 or 3, I just only going to pick it from low
+level board two.
+I'm going to click on done.
+Just like this.
+Like that.
+So this is low level board two.
+And then I'm gonna add one more, which is gonna be.
+The low level board three the status of the low level board three and I'm going to name this low level
+board three.
+Which means pretty much project one, project two, and project three.
+Then I can, for example, I can add the numbers, the budget from each project.
+So okay, on this one I don't.
+Okay, I have the budget here named as a cost but doesn't matter.
+So let me pick the cost.
+So this is the cost here.
+And.
+This is.
+Project one budget and you can do the same for the next two.
+So I'm going to quickly do it like this.
+Project two budget and then the final one.
+Project three.
+Budget and that's it.
+So you have also the budget.
+Now what I usually do is add a widget.
+That code, let me find it.
+Summary.
+Overview.
+This is the one overview summary of all the projects.
+This is a great one and I usually keep it at the top.
+This is gonna show the progress of each of the projects based on how many tasks have been done.
+And you can keep this.
+At the top.
+And move the things around so they can fit properly.
+So it's gonna look something like this.
+So the top you get an overview progress of all projects.
+And then here you can quickly see the progress of each of the different projects.
+And obviously you have you can have ten projects here.
+Then the next one is going to be in a bit more detail.
+What was the status of all the different tasks then here I have the budget and you have a lot of other
+options here.
+You can put a timeline, you can put charts, especially if you're tracking the effort.
+For example, you can put charts with the different effort that's going to take on the different projects.
+Here you have time tracking, calendar options, a timeline option.
+You can even do a Gantt chart here.
+You can do a lot of interesting designs for your dashboards.
+I would advise you to play around with it.
+It's really intuitive and there are a lot of options, so it really depends on your needs, what you
+want to achieve.
+It's one thing if you're creating a dashboard for management, it's completely another thing.
+If you, uh, creating a dashboard that's gonna be used on a daily basis within the team that's actually
+delivering the project.
+So it really depends on what you're trying to achieve here.
+So this is how you should approach showing the progress of multiple projects to management.
+Instead of using the high level board, which is probably not going to be the best place if you're trying
+to have a separate low level board for each project.
+Let's now proceed to the next lesson.
+
+--- Manage project budgets using Monday.com ---
+
+Welcome back.
+Another useful use case of Monday.com is to use it to manage the project budgets within Monday.
+You have all your tasks listed within the low level board, so this makes it a really practical place
+to record the budget and the actual cost.
+So let's take for example this low level board two, which is our project two within the program that
+we've created, we have all our tasks here and we already have a column on budget.
+Now, I know budgets are sometimes a sensitive topic that you may not want to display here because your
+team can see it.
+But Monday has thought about this problem and we have a solution for it.
+If you go to the budget column and click here on the settings, you will see this column permissions.
+And you see that even at the moment I have made some restrictions.
+So let me take it out.
+So at the moment there's no restrictions on this column and each column.
+Can have its own restrictions here.
+So here is this budget.
+And then there are no restrictions at the moment.
+And you can do two things.
+You can restrict who can edit the column.
+Or you can even restrict who can view the column.
+So if I click on restrict column view.
+And if I enter a name.
+So at the moment within my team I have George, Peter and Mary.
+If I put Peter here, so we at the moment we have Peter and George.
+And if I close this.
+You see that now?
+I have this permission settings.
+If I click on it, I can see that the only two people that can view this column are George and Peter,
+and you can even see that some restrictions applied by this little icon that's going to appear here,
+which means that if, for example, Mary, who is the other person who is going to use this project
+board, opens this project board, she will not at all see the budget column.
+So she will see the item name, person, status and date and she will not have the budget column at
+all be displayed on her screen.
+So this is how you can restrict who can view the budget.
+So once we have the budget, we want to have another column which is number because we want to track
+the actual cost, what it actually costs.
+So we can have.
+Actual cost.
+And here we can say this cost 5000.
+This actually costed 4000.
+5000, then this was 7000.
+This was actually just 15,000 and this was 300,000, for example.
+And then let me do a bit more below.
+I'm just gonna fill them all in so we can have a bit more data here.
+Okay.
+And this is gonna be 15,000.
+And I think that's enough for now.
+And I can also restrict this column here.
+So I'm going to click here.
+I'm going to restrict who can view this.
+And I'm going to say it should be George and Peter.
+And now we have our budget and we have our cost.
+And we can compare whether we are over budget or not.
+Let me make this in dollars, column settings and dollars.
+Then, in order to make it a bit easier to see whether we have a problem for a certain item in terms
+of budget, what I'm going to do, I'm going to create a formula that's going to tell me that.
+So I'm going to choose the formula column.
+And from here you're going to select the if statement here.
+And I'm going to say if actual cost is over the budget.
+Then.
+Over budget.
+Otherwise.
+It's going to be okay.
+And they're going to set this.
+And I can name this, for example.
+Within budget and you can see that straight away.
+I see the lines that are over budget.
+So most lines here are okay, but I have a few that are over budget.
+If something is still blank in terms of actual cost, it's going to be okay for now because you haven't
+entered a cost that's above the budget.
+I can even if I want to restrict this view.
+To just Peter and myself.
+So now I can easily see what's overbudget.
+I can do another formula, which is gonna let me know how much I am overbudget or how much I've got
+left.
+So I'm gonna click on formula again.
+And this one's going to be.
+Actual cost minus the budget.
+So this is.
+Left over budget.
+And another thing that you can do in order to really highlight that something is over budget, is to
+use the conditional coloring that we've used.
+So you're going to say if the column.
+Within budget.
+Is.
+Over budget, then you're gonna color it.
+For example, I'm gonna color it in in this color.
+So straight away when you come to the board, you'll see what's over budget here.
+Another useful thing that you can do for your budget is to.
+Create a view that's gonna be a chart view.
+And here you can base this.
+On the actual cost and let me change it, for example, to a donut chart.
+And this is going to be the actual cost.
+And we're going to see.
+The percentage here.
+Then you're going to change the label to the name.
+And this way you can easily see what are your tops items where you spend the most in terms of percentage.
+You can switch this to value easily, so it's just an easier way to see the information.
+If you're in a meeting and reviewing this with someone, and you can obviously switch this to only the
+top items.
+For example, just to see the top items here that are making what percentage, for example, the top
+items are making 95% of the costs.
+And these are the and these are the top five items.
+Allocate resources for the sunset, sunset remaining 90% of reports, test the impact and etc..
+So this is just a tip that you can use the charts view in order to display this information during a
+meeting.
+Another useful thing that you can do is to set an automation.
+And the automation is going to be.
+Let me click on Add New Automation.
+So when you come here, go to notifications.
+And within notifications you can scroll down and you're going to find this one.
+When a number is greater than a value, notify someone and I'm going to add it to the port.
+And I'm going to say when the actual cost is greater.
+Then, for example, 50,000.
+Hi, George.
+This item crossed the.
+50 K mark.
+Let's review it together.
+Okay.
+In a lot of projects you have these limits for certain amounts.
+If the cost of a specific item goes above a certain amount, then this needs to go to an approval process
+or it needs to be reviewed in more detail.
+And you can set this from here.
+So every time the actual cost of this item goes above 50 K, we notify George and we go over the cost
+with George, who is, for example, our financial director.
+Okay, I'm going to add it to the board.
+And here it is.
+Let me switch back to the main table.
+These are some of the main ways in which you can use Monday.com in order to manage budgets for your
+projects.
+Let's now proceed to the next lesson.
+
+--- Agile Project Management in Monday.com ---
+
+Welcome back.
+You've probably heard about agile project management sprints.
+Maybe you actually experienced in leading projects based on sprints, and you only need guidance on
+how to use them within Monday.
+In this lecture, I'm going to show you how I approach leading projects within Monday based on sprints
+and what are the key best practices to keep in mind.
+Let's start by going to add.
+Now, obviously, you have the option to start from scratch and build everything from zero.
+But what I usually tend to do is use a template, because Monday has built some great templates that
+we can utilize, and the one that we're going to look at today is called Sprint Planning Board.
+This one.
+And I'm just gonna straight away click on use.
+And I'm just going to leave it as a sprint planning board at the moment.
+Let's create the board.
+And here it is.
+We have the structure already in place here.
+Usually agile projects have got faster time to market than the traditional project management, and
+a key to this is that the planning the project's a bit differently.
+In agile project management, you have a release.
+Let's say for example, we are creating a new app and this app is going to have 20 features.
+And every single one of these 20 features are going to bring some value to our customers.
+Now, what an agile project management approach does is to break down all the 20 features into different
+what's called in agile project management sprints, and each sprint is released and can be used by the
+customer or the stakeholders to share some feedback every 1 to 3 weeks.
+A usual sprint is from 1 to 3 weeks.
+Usually I've seen four as well, so you create a sprint for one of the features.
+You develop the feature you release it, and then you can continue with the second sprint.
+Unlike traditional project management where the customer only gonna have the value once the whole app
+is developed and released here, they can start getting some value from the application straight away,
+because in two months from now, you're gonna release four out of the 20 features, for example, and
+they can already use 20% of the application and its value.
+And not only that, but they also gonna provide feedback on this 20% of the application so you can improve
+it further, which decreases the time to market of any application.
+And the customer satisfaction is actually increased usually.
+So at the moment you're going to see that this template has got two sprints.
+And some further knowledge that I want to share is that each sprint is defined by a user story.
+For example, as a manager of a team, I need to be able to see what my team has delivered over the
+last week.
+So the app should show the manager how many tickets, for example, the team has closed last week.
+So this is a user story.
+And this is for example the first sprint.
+And for this you're going to need an interface which is going to show the manager this information.
+I'm not going to go into more details about agile project management.
+That's going to take probably at least one hour to properly describe.
+But the main thing that you need to remember is that we work into sprints.
+These sprints are defined by the team.
+The actual team that's going to develop the features is involved in the planning, so they can advise
+on how much work can be delivered every two weeks, for example.
+And let's see how this works.
+So we have sprint one and let's say that.
+Let's change this.
+So this springboard for.
+Website redesign, for example, which was um, project that we've discussed earlier and then sprint
+one.
+You can just leave it as print one, but I usually put a title.
+So implement new web website feedback form for example.
+Redesign.
+I'm going to keep it simple here.
+Redesign the front end.
+Connect to the back end systems such as the email and for example, text.
+So what we're saying that is the first print from the website redesign is going to be to change the
+website feedback form, and then you assign the team members.
+And let's say that we're working on the first one.
+And this one, this one we were waiting on some review.
+The priority is high, high and medium.
+For example on the testing estimation for deceased for example five days, three days and two days.
+An epic is a larger piece of work.
+For example, website front end redesign is gonna be the epic, and then the redesign of the website
+feedback form is part of this epic.
+So this can be our redesign of website.
+Same here and same here.
+And this takes this is going to take ten days, which is two weeks.
+I'll say that in most cases a sprint is going to be two weeks.
+This is the most often timeline I have seen.
+Then the second sprint is going to be for example, implement a new landing page.
+Then here we're going to have for example design.
+The landing page.
+Create the content.
+Then we're going to have implement the landing page.
+And test the landing page.
+We're probably going to have some integration here actually as well, but let's keep it at that.
+And usually because you're working on sprints, all this is going to be pending.
+You can have another status for example not started.
+Then you keep them at notstarted.
+Or you can do the batch actions that I showed you earlier where you select everything.
+That you want.
+And then at one go you change the status.
+You can in some cases have a sprint to sprint run in parallel.
+It really depends on the team that you have.
+How big is the team, whether it also makes sense.
+So for example, implementing the new website feedback form and implementing a new landing page can
+work, right?
+Because the second does not depend on the first sprint.
+So if you have a big enough team that can take two sprints at the same time, you can do that.
+However, in most cases, companies in this case are gonna put the sprint two as part of sprint one,
+so you still deliver them in two weeks, and then you have a more generic naming here, for example,
+website feedback form and landing page.
+And you just define exactly what.
+So you still doing it in one sprint instead of two.
+But if you have a small team, for example, three people that are working on this and they can only
+deliver these three items, you just keep it at sprint one, then you start sprint two.
+Once you've deployed sprint one, this can already go can go to production on your company website.
+People can start testing it and they can actually start using it.
+Same with the sprint two.
+As soon as you deploy it, that's gonna hit production on your website.
+So this is hopefully going to convert better in terms of visitors to customers.
+And you're gonna add value to the company straight away.
+And compare this with having to wait six months for absolutely everything on the website to be have
+to be redesigned, and only then pushing the whole website to production.
+This means that you invested a lot of money and time in developing the whole thing, and you only get
+gonna get the benefits after six months on the second sprint.
+You also gonna have it on the redesign of website like that.
+I just did the bucket action.
+Then you do the estimation, the priority, and then if you need more, you just click on new group.
+And this is going to be your sprint three, for example.
+Switch the servers at the back end, just as an example.
+And then as I showed you, you can pull it down and this is going to be your sprint free.
+Example switch servers.
+Now, because the timelines when you're working in sprints is just usually two weeks.
+It's really important to be really quick to solve problems.
+And this is why usually when you use the agile principles and you're working on sprints, you're going
+to have a daily agile meetings.
+And this is usually a stand up meeting where everyone in the team is going to share what's their progress
+with their task on this sprint, whether they're facing any challenges.
+And usually this is the role of the Scrum master to organize these meetings or the product release manager,
+depending on how the team is structured.
+So usually the scrum master is going to say these meetings and they're usually around 15 minutes to
+30 max.
+Usually it should be around 15 minutes.
+Within these 15 minutes, the team needs to go through all the items on the sprint and say whether they
+are done, whether they're not done, and if there is something stopping them and putting the task at
+risk, which means can result in delaying the whole sprint where you only have two weeks.
+And this is why it's really important to understand about any problems straight away.
+And this is usually how I use sprint planning in Monday.com.
+I usually use this template and I amend it based on my needs.
+And obviously at the bottom you have the backlog, which is going to keep the items that you're not
+doing within the current sprints planning.
+Some people can even describe the backlog as a wish list and not a to do list.
+So things that we need to do at some point, but they're not part of the current must do items within
+the sprint.
+Okay, so this is how you use Monday in order to manage your agile projects.
+Let's now proceed to the next lesson.
+
+--- Project Approval Board ---
+
+Welcome back.
+In this lesson I'm going to show you how to create a project approval board.
+I find this board to be really useful, and most organizations can definitely benefit from having it
+because as we know, we get more and more requests for new projects all the time, and our leadership
+usually in the company needs to approve them.
+And by creating a project approval board for the company's management, it's really easy to prioritize
+the focus.
+And this benefits all team members.
+So I'll start from scratch here and I'll go to add.
+And then I'm going to click on New Board.
+And I'm gonna name this project approval or management project approval, something like this, and
+I'll create it.
+And then I'll create a few new groups here.
+The first one is going to be new project requests.
+Then I'm going to have under review.
+I'm going to create a new group which is going to be approved.
+I'm going to have one more.
+It's going to be rejected.
+And if you want, you can have two more groups.
+For example, you can have cancelled.
+And even completed.
+And I'm going to sort them out properly.
+So first we're going to have the new requests.
+Then we're going to have the ones that are under review.
+Then we're going to have.
+What's currently approved.
+What was rejected?
+And then you can have the cancelled and completed at the bottom.
+So what do you want to do here?
+First, the first item is going to be the project name here.
+So for example let's say that this is this is going to be the name of the project.
+So we're just going to name them project one.
+Project two and.
+Project three.
+Then the second thing that I have here is the requester.
+It can be someone from the management or it can be a customer depending on what type of business you're
+running.
+Then what you can have is for example, actually we can use this one so we can have the request date
+when the request came in from the requester.
+And I'm going to move this here.
+I'm going to create one more column, which is going to be text, and this is going to be.
+Exec summary.
+Then I'm going to have one more, which is going to be text, which is going to be.
+Business justification, then we're going to need.
+Who's going to be the PM?
+Project manager.
+Then we're going to have budget approved.
+And we're going to keep the status here and we're going to change this.
+Labels.
+To the following.
+We will have new project request.
+Then we're going to have here approved.
+Rejected on the review.
+Let's apply this one for now.
+We're not gonna do the completed and canceled for now.
+And in the first section your status is going to be new project, by the way.
+You can also change the color here to to match the color.
+So that's what I prefer to do.
+Then you're going to have the under review here.
+Colors are kind of similar so maybe I'll change them.
+So let me leave the under review to purple.
+Just like that.
+Then the approved ones.
+Let's say that.
+Project.
+London.
+This is going to be the name, and this is going to be the approved one that we're going to have.
+Let me delete this date.
+I don't need it for now.
+And one more here.
+Project pass with a rejected.
+And I'm going to have the rejected here.
+Same color.
+Some people prefer not to have the completed and cancelled items here, so it's really up to you.
+So I'm going to collapse it for now.
+Just like this.
+This is what I prefer to do, to still have them, but have them collapsed because I want really to
+focus on new project requests.
+The ones that are under review, the approved ones and the rejected.
+And let me change the color here to.
+So what's the logic?
+The logic is that that the person that requests a project, I'm going to fill the exact summary business
+justification.
+And then obviously the project manager and the budget approved will not be done for the new project
+requests.
+They this is going to be done when this goes to under review to for example, this project one goes
+to under review.
+Then I need to change the color to under review.
+And then here when it's under review with management is decided that for example George is going to
+lead this.
+The budget that they allocate to the team is $100.
+And this provides a really easy view of what management needs to review.
+Because when the new project requests come in, they go through initial screening and only then they're
+moved to under review, where the management reviews the projects and either decides to, for example,
+project one to approve it.
+Or rejected.
+For example, if they want to reject this one, this is just rejected.
+You can do some automations here.
+In order to make this even better, I'm going to add a new automation.
+And this is going to do with status changes.
+And I will do this when a status when a status changes to approved move this to approved.
+I'm gonna add one more.
+Again with status changes when the status changes to.
+Rejected.
+Move to.
+Rejected.
+And they're going to add this automation as well.
+And let me close this.
+Now the automations are on.
+And let's say that we move a few of these projects also on the review.
+These are now on the review.
+And let's say that I decide that I'm going to approve this project.
+This is now going to be moved to the proofed group if I decide to reject this project.
+It's going to be moved to the rejected bucket.
+Another thing that you can do is use the forms in order to properly gather the information that you
+need.
+So I'm going to create a new form here.
+I'm going to name this new.
+Project request form.
+I'm gonna go to the forum.
+So this is going to be the name of the project.
+They need to fill up the request date.
+And you can add description here.
+Please enter the name of the project.
+Lost.
+And I'm going to name this new project request form.
+Please enter the current date.
+So this is going to be required for this is going to be required.
+Then we're going to have status.
+I'm going to say please select New Project Request Status here.
+Please provide executive summary of the request.
+Please provide business justification of this request.
+And then I don't want them to see this one, which is the budget approved.
+And I don't want them to also see this one.
+You can add the logo here if you wish.
+You can make it more professional.
+You can change the color.
+I'm just going to go ahead and share the form.
+So this is going to be the link.
+Let me preview it.
+This is the form.
+Okay, I can enter a new project.
+Project New York, for example.
+By default, it's gonna enter for me the current date, so don't even have to change it.
+I'm gonna enter new projects request here, then executive summary.
+Set up a new shop in New York, for example.
+Utilize.
+The cash flow to increase the revenue or something like that, and they're going to submit it.
+Another one that I can do.
+This is the link that I've copied from my form, and as soon as you share it with anyone, they will
+be able to enter.
+Details here, for example.
+Again, I'll do Project London again.
+Same date, same one new projects request set up a new shop in London and and you see that business
+justification is not required.
+Probably should be.
+And the executive summary should be required as well.
+And I'm going to submit this.
+Let me go back to the main table.
+You see that straight away.
+We have two new projects here which is the Project New York and Project London.
+So my advice to you is to go ahead and utilize everything that I've showed you in this lesson.
+First of all, set up management project approval board so management can use it.
+Or you can use it with your team.
+You can you don't have to use it at the highest level.
+Let's think about it.
+Let's say that you are developing a new application, and you want to understand what type of features
+your users want to have in this application.
+Perhaps a good idea is going to be to share a form with them so they can request features.
+All right.
+And then again put justification and summary of the feature.
+Then it goes to new for example feature requests instead of project requests.
+Then the team reviews the feature request and they either get approved or rejected.
+And this way you can optimize the way in which you gather new feature requests.
+And that's how you set up an approval board for your projects.
+Thank you.
+And let's proceed to the next lesson.
+
+--- Uploading Files - Intro ---
+
+Hey.
+Welcome back.
+As you progress on your journey of using Monday on a daily basis, what you will find is that you need
+to do a lot of file management within Monday.com, because if you don't leverage Monday for your file
+management, this means that for all the projects, you need to store the files externally, which can
+really become a pain when you're trying to collaborate with your team.
+And this is why in this section of the course, I'm going to teach you the most professional way of
+using Monday for file management.
+And let's start with the basics.
+There are a few ways in which you can load a file now.
+For this lesson.
+You can just go to any board within Monday.
+I'm using one template here that's called Project Board.
+That's coming from the template set that I've previously downloaded.
+However you can really use any board.
+So what we'll do we'll load a few files.
+So by the way I also included the files in the lesson as a resource.
+So if you want to download them you can go ahead and do so.
+But you can really use any file in order to follow the steps.
+So the first step is just open any board.
+And once you're ready we're going to get started.
+So there are really a few ways to upload a file.
+So the first one is going to be simply click on any task here.
+For example click here on task one.
+What this is going to open is this section on the right for updates.
+And from here I have a few options.
+I can load the file.
+From here I just can click on Write and Update.
+And here I'm going to have the option to attach a file.
+And you can attach a file from multiple locations from your computer, from a Google Drive, from Dropbox,
+from box, and also from OneDrive and SharePoint.
+I'm going to choose from computer.
+And I've created this folder here.
+You have these files by the way, again included in this lesson which is for interior design for living
+room.
+So I'm just going to select the first one and I'm going to click on open.
+This is now going to load the file in Monday for me.
+Here it is.
+And I can just click on update.
+And the file is now going to be loaded.
+And it's going to be available here.
+And you'll see that I have one conversation under this task.
+And the file is here okay.
+Another option is going to be to use files.
+So from this menu here you can see all the files that are uploaded for this task.
+And you can add a new file.
+Just like this.
+Another option that you have is to include.
+A column five column.
+So you're going to click on Add to board.
+And you're going to select column.
+And from here you're going to search for file.
+And here it is the files column.
+Are you going to add it to the board?
+So now I'm going to have a new column here, and I can use it to add files.
+So I can just again choose from my computer.
+And for example, I can add a third image here.
+Okay.
+And this is going to be loaded.
+And here it is.
+I can add multiple files in my files column.
+So I'll add one more here.
+And this is what it's going to look like.
+Okay.
+Another way to add files that not many people know about is that when you have a.
+Status column like this.
+In the top right corner you have this ad.
+Tiny button and you can click on it.
+And from here you can actually provide an update and attach a file as well.
+So I can attach one more file from here.
+Just like this.
+And one thing to keep in mind is that your files gallery that you find when you open the task here under
+this tab here will hold the files from also the file columns.
+So you see that we have it from the file columns.
+And we have it from the one that we added from the files gallery here and the one from the update section.
+However, if I add a file from here like we did, you will notice that this is not going to be available
+under your files column.
+So if you have a files column and you want all the files to be in the files column, you will need to
+add them from here.
+So let's now proceed to the next lesson and see how we can use these files in order to collaborate and
+communicate.
+
+--- Collaborating with Files ---
+
+Hey.
+Welcome back.
+Having all the files relevant to a specific task in Monday is a great start.
+However, how do we proceed to communicate with our team, for example on changes needed or any updates
+that we want to provide to them, such as versioning of the file?
+Well, the great news is that with the introduction of file gallery for the tasks.
+And let's go to task one here and to the files gallery.
+You can actually provide specific feedback on these files to your team members straight away from here.
+And this is great if you're working across a big corporation where you have team members in the different
+time zones, and it's hard to meet.
+And not only that, but it's gonna save you time in meetings that can be really done quickly in five
+minutes in Monte.
+And let me show you how this is done.
+So you can open, for example, the first file here.
+And from here you have a few options.
+So let's say for example, we want to give specific feedback to the team member that uploaded this image.
+So for example you don't want this painting to be here in the image.
+What you can do is you're going to click on.
+Comment and you can click anywhere on the image here, for example, here and you can say, can we try
+to remove the painting and see how it looks?
+Okay, so this is the new annotation feature by Monday, which means that this annotation will be saved.
+And you see that there is a update icon here.
+And when I open this.
+I'll see where the annotation is here, and I can open it just like this.
+And I can see what has been the request or comment here.
+And other team members can like it.
+And for example, the owner of the image can reply, sure, let me get this done by Friday for example.
+And as simple as that.
+You can communicate to the images.
+And what's even better is that let's say now the person upgrades the image, right, and removes the
+painting.
+What they can do is come in here and go to versions and they can upload a new version.
+For example, let's say this is the new version.
+They'll load it just like this.
+This is now going to be loaded.
+And you see that we have both versions now, version one and version two.
+And if I go out.
+You see that there is this V2 here.
+So I know that we are at version two of the image.
+Okay.
+So this is great.
+Some other features that you have here is info.
+So you can see when the image was uploaded, who uploaded it, the resolution and etc..
+We've covered updates in versioning.
+You can also add a description here.
+Also below you can show the original size.
+You can rotate the file.
+You can download the file.
+You can download all the files as a zip.
+You can print it and you can delete it.
+So this is how you can fully collaborate on any files that you load using the files gallery here.
+And let's now proceed to the next lesson and explore some more really useful features in terms of file
+management.
+
+--- How to restrict File persmissions? ---
+
+Hey.
+Welcome back.
+One thing that's really important to point out is that anyone that has access to your board will be
+able to download the files and edit them.
+Now, I know in some projects we are dealing with sensitive files that we don't want everyone to be
+able to download and edit.
+So in this cases, what you will need to do is set up the board permissions in such a way that only
+owners of the board and tasks will be able to edit the row associated with them.
+So in order to do that, what you will do is go here to board permissions.
+You will see that in terms of view permissions, at the moment, users can view all items in this board
+where expecting a feature to be rolled out that will allow customers of Monday at the enterprise plan
+to be able to set it up so that users can only view items that are created or have been assigned to
+them, but for now, this is not available now in terms of editing permissions.
+At the moment, you see that everyone can edit everything, and if you want to get more information
+on what this means, you can just hover over this information icon.
+Now we can switch it to edit content only, which will mean that they wouldn't be able to delete groups
+or columns.
+Then if you switch it to the edit content only in items assigned to them in owners column.
+This means that collaborators will only be able to download files, edit them, and actually they will
+be able to do any other row modification only when this task is assigned to them.
+However, they can still collaborate on the task by writing updates.
+And the most restrictive one, which I never use because this means that the board owner will be the
+only person that will be able to do any kinds of updates is write updates only, which means that the
+board owners will manage the board and no one else will be able to edit anything.
+Now, actually, there have been some cases when this is useful.
+For example, for some really high visibility project plans, you perhaps want to have the full control
+of what's being updated.
+But in our case, we're going to switch this to edit content only assigned in items assigned to them.
+We're going to save this.
+And this will mean that the files here, for example in task one, will only be able to be downloaded
+and edited by the owners of this task and obviously the board owners.
+And let's now proceed to the next lesson.
+
+--- The Monday Digital Asset Management Solution ---
+
+Welcome back.
+When we talk about file management in Monday.com, I cannot miss the great new solution that Monday
+recently introduced, which is the Digital Asset Management.
+In order to use it, you're going to click on add and you're going to go to choose from templates.
+And here you should start typing digital.
+Assets.
+Asset Management.
+And you find it here on the right.
+You can click on preview just to see what it is about.
+And then just I will just go ahead and click on Use template.
+This is now gonna load it in my workspace.
+And here it is.
+So what is the digital asset management?
+This is a board which can be used in order to manage your files.
+And it's especially used useful for creative files such as a company logo, a video and all the different
+stuff that you may be using in your business.
+So let's understand how this is built so you know how to use it.
+First of all, it all works by using the cards view.
+So in reality if I go to the main table.
+You see that these are actually different groups.
+So you have logos, videos, images.
+And then within these different groups we have the actual items.
+So here we have company logo.
+Here we have welcome video and product launch video.
+And when I switch to the cards view.
+This is how they are displayed.
+Now, if you want to filter on a specific group, you can do it from here.
+So I'll just select group.
+And I can choose, for example, just to see the videos.
+Okay.
+Then if I want to open one of the videos, I can do it from here.
+And this is gonna show me.
+The video went from here.
+I can do the things that we did previously in terms of updates, different versions and etc..
+Let me close it.
+So you notice that in the main table we have everything that we need.
+So we have the asset name.
+We have a column for sub items.
+Who's the designer.
+What's the status file column for the final version attachment.
+Then a link in case this is available somewhere on the internet.
+Asset details and usage.
+And obviously you can fully amend this to suit your needs.
+Now, in my opinion, if you want to store the creative files of a company in a location and you don't
+want to pay for other tools, you want to pretty much structure everything in Monday.com and make the
+most out of this tool.
+Then you can just download the digital asset management and just use that instead of using yet another
+tool within your business so you can manage the files here from the main table.
+Also, if you go to files here, you see that we have them all just listed.
+Or you can use the fancy cars view, which is gonna show your files in a much more presentable way.
+And this is gonna be a great view to use if you want to show this to management.
+Okay.
+Because you see, it doesn't take really long to create this, but then it looks really nice here.
+And.
+If you followed the beginners course, you know that we've created a, for example, workspace for PMO
+department.
+What I usually do is search digital assets.
+I keep them under the documentation section here.
+So I have my high level view.
+I have my low level view in terms of projects.
+Then I have the documentation and I have the templates that I use.
+Everything in one place.
+So this is just an idea that you can explore.
+If digital asset management is something that you need to implement in your organization.
+Let's now proceed to the next lesson.
+
+--- Admin options ---
+
+Welcome back.
+In order to make the most out of your Monday.com account, you should know that you can access some
+admin options where you can customize different settings.
+In order to go to the admin settings, click here on this menu and then click on admin.
+From here you can change the account name.
+For example, at the moment for this tutorial, I've created the account Monday Teaching and you can
+also change the URL.
+Now this is not going to be relevant for most people, but for example, if you live in Dubai, you
+can change the first day of the week.
+Instead of starting the week on Monday, you can set it up to start on Sunday.
+If you want, you can decide whether to show or hide weekends on the timeline.
+And something that's really important is to know about this export account data.
+This is going to export all the boards that you've created.
+And it's going to zip it in a file so you can keep it as a backup.
+What I usually do is at least once a month I do an export.
+And then save a copy of the zip file.
+They will send you a link to your email from where you can download the file.
+In terms of customization menu here.
+You can change the logo so you can customize it to look more like your company's branding here.
+The email header.
+The main menu logo.
+You can change that.
+Then under features.
+You have a lot of other useful features.
+For example, Weather Monday is going to show you whether you're online or offline.
+There's some automation on on pre-made statuses.
+And some other options that you can either decide to enable or disable, such as display link preview
+and Display File Preview.
+In terms of the boards, you can set some defaults in order to save time.
+This is what I usually do.
+So instead of having working on this, I like to have the status in progress.
+I also like to have things such as at risk and you just decide which color to pick.
+And if you want to have you can have something like cancelled and etc..
+And you just type all the different statuses that you want to have and you just save it, save the changes.
+Then when you go to user profile, you can change the title.
+Title.
+For example, your email address, phone number, everything that you want to display to the other users
+of Monday.
+This is to do with the customization.
+Then if you go to users.
+You see how many users there are within this account at the moment?
+Who are the admins you'll be able to see?
+From here you can assign board ownership.
+So you can change it from the current owner to Peter.
+For example, if someone leaves your company, for example, then when you go to security, you have
+some options in terms of what should be the security process in logging into Monday.
+At the moment I have email and password.
+You can change the setting on how secure the password should be.
+You can make it very strict password security, which is going to mean that they need to select a really
+strong password with different characters.
+You have some some other options here, but they're only available in the enterprise version, which
+I don't expect a lot of people to have.
+But if you have it, then you're going to have some options, such as single sign on where from your
+company's main internal page.
+You're going to be able to log into Monday without needing to input any passwords or anything like that.
+And you can enable two factor security, which means that you will need to verify the login using an
+app or a message that you're going to receive on your mobile phone.
+That's with the login audit is only available in the enterprise version again.
+So we're going to skip this audit.
+Compliance and advanced are only available in the enterprise version.
+You can learn more about them from your company's administrator if your company is on the enterprise
+version, because there can be some specifics depending on the company.
+API is for developers, so we're going to skip this one for now.
+And in terms of billing, this is going to show you a current plan how many users you have and when's
+the next billing date.
+Usage stats.
+If we go to it, we will see the activity over the last 60 days, for example, that I've made 11 board
+updates zero people posted.
+How many updates did we get on the boards?
+What's the storage usage?
+So for example, at the moment I've used 60MB from the five gigabytes within this plan, the people
+that I have on the account and the boards created in terms of storage.
+There's another menu here.
+Where you can just get some extra information on what what you've used the storage for.
+And then some advanced, which is going to show you some more stats such as trending boards, top creators.
+Over the last one month, and the top communicator of the last one month.
+When you go to tidy up.
+From here you can archive some of your boards.
+This is especially important when you start using Monday.
+And let's say that you're using it for a lot of different projects.
+Imagine keep on using it for three years.
+You're going to have a lot of boards that are for really old projects that have been completed, for
+example, two years ago, and maybe there was even four projects.
+Bottom line is you're gonna get some old projects that are just gonna take a lot of your space here,
+and it's gonna make it harder to find other boards.
+So you can just come here and decide to archive some of these items from here, and then you have apps
+with not gonna have anything at the moment within apps, because we haven't installed anything.
+But if you install an app, it's gonna appear here.
+And the permissions is again for the enterprise account.
+So these are some of the admin options that you have I believe it's good to know about them in case
+you need to customize some of these options.
+So yes keep them in mind if you need any of this functionality.
+Let's now proceed to the next lesson.
+
+--- Monday Apps Marketplace ---
+
+Welcome back.
+When we went through the admin portal here, you probably saw that we have a apps marketplace that we
+haven't reviewed so far.
+If you go to this menu here and you have two options to get to the apps marketplace, you can do it
+from here.
+Or I usually click on this menu here and I click on Apps Marketplace.
+Monday's idea is that they want to give you full flexibility on how you manage your projects, and your
+teams and operations within your business.
+They want Monday.com to be the place where you can do everything, so you don't have to go and log into
+other websites and apps and do all this unnecessary going back and forth within the apps marketplace,
+you're going to find a lot of useful tools from all sizes, shapes, and forms.
+For example, you will find apps such as Typeform.
+Which you can use in order to improve the way in which you receive data from your customers or stakeholders.
+You also have applications such as mirror, which will increase the creativity within your team.
+And that's a great tool actually, that we've been using.
+And they're so much more applications here that you can install.
+And it's so easy to find an application.
+Let's say, for example, that I'm usually using Todoist, and I want to see whether they have to do
+it here.
+I can just search for it.
+And I can see that it's here.
+So let me click on something on Import and export.
+For example.
+Some of them will have a trail that you can use to see if they're going to be helpful for you.
+So for example, if you want to go towards the business intelligence and building reports that look
+fantastic, you may have a look at something like this one.
+Or you just go and search for report.
+And you see what are the type of tools that the marketplace at the moment has in order to improve your
+reporting.
+For example, the agile reports.
+You see that I have it installed.
+That's a great feature actually.
+Using the Agile Reports app, you can do charts such as a burndown chart, burn up chart, velocity
+chart and etc. this is a really flexible tool.
+It takes some time to get used to some of these apps.
+So my advice to you is to at first go ahead and look for something that you already are familiar with.
+Let's say, for example, that you're using outlook within your business or Gmail or some other email.
+Go ahead, integrate it and start using it.
+Then start exploring some other tools.
+Ask your team whether they have used a tool that they think is going to be useful within Monday.com,
+and try to find it here.
+And remember that Monday adds new apps all the time to this catalog.
+So even if it's not here now, it might be here one month from now.
+So it's a good idea to once in a few months check what's available in there in case something grabs
+your attention and you want to install it.
+I'm sure you're going to find something useful within the apps marketplace, so go ahead and explore
+it and see if there's something useful for you.
+Thank you.
+And let's now proceed to the next lesson.
+
+--- monday.labs ---
+
+Hey.
+Welcome back.
+So if you are like me and like to be on top of things.
+So for example myself, if I'm using a software, for example, to manage my projects, I want to know
+all about the new features that are coming in and how I can use them.
+And I was so happy when Monday introduced a feature called Monday Labs.
+And you're going to find Monday Labs under your account here.
+There's a Monday Labs link.
+You can click on it.
+So what is Mondal Labs?
+Mondal labs is the place where you can see all the better features that are currently being tested by
+Monday, which means that they've been developed already.
+They're not really released yet to production, but there is a better available for testing and you
+wouldn't see this beta features as you browse through Monday.
+You need to come in here and say okay, widget IDs in dashboards looks interesting.
+I'm going to find this helpful for my daily work.
+Let me activate it.
+So you just find something here that you believe can be beneficial to you.
+And you can test the beta feature.
+Now obviously keep in mind that this is still in beta.
+So you can expect some bugs.
+And for some of these features to not work to 100% yet.
+However, for my experience using it, almost every single feature that I've added worked perfectly
+fine.
+And even if you're not interested in using beta features, Munday Labs is a great place to actually
+be on top of what you can expect to come as new features in the next few months.
+Sometimes people wondering whether something that they will find useful will be available soon.
+Well, the features that will be available the soonest will be here under Monday Labs and you can check
+what they are.
+So you can read through the list here and see if there's something that's going to be useful for you.
+For example, this one sounds interesting.
+Highlight new board changes, and the description is that it's going to highlight items and cells that
+changed while you were away, which means that you are on a board, right?
+You go for lunch and in the meantime something changed on the board.
+Someone else came in and changed something.
+These items that were changed will be highlighted for you.
+And in order to activate this feature, you just can click on activate.
+And that's it.
+This is already activated for you.
+Now keep in mind that when you activate it, this is not going to activate it for your team members
+that are using the same multi account.
+So every person will need to activate what they believe will be useful for them from here.
+Let's try one.
+So you see that here we have height done animations and let's see what this means.
+So if I go to any board and you don't have to do it by going to test it for you here.
+So I'm just going to open one board here.
+Let's just open this template and see how when I change a status to done there is this animation here.
+It's a really small thing, but even for this small feature, there is a monthly lapse.
+Fix if you don't want this to happen.
+So here it is.
+Hide done animation.
+So if for some reason you don't like this, you can activate this just like this.
+So now it's active.
+And now Monday is going to refresh.
+Every time you activate a new feature, this is going to happen.
+Okay.
+And now I'm going to go and I'm going to switch another one to done.
+For example this one switch to done.
+And you see that there's no animation this time happening here.
+And this is how Monday labs work.
+I believe you can find some really interesting feature here.
+So have a look and see if there's something that's going to be useful for you.
+Let's now proceed to the next lesson.
+
+--- Working status ---
+
+Hey welcome back!
+Another useful feature of Monday, when you work on more complex projects where you have a lot of different
+team members working on the project is the working status.
+If you have been using any communication tools, such as, for example, Microsoft Teams, you will
+be pretty familiar with the working status idea.
+Really, the idea here is that you can show to your coworkers the current state that you're in.
+For example, you see that Mondays got a lot of options here.
+You can choose working from home, out sick on break, out of office, working outside, and family
+time.
+Okay, so for example, if I choose on break, you notice that I have this icon appear here under my
+name.
+And by the way, if I go into a specific workspace, for example, here I am under one specific workspace.
+And if I go to members, although I'm going to be the only member here at the moment, you will see
+that this icon is going to appear here.
+So as you can imagine, when you're working on a workspace with a lot of different members, you'll
+be able to see their statuses from here.
+So if I change this to something else, such as, for example, out of office, this is going to appear
+here.
+Now, another thing that you can do is use this on and off toggle for Do Not Disturb.
+So let's say for example I'm just about to finish my day.
+So let's say I'm finishing at 5:00.
+It's 545.
+I really don't want anyone to bother me in the last five minutes so I can finish my job.
+What I can do is I can just click on, on and I'm going to be at Do Not Disturb.
+And also you will notice that I don't get the notifications anymore.
+So let me switch back to off.
+You see that I have a notification for here within my inbox that I received something, but as soon
+as I switch this to on, this is going to disappear.
+Okay.
+Another useful feature that you can use here is to plan ahead.
+And the way you can do that is you're going to go to your account.
+You're going to go to my profile.
+And then you're going to select working status from the options here.
+And within working status we have the in-office working from home outtake on break and etc..
+And you'll see that for all of those we have an option except the in the office we have an option to
+choose date.
+So let's say that I know I'm going to be out of office in the summer of 2022.
+I can just select, for example, that I'm going to be off from the fifth.
+Or from the fourth to the.
+8th of July, and this status will be displayed for my co-workers during this time period here.
+Also, if I don't want to be spammed with mobile notifications and email notifications while I'm not
+in the office from Monday.com, I can disable those from here.
+Now this is all great, but some teams don't really like the working status concept, so they prefer
+to not have it at all.
+And you can do that.
+If you have admin rights to Monday, you can go to the admin menu here.
+From admin, you can go to customization.
+From here you can go to features.
+And from here you can decide that you want to switch this off, which is the online activity indicator.
+So from here you can decide whether you want to show or hide the working status of all the users on
+your account.
+And then if you decide to hide the status, you just need to save the changes.
+And even if I didn't come in here and select something, this is not going to be displayed for my coworkers.
+So you have to make the decision whether you find the working status helpful for your organization,
+and whether you want to introduce it as part of your collaboration within the team.
+So this is how to use the working status.
+And some of the specifics that not many people know about.
+Let's now proceed to the next lesson.
+
+--- Zoom ---
+
+Hey, welcome back.
+In this lesson, we're going to be talking about how we can integrate zoom with your Monday account.
+Now this is a question that I get asked really often when I work with my team, whether we can use some
+of these communication tools that we use and really integrate them with our project management toolset.
+And in this lesson, let's see how this is going to be done.
+So for this lesson you can just open any board.
+I'm again going to use the template here project board.
+Now if you want to get the same template obviously you can go to the templates portfolio management.
+And this is the one project portfolio management.
+And this is one of the three templates that comes with this template set.
+So this is what they're going to be using.
+And once you're here on the board you're going to click on integrate.
+Keep in mind that sometimes money moves the buttons here at the top.
+So instead of here, sometimes it's going to appear here.
+They're trying different interface changes, minor interface changes really often.
+So it's going to be somewhere here you're going to click on integrate.
+And this is going to take you to the Integration Center, where we have all the different applications
+that we can integrate with Monday.
+From here we're going to search for zoom.
+I can see it here straight away, but if you don't see it you can just search for zoom.
+This is going to find it.
+Let's open it.
+And this is going to show you the different types of integrations that are available for you between
+Zoom and Monday.
+So there are a few different integrations that you can do when creating a meeting on zoom.
+Create an item and sync meeting details.
+When scheduling a meeting on zoom, create an item.
+When a participant joins any meeting before the host notifies someone, and when a participant is waiting
+for the host on any meeting, notify someone.
+Now let's explore this use case when scheduling a meeting on zoom.
+Create an item.
+This integration is really useful to keep track of your meetings and get all the relevant information
+in one place.
+So let's explore how we can do that.
+So we're going to click on Add to Board.
+And this will now ask me to connect Monday and Zoom.
+So I'm going to click on connect.
+And from here you will need to log into your zoom account.
+So I just logged in using my email account and password.
+Then I authorized this here.
+And I'll click here on authorize.
+And this is now going to make the connection between Zoom and Monday.
+And it's going to give me the option when scheduling a meeting on zoom, create an item.
+And here you need to map what needs to be created.
+So from here you need to map water, the zoom details and where to map them on the columns that you
+currently have.
+Obviously, this board is not really optimized to hold zoom details, but I'm going to show you how
+this is done.
+And then you can later create another board or another example for your own usage based on your needs.
+So for example under group I will leave this to planning.
+Okay.
+On name.
+I'll link it to meeting name.
+On owner.
+I'm going to map it to host in zoom status.
+I perhaps not going to map duration.
+I'm going to map to schedule duration expenses, and I'm going to map and you see what the logic is
+here.
+Actual date of completion.
+Let's map it to schedule start date.
+And you can add additional columns if you want.
+And then I'll just click on done.
+And now added to the board.
+Okay.
+So this integration is now added.
+Now let me close this.
+And what I'll do is I'll go to zoom.
+And from here, I'll schedule a meeting.
+Really just like this.
+Schedule a meeting.
+I'm going to schedule it for, for example.
+4th February.
+Starting at.
+1130, for example.
+And I'm just going to go ahead and schedule this meeting now.
+The meeting is going to be scheduled.
+And once this is scheduled and you see that this is scheduled here.
+You're going to get a new line under planning.
+And here it is George smart zoom meeting.
+And if I open this it's going to show me that this is an automation about the meeting created.
+And I can see that the different columns will be populated based on the zoom meeting.
+For example, the actual date of completion is scheduled for the time of my meeting, and I get this
+displayed here that a new column has been added which is showing me the zoom meeting.
+So from here I can open it.
+So you can actually open the zoom meetings directly from your Monday account.
+Let me close it.
+And you see that when you create an integration in Monday.
+This is going to appear here and you know that there's an integration going on.
+Let's click here again on integration and add a new integration.
+What I will do is I will select zoom again.
+And you see that there are some useful integrations here.
+For example, when a participant joins any meeting before the host notifies someone.
+So if you add this.
+And you use the same account.
+And here you can choose.
+My meeting room, non-instant meetings or a specific meeting and let's say any meeting before the host
+notify.
+I'm going to put just a reminder that and then I can put participant.
+This is the participant name is waiting for you in zoom.
+Okay.
+And then you can notify, for example, yourself a specific team member.
+People from the people column a specific team.
+And you have a few options here, you can explore them.
+So let's say I'm going to notify myself and I'm going to add this to the board.
+Okay.
+So what is this going to do?
+So now we have a meeting created that's gonna start right.
+Let's say the time arrives and the meeting is started and someone joins the meeting before me.
+Now, if I'm really busy with managing my boards in Monday and I don't really notice that it's time
+for my meeting.
+I'm gonna be notified when someone joins zoom, and straight away I'm going to get a notification here.
+So these are some of the options that you have in terms of the zoom integration.
+You'll notice that in this way you can create, for example, a brand new board just for the meetings.
+For example, if I duplicate this board, right.
+Meetings and I'm just going to name it meetings.
+I can place it somewhere, I can place it under documentations, or I can place it under projects or
+high level wherever.
+I believe this is going to be a good fit.
+And I can actually use this meetings board in order to track my zoom meetings, and I'll be able to
+join all meetings from the zoom link here.
+Okay.
+And I'll be able also to link the zoom fields to a specific field in Monday, and I can fully customize
+it so it works for me.
+Now.
+Every team is going to have different needs in terms of what they want to track and how they communicate
+within zoom and etc. so I'm not gonna give a really specific case, but what I want you to take away
+from this meeting is that you can do integrations with zoom, and you can fully customize the board
+in Monday in order to track the zoom details that you want to track.
+It's probably going to take you 10 to 20 minutes to get this right, but then you're also going to have
+your zoom account fully integrated with Monday, so you can do even more directly from your Monday account.
+So this is how we can use zoom from Monday.
+Hopefully in future we're going to get some more features, such as being able to directly create zoom
+invites from Monday.
+But for now, these are your options and hopefully some of these options will be helpful to you.
+Let's now proceed to the next lesson.
+
+--- Gmail ---
+
+Hey, welcome back.
+In this lesson, I'm going to teach you how you can integrate Gmail with any board in Monday.com.
+And you may be wondering, but what use case would I have to connect a board to my Gmail account?
+And the answer is pretty simple.
+Imagine that you're working on a very high visibility project, and the status of one of the items is
+changed to stuck.
+Perhaps you want someone to receive an email straight away that this happened so they can do something
+about it.
+And there are many more use cases for which you may need a direct connection between Monday and Gmail.
+And by the way, a similar integration is also available for other email providers.
+So the way we will do that is I will use the same board project board, which is the template board
+that I've previously downloaded, and I'm going to go here to integrate.
+I'm gonna click on Integration Center.
+Or you can click on Add New Integration.
+It's pretty much the same thing.
+It's going to bring you to the integration center here.
+And from here I'll find Gmail.
+Here it is again.
+If you cannot find it, you just look for it just like this from the search box here.
+And this is going to find it for you.
+And.
+You click on it.
+And this is going to show you all the available integrations that you have.
+And let's look at what kind of integrations we have here.
+So the first one is that every time period, if status is something, send an email to someone.
+Then we have the next one, which is when status changes to something, send an email to someone and
+this is the one that I use the most often.
+And this is the use case that we're going to integrate.
+But let's look at some of the rest.
+When a column changes, send an email to someone.
+When a new item is created, send an email to someone every time period.
+Send an email to someone when status changes from something to something, this is a bit more specific.
+Send an email to someone.
+Then we have when date arrives and status is something, send an email to someone.
+This is one that I also use quite often, just to make sure that when a deadline for a specific task
+is near, I get an email sent straight away to the owner of the task, for example.
+Then the next one is when an email is received.
+Create an item in the group.
+And the last one is when an email from this email column is received added as an update.
+So you see that we have a lot of different use cases here.
+So depending on your business needs you will definitely find some of this useful.
+Let's go to the when status changes to something, send an email to someone.
+So I'll do that.
+I'll just click on Add to board.
+And then I will need to connect to my Gmail account.
+So I'm just gonna.
+So I'm just gonna connect to my email account here, just like this.
+So once you log into your account, this is what's going to happen.
+You're going to authorize the linkage.
+And then straight away you're going to have this pop up button which is going to allow you to do the
+actual integration.
+So my integration is going to be when.
+Status column.
+Changes to stock.
+Send an email.
+And here is going to be the email.
+So the subject line is going to be important.
+We have a stock task in our plan.
+Hey, can you please have a look and help us resolve it or something like this?
+This is just an example.
+Obviously, you can make this much more intuitive and smart by adding the item name here, the username
+owner, and etc..
+Okay, so for example you can do something like.
+Hey.
+And then we have.
+Item name is.
+Status stuck.
+Can you please help?
+Help us resolve it or something like this.
+Right.
+This is just an example.
+You put a message here that's actually going to make sense for your business.
+And then.
+You decide who to email, for example, me or you?
+Maybe you want to add an email column where you're going to place who's going to be emailed if this
+happens at a specific team member.
+Perhaps the owner, the board, subscribers, a specific team, or some guest.
+In this instance, I'm going to keep it to myself.
+So we're going to have now when status changes to stuck, send an email to George Smart and I'm going
+to integrate this to my board.
+Add to board.
+And you see that this is now integrated.
+And let's see how this works.
+So let me change one of the statuses here to stack.
+So for example task four here I'm going to change it to stack.
+Okay.
+Just like this.
+And then when I open my account, you see that I have this email, which is an automation via monday.com.
+And it is important we have a stack task in our plan.
+Hey, task four is stuck.
+Can you please help us resolve it?
+So you see how in a matter of minutes, we created an integration that makes sure that every time a
+task within our plan is stuck, we email a specific person straight away so things can get resolved
+quickly.
+And you see that as we explored, you have a lot more options here that can be really useful.
+So it really is going to depend on your specific business needs.
+But I really believe that integrating Monday with your email provider and there also other email providers
+here that you can integrate this with.
+So you have outlook, for example, if that's what you use.
+You also have teams which is another communication channel.
+So you can make sure that you get a lot of notifications straight away to the right people.
+And you also have other use cases for which you can use this integrations.
+So think about how you can use integration between your email provider and Monday.com.
+And I definitely want to advise you to start using such integrations in the future.
+And having said that, let's now proceed to the next lesson.
+
+--- Outlook ---
+
+Hey.
+Welcome back.
+This is a really quick lesson, just to show you that what we achieved in the last lesson with Gmail
+is fully achievable also with outlook.
+And it doesn't take much more work.
+So you just go and go again to integrate.
+And from here you're going to go to the Integration Center.
+And this time around, let's click on outlook from our options.
+So what you will notice here is that we have almost the same kind of integrations available for outlook
+as we have for Gmail.
+For example, the one that we did in the last lesson was this one.
+When status changes to something, send an email to someone.
+So we had when status changes to stuck, send an email to someone.
+And again we have nine different integrations here.
+So if you're using outlook, just keep in mind that you can create some really useful integrations here
+similar to Gmail.
+So you're just going to click on it at the board and you're going to go through the same process.
+However, I want to make this lesson to let you know that there is one specific when it comes to outlook.
+So when we did the Gmail integration.
+This is absolutely free, right?
+You can just add the integration and it's going to work.
+However, when it comes to outlook.
+Unfortunately in order to have this integration, you must have a Microsoft 360 Business Premium license
+in order to use the integration.
+Now, if you do not have this license type, you will see an error message when setting up the integration.
+So for example, if you're using some kind of a free outlook service, you see an error when you try
+to integrate this.
+This is really unfortunate, but this is what it is.
+So in reality, if you do not have a business premium license on outlook, you wouldn't be able to add
+this integration.
+And even when you click on Add to board.
+Here is gonna let you know somewhere.
+Let me see.
+Yeah.
+So the first one here is please make sure you have an Outlook Exchange online account.
+And here's the second point.
+Please ensure your Microsoft subscription is business premium license or higher to use this integration.
+So keep that in mind if you want to integrate Monday with your outlook or if you get an error when trying
+to integrate it.
+And let's now proceed to the next lesson.
+
+--- Twilio - automatic SMS and voicecalls (PAID feature) ---
+
+Hey, welcome back.
+In this lesson, I'm going to introduce you to my favorite integration, or at least one of my top five
+favorite integrations in Monday.
+I use it quite often where we run really important projects with big budgets.
+However, keep in mind that this is not a free integration, so if you don't want to look at an integration
+with an extra cost, this lesson then is not for you.
+And I definitely not gonna advise you to use this for every single project out there, but it's useful
+for some projects.
+So this is why I'll definitely want you to know about it, and you can decide whether you can use it
+for some specific projects.
+The integration that I'm talking about, and I go to integrate now and I'll go to the Integration Center.
+The integration is called Twilio.
+You actually see it here in this main view.
+Here it is.
+Now what is Twilio?
+Twilio is a cloud communication platform that allows you to send voice and text messages and perform
+other communication functions as well.
+Now, when it comes to Twilio and Monday, it allows you to send automatic calls or text messages to
+someone.
+So here are the different automations that you have available.
+For example, when a column changes, call someone and say something.
+When a status changes to something, call someone and say something.
+And if you scroll down, you see that you can also send a text message.
+So for example, let's look at this one.
+When a status changes to something, send an SMS to someone.
+And when you click on auto board.
+So what you will need to do here is first create your Twilio account.
+And once you create your Twilio account, you should log into your Twilio account and you will find
+your account Sid number.
+And if you're wondering where to find it, just click here.
+And this is going to show you exactly where you can find it.
+Then you need the token and your phone number.
+Again, all this is available in your Twilio account.
+Now, once you do that, you'll be able to proceed to the next page where you're going to be able to
+write all the SMS or text message should say, and who should receive this text message.
+And for this you can select team member or you can use the numbers in a phone column.
+So as simple as that you'll be able to create your text message automation.
+The same works for a call.
+So once you integrate on automation that includes a code.
+What this is going to do is that when you click on say within your automation, a pop up box is going
+to open and you can enter the text for the automated phone message.
+And keep in mind that again, this message can include an item name, board, name, and any other information
+that you need.
+And not only that, but you will be able to also select the voice, the language, and the accent for
+the automated message.
+So what's going to happen, for example, in this case is let's say a message is changed to stock.
+Then this is going to trigger an automation which is gonna call a phone number, and it's going to play
+the pre-recorded automated message such as hey John, please keep in mind that this and this item has
+been set to start a stack.
+Please have a look when you have time.
+So as you can imagine, Twilio is really a great automation to have in some cases.
+But again, it's not free.
+So it's going to be up to you whether this is something that you want to explore further.
+Now, if you go to Twilio voice pricing, for example, for us, you'll be able to see how much it costs.
+So this is for example for the US make and receive calls in the US.
+And from here you'll be able to see the pay as you go service and how much it costs.
+And you see that it's really reasonable about 1 to $0.02 per minute or something like this.
+So this is Twilio.
+I think it can be useful in some cases, but I'm not gonna tell you that it's mandatory.
+It's definitely not.
+You can still do everything in Monday with the free options, which are gonna send out notifications
+to someone's email, for example.
+But in cases where you need more advanced options, such as a notification sent via a call or text message
+to a phone number, then Twilio can be a great option.
+And let's now proceed to the next lesson.
+
+--- Other Integration Use Cases and Best Practices ---
+
+Hey.
+Welcome back.
+In the last few lessons, we've actually created a few integrations from scratch.
+And to be honest, when you learn how to do 2 or 3 different integrations, you'll be able to do almost
+anything in Monday without much need for help.
+This is why instead of creating more lessons on how to do individual integrations, I want to spend
+some time to talk about the overall integration center, what you have available here, and some tips
+and tricks on what to use and when.
+So we're going to explore this by using the categories here.
+The first section is just explore by app.
+Then we have featured section on some featured integrations by Monday.
+So we're going to skip the X2 and we're going to head over from remote work below, because this is
+actually going to cover every single integration that we have currently have within Monday.
+So the first thing that I will do is I'll click on remote work and you'll see that we have three communication
+channels that we can integrate with Monday Zoom, which we've already integrated.
+And we also have slack where you can create automatic notifications to a channel.
+And we also have Microsoft Teams where you can create notifications to specific teams channel.
+Now, in my opinion, having an integration between one of these and Monday is what you can expect in
+almost every single project that you have in Monday.
+I believe that from my experience, pretty much every single organization out there is going to use
+at least one of these three.
+So it's going to be a good idea to keep in mind that whether your team is using zoom, slack, or Microsoft
+Teams, you can integrate this with your Monday account.
+Let's go to communications.
+Under communications, we're going to have some repeat ones such as zoom, slack and Teams.
+But we also have some extra integrations that we can do such as Gmail which we saw how we can do MailChimp
+in case you're doing email marketing outlook.
+Twilio, which we've done Todoist and HubSpot.
+And integrating HubSpot can be really useful if you want to manage all your leads and contacts in Monday.com
+to ensure that the entire company is collaborating together.
+Then let's go to customer support.
+Here we have Clearbit.
+So Clearbit is going to allow you to pull lead company or candidate data into Monday.com.
+But in my personal experience, I haven't seen many companies use it.
+SurveyMonkey.
+Probably everyone's aware of what this is used for.
+This is going to allow you to collect survey responses within your Monday account.
+Typeform.
+Which is going to allow it to collect the data from a form that's been submitted.
+And Zendesk, which is one of the most widely used customer ticketing tools out there.
+So if your company is using Zendesk and if you're running a project for the department that's using
+the Zendesk, it may be a good idea to see what are the different integration options that you have
+here.
+Then going to marketing.
+You see that you can integrate Facebook ads.
+This is gonna allow you to create, manage and track your Facebook ads all from Monday.com.
+You also have Adobe Creative Cloud.
+Then under e-commerce, if you're running events using Eventbrite, this is gonna allow you to log new
+registrations from Eventbrite to room on the account.
+And also you can integrate it with Shopify.
+For example, when a new order is created, you can create an item for this order within Monday.
+Then when you go to software development.
+And by the way, you don't have to click here on the links on the left.
+You can just scroll down.
+So when you're under software development, you see that you can connect to GitHub, GitLab, Jira,
+Pagerduty really depending on what your company is using.
+It's really, really often that we integrate Monday with JIRA.
+And when you click on Jira, there's some really useful features here, such as for example, when an
+issue is created or updated in this project and you specify the project, create an item and sync future
+changes from JIRA.
+I find this integrations really useful.
+After software development we have finance.
+The first thing that we have here is harvest, which allows you to track expenses and build time based
+reports using data inside your Monday.com account.
+We have stripe, so you see that, for example, when a charge event occurs in stripe, create an item.
+And when a charged event occurs in stripe, create an item and notify someone.
+We also have toggle here, which is great for time tracking.
+Then we have the CRM part.
+Unfortunately, here we only have copper at the moment and we have the import section.
+And this is not all.
+If you cannot see the application that you want to integrate from here, first of all you can explore
+the marketplace from here.
+And under the marketplace here, you're going to have a lot more options.
+That you can install as apps.
+And if all this fails.
+You can still scroll down.
+And go to Zapier.
+So unlike Monday.com, which has got a limited set of already existing integrations, Zapier will allow
+you to integrate your Monday.com account with thousands of different applications.
+I have never seen an application that we needed in a project that's not available in Zapier, so using
+Zapier, you can build custom integrations between Monday and any application that's available in Zapier.
+So keep this in mind if you want to integrate something that does not look available under monday.com.
+And having said that, I believe you now have enough information on what you can do using the integration
+options with Monday.com.
+I believe you should not force it.
+The way you should approach integrations is think about what other tools are used today within your
+own company.
+For example, if the team is using another set of 5 or 6 tools, see if it's going to make sense to
+integrate some of these tools with your Monday.com account.
+This is how I always approach integrations within my organization.
+Hopefully this lesson was useful.
+I definitely think integrations can really boost your productivity and efficiency in the long terme,
+so I'm definitely going to advise you to spend some time and think about how you can integrate some
+of the various tools that you use on a daily basis.
+
+--- Get your company Developers involved ---
+
+Hey.
+Welcome back.
+Monday is probably one of the most advanced project management tools out there.
+Not only does it have great features in terms of visualization, project planning, different template
+sets, security settings, and much more, but also it's building a whole community that's actually
+building their own solutions and making them available on the apps marketplace.
+So this is the apps marketplace, which we've explored.
+So all these are solutions that have been created by different companies and users.
+And you can install them.
+Some of them are free.
+For some of them you have a free trial, some of them got some paid features.
+And the great news is that this is not limited to a specific set of components.
+Even you yourself can actually develop an app.
+So let's say that you have an use case which you want to solve with a simple new workflow or view.
+And you don't find anything like this on the marketplace, right?
+What you can do is go to the.
+Developer section here.
+And keep in mind that this is aimed at developers.
+So the aim of this lesson is not really to get you started in learning how to code or anything like
+this, but I want to make sure that you know that there is an option out there in which you can involve
+your company's developers and develop something for yourself, and even sell it on the marketplace.
+So when you click on the developers menu here.
+This is where the magic begins.
+This is where you can start building your own Monday app.
+So what you'll do is you'll click on Create app.
+And this page is going to be loaded.
+Here you can give a name for new app.
+My first app you can add a description.
+These are the app credentials.
+And at the bottom you can delete the app.
+Now.
+Also, if I click on collaborators from here, you can invite collaborators.
+So for example, if you need a developer to work on this together with, you can add them here as a
+collaborator.
+You have the oath, which is gonna provide you the different options in which the app is going to be
+able to access the data of the users.
+The best practice is always to make sure the app consumes the least amount of user data.
+But don't worry about this for now.
+And here is where you actually start building your app.
+Create features.
+So when you click on create feature, you're going to see the different options.
+That you can add to your app, so you can create a new view to visualize and update your boards.
+You can create a new view to visualize and update your items.
+You can create a new widget to visualize and update multiple boards.
+You can create an integration and you can also create a workspace template.
+So for example, if you're looking for widget in the dashboard widgets that you cannot find, you can
+actually build it here on your own so you can choose it.
+And then from here you can decide whether you want to start with quick start or from absolute scratch.
+But again, this is really for your developers in your company.
+So don't worry about this for now.
+Although having said that, if you don't really want to deep dive into this and learn how to create
+your own apps, you can always go to help here.
+From the menu and here you have a guide on getting started.
+You have some dev tutorials and you have the dev community.
+If you have any questions, then afterwards you have the app versions where you can create new versions
+of your app and do the version control.
+From here you do the installation once you push something to live, and then from here you can share
+it.
+So we've covered the up building just to make sure that you're aware of the possibilities out there.
+So if there is something specific that you want to do in Monday, that's really crucial for your company.
+And this is not available in the features of Monday, and it's not available here under the marketplace.
+Keep in mind that if you have the budget to develop it, such as resource time, you can always involve
+a developer from your company to help you build it.
+And through a good developer, it's not going to be really hard to build a up here, because the framework
+is really streamlined to make it really easy to build something.
+So keep that in mind.
+If at some point you want to explore the app development features in Monday, let's now proceed to the
+next lesson.
+
+--- What's New? ---
+
+Monday is one of this few project management tools where they create more and more useful features all
+the time.
+We've covered all the current really useful features that are available, but what I tend to do is every
+1 or 2 weeks I go to the menu here and I click on What's New.
+And from here, you're gonna find out all the great things that Monday's team had.
+And you're gonna be one of the first people to find out about it.
+So let's start from here.
+You see, from four months ago, we have one,
+23456789
+1011.
+So for just four months we have 11 new features or improvements to current features.
+For example, the last one is that now we can create Subitems using the automations.
+They've recently added the ability to change the height of the items and a lot of other useful things,
+such as the Money Apps Marketplace that we just reviewed.
+Make sure to come here every once in a while in what's new, and find out about the new features from
+here.
+This way, not only are you gonna be an expert in the tool, but you really are gonna be one of the
+few people that are going to use the full potential of the software, because what tends to happen is
+that you get used to the tool, and you get used to working in a certain way, and then you completely
+forget that the team that created the software is probably working on it and adding new and new features,
+and you never use them or you don't even find out about them.
+So my tip for you is to just come here and check this once in a while.
+In order to make the most out of your experience with the software.
+Thank you.
+Let's now proceed to the next lesson.
+
+--- Thank you ---
+
+[No transcript available for this lecture]
+
+--- Bonus Lecture ---
+
+[No transcript available for this lecture]

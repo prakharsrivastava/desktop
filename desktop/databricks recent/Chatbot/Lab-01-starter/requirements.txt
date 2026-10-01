@@ -1,0 +1,14 @@
+# Advanced RAG labs — Python dependencies.
+# The LLM + embeddings run locally in Docker (Ollama); no ANTHROPIC_API_KEY needed.
+openai>=1.30            # OpenAI-compatible client, pointed at the local Ollama server
+sentence-transformers   # cross-encoder reranker only (ms-marco-MiniLM-L-6-v2)
+rank-bm25               # BM25 keyword search
+scikit-learn            # metrics / utilities
+numpy
+pandas
+langchain-text-splitters  # recursive / character chunkers
+rouge-score             # lexical overlap metric
+# notebook execution / video pipeline
+nbformat
+nbconvert
+jupyter_client==8.6.3   # pinned: newer releases break on Python 3.13 (PEP 728 TypedDict)

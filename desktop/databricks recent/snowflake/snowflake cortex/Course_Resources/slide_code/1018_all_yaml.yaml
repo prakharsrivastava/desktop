@@ -1,0 +1,234 @@
+# ============================================================
+# 1018 — COMPLETE YAML REFERENCE  (12 snippets)
+# Every on-slide snippet across all modules. Ctrl+F by keyword or title.
+# ============================================================
+
+
+
+# ########################################################
+# MODULE 09
+# ########################################################
+
+# --- Minimum Viable Semantic Model in YAML ---
+
+name: cpg_sales_model
+tables:
+  - name: fact_sales
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+    primary_key: { columns: [sale_id] }
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+  - name: dim_store
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_STORE }
+    primary_key: { columns: [store_id] }
+relationships:
+  - name: sales_to_store
+    left_table: fact_sales
+    right_table: dim_store
+    relationship_columns:
+      - { left_column: store_id, right_column: store_id }
+
+
+# --- Declaring the Tables ---
+
+tables:
+  - name: fact_sales
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+    primary_key: { columns: [sale_id] }
+  - name: dim_product
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_PRODUCT }
+    primary_key: { columns: [product_id] }
+  - name: dim_store
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_STORE }
+    primary_key: { columns: [store_id] }
+  - name: dim_time
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_TIME }
+    primary_key: { columns: [date_id] }
+
+
+# --- Defining Metrics Once, Reused Everywhere ---
+
+tables:
+  - name: fact_sales
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+      - name: units_sold
+        expr: units_sold
+        default_aggregation: sum
+      - name: avg_unit_price
+        expr: net_sales_amount / NULLIF(units_sold, 0)
+        default_aggregation: avg
+  - name: dim_product
+    dimensions:
+      - name: category
+        expr: category
+  - name: dim_store
+    dimensions:
+      - name: region
+        expr: region
+
+
+# --- Category Codes Are Prose to the Model, Not a Validated Enum ---
+
+synonyms + sample_values:
+  channel_code:
+    description: "MT=Modern Trade, GT=General Trade, ECOM=E-commerce"
+    sample_values: [MT, GT, ECOM]
+    synonyms: ["channel", "trade channel", "sales channel"]
+
+
+# --- Synonyms — One Metric, Five Ways of Asking ---
+
+tables:
+  - name: fact_sales
+    facts:
+      - name: net_sales
+        expr: net_sales_amount
+        default_aggregation: sum
+        synonyms: [revenue, topline, sales dollars]
+  - name: dim_store
+    dimensions:
+      - name: region
+        expr: region
+        synonyms: [territory, market area]
+
+
+# --- Anatomy of a Verified Query ---
+
+verified_queries:
+  - name: quarterly_sellthrough_by_category
+    question: "What was last quarter's sell-through by category?"
+    sql: |
+      SELECT p.category,
+             SUM(f.units_sold) AS total_units
+      FROM fact_sales f
+      JOIN dim_product p ON f.product_id = p.product_id
+      JOIN dim_time t ON f.date_id = t.date_id
+      WHERE t.quarter = DATEADD(quarter, -1, CURRENT_DATE())
+      GROUP BY p.category
+    use_as_onboarding_question: true
+
+
+
+# ########################################################
+# MODULE 10
+# ########################################################
+
+# --- Defining the Semantic Model in YAML ---
+
+name: cpg_sell_through_model
+tables:
+  - name: pos_sales_daily
+    base_table: analytics.pos.pos_sales_daily
+    dimensions:
+      - name: sale_date
+      - name: store_id
+    facts:
+      - name: units_sold
+      - name: dollar_sales
+  - name: shipments
+    base_table: analytics.pos.shipments
+    facts:
+      - name: cases_shipped
+  - name: product_master
+    base_table: analytics.pos.product_master
+    dimensions:
+      - name: category
+      - name: pack_size
+      - name: brand
+
+
+# --- The Opposite Bug: An Inner Join That Silently Drops Rows ---
+
+relationships:
+  - name: sales_to_shipment   # FLAWED: inner join drops any sale with no same-day shipment row
+    left_table: pos_sales_daily
+    right_table: shipments
+    join_type: inner
+    relationship_columns:
+      - { left_column: sku, right_column: sku }
+      - { left_column: sale_date, right_column: ship_date }
+
+relationships:
+  - name: sales_to_shipment   # FIXED: left_outer from the table you're actually counting
+    left_table: pos_sales_daily
+    right_table: shipments
+    join_type: left_outer
+    relationship_columns:
+      - { left_column: sku, right_column: sku }
+      - { left_column: sale_date, right_column: ship_date }
+
+
+
+# ########################################################
+# MODULE 15
+# ########################################################
+
+# --- Illustrating a Tool Description ---
+
+# Illustrative only — exact config keys are version-dependent, verify current docs
+tool:
+  name: cortex_analyst_sales_model
+  type: analyst
+  description: >
+    Answers quantitative questions about shipments, returns,
+    and pricing using the governed sales semantic model.
+  example_questions:
+    - "What were Q2 case shipments for SKU 4410?"
+    - "Which region had the highest return rate last month?"
+
+
+# --- Illustrating Cortex AI Guardrails' Protection Scope ---
+
+# Illustrative Cortex AI Guardrails scope (conceptual, not exact syntax)
+protection_scope:
+  - prompt_injection_detection
+  - jailbreak_attempt_detection
+  - zero_day_attack_detection
+action_on_violation: block_and_return_safe_message
+
+
+
+# ########################################################
+# MODULE 17
+# ########################################################
+
+# --- Finding the Stale Mapping ---
+
+# semantic model YAML — stale column reference
+tables:
+  - name: finance_summary
+    dimensions: []
+    measures:
+      - name: net_revenue_metric
+        expr: gross_revenue   # <- renamed 3 weeks ago in the table
+        synonyms: ["net revenue", "revenue"]
+# actual table now has: net_revenue -- no CI check on the model
+# gross_revenue partially still resolves via a legacy view alias,
+# which is exactly what hid the bug from every smoke test
+
+
+
+# ########################################################
+# MODULE 20
+# ########################################################
+
+# --- Listing Metadata, Conceptually ---
+
+# conceptual LISTING manifest sketch — verify exact schema against current docs
+listing:
+  title: "CPG Demand Forecast Assistant"
+  subtitle: "Cortex-powered demand forecast summaries for CPG sales data"
+  categories:
+    - "Data & AI Applications"
+  description: "Cortex-powered demand forecast summaries for CPG sales data"
+  required_privileges:
+    - SELECT on consumer-provided sales table
+  custom_contact: "support@example.com"
+  offers:
+    - type: "free-trial-then-paid"
+

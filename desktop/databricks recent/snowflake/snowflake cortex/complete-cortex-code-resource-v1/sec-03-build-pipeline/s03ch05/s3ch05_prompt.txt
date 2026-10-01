@@ -1,0 +1,5 @@
+create silver layer dynamic tables from remaining master tables: Store Master with deduplication and quality check
+
+create silver layer for customer Master with deduplication and quality check
+
+create silver layer for sales header and sales item with deduplication and quality check

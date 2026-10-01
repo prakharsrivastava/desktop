@@ -1,0 +1,29 @@
+type StudentResponse {
+    id: Long
+    firstName: String
+    lastName: String
+    email: String
+    street: String
+    city: String
+    learningSubjects(
+        subjectNameFilter: SubjectNameFilter
+        first: Int
+        after: String
+    ): SubjectConnection
+    fullName: String
+}
+
+type SubjectConnection {
+    edges: [SubjectEdge]
+    pageInfo: PageInfo!
+}
+
+type SubjectEdge {
+    node: SubjectResponse
+    cursor: String!
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    endCursor: String
+}

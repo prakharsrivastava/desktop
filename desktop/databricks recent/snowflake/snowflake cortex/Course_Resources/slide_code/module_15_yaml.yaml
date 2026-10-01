@@ -1,0 +1,34 @@
+# ============================================================
+# Course 1018 — Module 15
+# On-slide YAML reference  (2 snippets)
+# Authentic code as shown on the course slides. Copy, run, experiment.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# Illustrating a Tool Description
+# ----------------------------------------------------------
+
+# Illustrative only — exact config keys are version-dependent, verify current docs
+tool:
+  name: cortex_analyst_sales_model
+  type: analyst
+  description: >
+    Answers quantitative questions about shipments, returns,
+    and pricing using the governed sales semantic model.
+  example_questions:
+    - "What were Q2 case shipments for SKU 4410?"
+    - "Which region had the highest return rate last month?"
+
+
+# ----------------------------------------------------------
+# Illustrating Cortex AI Guardrails' Protection Scope
+# ----------------------------------------------------------
+
+# Illustrative Cortex AI Guardrails scope (conceptual, not exact syntax)
+protection_scope:
+  - prompt_injection_detection
+  - jailbreak_attempt_detection
+  - zero_day_attack_detection
+action_on_violation: block_and_return_safe_message
+

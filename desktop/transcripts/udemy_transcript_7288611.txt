@@ -1,0 +1,2580 @@
+
+
+=== Data Warehousing - Introduction ===
+
+
+--- Introduction ---
+
+1
+Let us just have a quick look that what we are going to see in this
+2
+Uh lecture actually, okay
+3
+So we are going to see uh, very importantly the first one
+4
+Uh, we are going to see the prerequisite part. So that is what uh, what is simply a data warehousing
+5
+Keys mean different keys will be there in the dbms because that is really matter to understand the concept actually
+6
+And at the same time dimension and fact tables without these words there is no database in real world actually
+7
+So that's why we should have a good command on all these things actually before going to
+8
+Uh deep dive in the scds part and not only this in many other places also
+9
+All these prerequisites are going to play a key role
+10
+So anyhow, we are learning here. So that is the good thing
+11
+So now if you see the next one very importantly, we are going to of course
+12
+We will see the scd introduction
+13
+And different types are there as we are seeing here. There are total six types
+14
+So that's what different acid is and then if you see the next one use cases
+15
+In each scd where you can use it how you can use it
+16
+So you are going to get a good direction so that betterly we can apply in the real world actually
+17
+And then the next one is lab. So after each scd understanding its core concept
+18
+We need to implement that some somewhere actually
+19
+So we can implement in sql as we are going to see in the discussion
+20
+And we can implement even in the pi spark even in advanced tools like data factory
+21
+So anywhere in the synapse so in many places we can implement the same concept
+22
+And then we are going to see the best practices
+23
+So this is what actually how you can apply and then so many times you have a trade-off
+24
+Uh kind of situation like uh, if you're basing on the data you have which which scd you need to apply
+25
+So that's what different situations will be there
+26
+So what decision you need to take actually on that particular data to implement which type of scd we need to implement
+27
+So that's what overall we are going to see this is just for namesake what we are seeing here
+28
+And many more things much more deep dive discussion is there in the overall lecture
+
+--- What is a Data warehouse ---
+
+1
+in the medium phase let us try to understand that
+2
+these concepts are all prerequisites are there or whatever
+3
+SEDs are there let us try to understand very clearly
+4
+what is data warehouse so this is the in the data domain everyone should
+5
+have a first of all at the basic level so simply what you can say it's a some
+6
+it's a central repository where you are going to have a
+7
+a data actually okay so this data in general you are using
+8
+for analysis and for reporting but before that to do analysis to
+9
+make the reports on top of this data that data should be very organized
+10
+manner very in a in a well-structured manner
+11
+that is really matter actually okay so for example let us take a simple
+12
+real-world example suppose here if you see there is a
+13
+picture in that picture you have the books
+14
+so all these books is not organized manner actually
+15
+so you see here these books simply kept one by one actually
+16
+just like a stack they kept it when the problem will come
+17
+suppose if you want to identify so and so book from this actually
+18
+that is not at all easy to identify actually
+19
+is it so what we need to do overall you need to go
+20
+one by one actually each book you need to search
+21
+for your required book actually so just throwing the items
+22
+is always easy but when you need it it is not at all easy to get it
+23
+get it actually so that's what very important thing here
+24
+suppose the same thing if you kept the books in an organized manner
+25
+so for example if it is a library instead of like this
+26
+you kept the department wise suppose computer science books in the in this
+27
+column or for example a related books here or
+28
+ec related books here so category wise columns you maintain
+29
+and in each category also subject wise different author books you maintain
+30
+so that if i need so and so book suppose if i need data structures and
+31
+algorithms book i will come to cse column and then i will
+32
+go to the dsa category of
+33
+dssl identify the author easily then i can get back it actually
+34
+so this is well structured well structured
+35
+is really matter that's what simply the warehouse
+36
+always warehouse warehouse is simply database is different we can say simply
+37
+warehouse is different so in the warehouse
+38
+it is always well structured now this warehouse is for whom for the
+39
+data simply actually so that means what your data kept in a
+40
+well organized manner clean data cleanser data
+41
+ready to use data is going to be there in your database that database you are
+42
+calling as a data warehouse so wherever this data may be there this
+43
+data may be in the data lake this data may be in a api this data may
+44
+be in in a database also so that particular
+45
+store you can call as a data warehouse so that's what simply you need to
+46
+understand the starting itself what is the data warehouse
+47
+so on top of this how this is really possible data warehouse when you
+48
+well structured ready-made data is there to use
+49
+how this is possible so there is some behind
+50
+some concepts are there that is what you are going to maintain the data in fact
+51
+tables in the dimension tables so this is on
+52
+this also we are going to have a very elaborated discussion so let it be
+53
+actually so this is possible because of this actually
+54
+and many other things are there let us try to understand
+
+
+=== Different Types of Keys ===
+
+
+--- Keys in Data Warehouse ---
+
+1
+As we told that data warehouse understanding definition wise is very important as we seen just now
+2
+And then another prerequisite to see a series clearly the keys actually
+3
+So we are going to have a candidate key primary key
+4
+foreign key and surrogate key
+5
+So let us try to master all these keys one by one
+
+
+=== Fact and Dimension Tables ===
+
+
+--- Candidate Key ---
+
+1
+so the very first one is candidate key so what is this candidate key instead of
+2
+going directly to the definition I want to understand first of all from the
+3
+example let us try to understand so let us take this particular EMP table which
+4
+we have let us come here what is the candidate key first of all so what is
+5
+it's a definition so it is very straightforward nothing is there so
+6
+uniqueness and not null actually so what does it mean with a simple example try
+7
+to understand here so if you take a employee ID column okay so in the
+8
+organization okay no two employees going to have a same ID actually so this ID
+9
+never going to repeat actually this is Ram's ID so this 101 not going to give
+10
+to any other employee actually so this is always unique so that this column is
+11
+always going to follow uniqueness and not null what does it mean so if any
+12
+employee is joined in this company so Ravi joined in this company so without
+13
+any employee ID there is no employee in the organization so that means this is
+14
+never be empty actually that means never be null value that means it's a not null
+15
+so this employee ID is always not null and unique that's what you can give
+16
+guarantee so that is what simple discussion so under this column always
+17
+the values are unique one value you entered means that is never going to
+18
+repeat and everyone going to have some value that is what unique and not null
+19
+followed by EMP ID simple now come to the other column actually like in every
+20
+country every individual going to identify with some unique number that's
+21
+what so like in US it is a SSN so here it is a other now if you see here also
+22
+every other number is unique a for every person a unique number will be there and
+23
+there is no person in India who don't have other number so that means what
+24
+even this column is going to follow simply so likewise if you come to the
+25
+employee ID so definitely it is unique first of all another person trying to
+26
+create same ID that that itself will not allow actually so that's what then
+27
+definitely everyone should provide their email ID that's what your organization
+28
+rule then name it need not be unique actually right same another person may
+29
+have same name as wrong so names may be repeated actually so you cannot tell
+30
+this kind of this column every value is unique but everyone should have some
+31
+name that is something and it is not following uniqueness but everyone
+32
+suppose employee joined just now so he just employees joined but department is
+33
+not yet allocated assume that there is a situation like that so that means not
+34
+null is a null values may be possible then if you are taking only the persons
+35
+who have the passport who have the passport only those those individuals
+36
+who are taking into your organization as a employee that means what every employee
+37
+going to have unique password ID and at the same time it is not null everyone
+38
+should have actually that is mandatory for this company so even when you come
+39
+to driving license it is following uniqueness but some people may not know
+40
+that driving action so they may not have the driving license so that is not null
+41
+is not following so some people so Ravi don't know driving he have a null well
+42
+that is what column wise if you observe unique individually not null
+43
+individually then when it is going to become candidate key so very simple
+44
+which column is following both unique or not so this is following this is
+45
+following this is following and this is following so we are not considering this
+46
+but if you take this of course simply whoever following that will be the unique
+47
+not null is the candidate key simply so that is what here it is telling from
+48
+this table who will become the candidates so employee ID or the
+49
+passport of course email ID also so that is what or for example sometimes the
+50
+employee just now joined suppose he is a layman he don't have employee ID my
+51
+mail ID so that I'm not null you can exclude actually so that is why you can
+52
+relax in that but guarantee these things will be there so that is what
+53
+simple discussion about the candidate keys so candidate key is simply a unique
+54
+and not null actually that's all
+
+
+=== Data Warehouse Concepts - Slowly Changing Dimensions (SCDs) ===
+
+
+--- Primary Key ---
+
+1
+if you go to the next that is primary key. So primary key is very simple really
+2
+this is from candidate keys discussion only so simple one of the candidate key
+3
+is going to become primary key. So take a simple example that suppose there is a
+4
+contest so just like a election section so to contest in that election you put
+5
+some criteria whoever satisfied that criteria you are allowing them as a
+6
+candidates these are all the contestants to become a primary key actually only one
+7
+person will become will win the election that's all simple discussion even here
+8
+also every table going to have only one primary not more than that so one of the
+9
+candidate key first of all you should satisfy some eligibility that is what
+10
+unique and not know and then one of them you are going to select but in our case
+11
+whichever is flexible even in the election also majority people selecting
+12
+one person means whoever is flexible so here also which is flexible for us we
+13
+are going to make that as a primary key so that is in our case we I we made this
+14
+as a primary key so that will become the primary key of this particular table so
+15
+every record you can identify uniquely okay and no record without have this
+16
+value actually so that's all simply even primary key definition is also you can
+17
+tell unique plus not know but the very standard very professional definition is
+18
+one of the candidate key is the primary key so simple that is what the primary
+19
+key if you understand candidate key nothing is there in understanding
+20
+primary so but mandate really every table should have a primary key so
+21
+always primary key is one and if you take the candidate key there may be
+22
+chance of having more than zero or more than zero candidate this but primary key
+23
+is always one in any table
+
+--- Foreign Key ---
+
+1
+The next key that is foreign key. So this is also very simple to understand this
+2
+So this is an attribute in one table
+3
+which is referring
+4
+Uh in another table's primary key actually, so what does it mean? Let us try to understand with a simple example
+5
+So this is the emp table which we have and this is the dbt table So have a look
+6
+Now if you understand that the columns which have a underline is always by default. It is a primary
+7
+key. That is what the representation
+8
+Now if you come to the employee every employee working under one of the department
+9
+So instead of storing entire department details, you are just noting down it department number
+10
+If anybody asks what is the department name of the james department name of the james?
+11
+First you will take the department number you are taking this 30
+12
+Going to this particular table and then here identifying where is 30 then returning the required details It is working
+13
+So how you are working? So simply if you take this column the values what you are filling
+14
+Those should exist under this column actually
+15
+That is what this is referring here. That is what one table this table
+16
+Under one under this is what an attribute that means this column
+17
+Is referring another table
+18
+primary key actually
+19
+That is what simply you can tell this is going to become the foreign key because the data what you have here
+20
+This is not its original data
+21
+That is going to exist in some other table. Actually. So the value 30 its origin is not here. It's original
+22
+Data full data available here actually
+23
+So that is what this is going to become the parent
+24
+so parent table if you take
+25
+and child table if you take here the parent is dept because that is the
+26
+Main source of the data for this particular column
+27
+And emp is going to become the child. So that's all simple discussion. So dpt number
+28
+Now if I ask you under the emp table if you observe just these four columns
+29
+There is a column
+30
+Which is foreign key actually?
+31
+So are you able to identify? So that is mgr
+32
+Have a look mgr is nothing but manager. So that manager so
+33
+Suppose the krishna working under which manager one at one actually who is one at one you are coming here
+34
+That is what you are referring
+35
+The same table one of the column that is primary key
+36
+So it need not be always the foreign key which is foreign key this is also foreign key because it's a data
+37
+This data is coming from some other column actually likewise here
+38
+So what we can tell that?
+39
+the foreign keys the
+40
+Reference column need not be in another table's primary key. It may be sometimes same tables primary key
+41
+So that is what possibility is there so that is what the simple summary is what actually here
+42
+That is one is dpt number is the foreign key in the emp table
+43
+Which is referring dpt number
+44
+Which is for primary key in the dpt table just if you don't understand sentence, but this diagram is going to tell you
+45
+So from this you can make this sentence simply
+46
+So what is foreign key is always hope it is clear
+47
+So it need not be always from the another table. We can tell simply
+48
+Also be there in the same table. So that is what example is mgr is a foreign key
+49
+Which is referring employee number which is primary key of the same table
+50
+So these things without these things there is no
+51
+Any advanced concepts actually these core concepts we need to understand and very simple. These are all
+52
+Regularly, uh happening things in our real world, okay
+
+--- Surrogate Key ---
+
+1
+This is the very importance and this we are going to see in many places actually that is surrogate
+2
+So what is surrogate is simple? It is a system generated key
+3
+Which is simply a unique identifier for every record actually
+4
+Of course as mentioned in many cases it is auto incremented
+5
+So like just like if you start with one then one two three for every record you are giving a unique
+6
+Sequence number you can say in a simple words, but still it is a system generated number
+7
+Of course surrogate key is always going to become a primary key
+8
+But behind the scenes why surrogate key is required why system has to generate the sequence number
+9
+That way it is in a auto incremented following uniqueness and not now
+10
+Every record should identify with some number and that should be a surrogate key actually
+11
+So, let us see here the this this data if you see here. So this is the EMP data again
+12
+Under the same data when you take it observe here that
+13
+Initially one or two is there who is actually a Krishna and his department is 20 actually
+14
+Assume that assume that this Krishna
+15
+Changed his department because of some reason so what has to happen
+16
+He that's what this is the present record current record
+17
+So what is going to happen? So you say with the same data you are going to insert another record action
+18
+So earlier we told that this is the primary. This is the primary
+19
+But the primary key is it now the primary key?
+20
+No, if you observe the number is repeated, so there is no uniqueness in every value so numbers are repeated action
+21
+So there will be a such a situations in real world
+22
+Definitely in many tables actually at that time you need to generate a system generated key
+23
+So are simply what you can actually is
+24
+In some tables, it is not possible to identify the candidate key actually
+25
+So there is no column with uniqueness and not now
+26
+Then at that time you are going for system generated key. That is surrogate key
+27
+Now here if you see the employee key
+28
+Surrogate key, which is primary key that is sequence number simply suppose the Karim changed his
+29
+Department number or a curry move to another manager actually
+30
+So what will happen one or four so repeated value name is of course same this is okay and he moved to the
+31
+101 actually so that means you are going to keep like this then for him
+32
+Customer key is going to become sir. That means employee key is going to become five surrogate key, which is surrogate
+33
+So like that it is simply going to increment. So that is the system generated key
+34
+So hope it is clear that we discuss it till now different keys that is candidate key primary key and
+35
+Foreign key now, this is surrogate key. Okay. Let us see the next one. Very very important
+36
+So that's what here the surrogate key if you see so customer key is the surrogate key
+37
+That's what this one employee key actually and employee number is the natural key actually in general
+38
+This is going to become natural key, which is going to useful for our business okay, so
+39
+why we discussing this surrogate key especially is in one of the
+40
+Slowly changing dimensions. This is going to play a key role actually so that what's back table
+41
+Going to reference the customer key actually always. Okay
+42
+So, of course, this is for historical tracking
+43
+It will help you actually you will get more clarity on these wordings in the upcoming discussion
+
+--- Fact & Dimension Tables ---
+
+1
+Now let us see the dimension and fact tables.
+2
+So understanding always from the examples is very simple.
+3
+So the core concept we will understand very quickly.
+4
+So here if you observe that we taken some tables here, the sales if you take any business
+5
+for example for any business there is a customers and there will be different stores maybe across
+6
+the city or across the country and they may have different products in their store and
+7
+date wise every day this business is going to happen actually and then regularly people
+8
+are coming and buying the products that's what ultimately right.
+9
+So if you observe these are the different tables so which tables you can take as a dimension
+10
+which tables you can take as a fact that's what the matter here right.
+11
+So if you see the store wise suppose if you take the store so every stores are same companies
+12
+different stores will be there across the region actually.
+13
+So every store you should have some name and in which region it is there who is actually
+14
+handling that who is managing that.
+15
+So that's what this details actually.
+16
+Likewise different products their product name under category and what is its price
+17
+likewise different customers will be there and likewise every day date will change.
+18
+So date key is what and day is what month is what year is what and which quarter you
+19
+are going to have a details here actually.
+20
+Okay now when any customer came he is going to buy the product.
+21
+What is happening when the customer came who is that customer and from which store he bought
+22
+the what that actually and from what is the product he bought and on which date he bought
+23
+you are going to note down all these things that is what sales you can call right.
+24
+And these details almost fixed it's not fixed actually going to change continuously but
+25
+this is not going to increase like anything but regularly if your business is really big
+26
+so hundreds of people regularly coming and buying the products.
+27
+So what is going to happen this sales data is going to increase like anything every day
+28
+you are going to have 1020,000 records adding to your database and when you just come to
+29
+the sales who is the customer you cannot tell just by seeing this table actually just by
+30
+seeing customer ID you cannot tell who is this particular customer you want to see you
+31
+want to see his address where is he what is his name because he bought many details he
+32
+bought actually because of many products he bought over a time so you want to you want
+33
+to give him a reward actually then how you will get his address phone number everything
+34
+then you have to go to the some other table by identifying its value ID.
+35
+So here you will get the full details this is what descriptive is it and here you are
+36
+going to have measurables actually how much he bought what how many how many products
+37
+he bought each product how much quantity he bought so accordingly what is the price these
+38
+are the measurables simple so text related data you will get here full details you will
+39
+get here and this is the regular transaction details here actually so now easily you can
+40
+define what is fact and what is dimension when you come to the dimension it provide
+41
+descriptive context actually that's what right every every customer full details you will
+42
+get it here every store full details you will get it here every product full details
+43
+you will get it here and facts are what actually store measurable data actually that's what
+44
+so these are all you can tell foreign keys that's what we learn just now right have a
+45
+look and this will be the primary key because you can say this is also sometimes has a surrogate
+46
+key actually okay and these are all identify that different primary keys in each dimension
+47
+tables so dim is nothing but dimension this is fact however so fact is always surrounded
+48
+by dimension tables so fact table is not going to have a full data only in DBMS we have a
+49
+normalization so after normalization only it's a related keys you are going to have here actually
+50
+this is going to increase like anything that data wise number of records every day regularly
+51
+inserting into this table but dimension tables definitely not just like not like a fact tables
+52
+so that is what first of all simple understanding of this dimension and fact tables actually so if
+53
+you continue this discussion further the dimension tables what actually talking what a fact tables is
+54
+talking if you observe definition if you take so it is simply descriptive contextual attributes
+55
+you are going to have actually here so simple if you take a date product customer and store data
+56
+have a look it is going to give the full information so who is the so-and-so customer you can answer it
+57
+what is the so-and-so product you can answer it when when this particular transaction happen you
+58
+can answer it from this date actually and where the product why they product why they why they
+59
+where the products are bought why they buy that so all these things you are going to get the
+60
+answers only by using this dimension tables and in the dimension tables who is going to play a
+61
+key role that is what the primary key is it so of course surrogate key that's what we are discussing
+62
+and then the attributes giving what actually that's what textual or descriptive information
+63
+so so-and-so customer name is what so-and-so product name is what what is the reason where
+64
+so these details you are going to get it actually so hope it is clear or only what is simply a
+65
+dimension full details you will be there and these are going to change slowly actually here but in
+66
+these tables data of course in general not going to append or insert not very regularly not
+67
+drastically data is not coming into these tables that's what simple discussion about the dimension
+68
+tables actually come on now let us try to understand what is this fact tables actually
+69
+so if you observe the fact tables here the definition a very simple and by seeing the by
+70
+seeing in the last slide this data you can easily write down it's a definition so fact table contains
+71
+the quantitative data actually so that means you are going to have mostly the numbers so that's
+72
+what how much quantity so-and-so customer so customer do not want and so-and-so date he bought
+73
+something actually so what is that product what is the in where he bought it actually if you see
+74
+the mainly the measurables these things so how much quantity he bought so-and-so product and what is
+75
+the total cost so like that of course many columns but overall a data is like this so that's what
+76
+talking about the fact actually okay so it is always in the center of the star schema that's
+77
+what the diagram what we seen earlier that is the star schema okay now usually it is very large that
+78
+is very very very important okay so the that's what in in the in the data domain in the data
+79
+migration especially there is another concept of loads different loads will be there so that is
+80
+what actually incremental load full load so on which tables you need to apply the full load on
+81
+which tables you need to apply the incremental load basing on this you can decide actually so
+82
+dimension tables most of the times it is a full load and fact tables most of the times it is the
+83
+incremental load because it's the size is really large so all are interrelated that's why we are
+84
+discussing these things as a prerequisite now come on see the characteristics here basing on
+85
+this discussion what actually here you are going to have a composite key actually by using the
+86
+foreign keys so foreign keys what actually these are the mainly primary keys in the dimension
+87
+tables so simple thing so as usually as we discussed that it is going to have most of
+88
+the cases numeric values by using that you can go for the analysis actually that is what mainly
+89
+fact tables are going to help you to identify the insights in your business so and so on so
+90
+reason how much sales is happen and so on so product how it is performing so all these things
+91
+you will get from the fact tables and if you need full details you will go for the dimension tables
+92
+so that's what hope it is clear if you observe overly this is what dimension and fact tables so
+93
+that is what if you connect them as we discussed that fact tables is always at the center and these
+94
+are going to be connected with the dimension tables actually so that's what if you see the
+95
+simple example here if you want to identify product wise how much sales is happening if
+96
+you want to identify so you see always it is a combination fact table is in the first position
+97
+that is what joins related concepts and you you want to know product name actually if you want
+98
+to have product name you should join with that corresponding dimension table actually then what
+99
+is the relation between them you are keeping it and then you are performing group product wise
+100
+then in each product how much amount is generated you are summing it actually that's what coming in
+101
+the output so that's what is the fact and dimension tables very simple nothing is there
+102
+orally that is what in the real world if you see if you want to understand in a simple manner what
+103
+is this one when you go to the venue hotel okay what is going to happen you are going to have a
+104
+catalog in front of you so that catalog is telling that what actually so what kind of dishes are
+105
+there how it will be there all those things so at the end of the food eating is completed what
+106
+is going to happen you are going to have a reset so what product you taken okay it's ID and how
+107
+much how much you taken and it's a price that's what simply you can say facts so so this is the
+108
+simple example but betterly you might understand already with the actual discussion so this is
+109
+what orally what is fact and what is dimension and these are going to play a key role in our
+110
+actual discussion okay
+
+--- SCD Introduction – Why ---
+
+1
+now we came to the actual discussion that is slowly changing dimensions okay
+2
+so whatever we discussed till now the prerequisites that is going to help a
+3
+lot in our actual discussion of the SEDs actually okay so come on why SED is
+4
+required actually try to understand with the simple examples always so handling
+5
+changes in dimension data actually what does it mean okay so dimensions are not
+6
+static and they are going to change over a time they are going to change
+7
+continuously actually so you have to connect what I am telling with our
+8
+previous discussion actually so dimensions is nothing but what
+9
+actually so dimension is nothing but what suppose if you take a customer so
+10
+that customer given now some address then over a time he might be moved to
+11
+some other place actually so address is going to change phone number is going to
+12
+change if you take a price so the price of a product is going to change over a
+13
+time maybe every month price is changing category might be changing so in the
+14
+dimension tables especially whatever data you have that is continuously going
+15
+to change but not rapidly that's what slowly it is going to change actually so
+16
+then here if you take these examples if you take the customer his address might
+17
+be changed here so his address might be Ramesh moved to might be moved to
+18
+Mumbai actually so you have to change you have to capture that new address
+19
+actually and a product price might be changed next time so different value is
+20
+coming so first of all simple thing is that in this these dimensions are
+21
+continuously going to change when they are continuously changing the very
+22
+important thing when they are continuously changing what is the
+23
+challenge how you will capture them that is really matter actually okay so how
+24
+you will capture them how do we store that history actually
+
+--- SCD Introduction – What ---
+
+1
+So that is what SED is going to come into the picture.
+2
+So how you will store?
+3
+So that is simply if you see the definition slowly changing dimensions so that these dimensions
+4
+are going to change not of course rapidly but definitely one product you suppose you
+5
+are a seller if you have hundred products in your store and these product names will
+6
+not change very rapidly and these prices also every day you will not change it in a year
+7
+you may change it for two times three times that depends of course but it observe that
+8
+these more majority of the products prices also not changing continuously product name
+9
+if you take that is very rarely is going to change that's why it is calling as it slowly
+10
+but anyhow some data is going to change a simple understanding now SED dimensions are
+11
+techniques to manage and track the changes in dimension attributes that's what in the
+12
+those columns actually so how this data over time going to change and this data how you
+13
+are going to manage a simple understanding actual so the key point here is preserves
+14
+the business history so so and so customers previous address is what current address is
+15
+what when sometimes you need it and some columns data you no need to bother about its history
+16
+that is also matter so for example mobile number is there you are always focusing on
+17
+the current mobile number you don't bother about the previous mobile numbers so you don't
+18
+need to maintain the history so how you will maintain that over early is actually a series
+19
+tell so that's what business examples are address changing all these things actually
+20
+so orally whether we are going to overwrite or we are going to store both that's what
+21
+overall discussion of the SEDs so hope it is clear that what is really first of all
+22
+SED after understanding dimension tables so in the dimension tables data will be there
+23
+but that data is not going to change really very continuously but definitely here and
+24
+there data is going to change like product names changing prices changing our customer
+25
+address mobile numbers anything can change actually in the dimension tables so when these
+26
+are changes happening how you are going to capture these changes with history without
+27
+history or specific columns history you want to maintain or for some columns you don't want
+28
+to maintain the history that's what we're only talking actually so that is what acid
+29
+is going to come into the picture how you will manage that
+
+--- SCD Types Overview ---
+
+1
+Now, come on, let us try to understand different SED types just an overview now and one by one
+2
+we are going to see its main meaning and its implementation especially. Ultimately we have
+3
+to implement. Theoretical discussion is really very important. It is going to play 80% of the
+4
+80% key role overall concept wise and 20% is the practical part. Nothing is there in practical
+5
+nowadays. Just if you understand the concept, you can take the help. That means AI, okay,
+6
+but without AI or with AI, but theory is really matter. Come on. Now, if you see the different
+7
+types, actually SED type 0 is talking what actually simply you once the data is inserted,
+8
+that is never going to change. Very simple. That's what it just outlined. We will see
+9
+on type one is talking what actually, so the type one is talking simply overwrite the existing data.
+10
+If you want to change something, you are just overwriting the existing one.
+11
+So simple update actually happening. So type two is talking actually the full history.
+12
+So what is the previous value for so-and-so column? You can tell actually for so-and-so
+13
+customer, what is the previous address before that? What is the previous address?
+14
+So the duration also you can tell basing on the capturing values actually.
+15
+So that's what full history you are going to maintain in the SED type one and two.
+16
+So understanding these two is really matter and the remaining four or whatever is there
+17
+basing on these two only a little modification is going to become remaining type three, four,
+18
+five, six. So just have a overlook type three is what it is going to maintain partial history
+19
+instead of full history actually. So maybe last two addresses only want to maintain.
+20
+That's all simple. Here full history. Suppose one customer changed 10 addresses in five years
+21
+duration. So all 10 will be available. But in this case, if you want to maintain partially,
+22
+that means last two addresses. So that's what accordingly.
+23
+So you are going to maintain the history table separately actually.
+24
+So the current active data you are going to keep in one table and always history or maintaining
+25
+in another table. That is what type four is talking. That's why these two first type one
+26
+and type two is really matter on top of that little extra implementation is remaining things
+27
+actually. So then type five is see the mini dimension. So helper dimension for frequently
+28
+changing attributes. This is also a very simple thing. Like instead of applying this history part
+29
+for every column only to the specific columns you want to go for history capturing. For remaining
+30
+things you don't bother simply update. That means overwrite the existing values. That's what
+31
+mini dimension type five is talking. And then type six it is simply a hybrid mode. Very interesting
+32
+one. So that is what one and two most of the time, sometimes three also going to include actually.
+33
+So combination of one and two is going to become type six. So this is what just overview of these
+34
+types. Let us try to deep dive one by one actually. Let us try to understand theoretically
+35
+with examples. And then let us see it's a practical part. Okay. Now let us try to understand what is type zero.
+
+--- SCD Type 1 ---
+
+1
+SED type 1. What does it mean simple line overwrite with the new data?
+2
+What does it mean? So
+3
+Changes occur in dimension attribute
+4
+Old value is going to overwrite with the new one. That's all
+5
+What does it mean? See if you take this simple table customer dimension table
+6
+This is the original table keep in mind now onwards there will be one original table and there we
+7
+are going to get the
+8
+Staging data actually which you all have to match with this dimension tables so
+9
+This is the staging table. That means today some updates happen actually
+10
+So if you observe the dimension table in this dimension table a customer one to the customer one
+11
+The city is changed to Bangalore
+12
+What is going to happen? You are simply overwriting here with the bangalore
+13
+That's all so that means what actually happening here. You know, you will not get the previous value actually
+14
+What is his earlier city if anybody ask because it is overwritten
+15
+You cannot tell it actually as a hydra Park or as it is visible
+16
+Once you feed it over written in the database, you cannot get it back. So understand that this is
+17
+the staging data today some
+18
+Updated data is there and some new records are there. That's what you have to observe
+19
+So here for the record number two customer two, so there is no changes and for customer number three
+20
+There is no changes actually
+21
+So one updated record is there one new record is there then this you need to measure here
+22
+So one is update that means simply overwrite and another one is insert this four is
+23
+Simply coming here. We are seeing
+24
+female and then daily
+25
+That's all actually the a CD type one
+26
+Okay. Now, let us try to see this one
+27
+Practically in SQL site. So I am just sharing SQL server SSMS window
+28
+Okay, come on this is real understanding till now whatever we discussed now
+29
+Let us try to implement that in this actually
+30
+So for this we are going to take some setup actually, so we to differentiate each type data
+31
+We are going to create a schema separately so that have a look
+32
+So schema is going to create so let us try to change the database
+33
+So come on run this script. Yes
+34
+This schema is created. Have a look in the database
+35
+Go to the EF and D and open the tables
+36
+Okay, so come on just a schema is created. We can see under this some tables
+37
+I am going to create a table and some sample data inside the
+38
+Dimension table whatever we see in the example
+39
+So whatever we seen there have a look we are going to make it possible in practical
+40
+So a CD type one table we are going to create
+41
+Okay, so that is what here create the table
+42
+So this is the business key customer ID customer name gender and city
+43
+So I'm just creating this table. So table is created if you refresh under this you can identify that one
+44
+Okay, so let it expand now we are going to insert some sample data three records we are inserting
+45
+here actually So have a look
+46
+So it might be game under a CD type one customers. This is what?
+47
+Now try to insert this
+48
+Records actually so before that if you observe the data, is there anything under this table to select?
+49
+Start from this particular table if you run there is no data just now because because we just now created
+50
+So this is a empty table
+51
+Now if you insert this data three records are inserted have a look now
+52
+All those three records in the database
+53
+So this is exactly what we are telling this part. This is our original table dimension table
+54
+So if anybody want any customer details they should refer this dimension table that's what very
+55
+important discussion here
+56
+Now coming to the staging table loss. This staging is table is also matter. So
+57
+So I am taking the staging table script now so same scripts and with the different data
+58
+That's what whatever we seen on the slide. So have a look. Oh, this is the staging table script. Have a look here
+59
+So here I am just creating the staging table have a look the difference is only STG
+60
+Okay, customer underscore STG customer underscore dimension D. I am and the same scheme
+61
+I am creating to have all of them at one place
+62
+Now you can read refresh here that table also you can observe. Okay?
+63
+So, come on now as usually even this table also not going to exist not going to have any data
+64
+So if you see just like this select star from staging no data under this table actual
+65
+Come on, insert the data three records four records. We are inserting and observe that
+66
+For each record what is there? So this is what exactly this one?
+67
+Okay, oh with this
+68
+Two tables are ready. You can take this script here
+69
+And observe the data
+70
+How it will be in the both the tables let me run again, yeah, have a look
+71
+The data what you seen on the slide and what you are seeing here both of them same
+72
+Here we should understand the first query is what it is a dim table. So that this is the three records
+73
+Now, these are the four records you came into the city. You got it in the staging
+74
+This you need to match with this one actually so that merging you are doing with the technique
+75
+called a city type one
+76
+That is the very important thing. So here the match is going to occur. So the main discussion here is
+77
+Customer ID here one whenever match with the dimension table same customer ID one
+78
+Then you will compare customer name change it or not gender change it or not city change it or not
+79
+Because it is different then this value should come here
+80
+You got the points this value should come here. That means here instead of Hyderabad. It should be Bangalore next time
+81
+That's what the script now SQL script by using type one. You need to develop
+82
+So we understand what is the type one, but how you will do implementation and this two is matched but
+83
+All the data is same. This is Anjali Sharma female Mumbai both the
+84
+Dimension and the staging data is same. So likewise for Suresh
+85
+But four is not matched with anybody in the dimension table
+86
+That means what I once again since four is not matched with anybody that will be the new record you
+87
+are going to identify likewise
+88
+So man said means some updates may be there not matched means it is a new record
+89
+So that is simple straightforward understanding right to conclude how to implement also so
+90
+Let us have the data in front of us. Now. Let us try to doll up this magic script line by line
+91
+So this is the original table means it is the target table. Keep that in mind. So here let us try to have that
+92
+Where you want to match? So this is the target table and then
+93
+To where you want to match so from where you are getting the data that is what the source table actual
+94
+So your staging is going to become the source table. Is it now? Let us try to develop the scripts so
+95
+SCD type one how you will implement suppose if I take the quick steps here
+96
+For better understanding you are matching this source data with the target table using type one
+97
+Okay. Now what to do for the existing records?
+98
+So you have to apply the updates
+99
+What to do with the new records you are insert simply means what one is matched
+100
+Existing so data is changed updates
+101
+Four is not matched with anybody
+102
+That means entire record from staging from staging insert into this
+103
+Dimension table target table. So in SQL how you will implement that?
+104
+That is what there is a concept called
+105
+Magic keyword. So by using match you can do that
+106
+So by using match how you can do that?
+107
+So very simple you have to take the target table first. So that is what so
+108
+Let us try to copy paste the table names. So your target table is dim
+109
+syntactically always
+110
+After the major target table should be there. So that is what as target so alias name
+111
+I'm giving then you are by using what actually what is the source table?
+112
+That is what the keyword using source table is what actually STG
+113
+This is the source. So you are telling to the magic command that who is the source who is the target?
+114
+So it will understand. Okay, ultimately I am going to
+115
+Update this particular table by using this source tape. That's what the syntax is telling actually to the compiler
+116
+now we need to give the
+117
+Relation between these two actually when you can say it is matched when you can say it is not matched
+118
+That's what the condition
+119
+So in the target
+120
+Okay, customer ID of this
+121
+Target customer ID of this source if it is same
+122
+Then it is existing record Simple, right?
+123
+So here one is equal to one then one you can tell that ID one that a customer one is already exist
+124
+in dimension So that's what? target dot
+125
+customer ID equal to source dot alias names we are using Customer ID
+126
+That's all so when this condition is true means
+127
+So in the staging one that record is
+128
+Exist already in the dimension
+129
+So that is you can take as a matched case. So as for syntax of the major when Matched
+130
+Then what you need to do so you can tell that to the compiler
+131
+That means when matches occur one is equal to one here. So this record exists normally then compiler understand
+132
+Okay, this record is matched the condition is true means then what we need to do you have to perform the update
+133
+That's all update something
+134
+What you can update actually so you can further purify but now we are taking directly
+135
+So customer name might be customer name might be changed. So that means target dot
+136
+Customer name equal to from where the data is coming from the source customer name
+137
+Then not only this column gender might be changed
+138
+So where you want to update target dot gender column
+139
+so from here this you are updating with the source actually if it is
+140
+changing so source dot gender then further target dot city
+141
+equal to source dot city
+142
+This is what you have to do when match is occurred
+143
+It's a simple discussion so done
+144
+What if it is not matched?
+145
+So you have another when another case actually when not matched actually, so that means when not
+146
+Match it what you need to do. That's all simply there
+147
+So mage is a factor with different things actually
+148
+So not matched it matched it not matched it not matched by schools not matched by targets
+149
+So different discussion is there. So now simply when not matched by default means you are
+150
+Targeting that actual target table
+151
+Okay, syntactically. I'm just talking
+152
+Okay, leave it simply this condition is false
+153
+When this condition is false what to do?
+154
+That's what we concluded already we need to insert because that is the new data see here for is not matching with anyone
+155
+So this is target is not matches
+156
+Sorry, this source one of the record is not matched with anyone with the source or targets
+157
+So this record for this record what you need to do, that's what by default not matched by target action
+158
+So you have to insert? Okay
+159
+So we are going for insert. What are all things you need to insert?
+160
+So that is customer ID customer name
+161
+Then gender and then see then these values coming from where actually that's what these values are coming from
+162
+Source dot customer ID so you can copy paste all these columns and just add
+163
+From where these are coming source dot customer name source dot gender and source dot city
+164
+So this is what simply or only the
+165
+ICD type one implementation. Okay, so so don't forget to append
+166
+whole semicolon at the end
+167
+So now if I run this simple script what should happen?
+168
+So now see it script wise it is always simple if you understand the concepts
+169
+When any record is matched with the dimension table from the staging
+170
+The any of the attribute value that means any of the attributes dimension might changed that's why you are updating
+171
+That's what condition
+172
+Conditionally you are telling when matched when not matched for any record if this is true means
+173
+Going to this particular case matched case
+174
+Then it is updating this particular corpse
+175
+So this condition falls for any specific record
+176
+Then what you what it is doing it is going for not matched case
+177
+Then what is going to happen that entire record is inserting into dimension table. That is what targets
+178
+Now if you see overall the discussion
+179
+If I run this script, what is the expectation in this dimension table?
+180
+so this value should change to Bangalore because
+181
+This is the current data today's data is where updates are new data is there so Bangalore is his new city
+182
+So it should be in the dimension table. It should be Bangalore and
+183
+Remaining two records not changed actually, but fourth record should observe in this dimension table
+184
+Means in the targets. So let us run this scripts. Let us observe the same
+185
+So I'm just running if there is no errors successfully going to happen
+186
+Three records are updated but for two records there is no changes
+187
+But still update is happening further filtration. You can do actually because it is first time
+188
+I'm just implementing like this
+189
+For the conditions you can keep it here so that if there is no change, you don't need to update for
+190
+those two records actual
+191
+Come on now, let us observe what is expected. Is it happen or not? See here
+192
+Have a look. The first query is for target table dim table. So dim table data if you observe Ravi Kumar's
+193
+City is changed to Bangalore earlier. It is Hyderabad
+194
+We all sing and fourth record it is the new record that is also there in the dimension
+195
+Because if see in the real time this dimension table is going to serve to many other teams actually
+196
+So people are going to depend on this particular dimension table
+197
+So whatever changes is happening regularly?
+198
+Those should those changes should reflect on the dimension tables
+199
+So so that people are getting the accurate data. That is what main thing
+200
+Okay, so because so
+201
+Because the address is changed suppose something you want to post
+202
+Because of dress is changed and people are dependent on this dimension
+203
+But whatever changes happen locally that is not reflected in dimension
+204
+Then it is going to the wrong address actually though he updated
+205
+So that's what the main thing. This is what actually the implementation side how you can do in the sequel
+206
+So simple discussion nothing is there you are just
+207
+Understand that what is the target dimension is always target. The source data is what always from the staging
+208
+Then this source data you need to match with the dimension. That's what magic command we are using
+209
+Then relation between these two tables who should tell in the form of the condition
+210
+So that it is for which record it is true. Yeah, that means match is occurred
+211
+When match is occurred you need to update because we are considering that as
+212
+Existing record match is match. There means it is a existing record
+213
+If this condition is false for so-and-so record in the target side
+214
+Then that record is actually the new record. That means new customer came so that new customer
+215
+should update in the dimension
+216
+So that's what you are simply inserting so here
+217
+You can give comment as
+218
+existing records
+219
+Existing record and here you can do comment as it is completely new record
+220
+That means you can say new customer so this is existing
+221
+Customer already existing customer. He might change it some dimension. That means city address phone
+222
+number, whatever simply
+223
+That is what the implementation of this type one
+224
+Let us try to see that's what history is
+225
+Gone if you observe here if anybody asked what is the what is the previous city of the Ravikumar?
+226
+Nobody is able to tell
+227
+Because it is overwritten that is really matter so
+228
+That's what no history is going to maintain here
+229
+So that's what only the latest information you are going to have the current data only you are going to maintain
+230
+Now, let us try to understand. So overall so what is type one actually so basing on our understanding the type one
+231
+It's a real implementation
+232
+When to use it actually so it is very simple that when you it is simple that we don't need a history actually
+233
+So old values you don't have any importance
+234
+So you can simply go for
+235
+Always taking the current value just by overwriting it
+236
+So like it's a maybe spelling mistakes or phone number emails. So these things
+237
+You need always the current values actually, okay
+238
+And always you need the current product price so you can simply go for that
+239
+So it is simply overwriting so wherever you don't need the previous values you can go for this actually
+240
+So the advantage is what actually it is very simple to implement
+241
+okay, you don't need to take care of the
+242
+Previous values whenever you are getting a new value actually
+243
+Okay, so the small the table size is always in small. Okay. It is not going to increase like anything and
+244
+Querying is always straightforward. So because only there will be only one record always by using business key
+245
+You can get the details actually Okay
+246
+So you don't need to go always for what is the current record previous records on which dates all
+247
+these things you don't do both
+248
+So querying is always straightforward
+249
+So this is what simply type one how it is working actually, okay
+
+--- SCD Type 2 ---
+
+1
+type 2 is simply straightforward. We are going to maintain here the history mainly.
+2
+Okay, so as we discussed in the previous discussion also, type 1, type 2, if you
+3
+understand, the remaining types is simply straightforward. So, type 1, type 2, if you
+4
+understand, remaining types you can understand really very quickly actually
+5
+because the mix of these two is actually the remaining. Okay, so in type 2, what we
+6
+are really doing? We are going to maintain the history actually. So, along
+7
+with new data, you are always taking care about your previous data actually, so
+8
+that you are ensuring the history actually. So, for example, to understand
+9
+this quickly, have a look this one. So, customer ID, customer name, gender, city
+10
+and when started because here especially you are going to maintain the is
+11
+current equal to 1 that means what actually that is current record or not.
+12
+So, this is the initial data in case of the customer dimension table. Now, if
+13
+you take the staging data that means today this is the current data you got
+14
+it. Okay, so in that for the customer ID 1, some changes is happening actually.
+15
+What changes happened? He moved to Bangalore. What is his previous city? For
+16
+the customer Ravi Kumar, previous city is Hyderabad. So, he is moving to Bangalore
+17
+that means what actually in case of type 1, you are simply overwriting in this
+18
+place. Instead of Hyderabad, you are just keeping up Bangalore but now you want to
+19
+know even his previous history also, you want to maintain that. Then how you will
+20
+maintain that? So, that's what have a look in this actually updated a customer
+21
+dim table. What is happening in case of the customer ID 1, have a look, you are
+22
+maintaining this one, current data is this one, how you will get to know is
+23
+current equal to 1. So, with customer ID 1, you might have multiple records
+24
+actually but always there is one record with the current one. So, that is
+25
+what representing the current data and previous data you can identify with the
+26
+start and end dates. So, that's what when this is started, when this is ended, that
+27
+means when he stayed in this particular city, you can tell by using this one. So,
+28
+that is what the history you are maintaining. Then why you need the
+29
+customer key actually once again. Have a look, the customer ID is going to repeat
+30
+multiple times because what is happening actually the data continuously may be
+31
+changed. So, when data continuously changing every time new record you are
+32
+inserting with the same customer ID. So, duplicate values definitely possibility
+33
+is there. So, duplicate values will come. Then how you will identify each record
+34
+uniquely, that's what surrogate key we discussed actually, that is, this is you
+35
+can say surrogate key. So, it is just an incremental number for every new record
+36
+actually. Now, you can see earlier we have three records, now this is the fourth
+37
+record actually and it is updated also actually here in the end date. So, these
+38
+are all things you need to keep in mind. For the remaining because there is no
+39
+change for two and three, those two records as it is, you can see the data
+40
+wise also and the new record is this one. So, Priyasing is the new record that is
+41
+simply inserted. So, from this what we need to understand. So, for the existing
+42
+record, so simple discussion, what you need to do for the
+43
+existing record. For the existing record, earlier isCurrent is 1, you have to
+44
+make it as 0. So, that is one thing you need to take care. So, isCurrent, you
+45
+need to make 1 to 0, that is one simple thing and along with that what you need
+46
+to do actually, you need to update the end date because that date, that record
+47
+is going to become history, it's not the current active record. So, that's what.
+48
+After that, along with this updated and new, both along with updated,
+49
+new, insert action as a fresh record. So, you are inserting what actually both
+50
+updated records and new records. That's what right. Have a look the fourth one,
+51
+this record as it is, you just insert and of course new record this Priyasing
+52
+is also inserted. That's all. So, this is what really the type 2, very simple, how
+53
+you are maintaining the history. Now, let us try to see here, how you can
+54
+implement this in the SQL side. So, now let us try to take the script for
+55
+SED type 2 actually. So, here have a look. First of all, we are going to create the
+56
+SED type 2 schema, so that we can differentiate all the tables actually.
+57
+So, this is what. Then let us try to create first of all the dimension table.
+58
+So, that is SED type 2. Have a look the columns actually, what are there. So, here
+59
+the columns are same. Customer key, which is going to become the primary key
+60
+and surrogate key, which is obviously internal, it is surrogate key. How you can
+61
+implement the surrogate key, that is also matter, that is identity 1 comma 1.
+62
+So, what is actually identity 1 comma 1 actually, it is going to start with the
+63
+sequence number 1, starting number is sequence number 1, always increment by
+64
+1 actually. So, when first record is inserted, it is that value for that
+65
+customer key is going to become 1. Then when second record came, the current
+66
+number is 1, 1 plus 1 is 2. So, likewise if you insert 10 records, for the 10th
+67
+record, what you inserted latestly, for that it is going to become value is 10.
+68
+So, it is simply like a incrementing the number. For that to implement
+69
+automatically, you no need to pass this value, when you are inserting a record,
+70
+you can use this identity 1 comma 1. So, this is what is the starting value, you
+71
+can tell like this, identity of what is the starting value and then what is the
+72
+step, how much you need to increment for the next value actually. So, that's what
+73
+you can make it automate. So, that is we are taking concept wise
+74
+surrogate key, which we discussed already. So, that's what the DIMM table,
+75
+DIMM customer table actually and obviously we need actually the staging
+76
+table also. Let us try to take the staging table, where we are getting the
+77
+current updates. Then this you need to match with the DIMM table actually
+78
+always. So, now let us have some sample data. So, I am taking now, try to
+79
+understand the flow, what is happening here. We are inserting this data, for
+80
+example, now right now if you take select star from sctype2.customerDIMM
+81
+and similarly customer stg. So, both the tables if you see now, there is no data
+82
+in both. So, no data right now. Have a look the columns also, customer ID,
+83
+customer name, gender, city. Now, after inserting these three records, where you
+84
+inserted, observe that. Have a look, three records we observed. Now, if you see the
+85
+data in both. So, here this is the first one is actually the main table, DIMM
+86
+table and this is the staging table. So, today we got this data, this is in first
+87
+time you got this data like this. This you need to insert into the DIMM actually
+88
+always. So, how you can do that? So, let us come here. So, that data we are
+89
+directly inserting into the dimension table. So, this is the simple script. We
+90
+are taking the data from staging and start date is going to become the
+91
+current date and end date is null because it is not yet completed and
+92
+current is current or not that means is it active record or not. Yes, obviously
+93
+when you are inserting first time, that is going to become by default active. So,
+94
+that is what one. So, I am just running this script. Now, you can see that
+95
+data, staging data moved to the dimensional table. This is what the
+96
+change happened just now. So, this is the first of all initial setup actually. Now,
+97
+the next day you are going to get the some updates to this staging actually,
+98
+not this current data. So, have a look, some another sample data I am taking for
+99
+this staging table first of all. So, before that always if any data is
+100
+coming to the staging means the current existing data you have to truncate
+101
+because new data is coming right. So, you don't have any business to the yesterday's
+102
+data that you can call as a incremental load. So, that's what one of the concept
+103
+in data warehousing concepts actually. Now, this data let us try to insert
+104
+into the staging. So, these are the incremental records or Delta records you
+105
+can call actually in the actual domain, actual data warehousing concept.
+106
+So, now let us see the data what is there in these two and understand that what to
+107
+happen next. So, see here this is the customer ID 1, 2, 3 and the 4.
+108
+Have a look what is happening here as data inserted what it is mentioning city
+109
+is changed. So, for the Ravi Kumar in the existing data it is Hyderabad but he
+110
+moved to the Bangalore. That means there should be one more record here as we
+111
+seen in the slides. So, the same data we are using for the easy understanding
+112
+purpose actually. So, this Hyderabad should be now the Bangalore. So,
+113
+accordingly one more record should come but now that new record is going to
+114
+become the active record. So, that means this should change to 0 and it is
+115
+already expired this is not the current city. So, you should update here that when
+116
+it is changed that means as a end date and that this as a new record should go
+117
+because there is no change to 2 and 3 you are not going to do anything but for
+118
+4 you are going to insert as a new record. So, that end date is null and the
+119
+ease current is 1. So, the changes what to do that's what we noted down here for
+120
+existing ease current should become 1 to 0 and the end date should update then
+121
+for new records along with that updated you have to insert that's all. So, for
+122
+that what is the script in SQL? So, very simple straightforward as we discussed
+123
+it for type 1 this is also simple thing. So, in this let us try to understand
+124
+stepwise. So, we are clear that what is the source what is the target. So, this is
+125
+what actually we can take it as a target table and this is actually source data.
+126
+What is that? See dimension ultimately you should match this data with the
+127
+dimension. So, that's why it is target and the source is what you have the data
+128
+in the staging always every day you will get the data in the staging actually. So,
+129
+that's what incremental records you can say actually. So, that is what the merge
+130
+command is telling. So, we seen that for the type 1 also same
+131
+match. So, let us expand this have a look now. Now what is the condition what is
+132
+the relation between these two tables? So, relation here is what customer ID here
+133
+and customer ID here. So, that's what put a relation dimension dot customer ID
+134
+equal to STZ dot what is the layers names you can have a look. So, STZ dot
+135
+customer ID. So, this is the main thing here and along with that one more thing
+136
+you need to take care. So, that is always you are updating to whom you
+137
+should have the clarity. So, listen here in the data in the actual data let me
+138
+run again this script. See in the actual data you are updating to whom is current
+139
+over a time you are going to have multiple records for the same customer
+140
+ID one. So, every time you no need to update for all other records actually
+141
+only whoever is current is one for him only we need to change from 1 to 0 for
+142
+that record only. So, that's why in the condition mention that dim dot is current
+143
+record equal to 1 or not you need to check. Okay. So, that should be one only
+144
+for that record you need to make the changes. Okay. So, only for the current
+145
+record you need to do this. That is what the first thing for whom this condition
+146
+are true though that record is actually existing current record. Existing not
+147
+just existing and current record. So, this is first condition telling that it
+148
+is a existing record already that customer already there and this is
+149
+telling that that record is active. So, that is what when match is occurred when
+150
+matched then what you need to do. That is what we discussed here update. So, that
+151
+is what we need to take care here. Okay. But the thing is here not only this we
+152
+have to do some more things actually when matches occur what to do. So, along
+153
+with that you need to take care is really data changed or not. Let us
+154
+observe in case of the second record and third record. Customer name here customer
+155
+name not changed, gender is not changed, city is not changed. If these three
+156
+values because these are the three actual dimension columns if these three
+157
+is not changed you no need to touch this particular record actually that means
+158
+this record you no need to bother simply ignore. So, that's what you are
+159
+maintaining in this actually. So, that meaning is what actually dim dot
+160
+customer name is it different in case of different you need to update. If it is
+161
+same you no need to go there actually. So, if it is different yes or no you can
+162
+check that. So, customer name or there may be chance of another record right. So,
+163
+dim dot gender is it different or not you are going to check.
+164
+stg dot gender or dim dot city not equal to stg dot city. So, if you have
+165
+still any confusion have a look what we discussed here simply. See have a look
+166
+what happened in case of for the first record have a look dim customer name
+167
+same okay gender same so condition is false in case of this one and in case of
+168
+this one condition is false and when you come to the city it is different yes
+169
+Hyderabad not equal to Bangalore condition true if any one of the
+170
+condition in this brackets is true overall condition is true and it is
+171
+already matched because that one exists already here and it is a current record
+172
+that means out of these three dimension columns one of the column is changed
+173
+that is what overall summary for reason for writing this thing then what you
+174
+need to do think actually then what we need to do then you have to go for the
+175
+updates that is what the main thing here actually then what you need to update
+176
+for this existing one because for this record this overall thing is true
+177
+understand that so what you need to do end date you need to update is currently
+178
+change it to 0 so that's all simple and straightforward actually so then you set
+179
+it what do we need to set so dim dot end date make it current date so that it is
+180
+going to complete actually then dim dot is current is current equal to 0 so you
+181
+are making it inactive okay so that's all with this image actually okay so
+182
+with this statement what is happening you are simply did this particular part
+183
+that means for the existing active records for whom data is changed those
+184
+record in the dim dimension table made inactive but still this record is not a
+185
+inserted in the dim table that's what new records and updated records not yet
+186
+inserted in the dim table that is what next we need to take care so how you can
+187
+write that so here it is very simple so I am making this straightforwardly the
+188
+scripts let me copy paste so have a look these scripts you are inserting into dim
+189
+dimension table and then from here actually okay so here actually in general
+190
+this 2 and 3 we no need to have actually in the incremental records this 2 and 3
+191
+will not come so what I will do is I will delete from STG dot customer so if
+192
+you have like this some extra conditions we need to take care now what will
+193
+happen have a look so this is the current existing data so this is the
+194
+updated record this is the new record we just have to insert so here the main
+195
+intention why I deleted now here extra things you need to take care so what I
+196
+what I recommend is if you have data likewise that means if you have four
+197
+records like that so in the STG the current data if it is like this okay how
+198
+you will do things in this case when you are inserting so you updated earlier
+199
+like that now you have to insert while inserting also you need to take care of
+200
+the records which is not changed at all if you have data like that so now I am
+201
+taking like this actually so that means what this data simply you insert into
+202
+this table because already you updated here and here with that match statement
+203
+so that's what actually you are simply taking the records from this STG all the
+204
+records then you are inserting then for this start date you are giving the
+205
+current date for the end date of course it is null and the is current by default
+206
+it is 1 so that's all actually so let us run this step A and B so in step A what
+207
+is happening have the clarity that for the existing updated record which is
+208
+active you are going to make it inactive by updating end date and you are
+209
+inserting the all data from staging as in new data so that's what both the
+210
+things happening if you want to check individually let us run this first
+211
+match statement now let us run this again so one record is affected have a
+212
+look that effect how it is happened so run this see ended it and is current is
+213
+zero you made it inactive then let us insert of course all this script
+214
+actually in general you will keep in a stored procedure you can run this
+215
+actually then two records are inserted have a look how dimension table is
+216
+evolved see here the fourth record came and for the customer ID 1 then you can
+217
+see his city is Bangalore so customer ID 1 if you observe Hyderabad to Bangalore
+218
+he moved actually and what is the currently active record just by
+219
+searching is current equal to 1 for the customer ID 1 you can get the details
+220
+actually and of course this is a new record so as usual you inserted as a
+221
+active record so that is what the type 2 actually very simple straightforward
+222
+okay so that's what war only the implementation wise this is the
+223
+advantages if you observe basing on this overall discussion what are the
+224
+advantages actually so this is simply preserves full history so you can go for
+225
+past as much as you want to go as much is existed that entire history you can
+226
+get it back actually so so that accurate history report you will get it actually
+227
+and it will supports a trend analysis that means what actually over a time how
+228
+one customer is evolved that means what his customer suppose product is there
+229
+how the prices are changed from over a time where it is started where it is how
+230
+it is more you can analyze in that way also okay then especially compliance
+231
+ready means what actually essential in industries actually where audits are
+232
+frequently going to happen so you can tell that it is in banking healthcare
+233
+insurance so this kind of flexibility will be there if you implement type 2
+234
+actually then if you see the disadvantages the very first thing
+235
+coming to our mind is what actually whenever a simple change is happened
+236
+even for a small change it is going to insert new record so size of the database
+237
+is going to increase that's what a very simple thing and then complex ETL logic
+238
+we need to write them that's what magic statements are update insert by using
+239
+this surrogate keys all these things actually so you need to use many keys
+240
+many columns to write the logic actually that's what it is obviously working on
+241
+slower queries actually because you need to go for joints okay and you need to
+242
+apply the conditions more actually is current or not by using effective dates
+243
+and all okay so that's why because conditions more means it needs to check
+244
+the conditions more and more for every record so obviously it is going to slow
+245
+down the queries actually so then you are going to have a maintenance overhead
+246
+okay so for validating managing and for debugging actually so but it is a trade
+247
+off kind of thing actually basing on the situation you can select which one is
+248
+better okay so this is the type 2 more or less and this is the entire thing of
+249
+the type 2 actually how you can manage it type 1 type 2 having said that if you
+250
+are clear these two then all other types very easily you can understand so that
+251
+we will feel it now let us simply try to compare these two actually so before that
+252
+if you see key points in the type 2 because this is really very important
+253
+that's why we are focusing more and more on this part because remaining
+254
+things simple modifications of this type 1 and type 2 actually so the main thing
+255
+is surrogate key as we discussed earlier we've seen the keys in the initial of
+256
+the discussion so surrogate key is going to play a key role here so that's what
+257
+we felt that okay so every record you need to identify uniquely so surrogate
+258
+key came into the picture so it is going to become the primary not the business
+259
+key business key is customer ID actually okay so in the database if you
+260
+observe this is the business key but this is not going to play a key role to
+261
+identify the records but this is actually a primary key so that's what
+262
+the main columns what you need to identify business key of course and then
+263
+attributes so customer name city gender these these are the attributes may going
+264
+to change actually and then going to play key role is what effective days
+265
+that means what from when to when the duration you can identify so on so data
+266
+is active okay and very crucial thing is what current is current column actually
+267
+so that is the thing then business decisions of course if you want to
+268
+maintain the history then you can go for this actually a city type 2 if you don't
+269
+bother about the history always focusing on the current data you can go
+270
+for the type one so what is the optimization this is purely if you are
+271
+doing in the SQL side of course in any tool it is there optimization wise
+272
+because the repeated data will be there under the business key actually though
+273
+so customer ID may be changing continuously the data so that's why
+274
+repeated data one one one may come many times that's why you can go for the
+275
+partitioning or indexing basing on the same value you are going for some
+276
+partitioning so that some performance effect will be there actually so you can
+277
+get the results in less time so that's what purely a skill side
+278
+implementation so this is one of the concepts you can apply on these keys
+279
+actually then at the same time hybrid approach if you want to save the storage
+280
+and at the same time if you want to maintain the history that's what type 1
+281
+and type 2 in upcoming discussions we will see this hybrid approach actually
+282
+in one of the type so that is if any some just like as mentioned here for
+283
+some columns you can exclude actually so if some for some columns if you want to
+284
+exclude then such a way SQL script if you update then you can you don't need
+285
+to maintain history for every record so as as as telling here that suppose
+286
+spelling mistakes will be there so you don't need to bother too much about that
+287
+so that time you just update the existing record for example if you take
+288
+this the customer ID 4 so in the next iteration in the next day suppose he
+289
+changed his spelling so Priya Singh changed her spelling actually that time
+290
+instead of updating end date and is current to zero you keep it as it is
+291
+just update that here actually so that modification do in the script then you
+292
+know it to insert a new record for this particular column so that's what on top
+293
+of this anything we are in a position to do actually if you practice this well
+294
+okay so this is what very important as it is
+295
+to in interviews this is one of the most definitely people are going to
+296
+touch actually so give the high priority to understand and implement this more
+297
+than to understand the real depth try to implement this actually so that you will
+298
+be really confident in interviews and in the real okay so with this you can with
+299
+this you can compare this SED type 1 and type 2 actually so these are all all
+300
+these things we just touched in different places so historical data you
+301
+are maintaining or not storage requirement is more or less so complexity
+302
+so come code wise how it will be query performance because it is
+303
+straightforward it is faster and it is you need to apply more conditions
+304
+actually so best for what actually so we're basing on your requirement you can
+305
+go for this or not which one you can take it actually so history need or not
+306
+only current data is need and the data accuracy you are just overwriting and
+307
+you are maintaining everything so basing on our simple discussion till now what
+308
+happened so these are just some differences actually so this is what a
+309
+SED type 1 and type 2 give first of all for these two the very high priority then
+310
+nothing is there in the remaining
+
+--- SCD Type 6 ---
+
+1
+If you see the SED type 6, ok, so this is also simple, straightforward, overall nothing.
+2
+Have a look, what just it is doing actually, type 1, type 2, type 3 as it is showing, and
+3
+you see as type 1, you are just maintaining overwriting, and then as type 2, history you
+4
+are maintaining, and as type 3, previous values are also maintaining.
+5
+Just before this, just before, current value, before that what is the value you are just
+6
+maintaining here.
+7
+So how and all, let us observe a simple example.
+8
+Have a look, this is the initial load, so in this, you see that you want to maintain
+9
+the city history, immediate values.
+10
+So this is what actually, how you columns observe that, customer key, customer ID, customer
+11
+name, city, and previous city, and then start date, end date, active flag.
+12
+For example, if he moved from Delhi to Mumbai, moved from Delhi to Mumbai, then what will
+13
+happen, observe here, you are capturing all the details of the city actually, but in the
+14
+same table, in the active record, immediate previous city also you are maintaining, that
+15
+is what the main difference.
+16
+What does it mean?
+17
+Have a look here, the 101 is there, okay, John, same John, Mumbai is the current city
+18
+because active flag is white.
+19
+What is his previous city?
+20
+You can tell in the same record by taking the previous city column, Delhi.
+21
+So, this record is as it is, only end date is updated, and active flag you made as no,
+22
+because earlier it is yes, and end date is maximum you taken, you can take as a no.
+23
+So that's what, now when he changed to new city, only for the city column, if any changes
+24
+happen, of course, you are taking a new record, in the new record, you are maintaining previous
+25
+city also, and current city record you are making inactive.
+26
+So if you take one more change, suppose from Mumbai to Pune if he moved, then what is going
+27
+to happen, have a look here.
+28
+So in the Pune is the current city, because active record if you observe, and previous city is Mumbai.
+29
+Yes, it is correct, previous city is Mumbai, and history also you are able to tell, history
+30
+is there for this column, and in the active record, you can tell previous city also.
+31
+That's all, nothing is there overall.
+32
+So let us try to implement this one, before that just understand what to do.
+33
+Technically now you have to prepare, in your mind by this time you should be mapped actually.
+34
+So what has to do?
+35
+If match is occurred from the staging table, with the customer ID, current active record make inactive.
+36
+That's all, we don't need to do anything.
+37
+But here something is logical, you make it inactive, ok fine, but on top of that, you
+38
+have to insert new record, and take from staging, from staging you will get the current city,
+39
+and from previously active record, previously active, this is also important, sometimes
+40
+so see, previously active record is, how you can tell after inserting this?
+41
+Because both of them end, so previously active record, whatever updated recently, from that
+42
+you should get the current city, that is going to become the previous city value.
+43
+So these things you have to implement, let us try to take, in new query, let us try to
+44
+take the script of a city type 6.
+45
+So this is also simple, straightforward, nothing is there, have a look one by one.
+46
+Let us create the schema, done, now first of all let us try to create a dimension table,
+47
+observe the columns, how it will be.
+48
+So as we discussed, the columns here, if you observe, surrogate key, primary key actually,
+49
+identity function we use it for auto increment, and then customerId, customerName, gender,
+50
+city and previous city, that's all, of course startDate, endDate and activeFlock.
+51
+So create this, and then let us try to insert three records, as you have here, done.
+52
+Now at this moment, if you see this table data, select, store from, a city type 6.
+53
+CustomerId, run this table, have a look, all are currently active, that's why previous
+54
+city, of course, that's why endDate is maximum possible date taken, that's all.
+55
+So the previous city is null, because there is no history for them till now.
+56
+This is first time.
+57
+Now let us take the staging table.
+58
+Let us have some data in this.
+59
+So while inserting itself, observe that for which columns you will have changes.
+60
+So city changes, for whom, Ravikumar, Bangalore.
+61
+So earlier city is what, just have an observation here.
+62
+So run this script, observe what changes happen.
+63
+So Ravikumar's current city is Hyderabad, but now in the latest data, he moved to Bangalore.
+64
+So that should accordingly update here, and there is a new record, the 4, Priya Singh,
+65
+so for him also, for her also, there should be a record here.
+66
+So that's what this record should update, this record should be insert, and this record
+67
+should be insert.
+68
+So that's what, steps wise, hope it is clear.
+69
+We need a tempo table to capture this temporary results.
+70
+Let it be, I will come back actually, we need to create before running this script.
+71
+But let us understand this meaningfully, then we will create that.
+72
+So as usually here, observe that, very interesting this one, dimension table, okay, and the staging
+73
+table, you are merging this data with the dimension table, that's what these two, and
+74
+relation between these two, as usually like others, this is a customer ID, is the relation, that's what.
+75
+Now for whom you are going to do, in the main dimension table, that's what target, act for
+76
+active record, you are going to do actually.
+77
+So now match is occurred, so 1 is there, 1 is there, 1, 1 is there, and it is Y.
+78
+So match is occurred, and match is occurred for event 2 and 3 also.
+79
+But for them, city is not changed, Mumbai and Chennai only.
+80
+So why you no need to consider these two.
+81
+So that's why, for whom it is changed.
+82
+So yes, Hyderabad not equal to Bangalore, that is true.
+83
+That's what relation you kept, logical condition.
+84
+So for this record, these two conditions and this condition satisfying, so this you have
+85
+to make as inactive.
+86
+That's what here you are doing. Have a look.
+87
+Active flag you are making n, and the end date you are making with current date.
+88
+But very importantly, before updating this, you are capturing some values actually.
+89
+This entire record values you are capturing.
+90
+In that what you are taking, customer ID, customer name, gender, these three from main
+91
+dimension table, main dimension table, and updated value you need actually.
+92
+What is updated value?
+93
+This one, Bangalore.
+94
+Bangalore you are taking from source, that is from staging table, as a new city.
+95
+And the previous city going to become what, when you insert this record, this Hyderabad.
+96
+So previous city you are taking from deleted, this is we discussed in type 5.
+97
+So that's what you can take it here.
+98
+So these are the records you need actually at this moment.
+99
+So that you can insert as a new record, as an active one, one more thing.
+100
+So before updating these two, while updating this, try to capture these three values from this.
+101
+And of course this city going to become previous city, under the previous city, new city, current
+102
+city is what, from the staging Bangalore, that's what source that, observe that what you taken here.
+103
+That you are taking into the tempo table, tempo table if you don't know, sample, in
+104
+this particular session, it is not going to create a table as a physically in this tables
+105
+list, so that later you cannot see it actually.
+106
+It is just in this particular session, this particular table is going to become active.
+107
+So that is what tempo table.
+108
+So in the tempo table, you are capturing customer ID, name, gender, new city, previous city.
+109
+So it is mandatory that, that tempo table also like the other tables, you have to create.
+110
+So to see the five columns, you are taking actually, first to create the tempo table
+111
+to capture those values.
+112
+So have a look, you can see those changes physically, if you run this script.
+113
+When this script is run, first thing is the existing active record should be updated and
+114
+in the tempo table, what you are going to insert as a new record has to observe.
+115
+Run this script, come on, check this now, after this.
+116
+So if you see, you go to the end.
+117
+If you see all these three, tempo table, including tempo table, have a look, first of all, that
+118
+record made inactive and ended it is this one and if you see the tempo table, last one
+119
+is tempo table, right?
+120
+Tempo table captured what?
+121
+The latest information which you have to insert in this table.
+122
+That's what one Ravikumar M with new city Bangalore and previous city Hyderabad.
+123
+So simply this record now has to insert into this main dimension table.
+124
+That's what the next step after updating.
+125
+Have a look, what is happening in this particular.
+126
+So here, this is what just now we seen, merge statement.
+127
+Then in the next step, insert new record with updated city and previous city, what
+128
+you captured in the tempo table.
+129
+So these four you captured, five you captured, along with that you need a start date, as
+130
+a current date and end date, maximum date and as a active record, that's what you are
+131
+making hard code these values. It's okay.
+132
+That is what, now if I run this script, you are inserting into main dimension table, so
+133
+that now three records are there in this table.
+134
+So fourth record is going to come for the same customer ID 1.
+135
+I'm running this, now you can see that.
+136
+So have a look, mainly in the dimension table, the fourth record. What happened?
+137
+Have a look, this record, this Hyderabad came here.
+138
+That is because of the previous step.
+139
+You captured that value actually, and all other stuff have observation, and this is
+140
+the active record.
+141
+One way you are capturing the entire history for this column.
+142
+That's what we discussed for type 6.
+143
+So history you are maintaining for few columns, and at the same time, in a current active
+144
+record, the previous value of that attribute also you are maintaining.
+145
+So for so-and-so attribute, the dimensions you are maintaining as a history, and immediate
+146
+previous value also you are maintaining in a current active record.
+147
+So that's what we discussed here, type 1, 2, 3, type 3 talking about actually immediate
+148
+previous value is what?
+149
+That's what you are maintaining.
+150
+So simply here we are maintaining.
+151
+So overall nothing, and now one more step is here.
+152
+Here if you observe in the staging, there is a new record.
+153
+So new records, how you can do?
+154
+Just you see that also logically, there is an interesting one, have a look.
+155
+So of course you are inserting into the main dimension table, new record, from where actually?
+156
+From the staging table.
+157
+That's what right? From staging. Have a look.
+158
+The from clause is staging.
+159
+But the thing is, the records, this is actually correlated sub-query you can call, okay.
+160
+Correlated sub-query means sub-queries are different, correlated sub-queries are different.
+161
+In a, you return in the query, main script is here select, I am just giving brief now.
+162
+So this is the main select statement.
+163
+In that, either in the select clause you can write down the sub-queries, or in the from
+164
+clause you can write down the sub-queries, or in the where clause you can write down
+165
+the sub-queries.
+166
+So there are different places.
+167
+Especially when you are writing in the where clause, and you see the reference yes, the
+168
+alias name for staging is yes, and here you are referring the table, dimension table D.
+169
+In the sub-query, if you referring the outer queries alias name, this query is not independently going to run.
+170
+This is always correlated with outer query actually, because you are referring yes, right?
+171
+So you are coming to here again.
+172
+So in to out, sorry, outer to inner, then inner to outer.
+173
+So both the select queries are dependent actually.
+174
+So if there is a query like this, for example, select star from EMP where, where DEPT number
+175
+equal to select star, select DEPT or, I am just writing randomly something, not randomly,
+176
+meaningfully, but DEPT number from DEPT table D.
+177
+But this is also a sub-query, inner sub-query is this one, this is inner sub-query.
+178
+This inner sub-query nowhere related to the outer query actually.
+179
+So it is independently going to select the minimum value, then that result is going to
+180
+replace in this RHS of the condition.
+181
+Then once that result, suppose minimum value is 10, that is going to execute independently
+182
+the outer query.
+183
+That is what normal sub-queries, independent.
+184
+But this is dependent because you are referring outer queries one of the table.
+185
+That's what co-related sub-query.
+186
+That's why most of the cases exist will come actually, exist or not exist.
+187
+What is happening actually?
+188
+So here what you are telling actually, you are, you are taking one record and you see
+189
+here you can observe simply, if you want more elaborated discussion quickly.
+190
+So here the staging table let us try to take, not need now this temp table, it's done.
+191
+So here the 4 should not exist in this actually.
+192
+How you will identify?
+193
+This is a new record, that is the main thing here.
+194
+So 4 is not exist out of all this, that's all.
+195
+So you are taking just one.
+196
+So what you are doing here is, customer ID from here, customer ID from here if you select. One, one.
+197
+What is going to happen?
+198
+Just observe, one, one.
+199
+That means match is occurred, condition is true.
+200
+So if you go little up, that means here match is occurred, condition true, inner query I am talking.
+201
+Match is occurred.
+202
+That means one is going to replace, in this whole place one is going to place.
+203
+When one is there, that means it is true.
+204
+But you are telling not exist, nothing should come here.
+205
+That means not exist, false should come.
+206
+So when it is not exist, but inside something is exist, that means overall condition is false.
+207
+So for this, this record not going to consider.
+208
+Then the next record for 2, S2 is exist, 2 equal to 2.
+209
+So condition true inside, that means one will come, so something is existed.
+210
+Something exist, but you are telling not exist.
+211
+Only when not exist, you have to consider.
+212
+So false for this record also, false for this record also.
+213
+Now come here for 4.
+214
+V.CustomerId, here there is no 4, that means one is not going to come in the inside.
+215
+Nothing is there.
+216
+That means nothing is there, yes, not exist inside.
+217
+So not exist or not when I ask, what you will tell it, something is not there inside, that
+218
+means yes it is true, not is there, nothing is there inside.
+219
+So overall condition is true. For whom?
+220
+For the fourth record.
+221
+That means what actually, this is a new record, that's all.
+222
+That new record it has to insert, with the previous value as null, have a look, previous
+223
+value as a null and the current date as a, start date as a get date, end date a maximum
+224
+active record, because it is a new one.
+225
+So that you are inserting into dimension table.
+226
+If I run this script now, what you are going to observe, this pre-answering is also as
+227
+a fifth record in this main dimension table.
+228
+Just run this, observe the changes.
+229
+So have a look, master all these concepts, very important.
+230
+See the fifth record pre-answering came as a active record.
+231
+So overall in the type 6, it is really very interesting what we have done.
+232
+That's what we learned till now.
+233
+So for the existing active record, for the existing active record, do the updates, but
+234
+while doing update, capture the existing values and current city as a previous city, you capture
+235
+it into the temp table.
+236
+So temp table is also involved here and then the temp table data you simply insert into
+237
+this main dimension table.
+238
+Not only that, you should take care of new data.
+239
+So for the new data also, you can put a relation, identify the new records actually.
+240
+So that is what simply type 6, the script implementation wise. Okay.
+241
+So that's all the, what is happening, the key points in this type 1, okay, type 1, you
+242
+are getting the current value directly by taking the city column, type 2, under the
+243
+same city column, if you take the entire history actually, and type 3, that by using another
+244
+column in the same active record, you can get back the previous value, just immediate previous value.
+245
+That's what actually overall is this, a city type 6.

@@ -1,0 +1,15 @@
+docker build -t warranty-detector .
+
+docker run -p 8501:8501 warranty-detector:latest
+
+# 1 Log in to Azure
+az login
+
+# 2 Log in to your Azure Container Registry
+az acr login --name warrantyfrauddetector
+
+# 3 Tag your local Docker image for ACR
+docker tag warranty-detector warrantyfrauddetector.azurecr.io/warranty-detector:latest
+
+# 4 Push your image to ACR
+docker push warrantyfrauddetector.azurecr.io/warranty-detector:latest

@@ -1,0 +1,376 @@
+Technical deep dive into building a secure and optimized AI agent framework.
+
+No, I just want end to end. Um, I really want to know what actually you're trying to create.
+
+This should be a product which you are doing it.
+
+What exactly it is?
+
+Okay.
+
+So, uh, we we, uh, as I said, right? It's an internal, uh, project, uh, not directly, uh, inclined for a customer, but yeah, I mean, what we are trying to do is we are building a framework.
+
+Everyone is doing agent or every customer says they want multi-agent systems, etcetera, right?
+
+And every time we have to do, we basically start from scratch for that particular customer. What we are trying to do is what if I have a, uh, uh, I would say a framework where creating the agent, right? One agent I have to create or a land graph flow that I have to write will be easier to do. So you'll have a boilerplate sort of code that will come with a single command or with a single skill file.
+
+That is there, the first part of it.
+
+Second is, uh, when I create an agent, right? Uh, I have to maybe use some custom models or, uh, the front-end models, Gemini, Entropic, etcetera, right?
+
+Then, I mean, how secure I can make my input, right?
+
+So that I can, uh, do maybe, uh, uh, redaction on PII, sensitive information, etcetera.
+
+And then that secured input will get passed, the context will pass to an LLM. Even the output that I'm gonna get, what sort of guardrails I have to put, right?
+
+Then one more thing is when I created an agent, right?
+
+Where it will run, right?
+
+What, what will be the runtime to this agent?
+
+It should be running in my environment, not like, or maybe somewhere else, right? Or secured environment.
+
+So that is the runtime that we are defining and we are saying.
+
+So it will not be, I would say, a single product for a customer.
+
+It's a framework that we are defining where anyone can come and define the agents, observability, etcetera, can be defined and created very easily.
+
+Okay.
+
+Can I, can I say, uh, what I understood about your project?
+
+That your framework, does it anyone just type a question and at the end, you'll get the answer. It could be any type of question related to the project.
+
+Is that correct?
+
+Yes.
+
+Okay.
+
+So in one way, you also try to redact the PII information and if you need some any other thing which is required from the banking domain, all right. So, um, what kind of models do you use internally to, is it a open source model, OpenAI model, Google Gemini?
+
+Yeah.
+
+So, uh, in in terms of, uh, like we we the the in terms of framework, I would say, we have configured open source and closed source both. So if someone wants to basically use an open source model, they can just define, he doesn't have to basically do a lot of import, etcetera.
+
+It comes in built, the gateway that we have built.
+
+So what happens is if you want a a closed source model, you can basically the front-end ones, OpenAI or Gemini. There is a single LLM where you define the LLM, uh, name.
+
+And I will then then the task of the framework that I defined, I will pull what adapters are required to configure this model in your environment.
+
+So I have, I would say, I have worked on both open source and closed source. In terms of, uh, open source, I have worked on Q&A models a lot in in case of digitalization, etcetera. I have worked on, uh, uh, I would say, few deep-seek reasoning models as well, right? Llama I have worked on.
+
+Uh, and in in terms of closed source, most of the time we go with OpenAI or Gemini.
+
+These are the two that I tried.
+
+Yeah.
+
+I'm just, I'm, I'm curious to understand because DeepSeek is from China and your client is American and you are using, I mean, how are they letting you? Is there is no security concern at all?
+
+So that that's where I said, right?
+
+The what we are passing to, and they also defined in it in certain levels, I would say, tiers basically, like there are some queries that we can basically push it to maybe Q&A. There are something that should never go to a Chinese model or any open source model or we need to have something on-premise.
+
+So there were few contracts where it it defines like certain processes where I can leverage these models, but there are certain processes that cannot be. So I would say there are multiple, uh, layers that are defined over there, like for which process, which model to use.
+
+Okay.
+
+Can you define that security, like what are the, um, approaches you have taken so that and and also mention it about end to end you're doing it. All the security. So, yeah, uh, I would maybe the the the order will be over here and there, but the security layer that we have, we have defined eight layers of security.
+
+So basically if you see OWS, uh, OWS 20, uh, 26, they define 10 parameters that needs to be considered. There are few other, uh, uh, basically security or, I mean, the the government defines those set of policies, right?
+
+So what we have done is we, uh, we have read through some of these policies and then we come up with eight different layers, right?
+
+So one is the first layer will be the ingestion layer where, uh, prompt injection or the the PII, etcetera, right? These things can be, uh, uh, redacted or removed from the input.
+
+That is the ingestion flow.
+
+First layer will be.
+
+I just, uh, give me just a second.
+
+So when you use the the first layer, in the first layer for redaction, did you use open source model or that OpenAI models?
+
+Yeah.
+
+So, uh, I mean, I or or like for, uh, when when it comes to determinism, we generally don't believe on LLM.
+
+And in in case of guardrails, if guardrails also is the prompt, I personally don't believe then then because I can write it in prompt.
+
+So what we have done is LLM as a judge is an option, but that is the last option. The other two things is one, we have a list of rules or regular expression. That is one, uh, tier, I would say in the ingestion. And then second is where I have, uh, we use multiple NER models, I would say.
+
+Microsoft Presidio, it's an open source model.
+
+We have, uh, used Presidio and SpaCy are the two models that we tried and we have used for detecting the entities in the input and then redact it or remove it.
+
+That depends on what you want to do, but yeah, I mean, so first layer was regular expression, second was these NER models and then third was LLM as a judge.
+
+All right.
+
+So, uh, on which cloud are you using?
+
+Azure, AWS, um, anything?
+
+Yeah.
+
+So, uh, most of our services are on AWS. Few are on on GCP as well because Gemini and some of other services that we use from there.
+
+All right.
+
+Um, I because this is a banking domain, definitely, it is tight security that data should not be go outside the team. So, uh, let's say to and cost saving is one of the thing which is very much important. So tell me what actually, what, um, approaches have you tried so that you can reduce the cost?
+
+So in terms of cost, I would say, one, uh, major component will be, uh, like, uh, caching is one mechanism.
+
+If if it is a RAG structure, basically the same question is coming up, you can cache the result as well. So cache based on, uh, uh, prompt and the result both.
+
+That is one. Second is, uh, if if something is like, uh, I mean, I I can basically compress the, I would say, something is too big or if I'm passing, uh, like, uh, I mean, so imagine a scenario where I'm passing a raw OCR to a model and ask to basically standardize it or extract certain, uh, entities from a document, right? Then in that scenario, instead of passing the direct OCR to a model, why not we process it a bit? Because that's where we have a rule or whatever, some logic that we can write. So we can compress the input that is gonna pass to a model. Then other will be in terms of cost saving is how how why we should not have a a routing mechanism basically to decide, uh, what to pass to which model. Basically, you have whenever a call is coming in, if query is, you tell me what it, I mean, or what is two plus two?
+
+I don't have to call a reasoning model.
+
+Right? I I can directly give the response back, right?
+
+So that routing also is one of the way.
+
+Then a lot of things, uh, basically in in in terms of multi-agent or or a workflows, if something fails at a particular time, why to wait for the whole workflow to run? Why not retry back or give it to a user with some warning or error?
+
+So, I mean, some way of basically early coming out from the flow.
+
+That also will save cost and tokens.
+
+So, yeah, I mean, these are something that I can think of right now, whatever I have done, I would say.
+
+Awesome, awesome.
+
+And for optimizing these things, uh, the performance of, you know, the bottleneck of any of the any of these models are quite the biggest problem. How do you, how did you build that structure so that you can optimize the performance as well? So, uh, I mean, what I see is whatever you will give, right?
+
+If garbage in, garbage out, right?
+
+So if my context is good, the prompt that I'm writing is good or better, then the output will be good, right? So what we basically follow is, uh, in the framework, we have this, uh, uh, on the runtime, we have defined something where, uh, we correct the user prompt as well, right? So imagine you have a context that is too vague or even the prompt that is like, you are just talking about everything in a single prompt, right?
+
+So we have a mechanism where we split it into multiple, I would say, chunks as well or or multiple queries as well, right? So that depends, right?
+
+Cost will maybe get increased, but your accuracy also will increase.
+
+So one mechanism, I would say, is instead of doing, uh, multiple things in a single go, why not divide it into multiple calls?
+
+Right?
+
+Instead of doing classification and extraction in one go, I can divide it, classification is one call and extraction is another one.
+
+Right? In that way, I'll have more accuracy, right?
+
+Then second is in in terms of accuracies, I would say, or optimizing the, I mean, the the performance of the model is, uh, if or or wherever, uh, the complex queries are there, we should have a reasoning capability there.
+
+So model should reason out like what to, I mean, what exactly it is doing, right?
+
+So there are a lot of chain of thought and a lot of prompting styles as well that we can follow to, uh, get better result out of it. So yeah, these are something that I can think of, yeah. Yeah.
+
+Can you also tell me something?
+
+Yeah.
+
+That's that's good.
+
+Uh, can you also tell me about the RAG pipeline, like, um, any give me with an example, how did you use it in your project?
+
+So one of the project, I would, I would take, uh, in my last company where, uh, the last two companies that I was working, were were basically product-based companies. So there, I built a extraction engine on, uh, the, uh, contract documents. So I have to basically identify some of the or or extract some of the entities from a contract documents.
+
+So contracts are like 500, 600 pages or sometimes more than that.
+
+So we have to basically identify some of the things from there and then get something back, right? So what we have done is instead of like doing it, uh, every time, we converted that into a RAG structure. So what we, uh, have done is, I mean, in in typical RAG, you have basically three layers.
+
+One is how you ingest the data, right? Then how you create the embedding out of it or where you are saving the embedding and then last one is the generation, right?
+
+So for ingestion, uh, flow, I would say, we because it's a, uh, uh, it's a contract document.
+
+There are like heading, subheading and then sub-subheading, these things as well there. So we, there are different chunking styles.
+
+You can go with line, paragraph or fixed chunking size as well.
+
+What we have done is, we have basically retained or keep the heading, subheading and then sub-subheading if that is there, then the paragraph that is there. We did the chunking paragraph-wise, but we keep the context of from what parent, uh, header section it came, right?
+
+Yes, I got it.
+
+So that is the chunking style that we followed. And after getting the chunks, then we basically, and also we had some overlap that we used over there. And then, uh, we moved to creating the embedding, uh, part.
+
+There we used OpenAI. We were using OpenAI a lot, uh, uh, for those projects. So we, uh, used OpenAI embedding, uh, 001, I think that was there. Uh, that is what we used to embed it. And when we were trying it out, we tried with multiple, uh, vector databases, I would say. When we were trying out things, we started with Chroma.
+
+Then we realized a lot of bottleneck in in case of, I mean, in in terms of scaling and performance part. When you have like hundreds of query in a a second, it doesn't scale that much.
+
+So we moved to Quadrant, uh, vector DB, right? Where we created the embedding and saved it in, uh, Quadrant DB. And then for the generation also, we were using OpenAI.
+
+There we have, uh, used basically, uh, uh, I would say, few-shot, uh, prompting strategy. There we give few examples.
+
+And based on the retrieved chunk, so imagine I want to basically, uh, know about some inclusion that are mentioned in the contract, right? Then I the, I defined the question and then I give some example as well, how it looks like, how output instruction look like.
+
+So that that's where we got the result. And then, uh, the one thing that we were facing is we have to evaluate it, uh, so that it is still hallucinating or not or, uh, maybe in terms of accuracy as well, what we are getting, right? So there we tried two things, uh, to accurate, I mean, to evaluate the model. One was, once we get the final response, we basically labeled some of the data because it's a extraction sort of flow. So we have some labeled data as well.
+
+That's where we were comparing and getting precision recall. The other way is we where we did LLM as a judge approach and RAGAS metric as well, where we were trying the faithfulness, the factuality of answers, etcetera. So, yeah, this is the whole flow that we have tried. That's awesome.
+
+Can you explain me the difference between few-shot learning and zero-shot learning?
+
+So zero-shot is, basically, it's a, uh, multi-agent structure where you give some output, then maybe, uh, uh, uh, I mean, it goes through human in the loop or another agent who says, okay, this is not good. Then it came back.
+
+Again, you do something.
+
+Then it will go. So it's a basically agent is trying to, uh, uh, result, I mean, giving the result with high accuracy while taking feedback on the go or multiple times.
+
+Can you also explain what is human in the loop? So human in the loop means, uh, uh, so imagine I I built a workflow and there what I'm saying is if accuracy is less than 80%, it should go to a human.
+
+He'll validate it. And when he says, okay, this looks fine, then it will go to the next process.
+
+That's correct.
+
+Yes.
+
+Have you worked on Azure Data Factory? Uh, I I I I I don't remember I have worked a lot.
+
+Yeah.
+
+I mean, I I.
+
+How about job pipeline of AWS, sorry, Azure or Databricks?
+
+Job pipelines I have tried, but not heavily, I would say. I have used other services, but yeah, I mean, uh, I I would say very less.
+
+Majorly I I I built like something from scratch, I would say, creating APIs, even if it is the jobs that needs to be run in queuing, etcetera, right?
+
+You set up Celery or other queues, etcetera, that you do.
+
+Right?
+
+So, yeah, I mean, I I know how it works, but yeah, I mean, I haven't done a lot, I would say.
+
+Okay, that's fine.
+
+If you have to take the advantage of caching, what would be the minimum token is required?
+
+Or is there any limit?
+
+Uh, in in the front-end models, the platforms you are saying or in terms of any custom built as well? Models.
+
+Okay.
+
+I don't remember, I mean, if because in prompt,
+ there is a limit, yes.
+
+But most of the time what we have done is for caching is maybe we set up a Redis client and then we cache it in the Redis and pull from here directly. I haven't done a lot where I was depending on the model, the platform itself to do the caching. Is the caching prices and the regular prices are different or same?
+
+It will be different. Because you you are taking an advantage of caching, so you will be basically saving on the token, etc. So, definitely or even on the accuracy will be better because they are caching the result. So, one example is if I use the ChatGPT UI or Claude AI UI, they do a lot of caching.
+
+I have a session, I mean, they they basically if I come next day on the same chat, I can ask a question and it knows what was there already. If you see the other one where I just call, get the result, they don't cache it. That means they are not charging a lot and even then accuracy and the caching will be my headache, not the platform.
+
+Right.
+
+Until what duration these caching actually exist?
+
+Let's say you you send a prompt and you wanted to cache it.
+
+Um, for different platforms, first of all, the question is, um, for different platforms, the duration is different or it is same? Uh, it it will be different. I mean, it will not be same and uh, uh, I mean, that's that's where I'm saying, right?
+
+I have uh, built the caching on my systems.
+
+So, like Redis that I do, I I don't I can basically, uh, the context can be too long.
+
+I can basically decide when to when caching will go off or when not.
+
+There are, but yeah, I mean, it depends on platform to platform and uh, uh, yeah, I mean, it it depends on platform to platform. They'll have different time uh, when it will go off. They they it won't be fixed timings. How do you get to know that the advantage of caching is done at this point of time and they are charging, now they are charging you for the regular? Is there a way in your pipeline built to find out this is this was the caching so far and now we are because we reset the caching, now we we are charging you for the regular. So, I think uh, when we get a response, in the response itself, it gives a flag saying caching is true or not and then basically it talks about what was in the cache cache that as well. In the result itself, yes.
+
+All right.
+
+Uh, have you worked on any of the open source model like BERT, RoBERTa, and if any, uh, use your open source model and explain what project have you worked on.
+
+So, uh, before GPT era, I would say I was working for a startup.
+
+There the task was to extract the information from discharge summaries. So, it was basically extract medical entities from discharge summaries.
+
+So, that's that's where we were doing a lot of NER. We used uh, Spacy, Spacy, and a lot of other OCR models. That's where we when we were trying to build our custom NER model, uh, sorry, it was NER, not OCR. So, when we were doing, when we tried building a custom NER model, that's where I used the clinical BERT model.
+
+That was a pre-trained version or I would say a fine-tuned version of RoBERTa.
+
+Okay.
+
+Fine-tuned version. Okay, you did not train it by yourself, so you just fine-tuned.
+
+Yeah, so clinical BERT is what we used and clinical BERT itself is a fine-tuned version of RoBERTa. On clinical data, yeah.
+
+Yes.
+
+And then we basically put our learnings on top of clinical BERT.
+
+We didn't train or fine-tune the RoBERTa. We tuned the uh, fine-tuned basically the clinical BERT. That was based on the RoBERTa architecture.
+
+Okay.
+
+So, basically, have you trained any of the open source model?
+
+That's my question is.
+
+Yeah, I I do.
+
+I have trained uh, uh, LLaMA as well for uh, one of the tasks. I have trained RoBERTa and I I did train a lot of deep learning uh, models, I would say.
+
+Sorry to interrupt you, sorry to interrupt you.
+
+The meeting may end for some, I'm not sure for what reason, but Prakhar is about to send another meeting, so we both will join on that.
+
+Okay, if it disconnected.
+
+Sure, sure.
+
+Yeah.
+
+All right.
+
+Yeah, keep saying.
+
+Okay.
+
+So, yeah, so, uh, yeah, I mean, I have trained uh, the clinical BERT, fine-tuned clinical BERT. Other than that, I have fine-tuned uh, uh, LLaMA model, LLaMA 3 8 billion, uh, for and that was quantized using LoRA. And uh, then I have fine-tuned and even trained multiple times LayoutLM for extraction, uh, from, uh, I mean, uh, uh, uh, from lab reports and bills, etc. And uh, then I also worked on uh, training uh, or or I would say fine-tuning a OCR uh, from like, uh, I mean, labeled the data and fine-tuned a OCR model. That's where we were using uh, open source uh, OCR model called PaddleOCR.
+
+So, these are I would say the the bigger fine-tunings that I have done.
+
+Okay.
+
+Did you face any challenges in fine-tuning these models?
+
+I mean, I would say a lot of times because sometimes, so if I take an example of uh, LayoutLM, I did that multiple times and even push back uh, as well a lot of times. So, uh, with LayoutLM is it's a multi-modal architecture.
+
+So, you have vision embeddings as well and then you have text embeddings as well.
+
+So, the problem is you have to basically fix on, I mean, the the one thing is basically the embedding text embedding that it has, there was a limitation for 512 tokens itself. So, if your page that has more than 512 tokens, they basically split the terms into uh, BIOs, like beginning, intermediate, uh, uh, uh, start, I mean, uh, end, BIO, I mean, so you have to basically then define if it is a single word or sentences, then you have to define what is the the start token and token and the intermediate words, etc. So, they split on 512 tokens strictly.
+
+That's where we were uh, facing a lot of difficulties. We even fine-tuned the model for uh, two or three epochs and then we realized the data is not good. When we were monitoring the model in MLflow, we realized it's going like in in different direction altogether. We roll back. Then again, we changed on the architecture in the data as well and then we uh, trained it. Same thing with uh, OCR as well, I would say.
+
+So, OCR has two bigger components.
+
+One is detection where you identify, okay, these are the tokens. Then once you detected certain text, then you have to identify, that is the recognizer that basically identify what the text is. If it is A, B, C, D, whatever it is. So, and then when you have to train it, it's a two bigger architectures that go in parallel, I would say, most of the time. So, that's where I I was facing a lot of issues because a lot of libraries from NVIDIA and a lot of uh, libraries, I would say, from Meta that we were using uh, for uh, uh, like feature extraction, etc., that were not working out properly and uh, yeah, I mean, these sort of issues that I faced a lot. That's great.
+
+Um, so I have a lot of questions, but we are we are running out of time.
+
+Um, I I if if it is possible from Prakhar's side or my organization's side, I would like to connect with you again, uh, asking some more questions. But if not, then I will provide my feedback.
+
+Sure.
+
+Okay.
+
+Thanks.
+
+It was really nice talking to you.
+
+Thank you so much for your time. Thank you so much.
+
+Thanks.
+
+Yeah.
+
+Thanks.
+
+Thank you.
+
+Bye bye.

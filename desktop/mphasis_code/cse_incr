@@ -1,0 +1,625 @@
+{
+    "name": "pl_de_ea_common_cse_h_dmnsn_incr",
+    "properties": {
+        "activities": [
+            {
+                "name": "copy_incr",
+                "type": "Copy",
+                "dependsOn": [
+                    {
+                        "activity": "Lookup_incr_value",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:20:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "HiveSource",
+                        "query": {
+                            "value": "select * from \n@{activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema}.@{activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name} where @{pipeline().parameters.incremental_column} >= '@{activity('Lookup_incr_value').output.firstRow.last_loaded_value}'",
+                            "type": "Expression"
+                        }
+                    },
+                    "sink": {
+                        "type": "ParquetSink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings",
+                            "copyBehavior": "PreserveHierarchy"
+                        },
+                        "formatSettings": {
+                            "type": "ParquetWriteSettings"
+                        }
+                    },
+                    "enableStaging": false,
+                    "parallelCopies": 3,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": true
+                        }
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ds_hadoop_eap_source",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "ds_schema_name": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema",
+                                "type": "Expression"
+                            },
+                            "ds_table_name": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ds_de_parquet",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "filename": {
+                                "value": "@concat(variables('date'), '/',activity('Lookup_etl_pipeline_metadata').output.firstRow.target_table_name, '_',formatDateTime(utcNow(), 'yyyy_MM_dd_HH_mm_ss_ffffff'), '.parquet')",
+                                "type": "Expression"
+                            },
+                            "table_name": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.target_table_name",
+                                "type": "Expression"
+                            },
+                            "domain": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.domain",
+                                "type": "Expression"
+                            },
+                            "container": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.container",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "databricks_notebook",
+                "type": "DatabricksNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "copy_incr",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.00:50:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/Workspace/DataFabric/HPE-Azure-CDO-GLB/eap/adf/cpgrop_eap_incr_load_rawFiles_Upsert",
+                    "baseParameters": {
+                        "p_sourceContainer": {
+                            "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.container",
+                            "type": "Expression"
+                        },
+                        "p_sourceFileLocation": {
+                            "value": "@concat('landing/', activity('Lookup_etl_pipeline_metadata').output.firstRow.domain,'/',activity('Lookup_etl_pipeline_metadata').output.firstRow.target_table_name)",
+                            "type": "Expression"
+                        },
+                        "p_storageAccountName": {
+                            "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.storage_account_name",
+                            "type": "Expression"
+                        },
+                        "p_tableName": {
+                            "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.target_table_name",
+                            "type": "Expression"
+                        },
+                        "p_catalogTableName": {
+                            "value": "@concat(activity('Lookup_etl_pipeline_metadata').output.firstRow.target_schema_name,'.',activity('Lookup_etl_pipeline_metadata').output.firstRow.target_table_name)",
+                            "type": "Expression"
+                        },
+                        "p_dt": {
+                            "value": "@variables('date')",
+                            "type": "Expression"
+                        },
+                        "p_pk_columns": {
+                            "value": "cse_h_id\n",
+                            "type": "Expression"
+                        },
+                        "p_incremental_column": {
+                            "value": "@pipeline().parameters.incremental_column",
+                            "type": "Expression"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "ls_de_glb_fdn_prod_dbx",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "Lookup_etl_pipeline_metadata",
+                "type": "Lookup",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": {
+                            "value": "@concat('SELECT concat(source_schema, ''.'', source_table_name) AS tabl_name, * FROM metadata_audit.etl_pipeline_metadata WHERE id = ''', pipeline().parameters.id, '''')",
+                            "type": "Expression"
+                        },
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
+                    },
+                    "dataset": {
+                        "referenceName": "ds_de_AzureSql_etl_pipeline_metadata",
+                        "type": "DatasetReference"
+                    }
+                }
+            },
+            {
+                "name": "date_variable",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "Lookup_etl_pipeline_metadata",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "date",
+                    "value": {
+                        "value": "@concat(formatDateTime(utcNow(), 'yyyy-MM-dd-HH-mm-ss'))",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "sp_success_logging",
+                "type": "SqlServerStoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "databricks_notebook",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": {
+                        "value": "[metadata_audit].[insertETLIncrementalLog]",
+                        "type": "Expression"
+                    },
+                    "storedProcedureParameters": {
+                        "child_pipeline_name": {
+                            "value": {
+                                "value": "@pipeline().Pipeline",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "error_message": {
+                            "value": null,
+                            "type": "String"
+                        },
+                        "incremental_column": {
+                            "value": {
+                                "value": "ins_ts",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "ins_tms": {
+                            "value": {
+                                "value": "@utcNow()",
+                                "type": "Expression"
+                            },
+                            "type": "Datetime"
+                        },
+                        "is_archived": {
+                            "value": null,
+                            "type": "Boolean"
+                        },
+                        "last_loaded_value": {
+                            "value": {
+                                "value": "@activity('databricks_notebook').output.runOutput.max_ins_ts",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "load_type": {
+                            "value": {
+                                "value": "cse_h_dmnsn_incr",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "pipeline_end_time": {
+                            "value": {
+                                "value": "@utcNow()",
+                                "type": "Expression"
+                            },
+                            "type": "Datetime"
+                        },
+                        "pipeline_name": {
+                            "value": {
+                                "value": "@pipeline().Pipeline",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "pipeline_start_time": {
+                            "value": {
+                                "value": "@pipeline().TriggerTime",
+                                "type": "Expression"
+                            },
+                            "type": "DateTime"
+                        },
+                        "records_loaded": {
+                            "value": {
+                                "value": "@activity('databricks_notebook').output.runOutput.total_rows",
+                                "type": "Expression"
+                            },
+                            "type": "Int64"
+                        },
+                        "retry_count": {
+                            "value": null,
+                            "type": "Int32"
+                        },
+                        "schema_name": {
+                            "value": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "source_system": {
+                            "value": {
+                                "value": "eap",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "status": {
+                            "value": {
+                                "value": "completed",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "table_name": {
+                            "value": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "trigger_filename": {
+                            "value": ""
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "ls_de_azure_glbfdn_prod_sql_database",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "sp_failure_logging",
+                "type": "SqlServerStoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "databricks_notebook",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": {
+                        "value": "[metadata_audit].[insertETLIncrementalLog]",
+                        "type": "Expression"
+                    },
+                    "storedProcedureParameters": {
+                        "child_pipeline_name": {
+                            "value": {
+                                "value": "@pipeline().Pipeline",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "error_message": {
+                            "value": {
+                                "value": "@activity('databricks_notebook').output.runError",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "incremental_column": {
+                            "value": null,
+                            "type": "String"
+                        },
+                        "ins_tms": {
+                            "value": {
+                                "value": "@utcNow()",
+                                "type": "Expression"
+                            },
+                            "type": "Datetime"
+                        },
+                        "is_archived": {
+                            "value": null,
+                            "type": "Boolean"
+                        },
+                        "last_loaded_value": {
+                            "value": null,
+                            "type": "String"
+                        },
+                        "load_type": {
+                            "value": null,
+                            "type": "String"
+                        },
+                        "pipeline_end_time": {
+                            "value": {
+                                "value": "@utcNow()",
+                                "type": "Expression"
+                            },
+                            "type": "Datetime"
+                        },
+                        "pipeline_name": {
+                            "value": {
+                                "value": "@pipeline().Pipeline",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "pipeline_start_time": {
+                            "value": {
+                                "value": "@pipeline().TriggerTime",
+                                "type": "Expression"
+                            },
+                            "type": "DateTime"
+                        },
+                        "records_loaded": {
+                            "value": "0",
+                            "type": "Int64"
+                        },
+                        "retry_count": {
+                            "value": null,
+                            "type": "Int32"
+                        },
+                        "schema_name": {
+                            "value": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "source_system": {
+                            "value": {
+                                "value": "eap",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "status": {
+                            "value": {
+                                "value": "failed",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "table_name": {
+                            "value": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name",
+                                "type": "Expression"
+                            },
+                            "type": "String"
+                        },
+                        "trigger_filename": {
+                            "value": ""
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "ls_de_azure_glbfdn_prod_sql_database",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "Lookup_incr_value",
+                "type": "Lookup",
+                "dependsOn": [
+                    {
+                        "activity": "date_variable",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": {
+                            "value": "SELECT last_loaded_value\nFROM (\n    SELECT \n        last_loaded_value,\n        ROW_NUMBER() OVER (\n            PARTITION BY table_name \n            ORDER BY batch_id DESC\n        ) AS rnk\n    FROM [metadata_audit].[etl_incremental_control]\n    WHERE incremental_column = 'ins_ts'\n      AND load_type = 'cse_h_dmnsn_incr' and status = 'completed'\n) b\nWHERE b.rnk = 1;",
+                            "type": "Expression"
+                        },
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
+                    },
+                    "dataset": {
+                        "referenceName": "ds_de_AzureSql_etl_pipeline_metadata",
+                        "type": "DatasetReference"
+                    }
+                }
+            },
+            {
+                "name": "Lookup_etl_pipeline_metadata_full_count",
+                "type": "Lookup",
+                "dependsOn": [
+                    {
+                        "activity": "Lookup_etl_pipeline_metadata",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "HiveSource",
+                        "query": {
+                            "value": "select count(distinct cse_h_id) as cnt from @{activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema}.@{activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name}",
+                            "type": "Expression"
+                        }
+                    },
+                    "dataset": {
+                        "referenceName": "ds_hadoop_eap_source",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "ds_schema_name": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_schema",
+                                "type": "Expression"
+                            },
+                            "ds_table_name": {
+                                "value": "@activity('Lookup_etl_pipeline_metadata').output.firstRow.source_table_name",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Validate source and silver count",
+                "type": "IfCondition",
+                "dependsOn": [
+                    {
+                        "activity": "Lookup_etl_pipeline_metadata_full_count",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    },
+                    {
+                        "activity": "databricks_notebook",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "expression": {
+                        "value": "@equals(int(activity('Lookup_etl_pipeline_metadata_full_count').output.firstRow.cnt),int(activity('databricks_notebook').output.runOutput.silver_table_count))",
+                        "type": "Expression"
+                    },
+                    "ifFalseActivities": [
+                        {
+                            "name": "Source And Target Mismatch",
+                            "type": "SetVariable",
+                            "dependsOn": [],
+                            "policy": {
+                                "secureOutput": false,
+                                "secureInput": false
+                            },
+                            "userProperties": [],
+                            "typeProperties": {
+                                "variableName": "Validation_Output",
+                                "value": {
+                                    "value": "@concat('Source count : ',string(activity('Lookup_etl_pipeline_metadata_full_count').output.firstRow.cnt), ', Target count : ',string(activity('databricks_notebook').output.runOutput.silver_table_count))",
+                                    "type": "Expression"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "parameters": {
+            "id": {
+                "type": "string",
+                "defaultValue": "342"
+            },
+            "incremental_column": {
+                "type": "string",
+                "defaultValue": "ins_ts"
+            }
+        },
+        "variables": {
+            "filename": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "Validation_Output": {
+                "type": "String"
+            }
+        },
+        "folder": {
+            "name": "DE/EAP"
+        },
+        "annotations": [],
+        "lastPublishTime": "2026-08-03T03:13:14Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

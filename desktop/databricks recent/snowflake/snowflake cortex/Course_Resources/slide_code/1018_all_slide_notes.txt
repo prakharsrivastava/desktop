@@ -1,0 +1,32 @@
+// ============================================================
+// 1018 — COMPLETE TXT REFERENCE  (2 snippets)
+// Every on-slide snippet across all modules. Ctrl+F by keyword or title.
+// ============================================================
+
+
+
+// ########################################################
+// MODULE 16
+// ########################################################
+
+// --- Code: Calling Cortex Analyst From the Agent ---
+
+response = requests.post(
+    analyst_url,
+    json={
+        'semantic_model_file': 'promo_semantic_model.yaml',
+        'messages': [{'role': 'user', 'content': lift_question}],
+    },
+)
+
+
+// --- Code: Forecast and the Orchestrator Tying It Together ---
+
+forecast_df = session.call(
+    'CPG_MODELS.PROMO_DEMAND_FORECAST',
+    sku_id, discount_pct, horizon_weeks=4,
+)
+# Orchestrator: call all three tools, then merge into one recommendation
+# search grounds context first, analyst quantifies history, forecast
+# projects forward — tool-calling order matters
+

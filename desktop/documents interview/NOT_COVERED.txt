@@ -1,0 +1,113 @@
+═══════════════════════════════════════════════════════════════
+क्या NOT COVERED है - Short Summary
+═══════════════════════════════════════════════════════════════
+
+🔴 REGRESSION के लिए:
+───────────────────────────────────────────────────────────────
+❌ Gradient Descent - model कैसे सीखता है (weights update करने का तरीका)
+❌ Loss Function - error को mathematically minimize कैसे करते हैं
+❌ Regularization (Ridge/Lasso) - overfitting को रोकने की techniques
+❌ Cross-Validation - K-Fold CV से robust evaluation
+❌ Hyperparameter Tuning - GridSearchCV, RandomSearchCV
+❌ SVR (Support Vector Regression) - non-linear regression model
+❌ Gradient Boosting - XGBoost, LightGBM जैसे advanced models
+❌ Residual Analysis - errors को visualize और interpret करना
+
+═══════════════════════════════════════════════════════════════
+
+🔴 CLASSIFICATION के लिए:
+───────────────────────────────────────────────────────────────
+❌ ROC-AUC Curve - detailed explanation (mentioned लेकिन detailed नहीं)
+❌ Cost-Sensitive Learning - different error costs के लिए
+❌ Multi-class Classification - 2 से ज़्यादा classes (One-vs-Rest)
+❌ Threshold Tuning - decision boundary को adjust करना
+❌ Probability Calibration - calibrated probabilities
+❌ Learning Curves - bias-variance tradeoff को visualize करना
+
+═══════════════════════════════════════════════════════════════
+
+🔴 NLP & EMBEDDINGS के लिए:
+───────────────────────────────────────────────────────────────
+❌ GloVe - दूसरा popular embedding method
+❌ ELMo - contextualized representations (BERT से पहले)
+❌ Word Sense Disambiguation - automatically सही meaning चुनना
+❌ Token Type IDs - [CLS], [SEP] का detailed explanation
+❌ Vocabulary Details - कैसे 30,522 tokens select होते हैं
+❌ Transfer Learning - pre-trained models को नए task पर use करना
+❌ Fine-tuning Strategy - कब fine-tune करना चाहिए
+
+═══════════════════════════════════════════════════════════════
+
+🔴 TRANSFORMERS के लिए:
+───────────────────────────────────────────────────────────────
+❌ Scaled Dot-Product Attention - formula का detailed derivation
+❌ Attention Head Visualization - कौन सा head क्या सीखता है
+❌ Cross-Attention - encoder-decoder के बीच
+❌ Sparse Attention - long sequences के लिए efficient attention
+❌ Linear Attention - O(n²) को O(n) में convert करना
+❌ Flash Attention - GPU optimization technique
+
+═══════════════════════════════════════════════════════════════
+
+🔴 BERT & GPT के लिए:
+───────────────────────────────────────────────────────────────
+❌ Next Sentence Prediction (NSP) - BERT का दूसरा training task
+❌ Instruction Tuning - ChatGPT जैसे chat models के लिए
+❌ Prompt Engineering - zero-shot, few-shot, chain-of-thought
+❌ RAG (Retrieval Augmented Generation) - retrieval + generation combine
+❌ In-context Learning - large models कैसे prompts से सीखते हैं
+❌ Token Limit Issues - long context के साथ problems
+
+═══════════════════════════════════════════════════════════════
+
+🔴 PERFORMANCE & OPTIMIZATION:
+───────────────────────────────────────────────────────────────
+❌ Quantization Details - INT8, FP16, mixed precision
+❌ Knowledge Distillation Math - student teacher learning कैसे काम करता है
+❌ DistilBERT - कौन से layers remove किए गए
+❌ Model Pruning - magnitude pruning, structured pruning
+❌ Weight Sharing - parameters को share करके size कम करना
+❌ ONNX/TensorRT - inference optimization frameworks
+❌ Distributed Inference - multiple GPUs पर serve करना
+❌ Batch Size Optimization - optimal batch size कैसे find करें
+
+═══════════════════════════════════════════════════════════════
+
+🔴 ML PIPELINE:
+───────────────────────────────────────────────────────────────
+❌ EDA (Exploratory Data Analysis) - statistical analysis
+❌ Outlier Detection - statistical methods, isolation forests
+❌ Data Augmentation - synthetic data कैसे बनाते हैं
+❌ SMOTE - imbalanced data के लिए
+❌ Stratified Split - proper validation strategy
+❌ Temporal Split - time series के लिए
+❌ Model Drift Detection - production में monitoring
+❌ A/B Testing - models को compare करना
+
+═══════════════════════════════════════════════════════════════
+
+🔴 PRODUCTION & DEPLOYMENT:
+───────────────────────────────────────────────────────────────
+❌ Model Serving - FastAPI, Flask, Docker, Kubernetes
+❌ Logging & Monitoring - production में क्या track करें
+❌ Handling Model Drift - जब data distribution बदलता है
+❌ Fallback Strategies - जब model fail हो
+❌ API Design - बेहतर API कैसे design करें
+❌ Scalability - एक साथ ज़्यादा requests handle करना
+❌ Cost Optimization - GPU costs कम करना
+
+═══════════════════════════════════════════════════════════════
+
+📊 QUICK STATS:
+───────────────────────────────────────────────────────────────
+✅ Covered: ~90 topics (90%)
+❌ Not Covered: ~35 topics (10%)
+
+सबसे important missing topics:
+1. Gradient Descent (model कैसे सीखता है!)
+2. Regularization (overfitting को कैसे रोकें)
+3. Hyperparameter Tuning (optimization)
+4. Production Deployment (real-world में कैसे use करें)
+5. Advanced Methods (Boosting, SVR, etc)
+
+═══════════════════════════════════════════════════════════════

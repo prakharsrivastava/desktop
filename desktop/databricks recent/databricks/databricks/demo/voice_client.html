@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Chat</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+        button { padding: 20px; font-size: 18px; margin: 10px; }
+        #status { padding: 20px; background: #f0f0f0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🎤 Voice Chat</h1>
+    <div id="status">Disconnected</div>
+    <button id="connect">Connect</button>
+    <button id="disconnect" disabled>Disconnect</button>
+    
+    <script>
+        let ws = null;
+        let audioContext = null;
+        let mediaStream = null;
+        let processor = null;
+        
+        document.getElementById('connect').onclick = async () => {
+            // Connect to server
+            ws = new WebSocket('ws://localhost:5050/voice');
+            
+            ws.onopen = async () => {
+                document.getElementById('status').textContent = '✅ Connected - Speak now!';
+                document.getElementById('connect').disabled = true;
+                document.getElementById('disconnect').disabled = false;
+                
+                // Setup audio
+                audioContext = new AudioContext({sampleRate: 16000});
+                mediaStream = await navigator.mediaDevices.getUserMedia({audio: true});
+                const source = audioContext.createMediaStreamSource(mediaStream);
+                processor = audioContext.createScriptProcessor(2048, 1, 1);
+                
+                processor.onaudioprocess = (e) => {
+                    const pcm = e.inputBuffer.getChannelData(0);
+                    const int16 = new Int16Array(pcm.length);
+                    for (let i = 0; i < pcm.length; i++) {
+                        int16[i] = Math.max(-32768, Math.min(32767, pcm[i] * 32768));
+                    }
+                    ws.send(JSON.stringify({
+                        audio: btoa(String.fromCharCode(...new Uint8Array(int16.buffer)))
+                    }));
+                };
+                
+                source.connect(processor);
+                processor.connect(audioContext.destination);
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.audio) {
+                    // Play assistant audio
+                    const binary = atob(data.audio);
+                    const bytes = new Uint8Array(binary.length);
+                    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                    const int16 = new Int16Array(bytes.buffer);
+                    const float32 = new Float32Array(int16.length);
+                    for (let i = 0; i < int16.length; i++) float32[i] = int16[i] / 32768;
+                    
+                    const buffer = audioContext.createBuffer(1, float32.length, 16000);
+                    buffer.getChannelData(0).set(float32);
+                    const sourceNode = audioContext.createBufferSource();
+                    sourceNode.buffer = buffer;
+                    sourceNode.connect(audioContext.destination);
+                    sourceNode.start();
+                }
+            };
+            
+            ws.onclose = () => {
+                document.getElementById('status').textContent = '❌ Disconnected';
+                document.getElementById('connect').disabled = false;
+                document.getElementById('disconnect').disabled = true;
+            };
+        };
+        
+        document.getElementById('disconnect').onclick = () => {
+            if (processor) processor.disconnect();
+            if (mediaStream) mediaStream.getTracks().forEach(t => t.stop());
+            if (ws) ws.close();
+        };
+    </script>
+</body>
+</html>

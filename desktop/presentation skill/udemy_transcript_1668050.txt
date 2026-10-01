@@ -1,0 +1,3071 @@
+
+
+=== Preparation ===
+
+
+--- Welcome ---
+
+-: So, welcome to my presentation skills course.
+My name's Chris Croft
+and I'm really delighted that you've decided to invest
+a little bit of money and time in presentations.
+Presentations are really important.
+Quite often, with job interviews nowadays,
+you have to give a talk.
+And presentations at things like conferences
+are often career-defining moments.
+There might be somebody in the audience
+who offers you a job at some point or, you know,
+it might be really important to get a big sales order
+or something like that.
+So presentations are really an important skill.
+And in this course I'm gonna tell you
+everything you need to know
+to be able to give great presentations.
+I've structured it that we're gonna look at
+things to prepare before your talk
+and then how to actually give the talk.
+What are the practical things that you need to do
+as you go through your presentation?
+From how to do a great start,
+then keeping the main body in a logical order
+with an agenda and all that sort of thing,
+and then how to finish.
+Finish is important.
+So let's get started.
+
+--- Guide to Preparing a Confident Presentation ---
+
+-: So welcome to my presentations course,
+and the first part of the course is on planning.
+Planning's obviously incredibly important because,
+if you've planned your talk, well, it's bound to go fine.
+So we're gonna go through all the practical things
+you need to plan for a presentation.
+And a good thing about this is you can do it calmly
+either a few weeks or a few days
+before the presentation itself.
+So you can sit at a desk, and you can do all these things.
+So let's get started on planning.
+
+
+=== Overcoming Nervousness in Presentations: Tips and Strategies that work ===
+
+
+--- How to plan a presentation: Covering key points and perfecting your timing ---
+
+-: So, the first thing to plan with your talk
+is what is the one central message of your talk?
+So, let's say for example
+you're going to do a talk about your trip to Australia.
+My trip to Australia is not a central message,
+your message has got to be,
+Australia is better than you thought,
+or Australia is not what you expect,
+or don't go to Australia, or something like that,
+but it has to be a really clear message.
+If it's just all about Australia, that's no good.
+Now, sometimes your one clear message isn't clear
+until you've actually planned the talk.
+And then, when you've planned everything you're gonna say,
+you can then look at it and think, "Well,
+what is this really adding up to?
+You know, what I'm realizing
+as I plan my talk about Australia
+is that Australia was really different
+to what I expected, and therefore that's my message."
+Now, it's really key to decide
+what your message is 'cause everything's hung around that.
+So, you then say, "Right, I'm gonna talk to you
+about why Australia was different to what you expected.
+And the first thing that was different
+is," so absolutely vital,
+what is your one central message?
+And that's a non-trivial question.
+So, what I do when I'm planning a talk
+is I draw out a mind map.
+And I actually love mind maps on an iPad.
+'cause you can just use your fingers
+and move things around and insert subcategories.
+But a mind map on a piece of paper is also great.
+If you don't like mind maps,
+by the way, if you dunno what they are, just Google them.
+They're obvious really,
+they've got the subject in the middle
+and the the lines come out and then they divide
+so you can have subsections.
+But if you don't like mind maps, you could just have a list,
+but I would really urge you to consider mind maps
+'cause you can have subbranches.
+What you sometimes find is that you have,
+say, three or four branches
+and then one of the branches goes into more and more detail
+and you think, "Actually, that's really my talk
+and I'm not gonna bother with the other little branches."
+But if you've got three or four branches
+and they're all roughly the same size,
+you can then decide what order you want to have them in.
+So, a mind map is a great way to think about
+the structure of your talk.
+So, once you've got the main body of your torque,
+ideally three or four sections,
+but it can be just two sections,
+but quite often you can have three or four.
+I wouldn't have 10 sections in a talk,
+I would try to divide them down into three
+and then have subsections within the three.
+'cause our brains start to run out of road
+when we get to more than about four or five sections.
+So, once you've got the main body structured,
+you can then think about what the introduction's gonna be
+and what the summing up is at the end.
+So, some people, when they're planning the structure
+of their presentation,
+they make the mistake of writing the introduction first,
+but you must do the main body first
+and then decide what the intro's gonna be
+and what the summary's gonna be.
+And then, the final thing to think about is your timing,
+how long is your talk going to take?
+And this is really the most difficult thing
+about giving a presentation
+is to keep it to the right length.
+If you've gotta give a 25-minute talk,
+how on earth are you going to do that?
+Now, one way to do it if you're using PowerPoint for example
+is to just think about minutes per slide.
+Most people plan on about two minutes per slide,
+so a 25-minute talk, you're probably gonna lose,
+say, five minutes on the introduction and the summing up
+so it's a 20-minute talk, two minutes per slide,
+so that's 10 slides.
+I actually find that I go slower than most people,
+I take about five minutes per slide rather than two
+and that's 'cause I quite like to improvise,
+tell some stories,
+and also I like to chat to the audience a little bit
+and I'm gonna come back to that later
+'cause that's a very important point,
+interacting with the audience.
+So, I find that on a typical slide
+I've probably got five bullet points
+and I like to explain each of the five bullet points
+and ask people a question.
+Have they had this problem?
+What do they think?
+So, it takes about a minute per bullet,
+so for me it's five minutes per slide.
+And that means a 20-minute talk is only four slides,
+which is not many at all.
+I find with most people,
+they have far too many slides in their presentation.
+I was with a customer recently
+and they have a little PowerPoint slideshow
+on welcome to our company,
+and it shows potential customers
+all about the history of their company
+and it's got 40 slides.
+So, even if you could just do one slide a minute,
+it's gonna take you 40 minutes.
+It had loads of boring pictures
+of this is the company in 1900
+and this was the extension we built in 1960,
+and you just lose the will to live.
+So, really 10 slides maximum, and probably less than that.
+So, two to five minutes per slide.
+And the final thought about this
+is you can either plan top-down or bottom-up.
+So, you can either say it's a 20-minute talk,
+so if I'm averaging, let's say, three minutes per slide,
+that's seven slides.
+And then you can think what am I gonna put
+on my seven slides?
+The other way to do it
+is to think what do I want my slides to be?
+Then how many have I got?
+And therefore how long is my talk?
+And then when you discover the talk's too long,
+you might have to cut a slide or two.
+So, mind map,
+do the main body in ideally about three sections,
+then put the introduction and the summary
+on the beginning and end,
+and then think about your timing,
+two to five minutes per slide.
+
+
+=== Own the Stage: Best practices for presenting with confidence ===
+
+
+--- Presentation opening lines: keep it simple and effective ---
+
+-: So probably the most important part of your presentation
+is the start, the first 30 seconds.
+So you need to prepare this really carefully.
+It's in these first 30 seconds that the audience decide,
+"Do we want to listen to this person?"
+But it's also in these 30 seconds
+that you in your mind decide,
+is this talk gonna be good or not?
+So if it gets off to a bad start,
+then you're really gonna be struggling.
+So you absolutely must get off to a good start.
+So prepare it really carefully.
+And I would say there are three things
+you can have in your start.
+You must have one of these three.
+You can have two of them or even all of them.
+So the three things that you need to think about,
+one of them is start with a question.
+So if I was gonna do my talk about Australia,
+I could say, how many of you have been to Australia?
+Now, why is that a brilliant thing to do?
+Well, it gets the audience involved from the start.
+And even the people who don't physically answer,
+in their mind, they're thinking,
+"Well, I haven't been but I'd like to go."
+Or, "Yeah, I've been."
+So it gets everybody involved if you ask a question.
+But also you need to know whether most of the audience
+have been or most of them haven't.
+So asking them a question,
+how many people know about the changes to the tax system?
+You know, whatever your talk's about.
+So a really good start is a question.
+The second way that you could start
+is some sort of mysterious start.
+So you could say, I'm gonna talk to you
+about the biggest country in the world
+or the country that's got the most poisonous snakes
+of any country in the world.
+Or you could even put a picture up and say,
+does anybody know where this is?
+And you could put up, let's say, some jungle
+'cause people would think Australia
+was going to be sort of red sand and desert.
+So some sort of mysterious start.
+So you could say,
+"I'm gonna tell you three things you don't know
+about the new tax changes."
+Or, "I'm gonna tell you why
+the new tax changes are going to change everything.
+They're gonna have a huge effect on your business."
+Something like that, something where they think,
+"Ooh, I need to know that."
+And I quite like the idea of three things.
+Or, "I'm gonna tell you 10 things that you didn't know
+about presentation skills."
+It's kind of mysterious.
+And you're thinking, "Oh, I need to know those 10."
+The final thing you could have in the start
+is the what's in it for me factor.
+And again, you could say,
+"I'm gonna show you 10 things that you need to know
+about the tax system," but there needs to be something
+where they say, "I need to know this."
+So you need to say, "I'm gonna talk to you
+about what's happening with the tax system.
+And if you don't know about these things,
+it could be really expensive,
+it could lead to all sorts of problems."
+Or, "If you do know about these,
+you'll be able to make a lot more profit."
+So going back to my Australia example, what's in it for you?
+Why should you care about my trip to Australia?
+And the answer is, I must say to you,
+I'm gonna tell you about Australia.
+Particularly, I'm gonna tell you about three things
+that you must do when you go,
+the best three things I discovered when I was there.
+And also I'm gonna tell you about two things to avoid,
+two things that are definitely not good to do
+if you ever go to Australia.
+So now I've got you because you're interested,
+you can see what's in it for you.
+So those are the three things to think about in your start.
+Could you start with a question?
+Could it be a little bit mysterious,
+and could it cover the what's in it for me factor?
+And I think you can see,
+you can do all three of those ideally.
+And then run through your start.
+Just physically, actually stand there and present it,
+ideally to a person, but if not,
+perhaps to a dog or a cat or to an empty room,
+but actually go through and say the words
+so you can just check that it feels okay
+and you don't stumble over anything.
+You don't have to run through your whole talk.
+But this starting 30 seconds,
+you absolutely should run through it.
+Make sure you've nailed it,
+and then you'll feel much better before you start your talk.
+
+
+=== Bonus & Thank You ===
+
+
+--- Essential practicalities to prepare for a big presentation ---
+
+-: So we've talked about your initial impact statement,
+if you like, starting with a question
+or something mysterious.
+So now we get onto the main introduction of your talk.
+What are the things that should be in your introduction?
+Well, firstly, you have to say who you are.
+And I think the main thing with this
+is to give yourself credibility, but also be modest.
+This is a quite a difficult trick.
+So you don't wanna say, "I'm an expert, I know everything,"
+'cause then they're just gonna think,
+"Well, we don't like him or her,"
+and they're gonna start to look
+for any faults they can find in your talk.
+So you don't want that.
+You wanna just quietly say, "I've been doing this for years.
+I've made every mistake you can make,
+so I'm gonna help you to avoid those same mistakes."
+Something like that.
+And something I do is I don't always start with who I am.
+I usually start with a bit about the talk
+and what's in it for them.
+And then I say, "By the way, I'm Chris,
+I've been doing this for a while."
+Because I don't think that I'm the most important thing,
+so I don't wanna start with that.
+The audience are the most important thing.
+The message and the talk is the most important thing.
+So start with that, and then mention who you are
+with some sort of subtly modest credibility statement.
+So who you are, your credibility.
+We do need to cover the what's in it for them question,
+which I've already talked about a bit.
+But there needs to be, I think, repeated, something about,
+"You really need to know about this, it's gonna help you,
+it's gonna allow you to make more money,
+it's gonna avoid accidents at work."
+Whatever it is, why should they listen to this talk?
+And you absolutely must prepare that
+and have a good answer for that.
+And then the next thing is to mention something
+about the length of the talk.
+People are obsessed by how long will this talk last,
+and they're obsessed by you not taking longer.
+So if it's a 25-minute talk,
+you absolutely mustn't take 30 minutes.
+Now, if it's a 30-minute talk,
+it's absolutely fine to take 30.
+But bizarrely, if you tell 'em it's a 20-minute talk
+and you take 25, that's really bad.
+So say to them, "It's a 20-minute talk,
+and it really will take 20 minutes."
+We're gonna come back to that later,
+because when we're halfway, we're going to reassure them,
+"By the way, we're halfway through the talk now."
+People really worry a lot about you going over time.
+I don't why, it's just one of those things.
+Okay, so we've had who you are, some credibility,
+perhaps covered later on in the intro.
+We've had the what's in it for me?
+We've had the length of the talk.
+The next thing is to put up some sort of an agenda.
+Absolutely vital to have an agenda.
+And it needs to be visual.
+So if you just say, "I'm gonna cover five things,
+dah, dah, dah, dah, dah," then they're gonna think,
+"What were those five again?"
+So you need to have some visual agenda that they can see.
+It could be a PowerPoint slide,
+it could be on a piece of flip chart.
+What I quite often do is if I'm doing a PowerPoint talk,
+I have an agenda written on a flip chart page
+off to the side, 'cause I like to see that as well.
+It means I know where I am in the talk and what's coming up,
+but also they can see the agenda
+as I go through my PowerPoint slides.
+But you can also have it down the side of your PowerPoint,
+like a sort of menu on a website,
+or even going across the top or the bottom
+so that you gray out each bit of the agenda as you go.
+But to have some sort of an agenda
+that they can see all the way through is great.
+There's one other way you could do the agenda.
+You could put an agenda up at the start and say,
+"This is what I'm gonna talk about, these five areas."
+And then after the first part you could say,
+"Right, so we finished the first part, onto the second."
+Put the agenda up again.
+And then after the second part, here's the agenda.
+And if you've got quite a lot of sections,
+you might not put the agenda up every time.
+You might let a couple of sections go by and say,
+"By the way, we're now on part seven,"
+and put the agenda up again so they always can see
+where they are in the tunnel.
+Something else that needs to be in your introduction is,
+is it okay to ask questions as we go along?
+You've probably heard people doing presentations
+and they say, "Please, could you keep
+your questions to the end?"
+Now, I personally don't like that,
+because people are bottling up a question.
+They're worrying about whether they're going
+to ask the question at the end,
+'cause they're a bit nervous about asking it
+in front of the audience.
+And also, they may be completely stuck
+because you may have used some abbreviation
+or some technical term and they don't know what it means.
+And that could ruin the whole rest of the talk.
+So I don't think you should say,
+"Keep your questions to the end,"
+I think you should say, "Feel free to ask questions during,
+I like it.
+If you're not sure about anything,
+please just ask at any time."
+I sometimes say, "If you think I'm talking a load
+of rubbish as well, feel free to ask me a question
+or to tell me that you don't agree,"
+'cause I want my talk to be interactive
+and I'm confident enough I can answer the questions.
+It's gonna be fine.
+And I'll come back to this in detail later on, you know,
+what happens if you're asked a question you can't answer?
+So you must say to them in the intro,
+"Feel free to ask questions as we go along."
+And then, finally, finish your introduction with a question.
+So when you finish your whole introduction, you then say,
+"Right, so we're ready to talk about my visit to Australia.
+How many of you have been to Sydney?"
+And that signifies that the first section's
+gonna be about Sydney.
+In fact, you could say, "The first section's
+gonna be about Sydney, how many of you have been there?"
+So finish with a question,
+and that kind of tells them the intro is over
+and we're now ready to go into section one of the talk.
+
+--- Leave a lasting impression: 3 confident presentation endings ---
+
+-: So we've talked about preparing the start
+and that's really, really important.
+I think the second most important part
+of your talk is the finish.
+That's what they're left with after they leave the room.
+So the finish has to be good.
+So what should be in the ideal finish?
+Well, first of all,
+I don't think you should finish with just,
+"So any questions?"
+You know, it shouldn't just sort of fizzle out.
+And some people they talk just sort of fizzle out
+and they go, "Well, so that's it really.
+"And I hope it wasn't too boring."
+And so by the way, never apologize.
+Never apologize at the start of your talk.
+Never apologize at the end of the talk.
+Never say, "I hope it wasn't too boring."
+Because people will think, "Actually yes,
+"it was a bit boring, wasn't it?"
+So, and so just to let it sort of fizzle out, say,
+"So there we are.
+"That's, I think that's it really.
+"Any questions?"
+That's obviously no good.
+There has to be a, "So there you have it" factor.
+I think of it as, so there you have it.
+So for example, one of the best talks I've seen
+on one of my training courses, they can do a talk
+on anything they like for 10 minutes, right?
+And one guy did a talk on how to iron a shirt
+and he actually brought in an ironing board and a shirt.
+I think it would've been even cooler
+if he'd taken off his shirt and done it.
+But he didn't, he brought in another shirt
+and he showed us how to iron a shirt
+and he was telling us all about you have to do the collar
+and then you do this bit and then you go back.
+And he was asking us,
+why do you think you do it in this order?
+It was a brilliant talk, but the best bit was the end
+because when he'd finished doing all the shirt
+he held the shirt up and he said
+so there you have it, the perfect shirt.
+And we all had to go.
+"Yeah!" You had to stand up and clap.
+It was so good.
+So your talk needs to have a,
+"So there you have it" factor at the end.
+So if I was talking to you about my trip to Australia
+I would probably just say, "So there you have it,
+"how to have the best possible holiday
+"in Australia and you really should go."
+Or something like that.
+Just some sort of, you know, nice little da-da finish.
+And then you can say, "By the way, are there any questions?"
+But the, "any questions" can't be your finish.
+Now, a couple of ways to have a good finish.
+You could have a summary, a recap so you could say,
+"So there we have it.
+"That's my talk on Australia.
+"My top three things were you must cuddle a koala
+"in Brisbane.
+"You know, you must see the fruit bats of Bellingen Island.
+"And you must see, you know, the dolphin in Tin Can Bay,
+"or the turtles wherever."
+So you just go back through your top points.
+So that's a good way to finish.
+Another way to finish is a call to action.
+So you could say, "So what I want you to do
+"after this talk is to go back, get the internet on
+"and book a trip to Australia."
+That's a bit serious.
+But you could say, "So, you know, do bear in mind Australia
+"as a possible holiday destination."
+And certainly if your talk is about sales, you should say,
+"Next time you need this service or this component
+"please do consider us.
+"Because as I've showed you,
+"we have got four features that nobody else has got."
+And by saying "Next time you need it, please do consider us"
+you are putting that thought in their mind
+and they'll think, "Yeah, yeah, I will."
+And then when that next comes up, they'll think,
+"Oh yeah, I was supposed to phone that guy."
+So a call to action just leaves a little subliminal thing
+a little trigger in their mind.
+So you can finish with a summary
+or you can finish with a call to action, or even both.
+There's a final way you could finish,
+which is to have a quiz.
+And you might think a quiz is a bit patronizing
+and a bit weird, but actually people love quizzes.
+So you could say, right.
+"So to finish, just for 30 seconds, I just wanna find
+"out how much you can remember from my talk I just did.
+"So what was the name of this?"
+Or you know, "How many of these were there?"
+And just see and just get people to shout out the answers.
+And certainly if you really want 'em to
+remember several things, if you have a quiz,
+it gives you one more chance to tell them your message.
+So consider finishing with a quiz.
+Okay, so that's that's finishing .
+My main points were it's gotta have a
+so there you have it factor.
+It's good to say any questions,
+but that doesn't count as a finish.
+You could have some sort of summary or recap,
+you could have a call to action, and you could have a quiz.
+
+--- Connecting with your audience: The key to public speaking ---
+
+-: So the final thing
+that you need to prepare is the audience.
+What type of audience are they?
+What type of people?
+What level of knowledge are they gonna have?
+They're probably gonna be a mixture, so that's a problem.
+But it's worth just thinking, you know,
+are they all gonna be qualified doctors?
+Are they gonna be scientists
+who know a lot about your talk already?
+Or are they just gonna be the public?
+So what type of audience?
+And then what size of audience.
+Now, the size of audience in some ways doesn't matter
+because you're still gonna do the same talk.
+And I try to talk to huge audiences
+as if they're my friends,
+and I'm just chatting to a small number.
+So in a way, it doesn't matter.
+But I think the one thing
+that does matter with size of audience is
+what sort of visual aid are you gonna have?
+So with a small group, I like flip charts, personally.
+I like to be able to just write
+on the flip chart as I go along.
+And I can involve them.
+I can ask them for suggestions, and I can write them up.
+And so that's what I would naturally choose.
+I remember when PowerPoint was first invented.
+That's how old I am.
+I remember thinking, "PowerPoint's fantastic,"
+and I made all these slides,
+but I just I found that it wasn't as good,
+going through a PowerPoint.
+There's something about a flip chart where you just charge,
+and you write things.
+So for an audience of up to probably 30 people
+I would go flip chart.,
+'cause 30 is only a six by five block of chairs.
+And they can all see the flip chart.
+Bigger than that, you have to go PowerPoint.
+And of course, if you're going to show photographs
+and things, you have to have PowerPoint anyway.
+So you need to think about your visual aid.
+And I'm gonna come back to visual aids later.
+But PowerPoint is definitely gonna be the option
+if it's a bigger audience.
+You could use just a handout.
+So you could give out just a page of notes.
+And what I do
+when I've got a really big audience is I put a page
+on each of their chairs with the notes on
+so that when they come in, they've got that,
+and then when they go, they take it away with them.
+So they can write things on it during the talk or whatever,
+and they take it away.
+And of course, it's got my phone number
+and my website on it.
+So that's a nice thing for them to take away
+and hopefully remember me
+and maybe hire me later,
+if that's the objective of the talk.
+So you could just have a handout,
+and if you're really pushed,
+you can have a handout and no other visual aid.
+You can just give them that,
+and you can just talk 'em
+through what's on the piece of paper.
+But generally, it's much better if you can have a screen.
+Now, something I learned from the great Brian Tracy,
+who's totally a god,
+I mean, if you haven't heard of Brian Tracy,
+you must check him out.
+I went to see him do a talk,
+and it was about leadership in the morning.
+It was about selling in the afternoon.
+And he gave out a little A4 booklet,
+and it had lots of gaps.
+So it just said, "The salesman's biggest fear is,"
+and you know, "When you're a leader,
+there are three things you must remember, which are,"
+and then it was just a gap.
+So when I was listening to his talk, I was thinking
+"What's the biggest fear gonna be?
+What is it? What is it?"
+And then when he said the biggest fear was rejection,
+I think it was, I was quickly writing it down.
+So I learned from him,
+and I've copied it, and it works really well,
+that you can give out a handout with gaps in,
+and the audience can fill in the gaps as they go along.
+So it prevents them reading ahead
+and seeing in advance what you're gonna say.
+But it keeps them occupied.
+And when they've finished,
+they've got this thing all filled in that's theirs,
+that has some value to them,
+which they're then going to keep forever.
+And of course, it's got your phone number
+and website on the bottom.
+So you could use just a handout and have gaps in it,
+or you could use PowerPoint plus a handout,
+and audience size is going to affect your choice of that.
+But the main thing is never have nothing,
+never have no visual aid at all.
+It's very difficult for audiences to cope
+when you're just talking at them.
+Now, I'm just talking at you now,
+and it's not ideal,
+but each of these videos is only about four
+or five minutes long.
+Plus, we're putting bullet points up next to me
+'cause you have to, at the very least,
+have bullet points coming up.
+So that's what you need to think about
+when you're planning your audience.
+
+--- Preparation wrap up: final tips for success ---
+
+-: Okay, so that was section one
+on what to prepare before you do your presentation.
+So you might want to take a break now
+and go away and actually do that preparing,
+and then I will see you for part two,
+what to do when you actually present your presentation.
+
+--- #1 Tip for overcoming public speaking nerves ---
+
+-: So I've got seven tips for you on how to overcome nerves,
+and the first one is self-talk,
+what you say to yourself in your head.
+Most people, as soon as they're told
+they've got to give a talk in a month's time,
+they think, "Oh, it's gonna be awful.
+I hate giving talks."
+If you say, I hate giving talks, then you will hate it,
+and the more you tell yourself to hate it,
+the more you hate it.
+And if you say it's gonna be awful, it will be awful.
+And if you keep thinking it's gonna be awful,
+imagining it being awful, that will happen.
+I had somebody on a course once and she said to me,
+"However much I prepare, when I actually stand up
+to give my talk, I can feel all my preparation
+floating out of my head
+and off up into the sky and it's gone."
+And I remember thinking, oh God, that's such bad self-talk,
+'cause if you can imagine it floating away,
+then it probably will.
+In fact, I've probably put that thought into your mind now.
+So you must tell yourself it's going to be great.
+Say, the talk will be great, I love giving talks.
+It's gonna be fine. I'm the expert.
+I know all about this subject. It's going to be fine.
+Now, you're probably thinking, "Well,
+but it isn't gonna be great, that's just not true."
+And the answer is, I know it's not true.
+I want you to lie to yourself.
+I want you to say to yourself,
+it's gonna be great, even though it's not.
+Now, you mustn't say, "It's going to be great,"
+because then your subconscious doesn't believe you.
+You've gotta say, it is going to be great.
+You've gotta say it as if you believe it.
+And what will happen is that slowly that will become true.
+It doesn't take long.
+You've probably gotta say it 20 times,
+spread it over a few days, just every now and then
+say to yourself, I'm really looking forward to my talk.
+It's gonna be great.
+And after a while,
+your subconscious gets bored with resisting that message,
+and it just goes, "Yeah, yeah, it's gonna be great."
+And that's when you know you've won.
+So keep saying it till it becomes true,
+and of course it's gonna be great, you are the expert.
+So that's my first of my seven tips, self-talk.
+
+--- How to stay confident under pressure on stage ---
+
+-: The second of my seven confidence tips
+is to have backup plans for everything,
+then you know your bombproof.
+So bring spare connecting leads. They don't cost very much.
+Just have two leads for everything,
+'cause leads are often the problem.
+When you find your projector is making everything look
+pink colored or yellow colored, it'll be the lead.
+One of the little pins in the lead has got worn out,
+so it's often the leads.
+But also, if you can, bring a spare laptop,
+and certainly when I go and do a presentation
+and they say everything is provided, I bring my own laptop
+'cause I quite often find they've uploaded my presentation
+onto their laptop and the fonts are different
+or it's a different version of PowerPoint or whatever,
+and I just bring out my laptop and everything's fine.
+Similarly, I have a spare projector in the boot of my car.
+Now that perhaps is a bit obsessive.
+I do training courses all the time, so it's easy for me.
+But if you're gonna go and do a talk somewhere
+and it's really important
+and they say they've got a projector,
+why not borrow the one from the office or whatever
+and just chuck it in the back of your car?
+Because sometimes there'll be a problem
+with the projector at the far end.
+I can think of two or three times over 10 years
+where I've turned up and they've gone,
+"Oh my god, Chris, it's awful.
+The projector's not working."
+And I've said, no problem. I've got mine.
+And sometimes their projector isn't broken, it's just crap.
+It's just all fuzzy and it's a really old one
+that's been in the hotel for years and you just think,
+(groans) so you bring out your own
+and it's all sharp and bright.
+So bring your own laptop, bring your own projector,
+and bring all the wires as well.
+Also, bring an extension lead
+'cause quite often, you know, you can't reach to the plug
+and it's just a small thing,
+but why not have an extension lead in your car?
+And then the final two things, bring spare notes.
+So I bring handouts for the talk I'm gonna do,
+and then, if there is a total failure of visual aids,
+then I can still just give them the notes
+and we can use those as a visual aid
+and I can talk them through
+the piece of paper that they're each holding,
+so I bring notes.
+The other thing, I always bring spare marker pens
+because if you're gonna write on flip charts
+or a whiteboard, the whiteboard pens are always dried up
+and quite often the flip chart
+just has a sort of yellow one or something.
+So bring loads of pens as well, just in case.
+So then you arrive with all this kit of stuff
+and then you know that you're absolutely bombproof.
+
+--- Post-presentation reflection: How to grow confidence after stepping off stage ---
+
+-: My third tip to overcome nerves
+and be more confident
+is to chat to the audience as they arrive.
+That this is a really good tip.
+I don't know where I got it from.
+I think I've just discovered it,
+but get there really early,
+get all your gear set up so you don't have to be faffing
+with that while people are arriving.
+And then you can just hang around at the front
+and chat to people.
+Now, why would you do that?
+And you might say, "Well, I'm gonna be intimidated."
+I suppose, they're all doctors or something like that.
+You might be thinking, "Oh, these people are so scary."
+But what happens is that you discover
+that they're just normal people and you just say,
+"Welcome to the talk.
+"Have you come far," or whatever,
+or "Why did you decide to come to this talk?"
+And you can find out that, firstly, they're normal people.
+Secondly,
+you can adjust your talk subtly to what they want
+because you'll know what kind of people they are.
+You'll be on their wavelength as you do that.
+So it helps you to tailor your talk
+and make sure it's spot on.
+And thirdly,
+it means you've got some friendly faces
+in the audience already.
+If you've talked to three of them,
+then you'll see them smiling as you're doing your talk,
+and you'll feel good about it.
+So hang around and chat to people as they arrive.
+That's a really important tip.
+It does mean you need to get there early, though,
+get everything else done before anybody comes,
+but I would recommend that anyway.
+The last thing you want is to be panicking,
+trying to get your gear working correctly
+as the audience are already arriving.
+So that is tip number three.
+
+--- Prepare early, present confidently: The key to beating nervousness ---
+
+-: Tip number four for getting rid
+of nerves is to get there really early.
+Now I refer to this a little bit
+in the previous video,
+but get there really, really early.
+The last thing you want is to be stuck in traffic,
+having stress or whatever.
+And quite often when you get to the room,
+you find that it's not what you expected.
+The chairs are all in the wrong places.
+There isn't a flip chart or whatever.
+The screen isn't quite straight
+and it takes a bit
+of fiddling to get the screen the way you want it.
+So get there really early,
+and check the room and the equipment.
+If I'm doing a talk, I quite often go
+up the night before and stay in the hotel.
+And I like to go and look at the room the evening before
+because then I sort of feel subconsciously
+that it's my territory.
+And then when I go back there in the morning,
+I already know what I'm expecting,
+and it feels kind of easy and natural.
+It's my room then.
+So get there really early.
+Check all the equipment well in advance.
+If they've preloaded your PowerPoint presentation,
+then have a look at it before anybody gets there
+'cause you obviously you can't have slides coming
+up when the audience are already there.
+So go through them.
+And I would go through every single slide just quickly
+because sometimes you find that, you know,
+the fonts have got corrupted or they've got different fonts,
+or that the person who's organizing it has very
+helpfully fiddled with your presentation
+which is really one of my pet hates.
+I've done it the way I want it.
+"Oh, I just thought I'd improve it for you, Chris."
+So get there really early
+make sure everything's the way it should be.
+You might wonder why someone would change my presentation,
+but sometimes they change it
+to their corporate colors or their corporate font.
+So it all has to be, you know, pink and yellow
+or it has to be in Arial
+or some sort of horrible font like that.
+So you get there and they'd go,
+"I hope you didn't mind.
+"I've made it into our corporate colors."
+And I kind of have to live with that,
+but at least I can go back through
+and just make sure that everything fits on.
+And it at least is easy enough to see.
+But it is a real pet hate
+of mine to change my presentation.
+And then you've got time to just relax
+and have a chat to people as they arrive.
+So that's tip four.
+Get there really early.
+
+--- Why confidence builds the moment you begin your presentation ---
+
+-: Tip number five out of seven
+for increasing your confidence is to stand up.
+Now, you probably don't want to stand up.
+A lot of people worry about standing up.
+but it is definitely better.
+A bit like swimming in cold water.
+It's great once you're in and it is better once you're up.
+So I would absolutely say stand up.
+If you're using PowerPoint,
+you can operate it from sitting down, but don't.
+The reason why you should stand up,
+there's a number of reasons actually,
+but partly that you're easily visible
+from the audience, they can see you.
+Secondly, your brain works better when you're standing up.
+I think when you're standing up,
+your heart has to work harder to pump all the blood around
+and therefore, it pumps around quicker,
+and so more oxygen gets to your brain or something.
+But I bet you know that's right though
+because when you're on the phone,
+if you're doing a difficult phone call,
+don't you find it's better if you do it
+while you're pacing around?
+So your brain works better.
+So your brain works better, people can see you,
+it gives you more authority if you're standing up.
+Your voice carries better as well,
+but also it shows respect to the audience
+if you stand up for them.
+I mean, if you're just sort of lounging in a chair,
+chatting, I mean, it's almost like
+you don't really care about the audience.
+So for all these reasons, you absolutely must stand up.
+And I quite like to use visual aids as an excuse.
+So if it's just a small group of say three people
+I'm gonna present to, it might feel a bit weird to stand up.
+And I say, well, let me show you this,
+and I then point to something on the screen.
+So then, then I've got an excuse to stand up to point to it,
+and then I just stay standing up as I do my talk.
+So stand up, you will actually feel
+more in control and more confident.
+
+--- Ask to connect: Reduce presentation nerves with audience questions ---
+
+-: Suggestion number six
+to improve your confidence
+and overcome nerves is,
+I think probably my favorite one,
+which is to ask the audience questions during your talk.
+Now, this takes a little bit of practice,
+but believe me,
+it's brilliant once you get used to it.
+Ask them questions during your talk.
+If you just do a talk
+and they're all just sitting there silently, it's horrible.
+Are they listening?
+Are they bored?
+Do they agree with it?
+Do they understand it?
+I don't know.
+So I like to ask questions.
+Have you been to Australia?
+What did you think?
+Has anybody stroked a koala?
+What do you think a koala feels like?
+Do you think it's soft or not?
+'Cause by the way, they're not that soft.
+They're like a bit of old carpet.
+You could ask them, what do you think's softer,
+a koala or a kangaroo?
+'Cause actually the kangaroos are much softer,
+but who'd have thought?
+So, any questions you like.
+Now I just make up questions as I go along
+like I just did then.
+But you might wanna prepare your questions initially
+if this is a new game for you.
+So for each PowerPoint slide
+and you're probably gonna have between
+five and 10,
+prepare at least one question for the audience.
+And they can be quite generic
+like has anybody else had this?
+Or can anybody give me an example?
+Or even, what do you think my next point's gonna be?
+Has anybody got any other suggestions?
+Those type of questions.
+Really important to ask questions during.
+And it feels great because when you get answers coming back,
+you know that the audience are
+with you and they're on your side.
+Now the worst case is you ask a question
+and you get nothing.
+And I'm gonna come back to that later
+'cause I'm gonna talk
+about what to do with difficult audiences.
+But, you know, just to jump forward slightly to that,
+you could pick on a person and say,
+Louise, what do you think?
+Or you on the end there, have you ever had this?
+So you could actually pick on people,
+or you could just say
+hands up everybody who's had this.
+'Cause even if they're very shy and very introvert,
+they could still put their hand up.
+So how many of you like giving presentations?
+Or how many of you have given a presentation
+in the last month?
+And just see how many people put their hand up.
+So asking questions during is absolutely key.
+It will make you feel much more relaxed
+and it'll make the talk feel much more interactive
+with the audience.
+So they will enjoy it more.
+And they will understand your key message much more clearly
+if they've been involved in the talk
+rather than just sitting there
+and having it thrown at them.
+So that's number six.
+Ask questions during.
+
+--- The role of practice for reducing stage fright in presentations ---
+
+-: And finally, my seventh suggestion
+for improving your confidence
+and overcoming nerves is to have a run through,
+to check the timing,
+especially the first minute of your talk.
+You absolutely must run through that,
+and you could run through the whole talk
+just to check the timing's okay.
+I've been doing this so long now.
+I know that I take about five minutes per slide
+and I know that if I'm going fast or slower,
+I can correct as I go along.
+But you might want to just check
+that your 25-minute talk isn't gonna turn out
+to be an hour or three minutes.
+So have a run through and then you know that it's all fine.
+Now, as you do the run through,
+you might feel a bit nervous
+and you may feel it's increasing your nerves,
+but if you've had a run through,
+you'll feel much more confident
+when you actually get there to do the talk.
+I wouldn't do loads of run throughs though.
+It starts to get a bit stale then.
+I think I would do two run throughs at the most.
+That's my seventh tip for improving your confidence.
+Have a run through,
+especially of the first minute of your talk.
+
+--- Mastering the Wrap-Up: Conclude your presentation with impact ---
+
+-: So, those were my seven tips for improving your confidence
+and overcoming nerves, and I really hope those have helped.
+Even if you just do some of them,
+even if you just get there early, chat to the audience
+as they arrive and then ask them questions
+during the talk, that will make a big difference.
+But also having spare everything
+so that you know you're bomb-proof.
+Anyway, whichever one of those tips you choose,
+and I hope you do all seven,
+that should make you feel much more confident
+about your talk.
+
+--- Introduction ---
+
+-: Okay, so we've looked at what to prepare
+and how to overcome nerves.
+Now we're going to get to section three
+which is what to do as you deliver your presentation.
+
+--- Project confidence by looking the part in your next presentation ---
+
+-: So the first thing to think about
+when you do a presentation is your appearance.
+What should you look like?
+And the main thing is obviously to be smart, but how smart?
+And I think similar to the audience really, perhaps similar
+to the audience, but a bit smarter than them.
+So, you don't wanna be ridiculously smart
+if you're gonna talk to a load of cool IT people
+who are all there in t-shirt.
+If you turn up in a suit and tie,
+you are just gonna look a bit weird
+and they're not gonna relate to you.
+They're not gonna like you.
+They're not gonna trust your opinions on things
+if you are wearing really different clothes.
+So similar to them, but a little bit smarter.
+I think there's a big dilemma for men at the moment
+about whether to wear a tie or not.
+I went to a posh dinner, an awards dinner the other week
+and half the the men were wearing ties,
+half the men weren't.
+So it's quite tricky.
+I wasn't.
+I prefer not to wear a tie.
+I don't like the feeling of a tie.
+And I've got a belief that really important people
+don't wear ties and people who wear ties
+are trying to look important.
+But I did have a tie in my pocket 'cause I thought
+what if I turn up and they're all wearing ties.
+I could nip out again and quickly put a tie on.
+But actually it was really interesting.
+It was 50 50 split.
+I would say probably slightly more people not wearing ties.
+So I think important, relaxed, creative people
+tend to not wear a tie.
+So I would wear a nice shirt, no tie, and a jacket.
+For women, who knows?
+I mean, I'm out of my depth there, but you all know
+I think the main thing though is nothing distracting
+for both men and women.
+Nothing distracting, nothing low cut or see-through.
+In fact, if you look back through my Udemy videos
+you'll find on one of them, for the first couple of videos,
+I had one button too many undone.
+I think it was, this one was undone.
+See if you can find it.
+And it was really a little bit sort of, hello.
+So you don't want anything like that.
+Nothing that they're gonna think, "He's got a lot of
+"our buttons undone there."
+So, nothing that's gonna distract the audience.
+And people are very easily distracted.
+If there's anything not quite right,
+if your tie isn't straight or anything like that
+or if you've got your hair brushed right over,
+the audience are gonna be looking at that.
+So you've got to be professional and boring.
+I know that seems strange to be boring
+but really nothing weird or distracting.
+Don't wear some unusual tie 'cause you think people
+will remember you 'cause yes, they'll remember your tie
+but they won't remember what you said.
+And don't worry about trying to look great either.
+There was some research done in Italy.
+I mean, I know you could say Italy's different
+but they found that the more attractive the newsreader was,
+the less the audience remembered.
+There was an absolute correlation.
+More attractive, they remember less.
+So if you are thinking that you're not great looking,
+don't worry, it's fine.
+Your talk's actually gonna be better
+'cause they're gonna remember more of it.
+But the main thing is nothing weird or distracting.
+Just boring and smart.
+
+--- Effective room planning: Set up your space ---
+
+-: So you've thought about yourself and your appearance.
+The next thing to think about is the room layout.
+Where are you gonna stand?
+And what should the audience layout look like?
+So there are probably four main audience layouts
+you can get.
+My favorite for groups up to about 20 is U-shape of tables.
+I like a U-shape because they can look at each other
+a little bit as well as just me.
+And also, I can walk down into the middle of the U
+if I want to give out notes halfway through or whatever.
+And it also gives me
+a certain amount of control over them if I walk around.
+'Cause if you've got a big long table, a boardroom table,
+the people at the far end can sort of chat and whisper,
+and it's hard to keep control of them
+if you've got more than about 10 people around the table.
+But a U-shape of tables,
+you've got control over all of them.
+So that's my preferred audience layout.
+But I also like what they call cafe style.
+And this is a collection of tables, maybe five tables,
+but it can be up to 20, I suppose.
+It's usually about five tables.
+And then you have people sitting round the tables.
+Now you don't have them sitting
+all the way round the table,
+'cause some of 'em would have their back to you.
+So you'd probably have about four or five people
+sitting round the far side of each table.
+And that's great for group work.
+They can work in groups
+and then you can come back to the presentation.
+The only problem with cafe style is
+that often it ends up being quite wide.
+There's a table there, a table there, and a table there.
+So I don't really know where to face.
+So I have to sort of walk around quite a lot.
+And if I've only got one screen,
+the people at the far end struggle to see the screen.
+But sometimes you have several screens, of course,
+and then cafe is great.
+So you've got U-shaped, you've got cafe.
+Sometimes you get classroom style,
+which is just rows of chairs.
+And that can be just a block of seats,
+or it could actually be a kind of an auditorium
+sort of classroom, maybe even banked.
+I don't like classroom so much
+because it's harder to be interactive with people.
+With bigger audiences, it has to be classroom,
+but a smaller audience,
+I wouldn't want classroom style, really.
+But sometimes it's like that.
+And you can still be interactive and you can chat to people,
+particularly the people on the front row,
+you can chat to them.
+By the way, if you're putting out chairs,
+I usually put out slightly fewer chairs
+so that they have to fill up right to the front.
+And then as more people arrive, I pull out a few more chairs
+as if to say, "Oh, my God,
+so many people have arrived to my talk.
+More people than I was expecting."
+'Cause if you've got loads of chairs
+and you end up with a few empty ones,
+the empty ones will be at the front
+and it sort of looks bad
+as if you haven't sold all the tickets type of feeling.
+So that's a little tip.
+Put some chairs away, bring them back out again.
+You can just have a U-shape of chairs.
+I prefer tables,
+'cause I think people feel a bit vulnerable
+if they don't have a table,
+and also, if they're gonna write notes and things.
+But you can just have a U-shape of chairs,
+that's the other option.
+Now just thinking a bit more about room layout.
+Sometimes you have a problem with a very wide room
+or a very long room, and both of those are a problem.
+Really, you want kind of square shaped
+because if the room's really long,
+you're gonna have people way at the back
+who perhaps can't hear you, can't see the screen,
+and you may lose control of them.
+They might start chatting amongst themselves and things.
+And if you've got a very wide room, as I mentioned earlier
+with the cafe style, then it can be a problem
+'cause they can't all see the screen or the flip chart.
+So if you can have a fairly square room, that's better,
+but sometimes it's unavoidable.
+And then there's the question of where are you gonna stand?
+'Cause obviously, you don't wanna block the screen
+and you don't wanna block the screen for anyone.
+So ideally, if my audience are where you are
+and that's the screen, then I would be off to the side
+looking at the screen like that.
+So I would be sort of diagonally,
+so I can see them and the screen.
+So that's ideally how I would be.
+So you need to think about where are you going to stand?
+And maybe you have to move some tables out of the way
+and that sort of thing.
+And just a final thought is, don't block the door, either.
+So quite often, I arrive to do a training day
+and there's a big long table and there's a door at one end.
+And I've got the choice
+of which end of the table should I put in?
+And I always put the flip chart at the end
+away from the door,
+so that people come in the door,
+and then there's the table and there's me behind the table,
+because then they don't feel trapped.
+I don't want 'em to feel that
+if they have to nip out to the loo or whatever,
+they have to get past me and my flip chart.
+It feels like I've captured them.
+And also, you don't wanna have interruptions
+if someone does have to go to the loo,
+they need to be able to just go out the back.
+So ideally, you wouldn't be by the door
+or blocking the door.
+So there are some thoughts about audience layout.
+
+--- Gestures and visual cues to engage the audience ---
+
+-: So now we come to the agenda
+and the idea of signposting.
+And this is really, really crucial, actually.
+I've mentioned already that you would have an agenda.
+You must have an agenda, and it must be visual.
+So a verbal agenda's no good,
+people can't remember the agenda.
+You've gotta actually show it to them,
+and you've gotta bring it up again
+after each section of your talk.
+But the key thing I want to say is signpost it.
+So you say to them, "Right, that was section one,
+we've talked about that.
+Now we're going on to section two."
+And you have the agenda up while you say that.
+So every time you've finished a section,
+you put the agenda back up, and you say,
+"So there we are. We've now finished section two.
+We've got two more sections to do."
+And I liken this to being on a train
+and going past the stations.
+So you've got your journey
+and you know we've now gone through Basingstoke,
+and next it's Woking, and then...
+So you know where you're heading,
+and you know that London is nearly there.
+So it's really important to signpost.
+And, in fact, it's almost like going into a tunnel, really.
+A presentation, it's like you go into this tunnel,
+and you don't know how long you're gonna be in the tunnel,
+and the person doing the presentation has promised
+it's gonna be 20 minutes, but is it?
+But isn't it great if they say,
+"You've now passed this milestone.
+You've now passed this milestone"?
+Because then you know that you're on schedule.
+So, "How long will I be in the tunnel for?"
+is what the audience are desperate to know,
+and they're really worried they're gonna be in the tunnel
+longer than promised.
+So have an agenda signposted as you go along.
+And just a final thought,
+signpost that the ending is coming as well.
+So if you're talking about, say seven things on the agenda,
+when you've done five, you can say,
+"I've only got two more now, and then we're finished."
+And then you get to the seventh one, and you say,
+"Now my final point, I'm gonna talk about this,
+and then we're finished."
+So they're not gonna be suddenly taken by surprise.
+It's a bit like Bob Dylan does a harmonica solo
+before the final verse.
+So you always know when you get to the,
+some would say badly-played harmonica solo,
+that you know that you've only got one verse to go,
+and then you can either feel happy
+that Bob has nearly finished
+or sad that Bob has nearly finished.
+So if you say, "One more section, and then we're finished,"
+everybody knows.
+And then, when you finally say,
+"So that's it, that's the end of my talk.
+Just to sum up, I've covered three things,"
+it's not a sudden dropping off a cliff.
+'Cause I've seen presentations
+where the person is talking and talking,
+and they suddenly go, "And that's the end."
+You think, "What? I didn't know the end was coming."
+So signpost the end is coming,
+with two sections to go and one section to go.
+
+--- How to Use Body Language to Make a Powerful Impression ---
+
+-: So this next section's about body language.
+Some people are obsessed with this.
+Some presentations trainers,
+they say that you mustn't say um or eh,
+and you mustn't put your hands in your pockets,
+and you must...
+One talk, presentation course I went on ages ago,
+the lady was saying you should have a power stance.
+You should be sort of like this when you do your talk.
+So if somebody tried to push you over,
+they wouldn't be able to push you over,
+you should sort of be like that.
+And I'm thinking really?
+'Cause I just think you should be yourself really.
+You should be relaxed and you should be yourself.
+But I've already mentioned, you absolutely should stand up,
+and obviously you don't wanna be doing anything
+too weird with your hands.
+I think it is all right possibly to have one hand
+in your pocket while you're talking,
+I think, you know, it'd be quite relaxed
+to be sort of talking like that perhaps.
+I think both hands in your pockets would be dodgy.
+Don't wanna gesticulate too much,
+but just however you would normally do it.
+So, but definitely stand up and I've already mentioned
+you can use a visual aid as an excuse.
+You can say, I'm just gonna point to this
+and you can stand up.
+But I think your stance should be fairly natural.
+I think you should walk around a little bit.
+Don't pace up and down endlessly,
+but I think you absolutely should walk around a little bit,
+talk to the table over there, talk to the table over there
+if you've got several tables cafe style.
+Try to be a little bit smiley.
+Now, you may not want to smile
+because you may be really terrified of doing your talk,
+but if you can have the occasional amusing thing,
+if you can smile a little bit, that would be good.
+And one more thing about body language
+is equal eye contact for everybody.
+Now, obviously with a big audience you can't do it,
+but you should spread your eye contact out.
+So talk a little bit to the people over there,
+and then talk to them, and talk to the back a little bit,
+and just go for the corners really,
+because if you just latch onto one person
+and always talk to them, it's a little bit weird
+and creepy for them, and it's horrible for everybody else
+'cause they'll all go, excuse me, what about me?
+Don't you care about me?
+So if you can keep moving your eye contact around,
+then everybody will feel that they're included,
+but not under pressure.
+So those are the main things, I think stand up,
+stand reasonably confident.
+By the way, I wouldn't hide behind a podium.
+You may think you need a podium for your notes,
+but I'm gonna deal with that later on
+'cause you don't need notes, I will come to that later.
+So don't stand behind a podium.
+If there is a podium, come out from around,
+and either lean on the podium or stand next to it
+and talk to the audience, they'll much prefer that.
+So standing up, standing confidently, smiling,
+and equal eye contact for everyone.
+
+--- Tips for engaging your Audience ---
+
+-: The next thing to think about
+when you're doing your talk
+is how are you going to be interactive with the audience?
+I mentioned this in the section on confidence
+because it's so important
+if you can be having a bit of a laugh with the audience
+and asking them things
+and they're telling you the examples they've had,
+it feels almost more like a conversation
+than a presentation,
+and I think that's what great talks are like.
+And when I talk at conferences,
+usually there's six or 10 speakers during the day
+and I'm the only one who asks the audience what they think
+and has a bit of a banter going with the audience,
+a bit of chat.
+And people always love that,
+so this is something you can easily do
+that will make you better than the other speakers.
+So, so first of all, prepare it,
+think, "What questions am I gonna ask the audience?"
+And you need to allow time for that.
+A lot of time goes by
+when you're asking them for examples
+so it may double the time that you need
+and therefore you've only got half the material
+that you think.
+And that is a bit scary.
+And sometimes I look and I think, "Oh my God,
+I've only got three PowerPoint slides for 20 minutes,
+this is really," but of course it's gonna be fine
+because I'm gonna ask them for examples.
+Now, I'm gonna come back to timing later
+because what you can do is have a few extra things
+in which you can miss out if you need to
+so then you don't feel too worried.
+And if the audience just don't answer anything,
+you're still okay 'cause you've got your extra stuff,
+but I'll come back to that later in a more scientific way.
+But certainly you need to allow time
+if you're going to be interactive with the audience.
+I already mentioned the benefits before,
+but just to summarize them again.
+You know the audience are with you,
+you know they're on your side,
+they know that they're,
+you know that they're understanding your message
+if you're getting answers back from them.
+But also you can correct, you can go faster or slower,
+you can go into more detail or you can simplify things
+if the audience is struggling to answer your questions.
+But also it gives you time to think
+'cause when you ask them a question and they're answering,
+although you do have to listen to their answer,
+it gives you a little bit of time
+just to catch up in your mind
+and to reload and to think, "You know, how's the talk going?
+Have I covered everything?"
+Just gives you time to think.
+Another benefit when you ask the audience a question
+is they have to answer it in their head
+even if they don't say anything, they have to answer it.
+So, when you say, "Who's been to Australia?"
+they're all answering that
+even though they may not say it out loud.
+Now, if the audience are not very chatty,
+it's quite a formal occasion,
+you could just ask them a yes or no question.
+Ideally, you'd ask for people,
+you'd ask them to give you examples.
+So, suppose you're doing a talk on negotiating,
+you might say, "Who's done a negotiation recently?"
+But you could just say, "Who likes negotiating?
+and put your hand up or whatever."
+But I like to usually ask them for an example
+or ask them what the answer is.
+What do you think you should do
+if somebody else refuses to negotiate?
+So, here are some examples of the types of questions
+that you could ask somebody while you're giving a talk.
+You could say,
+"Who thinks that they're too much of a perfectionist?"
+And if they don't reply,
+you could get them to put their hand up,
+"You know, hands up who thinks
+they're too much of a perfectionist."
+By the way, another thing you can do
+is you can get them into pairs.
+So, you could say, "Okay, I just want you to talk
+for a couple of minutes to the person next to you
+about your biggest time management problem,
+or your worst habit, or what your boss is like.
+Talk to your next door neighbor about your boss."
+And then, you can have a rest for a couple of minutes
+while there's loads of hubbub, everybody talks.
+Slightly awkward you've gotta get control again,
+but that'll be fine.
+So, after a couple of minutes you say
+"Okay, everybody. Right, let's see what you've got.
+So, hands up who had a bad boss?
+And give me some examples of things that bad bosses do."
+And what you'll find
+is that because they've been talking to each other in pairs,
+that's loosened them up
+and they've now got a message that they are proud of
+and they would like to give to the group
+so they're much more likely to be forthcoming
+if they've just been talking in pairs.
+So, questions you could have
+are who's had a bad boss in the past?
+What sort of things do bad bosses do?
+What kind of things can go wrong during a talk?
+That's a great question to ask.
+What can a person do to make themselves feel more confident?
+You can ask that question.
+And if it's a small audience and you are using a flip chart,
+you can just write the things up,
+"So, what can someone do
+to make themselves feel more confident, anybody?"
+And you can just write the ideas,
+and people love seeing their idea
+written up on the flip chart
+so that's a good way you can harvest in the ideas.
+If you are using PowerPoint, you can't really do that,
+but what you can do is you can ask them for ideas
+and then you can put your list up
+and you can say, "Yep, well done,
+you got that one, you got that one.
+That's an extra one that nobody got."
+So, you can do it like that.
+So, there are just loads of questions you can ask.
+You can say, "What would be the answer
+to someone asking you to split the difference
+in a negotiation?"
+And just see what they say.
+Or you could put up a photo and you could say,
+"How many safety hazards can you see in this photo?"
+And people can shout out, "You know,
+the ladder looks wobbly,
+the bloke's standing on a roller skate or whatever."
+So, spotting the problems in a photo
+is a great way to be interactive with the audience.
+And then, you can follow that with saying,
+"What's the biggest cause of accidents in factories,
+do you think?"
+So, plan your questions, be interactive,
+it's probably the most important thing
+to doing a great talk.
+
+--- Speaking from memory: How to deliver a powerful talk without notes ---
+
+-: So this next section is on how to remember your talk.
+Wouldn't it be great to do a talk without any notes?
+And you can, I'm gonna show you how.
+So, in increasing order of goodness, really,
+starting with the worst one, never read from a script.
+It's just horrible, reading out a talk from a script.
+It means there's no eye contact with the audience.
+It's just gonna sound stilted and it's awful.
+So never write a script out and read it.
+I mean, part from everything else,
+it's a whole load of work to have
+to write the script out as well.
+So that's the good news
+is you don't have to write a great big script.
+And similarly, never learn a script off by heart.
+I mean, I suppose that's slightly better
+than reading it out, but learning it
+off my heart is a huge job to have to do.
+And what happens if your mind goes blank
+at the beginning of your talk or halfway through it?
+You are really stuffed.
+And if you've got the script,
+you'll be rummaging for where you are,
+where's your, you know,
+where's your place in the script?
+So never read from a script,
+never learn a script off by heart.
+Just don't do scripts.
+So that's good news.
+So onto things that I like.
+I think an A4 page of notes is good.
+You know, imagine if you had just a piece of paper
+and on here I've got about 10 things written in capitals.
+I could just hold that and do my talk.
+And how would you feel if you were the audience?
+And I was just every now and then thinking
+well the next thing I wanna tell you about is this,
+dah dah dah dah.
+And then the next thing I would tell you about is this.
+Would you be thinking, "He's cheating, he's got notes"?
+I think you wouldn't, I think you'd be fine with it.
+In fact, you probably would be pleased
+that I'd done a bit of preparation.
+So I think an A4 page is absolutely fine.
+And of course what you can do if you leave your A4 page
+on the table, then every now and then when
+you have a quick look at it, they're probably
+not even gonna notice that you're looking at it.
+So if I'm writing on a flip chart
+I quite often put the A4 page
+on the floor next to the flip chart or
+on a chair just behind the flip chart so I can see it
+but the audience can't tell that I'm looking at it.
+A4 is good.
+I don't like little cards of notes.
+You know, the classic wedding speech where they have cards
+in their hand.
+I just think cards are a bit naff, they're a bit
+wedding speechy and they have problems, as well.
+Because they're small,
+the writing has to be small, which is hard to see.
+And then you have to keep turning them over.
+And of course the audience can see them.
+I always want to shout out, "I can see your cards"
+'cause, just 'cause they're small enough to be in your hand
+you can still see them.
+But the main problem I find with cards is
+that you don't know what's coming next.
+So when you flip over the card, you think,
+"Oh yes, I was gonna talk about that next."
+Whereas if you've got your A4 page,
+you can see what's coming next.
+So there's more of a flow and you can lead into it.
+You can say "Now I'm going onto my next section which is X."
+So I just think cards, they don't flow.
+There's a risk you're gonna drop them
+and get them in the wrong order.
+They're just, I wouldn't have cards personally.
+I don't recommend them.
+So A4 page of notes,
+you could put 'em on the table or behind the flip chart.
+Another little trick if you're using a flip chart is
+that you can write
+in pencil just very lightly on the flip chart
+and the audience won't be able to see the pencil,
+but you can.
+So you then write
+in your big marker pen on the flip chart,
+but you've got the pencil telling you what to put.
+So that's a clever thing you can do.
+But I think the best way of all
+is probably just to be cued by your visual aid.
+And if you're using PowerPoint,
+this is what you have to do.
+Cued by your visual aid.
+So the visuals that come up
+on PowerPoint should tell you what to do anyway.
+If you've just got bullets coming up,
+that should be enough to remind you what to say.
+Now when you do your run through, if you find
+that you can't remember a key number, a date or a population
+or something that, or a price, then put that on the slide.
+And if there are three points you want to make about one
+of the bullets and you can't remember what the three are,
+then put those three points as sort
+of sub-bullets underneath that bullet point.
+So when you find it gets too complicated
+you can't remember it, that's a sign,
+you just need to put a little bit more on your visual aid.
+But the visual aid should just be bullets.
+You definitely don't wanna have paragraphs
+of text that you are reading out
+'cause the audience are thinking, "Well I could read that.
+"Why is he reading it to me?"
+So no paragraphs of text, just bullets.
+I read somewhere that you should never have more
+than seven bullets on one PowerPoint slide.
+And I think that's a good rule actually.
+Ideally, fewer than that; four or five
+is probably the ideal number.
+But as I mentioned, you could have a few sub-bullets
+if there are particular points you want to remember.
+But if you find you've got seven bullets
+and within each of them there's four sub-bullets,
+then clearly you need to have seven slides.
+And each of those is gonna have four bullets on it.
+So you've just gotta divide it down
+but then you've gotta start thinking
+how long is my talk gonna be?
+So you've gotta keep an eye on that.
+So to sum this up then, never write a script,
+never have to read it out.
+Never learn the script off by heart.
+Never have scripts.
+And I don't think cards are very good, either.
+Have A4 notes on the table or on the floor,
+pencil on your flip chart, or be cued by your visual aid.
+
+--- Understanding Micro Sleeps: How to avoid fatigue and stay engaged ---
+
+-: In this next section,
+I want to talk to you about micros sleeps.
+Now, a bit of a weird idea,
+but the idea is that people have,
+they don't actually fall asleep,
+but they have these little things called micros sleeps
+where they just daydream
+and their mind goes off for a while.
+You can have good or bad micro sleeps.
+The good ones are where your audience
+are thinking about your message.
+They're thinking, "Yes, I suppose I do have micro sleeps.
+Yes, he's right."
+And then the bad ones are where they're thinking,
+"God, he's taking a while.
+You know, I wonder how long it is till lunch.
+I wonder what I'm gonna have for lunch."
+Or they're thinking, "God that shirt of his is rather nice.
+I wonder where he bought that.
+It's been ages since I treated myself to a new shirt,"
+and there're off in some complete, you know, daydream
+that's got nothing to do with your talk.
+Now people will have micro sleeps,
+there's nothing you can do about it.
+And apparently, for the first five minutes,
+people can manage to concentrate,
+but after that, micros sleeps get more and more prevalent.
+And by the time you've been talking for half an hour,
+they're away with the fairies about 50% of the time.
+So how do you handle the fact
+that people are having micro sleeps?
+And the first thing is to say everything important twice,
+'cause if you say it a second time,
+the chances are they won't be asleep both times
+and they'll get your message,
+so find a way to say things twice.
+One way is to say it in the introduction
+and then in the main body and then when you sum up,
+so at least when you sum up,
+they're gonna hear it a second time.
+But quite often you can manage to give an example,
+say you say, for example, when you go to Australia,
+you must have a look at the koala bears in Brisbane.
+I know they're not bears by the way, they're just koalas.
+And then you say, and here's a picture
+of one of the koalas in Brisbane.
+And then you say, so that was my first point.
+Obviously, you've gotta see the koalas in Brisbane.
+So find an excuse to really hammer that point in
+'cause they will be micro sleeping.
+And then the other way you can do it is to have visuals,
+'cause while I'm showing you a picture of a koala,
+even if your mind is away thinking about lunch,
+your eyes are still open, hopefully.
+So you're still seeing the koala
+and you're still thinking, "Oh yeah, there's a koala there."
+So if you can have visuals as well as the talk,
+then you can overcome the tendency to have micro sleeps,
+and then do the summing up of course.
+So, and the summing up is not just
+so they can hear it twice,
+but it gives 'em a chance to get back on the train.
+So imagine, you know, we're going through these stations,
+but imagine if every now and then people fall off the train.
+If you stop and say, okay,
+so that was number eight, micros sleeps,
+now I'm gonna go onto point number nine,
+they can, they think, "Oh, oh, oh, okay, right,"
+and then they get back onto your talk.
+So sum up every now and then,
+so they can get back on the train.
+So that is micro sleeps.
+
+--- Six activity ideas to boost engagement in talks longer than 15 Minutes ---
+
+-: Now what if you are doing a a longer talk,
+a talk that's longer than let's say, 15 minutes.
+It's a good idea to put an activity or two in.
+And certainly if you're doing a talk for several hours,
+you've got to have activities in that talk.
+And I've got six ideas
+for activities that you can put into a talk.
+My first one is discussion in pairs.
+I mentioned this before.
+You just say to the audience,
+talk to your next door neighbor about, you know,
+what the strategy is for your company,
+or what you think of your boss,
+or how much do they know about
+the data protection legislation or whatever it is.
+And just get 'em to chat in pairs.
+And this loosens them up and it makes it much easier
+then to get them to talk to everybody later on.
+So that's the first thing, talking in pairs.
+The second one is to get to shout things out
+and write them on the flip chart.
+And as I mentioned earlier, if they're talking in pairs,
+they're much more likely to engage with this second idea.
+So you get them to shout out ideas and you write them up.
+So you'd say things like
+what do you think the main things are
+that you would want to do
+if you were on holiday in Australia?
+And they go koalas.
+And you can write that one up and you know,
+surfing or something like that.
+And you write them up.
+So that's a really good way to involve the audience
+and you're getting them to do some of the work.
+It gives you a bit of time to think
+and you get a nice big list generated by them.
+And remember if they generated it, must be true.
+If you say it, it may not be true
+but if they generated it must be.
+And anything they don't come up with you can add.
+You could say there's a couple of other things
+I would do when I was there.
+I'd really recommend, you know, seeing the turtles
+or whatever it is, and you can add those on.
+My third of my six ideas is a post-it wall.
+So you just give out Post-it notes to the audience
+and you say particularly if it's something
+that they may not want to admit.
+So suppose you were collecting ideas for how the managers
+in the company could be better managers,
+and people might not want to admit they've said things.
+You just say write on the Post-its any ideas
+of how the managers could be better.
+And people will write things like, you know,
+thanking us more or involving us in decisions
+and things like that.
+And they can all write their Post-its
+and then they just stick all the Post-its on the wall.
+So you don't know who's written what.
+But it's also good, 'cause you can then sort them
+into categories as well.
+So you know, you can actually organize the information
+and get some conclusions.
+You could say, look, 20 people here all said
+that they didn't think they were thanked enough
+and only two people said
+that they thought the pay wasn't enough.
+I mean that would be really interesting.
+So a Post-it wall is a really good idea to pad out
+your talk a bit by making it more interactive.
+The fourth idea is to get them to present something.
+So you could divide them into groups,
+and say like you four,
+I want you to come up with ways you think
+that the company could improve its sales.
+And you four, I want you to look at customer care.
+And you four, I want you to give a little talk in a minute
+just a five minute talk
+on new product ideas or whatever it is.
+And just give them stuff to do.
+So they then need 20 minutes to prepare it,
+and then each person's talk's gonna be five minutes
+and there's four of those.
+So that's another 20.
+So 40 minutes is going to be used for this.
+But we're not just padding.
+This is gonna actually be a lot better
+than you just droning through all the answers.
+'Cause they get really involved.
+They feel that they've had a chance to have a say,
+and they'll probably come up with stuff
+that you wouldn't have thought of as well.
+So getting them to do little mini presentations
+can work really well.
+And if it's a group of four,
+if a couple of them are really nervous about presenting,
+it's fine because you only want one of the four,
+perhaps two of them to do the presentation
+and just a five minute presentation using a sheet
+of flip chart paper as a visual aid.
+That's what I would do.
+I'd give them each a piece of flip chart paper
+and a couple of pens, different colors and say,
+write some things on there
+and present it back to the group in 20 minutes time.
+So that was the fourth one.
+The fifth of my six ideas.
+And can you see how I'm signposting?
+So you know where you are in this little tunnel.
+My fifth idea is to have a worked example.
+So this is where you give them a question to work out,
+and then you show them the example up on the screen.
+So something like finance would be classic for this.
+You know, you could say, have a look
+at these three companies and work out
+which one's got the best profit margin or whatever.
+And then you could show them the example and you write it up
+so they get a chance to have a go.
+And then you show them the right example, the right answer.
+And then my final example, the sixth one is to have a quiz.
+And I mentioned earlier people love quizzes.
+They get really competitive about it.
+And I usually just do a shout out the answer type quiz.
+So I just have PowerPoint slides with questions on.
+I have the question, the answer, the question, the answer,
+and I have the words appearing as they do it.
+So I ask the question, they all shout out the answers,
+and then I click and it comes up.
+By the way, have a clicker.
+You've gotta have a clicker.
+So the things just come up.
+'Cause then you can walk around the room
+and you can just click up the next line on your PowerPoint.
+So that's the quiz.
+You can give it out in writing,
+and get them to either on their own or in groups
+work out what the answers are.
+And then you can ask each question and get the groups
+to shout out the answers to you.
+And that's another way you can do it.
+So working in pairs,
+shouting out ideas for the flip chart,
+the Post-it wall, getting them to present,
+giving them a worked example
+which you show them the answer and then a quiz.
+Those are all ideas for making your talk interactive,
+if it's a bit of a longer talk.
+
+--- Three game-changing tips to ace your presentation ---
+
+-: In this section, I just wanna make three points
+about the general style of your presentation.
+And the first of my three points
+is to use examples to make abstract ideas come to life.
+So, if you've got an abstract idea like, I don't know,
+"When you're negotiating,
+your opening offer should be reasonably extreme."
+That's too abstract,
+but if you say, "Suppose there's a house for 200,000,
+don't offer them 195, offer them 130
+'cause that's gonna really shock them,
+and then they're gonna come down 10 grand straight away."
+That's much better, isn't it?
+To have that actual example,
+it's much more powerful
+than just saying, "Extreme opening offer."
+Or if you're saying something like, "You know,
+when you calculate net profit and gross profit,
+you know, the difference is that with net profit
+you don't include fixed costs," or whatever it is.
+That's really confusing,
+so what you should do is to show them a real example
+and say, "Look, here's a company, here are the fixed costs,
+here are the variable costs,
+and therefore you can see that's the net profit,
+that's the gross profit,"
+and actually show them a real example.
+So, always use examples to make abstract ideas come to life.
+That's the first thing I wanted to say about general style.
+And you can either have an example
+and then the principle that comes from that
+or you can start with the principle
+and you can say, "And here's an example of it."
+You can do it either way round.
+The second of my three points about general style is humor.
+Should you have jokes or humor in your presentation?
+And I think you've gotta have some humor.
+I mean, I've joked around a little bit in this talk already,
+but humor is difficult
+because it's very easy to upset people with jokes,
+there's always going to be somebody
+who doesn't find a story amusing.
+So, for example, I sometimes talk about
+when I'm talking about project management,
+I talk about estimating
+and I talk about how long will it take
+for me to drive home?
+And we talk about the average
+and then I say, "What's the quickest I could do it?
+If I'm absolutely charging down the country lanes
+with badgers bouncing off my bonnet
+how quickly could I get home?"
+And I think that's kind of amusing,
+but of course there is a risk
+there's gonna be somebody who loves badgers
+and is really upset by the idea of me running over badgers,
+which, of course, I don't do
+and I don't want to do, I love badgers.
+I think because I say badgers bouncing off my bonnet
+I can sort of get away with it.
+But I think you've gotta be really careful about humor
+'cause there's always gonna be somebody
+who doesn't like a joke.
+And I definitely wouldn't put in a pre-prepared joke,
+you know, "Ah, yes,
+now that reminds me of a little story
+about three people who went into the pub."
+I mean, it's just gonna be awful,
+it's gonna fall flat, it's gonna be terrible,
+so never have a pre-prepared joke.
+But if you can get humor from anywhere during your talk,
+you should absolutely take it,
+you know, if somebody comes up with a funny answer.
+(laughs) I was doing a a project management course
+the other day and when we're doing the Gantt chart,
+we have the first one has the hours,
+how many hours each person's spending
+and the second one we put the pounds, the spend.
+But what I do to make it interactive,
+I named the first one hours
+and I said, "If the first one's called hours,
+what's the second sheet gonna be called?"
+And somebody said, "Theirs,"
+(laughs) and everybody just like, it was just hilarious.
+And obviously, she hadn't really been concentrating,
+it had been a long day to be fair to her.
+So, we all had a bit of a laugh
+and I said, "No, no, we've got hours,
+and the other one is gonna be pounds."
+And sometimes funny things happen
+and you can all have a laugh and that's great.
+And if somebody else makes a joke,
+I mean, that's brilliant, you know?
+So, humor's fine, but don't pre-prepare humor
+because it's gonna fall flat.
+And then the third thing,
+which I've illustrated in this actually,
+is to have a few stories,
+tell a story, give a real example
+of something that actually happened.
+People love examples,
+and I'm gonna be telling quite a few more stories later on,
+particularly when we get to what could go wrong in a talk?
+You know, I've got a few stories
+of terrible things that have happened to me
+while I'd be doing talks,
+and you just know that they're gonna be good, aren't they?
+So, if you could put a couple of real-life examples,
+real stories, then that's great.
+I've got a little game I play, by the way,
+where sometimes when I tell a story,
+afterwards I say, "By the way,
+do you think that story's true
+or do you think I made it up?"
+And they go, "Oh, oh,"
+and you know, half of them go, "I think you made it up,"
+and half of them say, "It's true,"
+and then they go, "No, it is true."
+And I think that's quite a good way
+to make them see that the story really is true,
+why would I make it?
+I'm not clever enough to invent stories,
+they are all true.
+But that's a fun way to really accentuate the fact
+the stories are true.
+So, summing up general style then,
+use examples or even a story
+to make abstract ideas come to life.
+Be careful about humor, have a little bit in there,
+but be careful about pre-preparing humor,
+and include a couple of stories if you can
+'cause stories really make your talk come to life.
+
+--- 12 Powerpoint tips for impactful presentations ---
+
+-: Now we need to look at the dreaded PowerPoint.
+People talk about death by PowerPoint.
+And some people have tried other things like Prezi.
+I don't know if you've seen Prezi, which is pretty funky.
+I like Prezi.
+But really, it's PowerPoint.
+It's the only game in town
+and it's not gonna go away anytime soon, I don't think.
+Even if you like using Prezi,
+quite often when you turn up to do a talk at a conference,
+PowerPoint is what they are using.
+So how can we make PowerPoint good?
+Well, I've got 12 tips for PowerPoint.
+I'm gonna zoom through them pretty quickly.
+Tip number one
+is if it's on someone else's laptop, check it.
+Just don't trust anybody else.
+If they say, "No, no. I've prepared it.
+It's all gonna be fine."
+Check every single slide.
+Make sure the colors are okay, the fonts are okay.
+Make sure they haven't changed.
+Always check it.
+So that's the first tip.
+Second tip is spell check.
+Why would you not run the spell check?
+Some people don't know there's a spell check for PowerPoint.
+They think it's only in Word.
+But absolutely run the spell check.
+There's no excuse for typos on your PowerPoint slides.
+And as well as the spell check,
+I would get somebody fussy like me
+to have a look at your PowerPoint slides
+just to check you haven't put anything stupid.
+Maybe there's a typo that isn't gonna be detected
+by the spell checker.
+So, you really wanna make sure everything's right.
+Number three, not too much on each slide.
+I mentioned earlier on,
+seven is usually said to be the maximum
+for the number of bullet points.
+And each bullet point should be short.
+You don't wanna have a big long line.
+Probably no more than about four words
+for each bullet point.
+Shorten it and shorten it.
+I found it's one of the main things that I do
+when I'm teaching presentation skills.
+When somebody puts up their PowerPoint presentation,
+the first thing we do is hack it down.
+Just shorten the lines,
+get rid of half of those bullet points.
+So number four, is not too many slides.
+You know, if you're gonna take five minutes per slide,
+it's a 20-minute talk.
+That's only four slides.
+And if you are two minutes per slide,
+20 minutes talk, that's only 10.
+It's such a common fault that people have too many slides.
+And then of course the presentation overruns
+and the audience are unhappy.
+Or you have to rush horrendously fast
+through the last few slides.
+So don't have too many slides.
+Next is the look of your slides.
+I would recommend just black on white,
+or maybe dark blue on white.
+Don't have pink on green, or yellow on green,
+or something like that.
+And I also would not recommend white on black.
+Because when you print it out,
+you're gonna have to use a huge amount of ink
+and it's gonna be really hard to read.
+So just make sure you've got the right colors
+on your PowerPoint slides.
+Point number six, is have a clicker.
+Have one of those little buttons
+so you can just go through your slides.
+You can even have it in your pocket, that's pretty cool,
+and you can just click through, just...
+You know, you don't wanna have to keep
+going over to the computer and pressing the button.
+Although if you are using somebody else's computer
+and you don't have a clicker,
+a little tip I'd recommend
+is you can use the space bar.
+'Cause if you're trying to use
+the forward and backward arrows,
+there's a risk you'll press the wrong arrow.
+If you press End, it jumps to the end
+and that's really horrible.
+So use the space bar to move on.
+But better, have a clicker.
+And if you are gonna buy a clicker,
+spend a little bit more
+and have one that has AA or AAA batteries.
+You don't wanna have one that has those
+little round silver hearing aid batteries,
+'cause they run out quite quickly and they're expensive.
+And the last thing you want
+is a clicker that runs out halfway through your talk.
+So go for one that has AA batteries or AAA batteries.
+Point number seven, build the slides.
+Don't have your PowerPoint pages
+just coming up completely full,
+but make each word come in.
+And don't have them zooming in
+with sound effects. (imitates object whirring)
+You know, you just want to build the slides
+and have the words just coming up, just appearing.
+I use the one called Appear.
+So do that.
+But I would say build the slides most of the time.
+But every now and then,
+if you've only got, say, three,
+you might wanna just bung all three on there
+and talk about them.
+Especially if the bullet points are not that revealing.
+It's okay to have all three on the slide,
+on the screen at once.
+Because if you always build the slides,
+it starts to feel a bit labored,
+a bit tedious for the audience.
+So build them most of the time.
+But every now and then, just bung them all up.
+So that's easy.
+If you don't know how to build slides,
+then get someone to show you.
+Number eight of my PowerPoint tips,
+is put a full stop after the final line.
+This is a little thing I've invented,
+but I think it's pretty cool.
+So if you've got your slides being built
+and the lines are coming up,
+you don't know if there's one more line that's gonna appear.
+And it's really horrible if you say, "And my final point,"
+and there isn't another one
+and it just goes to the next slide.
+But it's also horrible if you say,
+"There we are. I finished."
+And you go to the next slide and one more line comes up.
+So, the way to know that it's the final line
+is to put a full stop just after the final bullet line.
+'Cause then you know it's the final one.
+Point number nine of my PowerPoint tips,
+is photos.
+Get those photos included.
+Your whole thing comes to life if you've got a picture.
+And in fact, I've seen people do PowerPoint talks
+where there were no bullets, it was only pictures,
+and they just talk around each picture.
+That's pretty cool as well.
+But make sure you've got pictures,
+not distracting ones, you know,
+but make sure you've got some pictures in your talk,
+otherwise it's horribly dry.
+Point number 10 of my 12, so only three left,
+is diagrams.
+Diagrams are great as well.
+Much better than a list if you can make it into a diagram.
+So I saw a guy do a talk about scuba diving.
+And what he did...
+He actually didn't have PowerPoint,
+he was just drawing it.
+He drew a little stick man with a head and a body.
+And then he said, "The first bit of apparatus
+is the air canisters."
+And he drew these two cylinders.
+And then he said, "There's your mask,"
+and he drew the mask.
+"And then there's the flippers," and he drew the...
+And he explained each bit of equipment
+and he was drawing it on.
+And it was so much better than just having a list.
+So if you could have some sort of a diagram,
+it's much better than a list.
+So every now and then,
+if you've got too many lists, just think to yourself,
+"How can I make that list into a diagram?"
+Idea number 11 out of 12, is one that I mentioned earlier,
+which is to use the space bar
+if you're using somebody else's laptop.
+I think that is a good tip.
+It probably deserves to be on the list in its own right.
+And finally, number 12,
+a really clever little tip that most people don't know,
+is that you can jump to any page within your presentation
+by just putting in the number.
+So if you want to go to page 11,
+just type in 11, Enter,
+and it will go straight to that page.
+So if you do actually accidentally press End,
+instead of using the space bar,
+and you want to go back to wherever you were,
+suppose you're on page 7,
+you could just press 7, Enter,
+and PowerPoint, when it's in Presenter Mode,
+it will take you back to page 7.
+And that's great when you are answering questions.
+'Cause if somebody says,
+you know, at the end, they say,
+"Can you explain that thing again?"
+You can just go 3, Enter and you're back there.
+So if you print out all the pages
+and have them on the table,
+if anybody wants to go back to a particular page,
+you can see the number and you can just put the number,
+press Enter, and you're there.
+So that's my final PowerPoint tip.
+So there we are,
+12 tips to improve your use of PowerPoint.
+
+--- Dealing with unexpected problems in your presentation ---
+
+-: So what could possibly go wrong in your talk?
+Well, what I want to say first off is
+you will be fine.
+There are so many things that can go wrong,
+but actually most of them,
+most of them you'll look back and laugh later.
+I've had some horrendous things happen to me.
+And I'm gonna go through those with you in a moment.
+And you'll see it's the most horrendous list,
+but here I still am.
+I've survived. I'm fine.
+I can look back and laugh, so they're fine.
+So I'm gonna talk to you about some of the funny things.
+And then in the video after I'll talk about
+some of the more common problems that happen
+and what can you do about those.
+So first of all, let's have a look
+at some of the funny things that have happened to me.
+First of all, I've had a nosebleed during a talk.
+It was just blood coming out my nose.
+And I tried, you know sniffing
+and it just, it wouldn't stop.
+And it was all running down.
+And in the end we had to stop the talk.
+And they had me lying on the floor,
+and they were all pushing tissues up my nose.
+But after about five minutes it stopped
+and then I carried on with the talk and it was fine.
+But that was pretty bad.
+I mean, I can look back and laugh now.
+And I'm sure they'll all remember that talk
+as the one where the guy had the nose bleed.
+It was in Guernsey.
+I'd gone across on the airplane.
+And I think the pressure must have made me have that,
+but you know, it's fine.
+The next one is I've been sick.
+I've actually thrown up during a talk.
+And I did actually have time to run out of the room.
+And obviously something I'd eaten at lunchtime
+had disagreed with me or something.
+And I said, "Look, I'll be back in a minute.
+"Sorry everyone."
+And I just had time to run halfway down the corridor.
+I didn't even get as far as the toilets.
+It was like, ugh.
+And I came back in and I realized I had...
+I went to the loo and cleaned myself up
+and I came back in.
+And I realized that there was all sort of water
+down the front of my tie.
+I think where I'd sort of tried to wipe off bits of sick.
+And it was a talk to a load of doctors as well.
+And they were all looking at me going, "Are you okay?"
+And I was probably a bit of a sort of greenish white color.
+"Are you okay, Chris?"
+I was going, "Yeah, yeah, I'm fine."
+And I actually had to run out a second time
+and be sick again.
+And we ended up calling that talk off.
+But again, so what?
+You know, I'm fine.
+I'm here. I'm still alive.
+So you know, why not?
+The next one is that somebody fainted.
+Somebody just collapsed off their chair onto the ground.
+That was a bit of a...
+It turned out actually
+they'd been drinking a lot the night before
+and they had alcohol poisoning.
+So that was a bit off-putting.
+I've had people run out of talks in tears
+because I've mentioned something,
+you know, badgers or whatever it is.
+And they've been really upset.
+And they've burst into tears and run out of the room.
+We've also had somebody had a hearing dog,
+which was just the cutest ever dog, which lay on the ground.
+I've done a few training sessions where people have had dogs
+and they are quite distracting.
+I also did one where somebody
+had a signing person with them next to 'em.
+So because somebody in the audience was deaf,
+they had someone doing sign language next to me.
+So while I'm talking,
+next to me there's somebody going like this the whole time.
+And I was putting extra words in like tape worm and things,
+you know, just to see what the sign was.
+So that did put me off a bit, but it was fine.
+And you know, it worked.
+I did a talk at a pig farm
+and the whole room where we were was infested with flies.
+And they'd sprayed poison, so most of the flies were dying.
+And they were sort of just falling down
+and sort of buzzing while they lay on their backs.
+And that was really horrible.
+In fact, when I got back to my car after the talk,
+it was full of flies.
+I'd left my sunroof open.
+And for some reason all the flies had gone into my car.
+And opening the windows didn't help, they didn't come out.
+So I thought I'll just drive
+and hopefully they'll gradually...
+I drove all the way from East Anglia to Manchester
+with my windows open.
+And the final fly went out of a window
+just as I arrived in Manchester.
+It was horrible.
+Three more things that happened.
+I lost my voice completely one time.
+And that was bad.
+I did the talk.
+I brought a microphone,
+and I was gonna just talk very quietly into the microphone.
+But in the end I just whispered the talk.
+And it was actually worked really well
+'cause everybody really had to lean in and concentrate.
+So losing my voice was okay.
+That wasn't a problem.
+I could have used the microphone.
+There was a rather horrible one
+where somebody was working on the roof,
+scaffolding was being put up.
+And the guy actually fell past the window
+and hit the ground.
+And an ambulance came and he was taken away and things.
+And you know, we just carried on with the training session,
+but that was pretty awful.
+And the final one, I gotta tell you 'cause it's so funny,
+my trousers disintegrated.
+I was doing a project management course
+for Harrow Council.
+And suit trousers are pretty thin anyway.
+And I think they were really worn.
+And I must have probably just gone past the corner
+of the flip chart or something
+and I must have just scuffed my trousers.
+And anyway, while I was writing on the flip chart,
+I could hear all this sort of tittering.
+And I said to them, you know, "Are you okay there?
+"Is there a question?"
+And they said, "Chris, it's your trousers."
+And I reached around, I felt it.
+And oh my god the whole flap had just sort of come down.
+I mean I was wearing pants.
+It wasn't the end of the world.
+So I just did the rest of the morning
+facing towards the audience.
+And at lunchtime I went to Marks &amp; Spencer
+and bought some more trousers.
+But actually I do have a spare pair of trousers
+in the back of my car now just in case.
+But the point is,
+all those things happened to me and I'm fine.
+I'm still here.
+I live to tell the tale.
+I can laugh about them now. It doesn't matter.
+So those were some of the crazy things
+that have happened to me.
+And here I am, I'm still fine.
+But you are unlikely to get any of those,
+I hope so, for your sake.
+But what are the problems that you are likely to get?
+And what can you do about those?
+Let's have a look at them now.
+I think the commonest ones are probably
+people who chat.
+People in pairs who just sort of mutter and whisper.
+And this can be a good thing
+'cause it can be that they're saying,
+"Oh my God, he's right, I need to do that."
+Or they might be saying, "What did he say again?
+"I just missed that."
+So it could be that they're interested in your talk.
+But it could be that they, you know,
+are just distracted or you know,
+they've suddenly thought of something to do with work
+and they want to tell the other person.
+And I personally think that,
+to start with, you should ignore them.
+Just let them do it.
+But then you could sort of look at them, catch their eye.
+You could then if that doesn't work, you could say,
+"Are you okay there?
+"Do you wanna ask something?"
+I always remember at school when I was talking at the back,
+they'd go, "Croft is there something you would like to share
+"with the class?"
+And I'd be going, "No sir."
+But so you could say, "Is there a question you wanna ask?
+"Are you okay there?"
+'Cause they might just wanna ask something.
+But if they carry on doing it, you could say,
+"Look, I do need you to concentrate.
+"Do you mind?"
+And I think, you know, you can really step it up
+and say, "Look, if you're gonna talk
+"do you want to go outside and have your conversation
+"Then come back in?"
+'Cause you've got the power.
+You are running the course.
+So I think people who chat
+are a common problem but easily handled.
+Another common problem is people who ask tricky questions.
+Either questions that you don't know the answer to
+or questions that are just deliberately malicious,
+really, just deliberately impossible.
+And I think with difficult questions it's fine to say,
+"I don't know the answer, you've got me there.
+"You know, I don't know the answer to that.
+"I can find out. I'll let you know later if you like."
+Or you can say to the audience,
+"That's a good question.
+"Does anybody know the answer to that one?"
+And somebody probably will.
+But if nobody does, you can say,
+"Well, I don't know the answer either."
+And I think it's fine.
+And if you are asked a really horrible question
+by somebody in the audience,
+the audience will be on your side.
+They'll all be saying, "Oh, I'm glad I'm...
+"You know, that's a really stupid question."
+Or, "I'm glad I don't have to answer that question."
+So I think it's absolutely fine to just say,
+"Yeah, that's a good question actually.
+"And I'm afraid I don't know the answer.
+"I haven't got the answer with me for that one,
+"but I can find out and let you know."
+Another common problem in audience is people falling asleep.
+I hate to admit this,
+but probably about one talk in five that I do,
+somebody falls asleep.
+But I sort of think, if you've got an audience of 50 people
+and 49 of them are riveted, you're doing fine.
+It's not you.
+And I think some people just have,
+you know, a baby that keeps them awake,
+they just, you know are insomniacs
+and is it called sleep apnea?
+There's a thing which, you know,
+some people just can't stay awake.
+So don't take it personally if somebody's falling asleep.
+And it could be just that they're just
+a boring, ignorant person who's not interested in your talk
+and has turned up by a mistake or something.
+But if everybody else is interested
+it means you're doing fine.
+So don't worry about the person who's falling asleep.
+I have tried going silent
+and seeing if they suddenly wake up.
+Or even pointing at them
+and everybody else is all laughing
+and I'm pointing at the person.
+But generally I think it's better
+just to ignore the person who's falling asleep.
+People who come in late are annoying.
+And I used to say something to them.
+I used to say, "Well, we were all here on time,"
+or something like that.
+But somebody was late and I gave her a hard time.
+And it turned out that her children
+had been in some sort of horrible accident
+and I felt really bad about it.
+So what I've learned now
+is not to have a go at people who come in late.
+They've probably got a good reason.
+They may just be disorganized and rude,
+but the chances are they've got a good reason.
+So I think the main thing is just ignore them
+when they come in late.
+One of my pet hate problems is what I call chipper-in-ers.
+And these are people who constantly chip in.
+They constantly go, "Oh yes, yes.
+"We have that in our company, too.
+"And I find that it's quite easy to deal with
+"'cause I do this or that."
+And they're actually keen,
+and they're actually supporting you.
+But they are hard work.
+And it's difficult really to deal with the chipper-in-er.
+'Cause all you can do is say,
+"Okay, well thanks for that.
+"Does anybody else have anything to say?"
+But it's hard.
+I don't know what to do with chipper-in-ers.
+They are a bit of a dread really.
+Clearly, you can be a little bit assertive in your talk.
+And you could say to them, "Well, you know, thanks for that,
+"but does anybody else have any thoughts?"
+Or, "Thanks for that, but we need to move on."
+Or, "I think that's a little bit too off track.
+"I don't think I can answer that now,
+"because it's not really part of the talk
+"but we could talk about it later."
+So the old talk about it later gambit always works.
+But the other thing you can do
+if there's a real problem like a horrible problem
+with the IT or with noise, you know,
+maybe builders are drilling through the wall
+that sort of thing is to say,
+"Shall we have a little tea break while we sort this out?"
+Audiences are always happy to have tea breaks.
+So if you say,
+"Let's just have a five minute comfort break.
+"People can nip to the loo, maybe get a cup of tea,
+"and I'll sort out the drilling and then we'll restart."
+Or, "I'll sort out the IT
+"and we'll find out what's going on with this computer.
+"We'll start again in five minutes."
+Audiences are always delighted by that.
+And then you can phone up the IT people
+and get help or whatever it is you need.
+So if in doubt, have a tea break and nothing can stop you.
+
+--- Sharing notes with your audience: Dos and Don’ts ---
+
+-: So you're probably gonna give out some notes
+to the audience.
+I strongly recommend that you do
+because it's a symbolic gift when you give them notes,
+but also they're gonna remember your talk more
+if they've got notes.
+They may never look at the notes again, but they might do,
+and also you can put your phone number
+and your email address and things on the notes.
+So, you should give them something.
+The big question though is do you give the notes out
+before your talk, during your talk, or after your talk?
+And there are pros and cons of all three of these,
+so it's tricky.
+I think my least favorite
+is to give the notes out before the talk.
+Sometimes you have to do this because if it's a conference
+there might be a pack that's been sent out or whatever.
+But the problem is if you give the notes out before,
+they can read ahead and they know what's coming up
+and it just takes away all the excitement
+and all the suspense from your talk.
+But the advantage is that they can write on them.
+So if you don't give them notes beforehand,
+they're gonna go, "Is this in the notes?"
+So if I'm doing a talk and I haven't given the talk,
+the notes out before, then I reassure them constantly.
+Don't worry, this is in the notes.
+But you can give the notes out before
+and they can write on them,
+and what you can do is you can leave gaps in the notes
+so they can fill them in so they can't read ahead.
+And I mentioned earlier
+on how Brian Tracy did that and he's a god,
+so if Brian Tracy does it, it's gotta be fine.
+And you can leave them on people's chairs
+before they arrive,
+so if you've got a lot of people turning up to a talk,
+it could be on the chairs with blanks.
+And that's my preferred thing.
+If I'm forced to give out notes before,
+I give them out with blanks.
+And then I might give out a finished version
+with all the blanks filled in after the talk as well.
+I don't tell 'em I'm gonna do that though,
+so they have to pay attention
+during the talk to fill in all the blanks.
+Now, what about giving out the notes during the talk?
+This is what I like to do.
+If I'm running a training course for say 10 people,
+if I've got a U shape of tables so I can get to each person,
+I like to give out the notes,
+and sometimes I just get 'em to pass them around
+or sometimes I go round each person and I give them out.
+It's like a symbolic gift.
+Every time I give out another page they go, "Thank you."
+So it's great.
+But the big reason I like to give notes out during,
+it isn't really to stop them reading ahead.
+It's the fact that I can miss stuff out if I need to.
+So if the talk is going a bit slower than I expected
+and I'm struggling to finish everything,
+I can miss things out,
+or if I don't know whether I'm going to need
+to do a detailed thing or a highly technical thing,
+I can have it as a spare.
+I can put it in if necessary or not.
+So I don't have to pre-prepare a pack.
+I could just have a pile of stuff and give out the bits
+I want to give out.
+So I like the flexibility of giving out notes during,
+and you need to decide how you want to do this,
+but that's an option you've got.
+It does take a little bit longer to give notes out,
+and if you've got a big audience
+then you do need to factor in the time.
+And in fact, if you've got 30 people
+it's gonna take too long to stop
+and go out and just give notes out to everybody.
+It's gonna be just too hard to do.
+The other advantage, though, of having notes to give out
+as you go along, it does act as a cue
+because I've got my notes that I look at,
+and so I'm kind of using them as I do my talk.
+So I give out each page and then I talk
+about it or perhaps I talk about it and then give it out.
+So it does act as a cue to tell me what to say next.
+Now, what about if I'm gonna give the notes out after?
+That's the third choice you've got.
+The snag with giving the notes out after
+is they don't know if it's gonna be in the notes,
+so you do need to reassure them.
+The other snag is they never read them.
+If you give out a pack afterwards,
+a couple of really conscientious people might read them,
+but most people won't read them.
+So, you know, if you want 'em to look at the notes,
+you need to give them out before or during.
+But the advantage of giving them out after
+is they don't know what's coming up.
+And of course if it's a pack
+that you're going to give out after,
+you are already committed
+to covering everything that's in the notes.
+But you can always get around that by saying,
+"I've given out a pack for you
+which has got a whole load
+of additional reading as well as just my talk."
+And then that's an excuse to not cover everything
+'cause you haven't got time.
+So that's the question.
+Do you want to give notes out before, during, or after?
+My preference is during if I can,
+if it's not a big audience.
+Failing that I think my next preference
+would be before with blanks.
+My third choice would be after.
+And my worst case is to give them out before with no blanks
+so they can read everything.
+That really is bad.
+So there we are, things to think about with notes.
+
+--- The art of finishing presentations on time ---
+
+-: So finally, when you're giving a talk,
+it's absolutely vital to end on time, never overrun.
+People hate it if you overrun,
+even by five minutes, they'll be climbing the walls.
+I dunno why, but it's a big thing.
+So how can you end on time?
+Well, the first thing is to have a buffer
+that you can miss out at the end.
+A friend of mine always has body language,
+whatever training course he does, he always has a section
+on body language that he misses out if necessary.
+And he nearly always misses it out.
+But if for some reason it's a very quiet audience
+and he's just going quicker than normal,
+he's got his section on body language
+he can put in if he has to.
+But you can also have a bit of an area
+that you can speed up rather than miss out.
+So maybe you are planning
+to have a fairly interactive section with the audience.
+Perhaps they're going to discuss things in groups
+and you can just miss that out.
+So you could still cover it,
+you could still talk about the main points,
+but you can just speed through it.
+Or maybe there's a quiz
+and you can just tell 'em the answers
+rather than asking them the answers, that sort of thing.
+So having a buffer.
+And the buffer has to be fairly near the end, of course,
+'cause you won't know you're in time trouble
+until you get near the end.
+So somewhere in the last quarter,
+you need to have something
+that you can either speed up or miss out.
+The second idea is to put timings on your slides
+so that you can check that you are on schedule.
+It doesn't have to be very scientific,
+it's just if you've got 10 slides
+and it's a 20 minute talk, just put two minutes on each.
+Just put 12, 14, 16, 18 minutes or whatever, past 12.
+Put the actual time.
+So you've got your watch,
+probably best to put your watch on the table, actually,
+so you can see it.
+But there may be a clock at the back of the room
+and that would be better.
+So you could just compare your timings with the watch.
+And I sometimes put the timings
+just in very faint light gray in the corner
+where only I can notice them.
+But sometimes I put them in in big red writing
+and I say to the audience,
+"I'm gonna stick to the time,
+and you can check on me
+because the timings will actually be on the slides."
+Why not?
+You know, reassure the audience that you are on it.
+So putting the timings on the slides is an option.
+And then my third point I really wanna make
+is ending on time is signpost that the end is coming.
+You don't wanna fall off a cliff suddenly
+at the end of your talk.
+So ideally, about three points before the end, you wanna say
+"I've got three more points and then we're finished."
+And then two more, and then one more.
+And so you say, "And this is my final point,
+and then I've finished my talk.
+We've got time for a few questions, but that's all.
+So my final point is," da da da da da.
+And then you say, "So there you have it.
+That's presentation skills."
+So make sure you end on time
+and signpost that the ending is coming up.
+
+--- Conclusion ---
+
+-: And that's it for my presentations course.
+I really hoped you've picked up some useful practical tips
+and that it makes your presentations less stressful
+and more effective,
+better at getting your message across to your audience.
+'Cause remember, that's what we are trying to do
+is get that message across.
+Now, ideally, you would do a talk soon, try it,
+put it into practice.
+You'll find it'll work really well.
+And if you don't have a talk scheduled, you probably do,
+'cause that's why you're doing this course.
+But if you don't have one scheduled
+why not volunteer to do a talk?
+Why not go to your boss and say,
+"Is there a talk I can do for you?"
+And put into practice as soon as you can.
+Because the great thing is you now own this course.
+So you can come back to it as often as you like.
+So every time you've got a presentation
+in the coming years, you can come back
+and you can just watch it again.
+So it's great to have.
+You could even look at it after you've done a presentation
+and just to see the things that you've forgot
+that you need to remember for next time.
+So keep coming back to this course as often as you need to.
+And I really hope
+that it makes you more successful in life generally
+because presentations is an important skill.
+Now, if you've got any questions
+there's a discussion forum where you can post things
+and I go on there and I put answers and things.
+You can message me directly.
+But it's much better to use the forum
+because then everybody can see the discussions
+that are going on and it's shared with the community.
+So please do use the discussion forum.
+It's a bit of fun.
+So that's good.
+Something else would help me hugely.
+If you wouldn't mind leaving me a review.
+I would love it if you could leave a review and
+some stars or whatever.
+It really helps me a lot.
+'Cause when people are deciding which course to use,
+which one to buy, they look at the number of reviews.
+So if you could leave just a really short review
+that would be brilliant.
+Please, please do that.
+And finally, because I'm eternally grateful to people
+who buy my courses, I've got a little voucher system going.
+So there should be a code coming up on the screen here
+which you can use to get my other courses cheaper.
+So if you're interested in negotiating, for example,
+which will save you thousands or if you're interested
+in selling or leadership or one of my most
+popular courses is called "How To Live An Amazing Life".
+Why would you not want to know that?
+Have a look at that and
+you can use the voucher to get that
+at a massively reduced price.
+So I hope to see you again on one of those other courses.
+So good luck and bye for now.
+
+--- A Bonus Freebie ---
+
+-: I've got one other thing for you which is free
+which I think you might like, which is my tip of the month.
+I send out an email tip free
+to everyone who's been on my courses
+if they want to have it and so please do sign up for that.
+The email address will be coming up here
+but it's basically free-management-tips.co.uk with hyphens.
+So yeah, put your email address in there
+and you will get a free email from me
+every month forever and it will never repeat.
+You can always unsubscribe if they don't make you happy
+but I know you'll like it.
+People very rarely unsubscribe.
+I do put quite a lot of effort into writing them
+because they go to 20,000 people, so I do put an effort in.
+So I really hope you like my tip of the month.
+Sign up for it now.
+Bye for now.
+
+--- How To Get Your Certificate ---
+
+-: You can email in
+with any questions you have about the course,
+but by far the commonest question I get is,
+"Why can't I get my certificate?"
+So the good news is, you do get a certificate
+with this course, a Certificate of Completion,
+which is really useful.
+You can show it to your boss
+or when you go for a job interview, you've got that.
+It's got your name on it, looks great.
+So that's good news, but sometimes,
+for some reason it won't give you your certificate.
+So the first thing to do is to just make sure
+you have completed 100% of the course.
+You should be able to see your percentage complete
+on the screen somewhere.
+But if it says 99% complete and you are thinking,
+"But I've watched all the videos,"
+there's obviously something you haven't completed.
+So it could be that you just haven't downloaded
+a particular downloadable file.
+It could be that there's a quiz
+that you haven't finished or you didn't get correct.
+But it could also be that there's a video
+that you just watched all the way up
+to the last few seconds,
+you didn't quite finish the video.
+So if you search, you should find,
+it should show you what the remaining thing
+is that you haven't done.
+But sometimes there's just a glitch,
+and you've watched a video,
+but it doesn't think you've watched it
+or something like that.
+So if it is just a glitch,
+the answer is to email support@udemy.com
+and just say to them,
+"I've watched the course, I can't get my certificate,"
+and they will then send it to you.
+Okay, so last resort, email support@udemy.com
+and you will get the certificate
+that you quite rightly deserve.
+
+--- 2025 Update: Make your videos natural ---
+
+-: Hi, and well done for finishing my course.
+Now, one of the things
+I like about Udemy courses
+is that if I think of something else,
+which I quite often do after I've made a course,
+I can add it on the end as a bonus video,
+and I've got a bonus video for you here
+on how to make your videos natural.
+So I hope you find it useful.
+So if you are making a video for, let's say,
+a blog post or maybe for YouTube,
+I think the most important thing,
+and probably the most difficult thing,
+is to make your filming natural,
+because talking to a camera isn't a normal thing to do.
+It's not like talking to a bunch of people.
+You don't get any feedback from it,
+and it takes a bit of planning and a bit of practice.
+And these days, it can't be avoided.
+You have to make videos for your website,
+videos to communicate with your team
+or your investors or your customers,
+videos for social media, et cetera.
+And your videos do need to be natural
+or you'll just come over all wrong.
+So here are my top 10 tips.
+Number one is practice.
+It's just something you've never done before.
+It feels like it should be easy, but it's not.
+Second is to know how to edit.
+It's really easy if you use iMovie.
+It really is, and there's other software
+you can learn as well, but I use iMovie and it's great.
+So if you're not bothered about mistakes
+when you're filming, it's just much easier to be yourself.
+And if you understand the process of fixing them
+and how to make the process easy, for example,
+staying in the same place to make joining easier,
+then editing really helps your video making.
+My next tip is to do two takes,
+even though the first one was great
+because the second one will probably be even better.
+And also, there's no pressure on the second take
+because you've already got a good one in the bag.
+By the way, it'll be better
+because you've got the script in your head,
+so it will flow more naturally.
+Whether you are reading from a teleprompter
+or whether you are just chatting,
+you'll have it in your head.
+My fourth tip is don't try
+to remember all of your talk
+because then your brain
+is clogged up with what's coming in the future.
+So use notes as I'm gonna describe next.
+My next tip is don't try
+to peek at notes slightly out of shot.
+If I do that, you can see me looking.
+The camera will see your eyes move,
+but instead, stop and look at your notes,
+and then, while the camera's still running,
+restart talking while standing in the same place.
+And then you can cut out that joining bit later.
+If it's just a short video,
+don't get an auto cue and read from a script.
+It's really hard to do this naturally,
+and it's loads of work to write and perfect a script.
+It's worth doing that for professional videos
+that you will sell,
+but not for those chatty, friendly type of videos.
+Number seven is to have a little Post-it note
+with an arrow, pointing to the camera lens on your phone,
+so that you always look at exactly the right place.
+Did I mention that your phone
+will be good enough quality, because it will.
+In fact, I'm filming this on a phone now.
+Tip number eight is to check that everything's okay
+by filming 10 seconds
+and playing it back before you film the rest.
+Then, when you are filming, you know it's gonna be fine.
+You're checking that the sound is working,
+the lighting's okay, your hair isn't adrift,
+nothing's poking out of your nose,
+and whether you're standing in the right position,
+you're standing in shot,
+you're not blocking the whiteboard
+or something growing out of the top of your head
+behind you, et cetera.
+It's terrible if you film a whole course
+and then you find that the sound wasn't working afterwards.
+So do a little check before you start.
+Tip number nine is, don't worry how you look.
+Nobody cares as long as you don't look distractingly odd.
+Tip number 10 is to use a whiteboard
+and do a bit of writing.
+It gives you something to do with your hands
+and it positions you as an expert
+and it makes you more natural.
+You can even use it as a cue
+for what to say next if you have one word
+for each thing or some initials already written up there
+as a reminder for each part of your talk.
+And my final tip is to be a bit more zoomed out
+than you need to be so that you can crop it afterwards,
+because then, if you're not standing
+in quite the right place,
+you can fix that when you do the cropping.
+And then, you'll quickly discover
+it's best to crop the whole video
+before you cut it up and edit out the mistakes
+and the breaks, so the cropping is the same
+all the way through.
+So there are some tips about making videos.
+I hope they're useful, and I'll see you on my next course.
+Bye for now.

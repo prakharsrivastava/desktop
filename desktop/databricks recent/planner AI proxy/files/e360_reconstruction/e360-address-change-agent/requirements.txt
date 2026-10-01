@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+langgraph
+httpx
+python-dotenv
+# (exact pins not captured from video)

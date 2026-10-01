@@ -1,0 +1,74 @@
+# ==========================================================
+# Exercise 9.1 — Build a Nested Semantic Model Over a CPG Star Schema
+# Course: 1018
+# Module 09
+# ==========================================================
+#
+# Cortex Analyst answers natural-language questions by translating them into
+# SQL against your semantic model — never against your raw tables directly.
+# That means every fact, dimension, and synonym you declare MUST live INSIDE
+# the block of the table it belongs to, not flattened at the top level. Get
+# the nesting wrong and Cortex Analyst either can't find the column or,
+# worse, guesses at a mapping that looks plausible and is wrong.
+#
+# Your task:
+# 1. Declare two tables — fact_sales and dim_product — each with base_table
+#    and primary_key.
+# 2. Under fact_sales, nest a `facts:` list with one fact: net_sales
+#    (expr: net_sales_amount, default_aggregation: sum).
+# 3. Under dim_product, nest a `dimensions:` list with one dimension:
+#    category (expr: category).
+# 4. Add a `relationships:` block joining fact_sales to dim_product on
+#    product_id.
+# ==========================================================
+
+# YOUR CODE:
+
+name: cpg_product_sales_model
+tables:
+  - name: ___
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+    primary_key: { columns: [sale_id] }
+    facts:
+      - name: net_sales
+        expr: ___
+        default_aggregation: ___
+  - name: dim_product
+    base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_PRODUCT }
+    primary_key: { columns: [___] }
+    dimensions:
+      - name: category
+        expr: ___
+relationships:
+  - name: sales_to_product
+    left_table: fact_sales
+    right_table: ___
+    relationship_columns:
+      - { left_column: ___, right_column: product_id }
+
+
+# ==========================================================
+# SOLUTION (attempt first before scrolling!)
+# ==========================================================
+#
+# name: cpg_product_sales_model
+# tables:
+#   - name: fact_sales
+#     base_table: { database: CPG_DB, schema: ANALYTICS, table: FACT_SALES }
+#     primary_key: { columns: [sale_id] }
+#     facts:
+#       - name: net_sales
+#         expr: net_sales_amount
+#         default_aggregation: sum
+#   - name: dim_product
+#     base_table: { database: CPG_DB, schema: ANALYTICS, table: DIM_PRODUCT }
+#     primary_key: { columns: [product_id] }
+#     dimensions:
+#       - name: category
+#         expr: category
+# relationships:
+#   - name: sales_to_product
+#     left_table: fact_sales
+#     right_table: dim_product
+#     relationship_columns:
+#       - { left_column: product_id, right_column: product_id }

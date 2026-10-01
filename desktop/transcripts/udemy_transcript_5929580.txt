@@ -1,0 +1,95 @@
+
+
+=== Introduction ===
+
+
+--- Introduction ---
+
+Calculus is the mathematics of change.
+It's fascinating, powerful and beautiful.
+But learning calculus can seem daunting, and many online courses don't help with confusing jargon,
+difficult examples, and no chance to practice yourself.
+This course is different.
+I've made a course that's accessible to anyone packed with engaging and helpful examples, jargon free
+explanations, as well as loads of hands on practice exercises and challenges for you so that you feel
+supported, confident, and happy as you learn.
+Hi, I'm Woody and I'll be your instructor in this complete course on calculus.
+Calculus sits at the heart of our understanding of the world, from physics to financial markets, machine
+learning to medicine, architecture to artificial intelligence.
+And this course takes you from beginner to expert with detailed, clear and easy to follow lessons,
+as well as quizzes and activities every step of the way.
+You'll see me work step by step through problems.
+Demonstrate what we've learned in free graphing software that I'll show you how to use, and show you
+the reasons behind the methods we use.
+There are plenty of optional videos as well for those interested in the more formal proofs.
+And if you ever get stuck, I'm happy to answer any questions you have as you go.
+I've taught calculus and some of the best schools in the UK run master classes in Singapore, Malaysia,
+Hong Kong, South Africa and France and taught business professionals across the world.
+I see my students master the subject and use this to progress their careers, and I'm excited to help
+you do the same.
+I've designed this course to take you from beginner to expert, starting with simple but important concepts
+like limits and basic differentiation, right up to mastery of advanced integration techniques and all
+the way to solving first and second order differential equations.
+I hope you love this course and I look forward to starting this journey with you.
+
+--- What's in the Course? ---
+
+Hello, Woody here.
+And in this video, I'm just going to show you what's in the course.
+So we're going to begin with an introduction to calculus, where I'll show you what it's all about,
+give you some examples, and look at some of the terminology.
+We'll also develop our first simple differentiation rule.
+That's what they will then explore in the next chapter where we look at all of the key skills you need
+for differentiation.
+After that, we move on to integration, which is just the reverse of differentiation.
+We'll cover all the key skills in that chapter.
+Next, we'll look at a couple of fun applications of calculus that we can already do, even with the
+basics under our belt.
+After that, we start exploring calculus in a range of different styles.
+So we look at calculus with chains of polynomials.
+That's where you combine different polynomials together.
+Calculus with exponentials and logarithms.
+We see how to differentiate and integrate all sorts of exponential and logarithmic functions.
+We then look at calculus with trigonometric functions as well.
+So that's functions like sine and cos.
+We then look at some advanced techniques in differentiation.
+After this chapter you'll be able to differentiate almost anything you can think of, which is quite
+exciting.
+Then we look at some advanced techniques in integration, where I go through a range of quite advanced
+techniques, helping you to integrate all sorts of different functions.
+We then look at some applications, some advanced applications and differentiation, seeing how we can
+use what we've learned to solve some really interesting and novel problems.
+We then look at advanced applications in integration.
+We look at really fun things like the volume formed.
+If you rotate a curve around an axis and surface areas and that sort of thing.
+I then show you some alternative coordinate systems to show you that calculus makes just as much sense,
+even if we're not measuring things in the classic Cartesian x and Y system.
+We'll then look at differential equations.
+This chapter is all about first order differential equations.
+And then finally the last chapter is about second order differential equations.
+I hope you're excited to start the course.
+I'll see you in the first video.
+
+
+=== Introduction to Calculus ===
+
+
+--- What is Calculus ---
+
+[No transcript available for this lecture]
+
+
+=== Differentiation - Key Skills ===
+
+
+--- Intuitive Limits ---
+
+[No transcript available for this lecture]
+
+
+=== Integration - Key Skills ===
+
+
+--- Terminology ---
+
+[No transcript available for this lecture]
